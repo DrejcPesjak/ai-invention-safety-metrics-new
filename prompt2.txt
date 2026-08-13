@@ -1,0 +1,40 @@
+i want cheap safety metrics that work on a single model. no parent, no reference model, no
+attested base to diff against - assume i found some random model on huggingface and i have
+nothing else. reads weights or activations. generation allowed but minimal, a few prompts at
+most. seconds to a couple of minutes per model, not a benchmark run.
+
+step 1 - explore. take one lineage: Qwen/Qwen3-4B-Base, Qwen/Qwen3-4B, Qwen/Qwen3-4B-SafeRL (the
+official safety RL model, not the instruct one), and an abliterated Qwen3-4B. instruct, saferl
+and abliterated share a chat template so they are directly comparable, base uses a different
+format so keep it separate. poke around open ended, look at weights and activations, see what
+actually differs between the four.
+
+step 2 - design 50 metrics. informed by what you found in step 1, but also by the literature -
+safety papers and mech interp papers in general, not only safety ones. include a few black-box
+metrics too, things that only read logits or output text, like the logit-gap margin, so we have
+a comparison point for whether looking inside the model actually buys anything.
+
+step 3 - test all 50 much wider. other lineages, pairs and triplets where a safety-tuned or
+abliterated sibling exists, and standalone models where none does. for each metric: does it
+separate safe vs normal vs abliterated. hold out a set of models that no metric is tuned on,
+because picking the best of 50 on the models you designed them on is cheating.
+
+step 4 - ground truth. pull real benchmark numbers from official sources, model cards, papers,
+leaderboards, not just your own judge. safety is not only refusal - try to cover other aspects
+too, see TrustLLM and AIR-Bench for what that means. if that turns out to be too much, then two
+separate refusal rates is acceptable as a fallback: refusal on harmful prompts, and refusal on
+harmless prompts that only look dangerous (xstest style). either way a model that refuses
+everything must lose, not win. also pull capability benchmarks, gsm8k, mmlu, arena-hard, to
+see whether safety trades off against performance. do not use Qwen3Guard as a judge for SafeRL,
+it was SafeRL's training reward.
+
+step 5 - take the 10 best metrics and correlation-test them against those benchmark numbers.
+report the resampling unit and both aggregation units. a metric that only works within one
+architecture family is a negative result, say so.
+
+bonus - if a metric works really well, mech interp analysis of why. what is it reading, which
+layers and components carry it, what breaks it.
+
+bonus bonus - instead of a static formula, train a small metamodel on activations that predicts
+the safety benchmark scores. if it beats the formulas, explain what in the model's internal
+computation it is picking up, and why that signal exists.
