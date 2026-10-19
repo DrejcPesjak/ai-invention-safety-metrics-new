@@ -38,3 +38,9 @@ layers and components carry it, what breaks it.
 bonus bonus - instead of a static formula, train a small metamodel on activations that predicts
 the safety benchmark scores. if it beats the formulas, explain what in the model's internal
 computation it is picking up, and why that signal exists.
+
+
+round 1 already built the prompt corpus, the model manifest (137 checkpoints, 93 lineages),
+  and empirical refusal-token lexicons for 10 tokenizer families. reuse them. it also found
+  that the default judge never labels COMPLIANCE unless you give it an evaluator system
+  prompt - keep that fix.
