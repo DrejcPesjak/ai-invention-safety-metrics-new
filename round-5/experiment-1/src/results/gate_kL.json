@@ -1,0 +1,63 @@
+{
+ "rows": [
+  {
+   "model_id": "Qwen/Qwen3-1.7B@parent",
+   "d": 2048,
+   "W05w_kL": -1.0098422293486768,
+   "W05_f64": -1.0098422293486768,
+   "W05_f32": -1.0098422192541392,
+   "delta_a_vs_f64": 0.0,
+   "tol_a": 1e-09,
+   "PASS_a": true,
+   "delta_b_vs_f32": 1.0094537650218172e-08,
+   "tol_b_derived_float32_bound": 5.3017699132345553e-05,
+   "PASS_b_at_derived_bound": true,
+   "PASS_b_at_iter4_declared_1e-9": false,
+   "gamma_d": 0.00012208521548040532
+  },
+  {
+   "model_id": "Qwen/Qwen3-1.7B@root_rebuilt",
+   "d": 2048,
+   "W05w_kL": -4.591674195565694,
+   "W05_f64": -4.591674195565694,
+   "W05_f32": -4.591673109977436,
+   "delta_a_vs_f64": 0.0,
+   "tol_a": 1e-09,
+   "PASS_a": true,
+   "delta_b_vs_f32": 1.0855882575100395e-06,
+   "tol_b_derived_float32_bound": 5.3017699132345553e-05,
+   "PASS_b_at_derived_bound": true,
+   "PASS_b_at_iter4_declared_1e-9": false,
+   "gamma_d": 0.00012208521548040532
+  },
+  {
+   "model_id": "MihaiPopa-1/Stentor-30M-Instruct-heretic-safety-defiltered",
+   "d": 256,
+   "W05w_kL": -0.40411104227374056,
+   "W05_f64": -0.40411104227374056,
+   "W05_f32": -0.4041109755928461,
+   "delta_a_vs_f64": 0.0,
+   "tol_a": 1e-09,
+   "PASS_a": true,
+   "delta_b_vs_f32": 6.668089447270376e-08,
+   "tol_b_derived_float32_bound": 6.6268584494156115e-06,
+   "PASS_b_at_derived_bound": true,
+   "PASS_b_at_iter4_declared_1e-9": false,
+   "gamma_d": 1.5259021896696422e-05
+  }
+ ],
+ "tol_a": 1e-09,
+ "PASS_a_all": true,
+ "max_delta_a": 0.0,
+ "max_delta_b": 1.0855882575100395e-06,
+ "PASS_b_all_at_derived_bound": true,
+ "PASS_b_all_at_iter4_declared_1e-9": false,
+ "derivation": {
+  "statement": "e = ||u^T W||^2 / (||W||_F^2/d).  The float32 dot accumulates d terms, so the relative error of the accumulated sum is bounded by gamma_d = d*eps32/(1 - d*eps32) with eps32 = 2^-24 = 5.960464e-08.  For d = 2048 that is gamma_d = 1.2207e-04 relative, i.e. |dW05| <= log10(1+gamma_d) = 5.302e-05 in log10 units.",
+  "eps32": 5.960464477539063e-08,
+  "d_reference": 2048,
+  "gamma_d_at_2048": 0.00012208521548040532,
+  "log10_bound_at_2048": 5.3017699132345553e-05
+ },
+ "supersession_statement": "The previously declared 1e-9 tolerance was a float64 tolerance applied to a float32 quantity; it is superseded by a DERIVED float32 accumulation bound of 5.302e-05 at d=2048, which the achieved delta passes.  The 1e-9 comparison is retained and reported as FAILED at its declared tolerance.  Comparison (a), W05w(k=L) vs W05_f64, uses the SAME float64 arithmetic path and is gated at 1e-9; it is the comparison that actually tests the window code."
+}

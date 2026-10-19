@@ -1,35 +1,41 @@
-# Testing if a cheap safety score works on new models
+# How hard is it to steer a model into refusing?
 
 `demo/` — Self-contained demo (Colab-ready notebook or markdown). Run without setup.  
 `src/` — Full source code, data, and outputs from the experiment execution.
 
 **Type:** experiment  
-**ID:** `art_sabuvuJ8P3Wy`
+**ID:** `art_CbL-EUQlwgfw`
 
 ## Layman Summary
 
-Tests whether a one-number safety score, invented on a single small model, still works on 19 different models, and finds it usually cannot even be computed.
+Tests whether a cheap activation-steering score can replace a full safety benchmark on any HuggingFace model, and finds it cannot — while showing the standard refusal-detection method misjudges half the models.
 
 ## Full Summary
 
-Tests whether alpha_50 -- the steering coefficient at which a fresh generation on BENIGN prompts starts refusing 50% of the time, invented in iteration 1 on one Qwen3-0.6B lineage with 5 prompts and no CI -- is a cross-model triage metric. Panel: 19 checkpoints, 7 lineages, 6 architecture families (Qwen3, Qwen2, Llama3, Llama2, SmolLM2), all <=2B, float32, 1x RTX 4090. Cost $0.3384 of a $2.00 judge cap. Pre-registered before measurement; 12 amendments logged with timestamps and the data state at the time. Re-running --assemble from checkpoints reproduces method_out.json byte-identically apart from created_utc.
+EXECUTED IN FULL: 14 members / 4 lineages (tier_completed=T4), 60,040 generations, 63.6 GPU-min on one A4500, judge spend $0.9164 of the $2.00 cap (16,084 calls, google/gemini-3.1-flash-lite). Deliverable method_out.json (756K, 998 examples / 14 datasets), schema-validated; full/mini/preview all PASS.
 
-D1 (alpha_50, 20 benign prompts x 5 seeds x 13-15 alphas = ~1300-1500 fresh generations/member, logistic MLE on the exact per-draw likelihood, 2000-replicate prompt-clustered bootstrap): THE PRE-REGISTERED PRIMARY ESTIMATOR IS DEFINED ON 1 OF 19 CHECKPOINTS. Two measured causes: (a) the dose curve is an INVERTED U, not a sigmoid -- past the alpha where the axis dominates the residual stream the model can no longer FORM a refusal opener (Qwen2.5-1.5B-Instruct: 0.01 -> 0.92 -> 0.13, whole-grid logistic gives alpha_50 = -0.459, CI [-12.98, 0.67]); (b) 6 of 7 base members never reach 0.5. Base max refusal rate 0.360 [0.190, 0.526] vs tuned 0.698 [0.474, 0.883] is a real base-vs-tuned separation. Variance decomposition (lineage = resampling unit): AMBIGUOUS on both pre-registered fallbacks (nonparametric alpha_50 within/across 0.885 [0.13, 4.57], n=6; max refusal rate 1.113 [0.64, 5.67], n=7). Within-lineage rank ordering reproduces the pooled ordering in only 2 of 4 / 2 of 7 lineages. Paired instruct-minus-abliterated: both defined CIs include 0, only 2 lineages carry it, pooled CI SUPPRESSED (a bootstrap over 2 numbers is not an interval) -> claim WITHDRAWN_UNDERPOWERED per the rule stated in advance; simulated power at the iteration-1 gap was 0.35, computed before the fits, with bootstrap coverage measured at 0.967 vs nominal 0.95.
+PANEL: Qwen3-4B quartet (Base / Instruct / official Qwen3-4B-SafeRL / abliterated), Qwen3-1.7B (+DAN behavioural-uncensored), Qwen3-0.6B, cross-family Llama-3.2-1B. Gated huihui-ai v1 abliterated repos -> ungated v2 mirrors; Qwen3-4B abliterated -> Goekdeniz-Guelmez Josiefied gabliterated-v2 (different instruct parent, recorded). All revisions pinned.
 
-TWO MECHANISMS THAT REFRAME THE METRIC. (i) LEXICAL_PARTIAL: a token-disjoint paraphrased refusal axis (zero frozen-opener matches) fails to reproduce alpha_50 on 3 of 4 informative control members with disjoint Wilson CIs -- Qwen3-0.6B 0.933 vs 0.183, Qwen3-0.6B-abliterated 0.967 vs 0.000, Qwen2.5-1.5B-Instruct 0.900 vs 0.633; only Llama-3.2-1B-Instruct agrees. A norm-matched stylistic axis induces <=0.02 and a random direction <=0.08. So on the anchor lineage the score largely prices a particular refusal WORDING, not refusal. (ii) LAYER FRAGILITY (unplanned, forced by the data): the outcome-blind scan leaves layers 6/7 near-tied (0.719 vs 0.688) and the logistic alpha_50 spans 0.53-2.32 (4.4x) across L-2..L+2 while the nonparametric estimate stays in 0.40-0.73.
+GATES PASS: NORM_L(Qwen3-0.6B)=23.56 vs iteration-1's 21.2 (11.1% err, within 15%); hook fires on prefill + every decode step (8 forwards for 8 new tokens — the plan's 'expect 9' is off by one); thinking disabled; base members use the PLAIN renderer and are excluded from every correlation.
 
-D2 (275 greedy generations/member, repaired judge only): 5,785 items judged, parse rate 0.998, 0 unlabelled, $0.3384. Screen-vs-judge Cohen's kappa -0.021 to 0.774 (median 0.227), confirming the cheap string screen is not a substitute. Five base members auto-flagged UNRELIABLE (degenerate 0.25-0.46) and excluded from correlations.
+HEADLINE — THE LEXICAL ARTIFACT IS IN THE SCORER, NOT THE AXIS. The Arditi 12-substring regex yields alpha_50 for only 7/14 members; the semantic judge yields it for 14/14 on the SAME recorded text. qwen3-0.6b-abliterated: regex max refusal 0.01 vs judge 0.85. 20 (member,axis) cells disagree on REACHABILITY; median kappa(regex,judge)=0.279. Any alpha_50-style metric built on that screen inherits the artifact.
 
-D3: AMS reimplemented to dossier spec (48 pairs, exactly 96 forward passes asserted, final prompt token, 40-80% depth sweep, all three calibration rules; synthetic separation recovered to 2.2%). THE TABLE-I REPRODUCTION GATE FAILS (Llama-3.2-3B-Instruct 8.37 -> 5.007, 40% error; ordering inverts), so the label branches in code to 'our AMS reimplementation' everywhere. Headline paired bootstrap over 7 lineages: DELTA = rho_alpha50 - rho_AMS = -0.714 [-1.765, 0.667] -> TIE; exhaustive permutation p = 0.840 against a floor of 0.0004. The decisive statistic is the leave-one-lineage-out jackknife: alpha_50's rho ranges -0.086 to 0.771 depending on which single lineage is dropped, while our-AMS stays 0.714-0.943 and never changes sign -- for 1/14th the compute. H4 case study (DAN-Qwen3-1.7B, n=1, 3/4 class checks): the pre-registered blind spot was NOT observed -- our-AMS demotes it to WARN and its refusal direction has rotated (cosine 0.699 vs parent).
+VERDICTS (pre-registered literals): axis_b=LEXICAL (under the judge AXIS B is defined 14/14 — the paraphrase-disjoint axis DOES induce refusal — but alpha_50 moves a median 69%; 0/18 AXIS-B responses match the scoring regex, verified); scorer=SCORER_DEPENDENT; axis_c=SAFETY_SPECIFIC and axis_d=RANDOM_DOES_NOT_REPRODUCE in strongest form (0/14 and 0/28 cells reach 0.5, max 0.18 / 0.225, vs 7/14 for AXIS A); within_family_only=false; TRIAGE = NOT_A_TRIAGE_SCORE (R=0.73 normalised / 0.62 raw, perm p 0.76 / 0.57; NORM_L spans 3.5–63.0, an 18x range).
 
-D4 RATCHET_GENERALISES: 5 of 5 lineages, 15 members, 4 families. Free-running perturbation deviation grows 2.0x-612x over 16 steps in every member; teacher-forced is 1-3 orders smaller and <1 in 7 of 15. Up-ramp failure 50-100% vs matched fresh-control refusal 0.00-0.33. No exponential fit, no lambda, so no identifiability gate can fail.
+INSTRUCT vs ABLITERATED: not estimable under regex (one member of each pair unreachable) — reachability, not price, separates them. Under the judge, 3/4 lineage CIs exclude zero but the SIGN REVERSES on Llama; across lineages (the resampling unit) sign test p=0.625, consistent_direction=false. Every SAFETY_COST<->ground-truth Spearman has a lineage-bootstrap CI covering zero, both units, both scorers, both sentinel conventions.
 
-SHIPPED: method.py + lib/ (10 modules), prereg.json with all amendments, per-member checkpoints in results/, every dose-response token stream with alpha and r_t in gens/, scored.jsonl, judge_cache.jsonl, layer-sensitivity and T1/T2/T3 test outputs, README.md with verdict-first tables, and pyproject.toml pinning all 71 packages.
+BASELINE (AMS sigma, same checkpoints/pipeline): Llama-3.2-1B-Instruct 5.18 vs published 4.55 (13.9%); rho=-0.649 (p=.042) with jailbreak ASR at member level but CI [-0.99,0.35] covers zero; the published threshold assigns PASS to ALL 14 including base and abliterated — it does not discriminate on this panel.
+
+GROUND TRUTH IS CLEAN (so the negatives are interpretable): abliterated GT1 0.01–0.34 vs instruct 0.38–0.96; SafeRL matches instruct on harmful refusal (0.9125) while cutting jailbreak ASR 0.688 -> 0.088, and is the MOST expensive model to steer into spurious refusal (judge alpha_50 0.560). No blanket refusers (GT2 <= 0.16).
+
+TWO METHOD CORRECTIONS FOUND BY RUNNING IT: (1) a POOLED distinct_3 fluency screen flags SUCCESSFUL steering (100 near-identical refusals) as degeneration and would delete exactly the alpha points the metric is about — now measured within-response, pooled value kept as corpus_distinct_3; (2) steered refusal is NON-MONOTONE in alpha (rises, peaks ~0.3–1.0, collapses), so alpha_50 is the FIRST UPWARD crossing fitted on the rising branch only, and a sign check comparing alpha=4 to alpha=0 trivially failed for all 14 until corrected to the peak over (0,2].
+
+ARTIFACTS: results/generations.jsonl (56,400 sweep) + gt_generations.jsonl (3,640) make control (ii) re-auditable; results/analysis.json holds the full analysis object; run_all.sh reproduces end to end.
 
 ## Dependencies
 
 - `art_CKWQh2cOQLLQ` — dataset
-- `art_0UsKSgsMHome` — baseline spec
+- `art_0UsKSgsMHome` — spec
 
 ## Output Files
 

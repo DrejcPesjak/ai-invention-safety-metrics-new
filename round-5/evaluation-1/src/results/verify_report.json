@@ -1,0 +1,1067 @@
+{
+  "independence": "this script imports nothing from eval.py or archlib.py -- paths, constants, Wilson, AUROC and the Cauchy-Schwarz bound are all re-declared locally",
+  "n_fail": 0,
+  "n_pass": 151,
+  "n_total": 151,
+  "n_unavailable": 0,
+  "numbers_file": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_5/gen_art/gen_art_evaluation_1/numbers.json",
+  "rows": [
+    {
+      "expected_in_numbers_json": 0.4580896686159844,
+      "key": "R4_partial_layer_prevalence",
+      "note": null,
+      "recomputed_here": 0.4580896686159844,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": -2.7415117804,
+      "key": "W05_abliterated_max",
+      "note": null,
+      "recomputed_here": -2.7415117804,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": -4.8203935568,
+      "key": "W05_abliterated_min",
+      "note": null,
+      "recomputed_here": -4.8203935568,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0763170819,
+      "key": "W05_separating_margin",
+      "note": null,
+      "recomputed_here": 0.0763170819,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "archive_agreement_lorco_ARMB_GAUSSIAN_DEPTH__DEPTH_WEIGHTED_ABOVE_W_STAR",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.2857142857142857,
+      "key": "archive_agreement_lorco_ARMB_GAUSSIAN_DEPTH__NONUNIFORM",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 0.2857142857142857,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "archive_agreement_lorco_ARMB_HERETIC__NONUNIFORM",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "archive_agreement_lorco_ARMB_HERETIC__UNIFORM",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.3333333333333333,
+      "key": "archive_agreement_lorco_ARMB_HOUSEHOLDER__UNIFORM_BUT_ORTHOGONAL",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 0.3333333333333333,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "archive_agreement_lorco_ARMB_LAYER_BAND__NONUNIFORM",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "archive_agreement_lorco_ARMB_NORM_PRESERVING__UNIFORM",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "archive_agreement_lorco_ARMB_RANK_K__UNIFORM",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "archive_agreement_lorco_ARMB_UNIFORM_SUBUNIT__UNIFORM",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.3333333333333333,
+      "key": "archive_agreement_lorco_ARMB_UNIFORM_SUBUNIT__UNIFORM_BUT_INCOMPLETE",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 0.3333333333333333,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "archive_agreement_lorco_R_GAUSSIAN_DEPTH",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.3333333333333333,
+      "key": "archive_agreement_lorco_R_GLOBAL_RANK1",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 0.3333333333333333,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "archive_agreement_lorco_R_HERETIC",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "archive_agreement_lorco_R_MERGE",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "archive_agreement_lorco_R_MULTIDIR_SVD",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "archive_agreement_lorco_R_NORM_PRESERVING",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "archive_agreement_lorco_R_PARTIAL_LAYER",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "archive_agreement_lorco_R_SFT_UNCENSORED",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.4,
+      "key": "archive_agreement_lorco_R_UNKNOWN",
+      "note": "archived heldout_sensitivity",
+      "recomputed_here": 0.4,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.1590909090909091,
+      "key": "at_scale_sensitivity",
+      "note": null,
+      "recomputed_here": 0.1590909090909091,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 5.38718842292094,
+      "key": "bound_max_gap_discovery_failing",
+      "note": null,
+      "recomputed_here": 5.38718842292094,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 2.833537534876011,
+      "key": "bound_max_gap_discovery_holding",
+      "note": null,
+      "recomputed_here": 2.833537534876011,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0728155752088302,
+      "key": "bound_median_gap_discovery_holding",
+      "note": null,
+      "recomputed_here": 0.0728155752088302,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0,
+      "key": "bound_n_violations",
+      "note": null,
+      "recomputed_here": 0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.5310959910353452,
+      "key": "discovery_min_depth_weight_bracket_hi",
+      "note": null,
+      "recomputed_here": 0.5310959910353452,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.07955950871822769,
+      "key": "discovery_min_depth_weight_bracket_lo",
+      "note": null,
+      "recomputed_here": 0.07955950871822769,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "fp_rate_eligible_undeclared_at_tau_fixed",
+      "note": null,
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.026893164298442428,
+      "key": "fp_rate_eligible_undeclared_at_tau_fixed",
+      "note": "Wilson upper bound",
+      "recomputed_here": 0.026893164298442428,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 139,
+      "key": "fp_rate_eligible_undeclared_at_tau_fixed__n",
+      "note": "denominator",
+      "recomputed_here": 139,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.09352517985611511,
+      "key": "fp_rate_eligible_undeclared_at_tau_refit_modal",
+      "note": null,
+      "recomputed_here": 0.09352517985611511,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.153440755022583,
+      "key": "fp_rate_eligible_undeclared_at_tau_refit_modal",
+      "note": "Wilson upper bound",
+      "recomputed_here": 0.153440755022583,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 139,
+      "key": "fp_rate_eligible_undeclared_at_tau_refit_modal__n",
+      "note": "denominator",
+      "recomputed_here": 139,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 4.0809310130285326e-05,
+      "key": "isometry_orba_dW05",
+      "note": null,
+      "recomputed_here": 4.0809310130285326e-05,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 7.261342091857692e-05,
+      "key": "isometry_random_control_dW05",
+      "note": null,
+      "recomputed_here": 7.261342091857692e-05,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_GAUSSIAN_DEPTH__DEPTH_WEIGHTED_ABOVE_W_STAR_auroc_oriented",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_GAUSSIAN_DEPTH__DEPTH_WEIGHTED_ABOVE_W_STAR_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_GAUSSIAN_DEPTH__DEPTH_WEIGHTED_ABOVE_W_STAR_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_GAUSSIAN_DEPTH__DEPTH_WEIGHTED_ABOVE_W_STAR_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.5803571428571429,
+      "key": "lorco_ARMB_GAUSSIAN_DEPTH__NONUNIFORM_auroc_oriented",
+      "note": null,
+      "recomputed_here": 0.5803571428571429,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.2857142857142857,
+      "key": "lorco_ARMB_GAUSSIAN_DEPTH__NONUNIFORM_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 0.2857142857142857,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.2857142857142857,
+      "key": "lorco_ARMB_GAUSSIAN_DEPTH__NONUNIFORM_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 0.2857142857142857,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_GAUSSIAN_DEPTH__NONUNIFORM_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_HERETIC__NONUNIFORM_auroc_oriented",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "lorco_ARMB_HERETIC__NONUNIFORM_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "lorco_ARMB_HERETIC__NONUNIFORM_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_HERETIC__NONUNIFORM_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_HERETIC__UNIFORM_auroc_oriented",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_HERETIC__UNIFORM_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_HERETIC__UNIFORM_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_HERETIC__UNIFORM_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.5104166666666666,
+      "key": "lorco_ARMB_HOUSEHOLDER__UNIFORM_BUT_ORTHOGONAL_auroc_oriented",
+      "note": null,
+      "recomputed_here": 0.5104166666666666,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.3333333333333333,
+      "key": "lorco_ARMB_HOUSEHOLDER__UNIFORM_BUT_ORTHOGONAL_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 0.3333333333333333,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.3333333333333333,
+      "key": "lorco_ARMB_HOUSEHOLDER__UNIFORM_BUT_ORTHOGONAL_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 0.3333333333333333,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_HOUSEHOLDER__UNIFORM_BUT_ORTHOGONAL_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.4375,
+      "key": "lorco_ARMB_LAYER_BAND__NONUNIFORM_auroc_oriented",
+      "note": null,
+      "recomputed_here": 0.4375,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "lorco_ARMB_LAYER_BAND__NONUNIFORM_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "lorco_ARMB_LAYER_BAND__NONUNIFORM_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_LAYER_BAND__NONUNIFORM_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_NORM_PRESERVING__UNIFORM_auroc_oriented",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_NORM_PRESERVING__UNIFORM_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_NORM_PRESERVING__UNIFORM_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_NORM_PRESERVING__UNIFORM_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_RANK_K__UNIFORM_auroc_oriented",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_RANK_K__UNIFORM_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_RANK_K__UNIFORM_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_RANK_K__UNIFORM_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.625,
+      "key": "lorco_ARMB_UNIFORM_SUBUNIT__UNIFORM_BUT_INCOMPLETE_auroc_oriented",
+      "note": null,
+      "recomputed_here": 0.625,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "lorco_ARMB_UNIFORM_SUBUNIT__UNIFORM_BUT_INCOMPLETE_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.3333333333333333,
+      "key": "lorco_ARMB_UNIFORM_SUBUNIT__UNIFORM_BUT_INCOMPLETE_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 0.3333333333333333,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_UNIFORM_SUBUNIT__UNIFORM_BUT_INCOMPLETE_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_UNIFORM_SUBUNIT__UNIFORM_auroc_oriented",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_UNIFORM_SUBUNIT__UNIFORM_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_UNIFORM_SUBUNIT__UNIFORM_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_ARMB_UNIFORM_SUBUNIT__UNIFORM_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.11458333333333333,
+      "key": "lorco_R_GAUSSIAN_DEPTH_auroc_oriented",
+      "note": null,
+      "recomputed_here": 0.11458333333333333,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "lorco_R_GAUSSIAN_DEPTH_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "lorco_R_GAUSSIAN_DEPTH_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_R_GAUSSIAN_DEPTH_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.3802083333333333,
+      "key": "lorco_R_GLOBAL_RANK1_auroc_oriented",
+      "note": null,
+      "recomputed_here": 0.3802083333333333,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.16666666666666666,
+      "key": "lorco_R_GLOBAL_RANK1_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 0.16666666666666666,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.3333333333333333,
+      "key": "lorco_R_GLOBAL_RANK1_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 0.3333333333333333,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_R_GLOBAL_RANK1_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.22767857142857142,
+      "key": "lorco_R_HERETIC_auroc_oriented",
+      "note": null,
+      "recomputed_here": 0.22767857142857142,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "lorco_R_HERETIC_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "lorco_R_HERETIC_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_R_HERETIC_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.484375,
+      "key": "lorco_R_MERGE_auroc_oriented",
+      "note": null,
+      "recomputed_here": 0.484375,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "lorco_R_MERGE_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "lorco_R_MERGE_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_R_MERGE_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.15625,
+      "key": "lorco_R_MULTIDIR_SVD_auroc_oriented",
+      "note": null,
+      "recomputed_here": 0.15625,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "lorco_R_MULTIDIR_SVD_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "lorco_R_MULTIDIR_SVD_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_R_MULTIDIR_SVD_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_R_NORM_PRESERVING_auroc_oriented",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_R_NORM_PRESERVING_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_R_NORM_PRESERVING_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_R_NORM_PRESERVING_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.3359375,
+      "key": "lorco_R_PARTIAL_LAYER_auroc_oriented",
+      "note": null,
+      "recomputed_here": 0.3359375,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "lorco_R_PARTIAL_LAYER_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "lorco_R_PARTIAL_LAYER_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_R_PARTIAL_LAYER_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.18125,
+      "key": "lorco_R_SFT_UNCENSORED_auroc_oriented",
+      "note": null,
+      "recomputed_here": 0.18125,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "lorco_R_SFT_UNCENSORED_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.0,
+      "key": "lorco_R_SFT_UNCENSORED_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 0.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_R_SFT_UNCENSORED_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.80625,
+      "key": "lorco_R_UNKNOWN_auroc_oriented",
+      "note": null,
+      "recomputed_here": 0.80625,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.2,
+      "key": "lorco_R_UNKNOWN_sens_fixed_tau",
+      "note": null,
+      "recomputed_here": 0.2,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.4,
+      "key": "lorco_R_UNKNOWN_sens_refit_tau",
+      "note": null,
+      "recomputed_here": 0.4,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0,
+      "key": "lorco_R_UNKNOWN_specificity_refit_tau",
+      "note": null,
+      "recomputed_here": 1.0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0,
+      "key": "n_caught_by_W05_missed_by_name",
+      "note": null,
+      "recomputed_here": 0,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 4,
+      "key": "n_effective_and_detected",
+      "note": null,
+      "recomputed_here": 4,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 10,
+      "key": "n_effective_kernels",
+      "note": null,
+      "recomputed_here": 10,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 12,
+      "key": "n_rows_where_discovery_rule_undefined",
+      "note": null,
+      "recomputed_here": 12,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.609375,
+      "key": "name_regex_agreement_with_W05",
+      "note": null,
+      "recomputed_here": 0.609375,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.7272727272727273,
+      "key": "name_regex_sensitivity",
+      "note": null,
+      "recomputed_here": 0.7272727272727273,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 212,
+      "key": "numbers_json_n_entries",
+      "note": "numbers.json is non-empty",
+      "recomputed_here": 212,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": [],
+      "key": "numbers_json_schema_conformance",
+      "note": "every entry must carry value/units/source_file",
+      "recomputed_here": [],
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.29,
+      "key": "power_mde_at_n40_p020",
+      "note": "smallest upward detectable DIFFERENCE (not rate), two-proportion, alpha=0.05, power=0.80, n=40/group",
+      "recomputed_here": 0.2939,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": -1.2811851305125463,
+      "key": "quant_W05_at_3bit",
+      "note": null,
+      "recomputed_here": -1.2811851305125463,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": -2.0091561860230605,
+      "key": "quant_W05_at_4bit",
+      "note": null,
+      "recomputed_here": -2.0091561860230605,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": -2.6537521816749465,
+      "key": "quant_W05_at_5bit",
+      "note": null,
+      "recomputed_here": -2.6537521816749465,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": -3.270026644117468,
+      "key": "quant_W05_at_6bit",
+      "note": null,
+      "recomputed_here": -3.270026644117468,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": -4.196653616525461,
+      "key": "quant_W05_at_8bit",
+      "note": null,
+      "recomputed_here": -4.196653616525461,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": -0.9947002120750958,
+      "key": "quant_clean_parent_W05_at_4bit",
+      "note": null,
+      "recomputed_here": -0.9947002120750958,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 37.720304114283934,
+      "key": "quant_int4_ppl",
+      "note": null,
+      "recomputed_here": 37.720304114283934,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.9994614305211459,
+      "key": "quant_min_cos_v1_r_over_bit_widths",
+      "note": null,
+      "recomputed_here": 0.9994614305211459,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 5,
+      "key": "quant_scar_dies_at_bits",
+      "note": null,
+      "recomputed_here": 5,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.5048732943469786,
+      "key": "repo_id_regex_hub_prevalence",
+      "note": null,
+      "recomputed_here": 0.5048732943469786,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": -1.0100014221721951,
+      "key": "rootB_W05",
+      "note": null,
+      "recomputed_here": -1.0100014221721951,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.019909925074093622,
+      "key": "rootB_cos_v1_r",
+      "note": null,
+      "recomputed_here": 0.019909925074093622,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.00015916981891961335,
+      "key": "rootB_dW05_vs_parent",
+      "note": null,
+      "recomputed_here": 0.00015916981891961335,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": -1.0098422523532755,
+      "key": "rootB_parent_W05",
+      "note": null,
+      "recomputed_here": -1.0098422523532755,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.2702702702702703,
+      "key": "rootB_refusal_after",
+      "note": null,
+      "recomputed_here": 0.2702702702702703,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": -4.586689608865562,
+      "key": "rootC_W05",
+      "note": null,
+      "recomputed_here": -4.586689608865562,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.95,
+      "key": "rootC_refusal",
+      "note": null,
+      "recomputed_here": 0.95,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 250,
+      "key": "scan_n_attempted",
+      "note": null,
+      "recomputed_here": 250,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 160,
+      "key": "scan_n_completed",
+      "note": null,
+      "recomputed_here": 160,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 20,
+      "key": "scan_n_controls",
+      "note": null,
+      "recomputed_here": 20,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 270,
+      "key": "scan_total_rows",
+      "note": null,
+      "recomputed_here": 270,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 58.17403044891293,
+      "key": "stamped_critical_spread",
+      "note": null,
+      "recomputed_here": 58.17403044891293,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 3.635876903057058,
+      "key": "stamped_critical_spread_ratio",
+      "note": null,
+      "recomputed_here": 3.635876903057058,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 0.12763317374178218,
+      "key": "tau_brittleness_scale",
+      "note": null,
+      "recomputed_here": 0.12763317374178218,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": -2.7415117804288127,
+      "key": "tau_fixed",
+      "note": null,
+      "recomputed_here": -2.7415117804288127,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": -1.7156003243767266,
+      "key": "tau_refit_modal",
+      "note": null,
+      "recomputed_here": -1.7156003243767266,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 1.0259114560520861,
+      "key": "tau_shift_log10",
+      "note": null,
+      "recomputed_here": 1.0259114560520861,
+      "status": "PASS"
+    },
+    {
+      "expected_in_numbers_json": 8.037968703400207,
+      "key": "tau_shift_over_brittleness",
+      "note": null,
+      "recomputed_here": 8.037968703400207,
+      "status": "PASS"
+    }
+  ]
+}

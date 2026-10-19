@@ -1,88 +1,301 @@
-# Naming the measurement pathologies, placing the headline
+# Cutting the novelty claim to what survives
 
 ## Summary
 
-Primary-full-text dossier for iteration 5. Deliverables: research_report.md (S0-S10) and research_out.json carrying the three ready-to-paste Discussion passages, a 7-row neighbour table, two branch-specific residual-novelty paragraphs, a 25-row query log, and a 16-entry BibTeX block. Every number is a verbatim quote with an anchor or is marked NOT FOUND / NOT OBTAINED / INHERITED.
-
-THREE FRONT-MATTER RESOLUTIONS. (1) The 2506.24056 coverage conflict is NOT a version drift: 97.5-99.8% (fraction of toxic prompts where the ALIGNED gap exceeds the BASE gap) and 92.1% [89.4-94.2] (Qwen2.5-0.5B's position-1 decision census; Llama 98.8%, gemma 96.0%) are BOTH in v2 and measure different things. Cite 92-99% for position-1 validity, 97.5-99.8% for 'alignment widens the gap'. (2) The 0.464 blocker is RESOLVED from the shipped table, no placeholder needed: ourAMS rho = 0.358 (19 members) vs 0.821 (7 lineages), gap = 0.4636; the -0.929/-0.376 pair (diff 0.553) is a DIFFERENT quantity (oriented Delta, v2 carrier); median 0.238 / max 0.557 / 5-of-16 sign flips is a third. The drafter must name which pair of cells. (3) HURTADO VERDICT: H-G's novelty survives, but the plan's assumed distinction is WRONG - Hurtado's labels come from a behavioural oracle (Qwen3Guard), not a provenance tag, and his rho is explicitly 'one scalar per model'. The four surviving residuals are: attested reference required and spoofable; BINARY label vs graded refusal rate; 4 families vs 11; full weight download required. H-G may NOT claim 'first model-level cheap safety score validated against behaviour'.
-
-LOGIT-GAP FULLY EXTRACTED (v2, full text). NO cross-model margin-vs-behaviour correlation exists - all 28 correlation matches inspected; every one is token-level, suffix-level, or cited from Bai et al. The abstract's co-variation is 'across suffix strategies' and is self-labelled an internal consistency check. Token lists recovered verbatim. CRITICAL CAVEAT NOT PREVIOUSLY RECORDED: their affirmative token is chosen PER PROMPT as the highest-logit one, making their gap an attack-relevant MINIMUM; a fixed-list max is a different estimand and must be declared.
-
-CANONICAL SOURCES PINNED AND QUOTED. Leakage = Kapoor & Narayanan L3.3 Sampling bias in test distribution (exact label; L1.2 for the statistics half). Aggregation = Robinson 1950, with the sign flip read out of the paper: nativity x illiteracy is +.118 individual, -.526 (48 states), -.619 (9 divisions) - do NOT use the trio recalled in the plan. Openshaw CATMOG 38 supplies the scale/aggregation definitions and the devastating 'for a 6 region aggregation of the 99 Iowa counties the range of possible correlations is between -.99 and +.99'. Simpson 1951 verified (and Semantic Scholar's 'A. Simpson' is WRONG; the byline is E. H. Simpson). Small-sample = Schoenbrodt & Perugini 2013 with full Table 1: POS_crit at w=.10/80% is 252/238/212/181 for rho=.1/.2/.3/.4, so n=28 is 6.5-9x below stability - state this DELIBERATELY. NEW FIND: a 2018 CORRIGENDUM exists (DOI 10.1016/j.jrp.2018.02.010) and must be cited alongside.
-
-CORRECTIONS TO OUR RECORDS. Mehta's LOQO figures are 0.43/0.87 in primary text, NOT 0.425/0.870 - quote two decimals. His 0.761 IS verified verbatim, as is the sharper control (AUROC 0.63 on a condition where the effect cannot exist). arXiv:2607.28685's -0.64@n=7 -> +0.02@n=18 is CONFIRMED plus a previously unrecorded and stronger clause: 'a quarter of random size-7 subsets show |rho| >= 0.5'. AMS verified at 14 configs / 4 families / Pearson -0.546 (p=0.043) - but its SPEARMAN is -0.423 at p=0.13, which is the directly comparable statistic and is not significant. NEW NEIGHBOUR: arXiv:2602.09434 (Xu & Sheng), refusal vectors over 76 offspring models at 100% base-family identification - outcome is MODEL IDENTITY, the clean provenance-vs-behaviour distinction the plan expected from Hurtado. arXiv:2603.27412's real title is 'The Geometry of Harmful Intent', not 'LatentBiopsy'.
-
-SATURATION: the 13 scholarly-mode zeros are NOT credible (OpenAlex returned oncology and climate models); the claim is carried by arXiv-scoped search plus five harvested related-work sections. C1: no work validates such a score against judged behaviour at >=20 lineages or >=10 families; family-axis maximum anywhere is 4. C2: one direct hit only. TALLY for the COLLAPSES branch: 5 of 5 located model-level scores validate at <=4 families, 4 of 5 at <=14 checkpoints, and 0 of 5 use lineage-clustered resampling - lead with that last count.
-
-NOT RESOLVED: iter-4 references numbered 11 and 23 (the numbered bibliography is in no readable workspace); Moreno-Torres full text (six routes failed, so NO quotation from it exists and it should be demoted to a citation without a quote).
+Iteration-5 positioning dossier. Verdict on the windowed object: NOVEL-NARROW, with two three-of-four near-misses newly identified. Ships seven paste-ready paragraphs in both outcome variants, seven positioning corrections with verbatim quotes, a ten-item re-verification log with two MISMATCHes and four UNREACHABLEs, and seventeen numbered wording corrections. Verdict NOVEL-NARROW on the four-qualifier conjunction (parent-free, calibration-free, bottom-of-spectrum, sliding-extremum): no work carries all four; two carry three and BOTH are new to this dossier -- arXiv:2410.17770 (bottom-of-spectrum RMT, parent- and calibration-free, not windowed, not a detector; the largest uncited risk) and EigenTrack 2509.15735 (sliding, but over time across activations). 2607.23711 Intruder Threshold RESOLVED as near-miss (needs sigma_1(BA), reads the top, is a LoRA law not a detector). Two MISMATCHes: 2607.01854's registry is 273 but only 71 processed / 94 evaluated, and the weights-only signal is AUROC 0.90 not 0.84. New obligatory citation: E_1 is the WeightWatch primitive (2508.00161, ICLR 2026). Heretic's triangular-tent kernel and reverse-abliterate's filename-only detection re-confirmed at code level. MP null convention FOUND and nameable; multiple-window FWER convention NONE FOUND (import max-statistic permutation, labelled ANALOGOUS). Ships 7 paste-ready paragraphs in both outcome variants, 7 positioning corrections, 17 numbered wording corrections, a 10-item re-verification log with 4 UNREACHABLEs reported not silently carried, and a 10th recipe class (concept-registry ridge residualization, 2601.08489). research_out.json carries the prose answer plus the full dossier under structured_answer.
 
 ## Research Findings
 
-See research_out.json (machine-readable) and research_report.md (S0-S10) for the full dossier with verbatim quotes and anchors. Headline findings, with citation numbers keyed to the sources list:
+# Cut the Novelty Claim to What Survives
 
-FRONT MATTER. (1) The arXiv:2506.24056 coverage conflict is resolved and is NOT a version drift: 97.5-99.8% and 92.1% [89.4-94.2] are both in v2 and are percentages of different things. The first is the fraction of 520 AdvBench toxic prompts on which the aligned model's gap exceeds the base model's; the second is the position-1 decision census for Qwen2.5-0.5B alone (Llama-3.2-1B 98.8%, gemma-2-2b 96.0%), with the residual 'concentrated on multi-token preambles' [1]. Cite 92-99% for position-1 validity and 97.5-99.8% for 'alignment widens the gap'; the paper's own summary is 'The position-1 assumption holds at 92-99% per-model coverage' [1]. Read and cite v2 (1 May 2026); v1 carried a different title.
+Iteration-5 positioning dossier. All fetches dated 2026-08-14; web tools only. The full machine-readable
+deliverable (paste-ready paragraphs, four-qualifier table, re-verification log, corrections) is in the
+`structured_answer` field of this file and in `research_report.md`. Every quoted string below is a verbatim
+substring of the cited document.
 
-(2) The 0.464 blocker is resolved from our own shipped table and needs no placeholder. ourAMS correlates with judged outcome at rho = 0.358 over 19 members and 0.821 over 7 lineages, a gap of 0.4636; the -0.929 vs -0.376 pair (difference 0.553) is the oriented Delta for the v2 carrier, a different quantity; and median 0.238 / max 0.557 / 5-of-16 sign flips is a third. All four exist under distinct keys with distinct definitions. The drafter must name which pair of cells in the sentence itself.
+## 1. Verdict on the windowed object: NOVEL-NARROW
 
-(3) Hurtado (arXiv:2607.01854) is the closest neighbour and the plan's assumed distinction is wrong. His labels come from a behavioural oracle - 'A behavioral oracle (Qwen3Guard, think-traces stripped) labels whether a checkpoint is uncensored' - and his score is explicitly 'one scalar per model' [7]. So it is genuinely model-level and behaviour-validated. Four residuals survive and are what H-G may claim: an attested reference model is required and is spoofable ('using the candidate as its own reference evades by construction'); the outcome is a binary uncensored label, not a graded refusal rate; the panel is 4 architecture families against our 11; and scoring 'means downloading its full weights' [7]. H-G may not claim to be the first model-level cheap safety score validated against behaviour.
+The object under test carries four qualifiers simultaneously: parent-free (no base, sibling or attested
+reference checkpoint), calibration-free (no threshold fitted on a labelled panel of edited vs clean models),
+bottom-of-spectrum (smallest eigenvalues / near-null Gram energy, not top singular values or a heavy-tail
+exponent), and sliding-window-with-extremum-scoring (per-window over consecutive layers, scored by an
+extremum, not one pooled or band-averaged value). A prior work defeats novelty only by carrying all four.
 
-LOGIT-GAP STEERING, FULL EXTRACTION. The scalar is theirs: 'the difference between the top refusal-token logit and the top affirmative-token logit at the first decoding step', quantifying 'the per-prompt safety margin that alignment provides' [1]. No cross-model correlation of that margin against behaviour exists anywhere in the paper - I grepped the full v2 text for correlation terms and inspected all 28 matches; every one is a within-pool token ranking (Spearman rho >= 0.818, unit = candidate token, and the authors disclaim its validity role), a pairwise failure correlation between suffixes, or a reward-proxy correlation cited from Bai et al. The abstract's co-variation is 'across suffix strategies' and is self-labelled 'an internal consistency check, since our method optimises gap closure' [1]. The only clustered analysis is family-clustered at n = 3 on attack deltas. There is no lineage treatment, and benign prompts appear once, only as a contrast for a distribution figure. Token lists are recovered verbatim from Appendix B.1. One caveat we had not recorded and that must govern the reimplementation: the affirmative token is chosen per prompt as 'the one with the highest positive logit under the aligned model', making their gap an attack-relevant minimum rather than a fixed-list max [1].
+**No published work carries all four.** Two carry three, along different axes, and both were surfaced by
+this dossier -- neither appears in any dependency or in the current draft.
 
-PHENOMENON 1, LEAKAGE. Kapoor and Narayanan's taxonomy names our case exactly as 'L3.3 Sampling bias in test distribution' - 'choosing a non-representative subset of the dataset for evaluation ... the test set is no longer representative of the general population about which claims are made' - with 'L1.2 Pre-processing on training and test set' covering the statistics half [2]. The field-local instance is re-verified: Mehta's probe 'reached AUROC=0.761' under full-pool residualization, and he writes 'We initially treated this as our headline result. It was not' [12]. Correction to our records: the post-control figures in primary text are 0.43 and 0.87, not 0.425 and 0.870. The sharpest sentence is one we did not have: the same MLP 'reaches AUROC=0.63 on Llama' on a control where the effect cannot exist [12].
+**arXiv:2410.17770, Thamm & Rosenow, "Small Singular Values Matter" [11], is the closest work on the
+bottom-of-spectrum qualifier and the largest citation risk in the current positioning.** It is parent-free,
+calibration-free and reads the low end: "Surprisingly, we observe pronounced departures from RMT not only
+among the largest singular values - the usual outliers - but also among the smallest ones", and "zeroing out
+the singular values that deviate from RMT raises language-model perplexity far more than removing values
+from the bulk" [11]. It lacks only the sliding window -- plus the application: it asks where information is
+stored in pretrained transformers, scores no checkpoint, and carries no edited/clean label. Presenting the
+low end of the spectrum as unexamined territory would be refutable from its abstract alone.
 
-PHENOMENON 2, AGGREGATION. Robinson 1950 is the primary, and the numbers must be read out of the paper rather than recalled: colour x illiteracy is .203 individual, .773 at 48 states, .946 at 9 divisions; nativity x illiteracy is .118 individual but 'the ecological correlation ... is -.619! When the ecological correlation is computed on a state rather than a divisional basis, its value is -.526' [3]. His conclusion is one word: ecological correlations cannot validly substitute for individual ones [3]. Openshaw's CATMOG 38 supplies the two-component definition - the scale problem and, when the number of units is held constant, 'the aggregation problem' - and the strongest available quote for our sign flips: 'for a 6 region aggregation of the 99 Iowa counties the range of possible correlations is between -.99 and +.99' [4]. Openshaw & Taylor's own conclusion, quoted there, is the honest note for us: 'We have been able to find a wide range of correlations. We simply do not know why we have found them' [4]. Simpson 1951 is verified and should be cited in half a clause as the origin of the name, with the scope note that his setting is categorical contingency tables [6]; note that the Semantic Scholar record's author 'A. Simpson' is wrong, the byline reads E. H. Simpson [6, 17].
+**EigenTrack, arXiv:2509.15735 [13], is the closest work on the sliding qualifier**: "EigenTrack computes
+covariance spectra over a sliding window of hidden activations and streams the resulting spectral statistics
+into a lightweight recurrent classifier" [13]. It is calibration-requiring, top-of-spectrum, and decisively
+it slides over *time* across *activations*, requiring input data and a forward pass, where the object under
+test slides over *layers* across *weights* and requires neither. The paper must state that distinction
+rather than leave it implicit.
 
-PHENOMENON 3, SMALL SAMPLES. Schoenbrodt and Perugini define the corridor of stability and the point of stability - 'that sample size from which value on the trajectory of the correlation does not leave the COS any more' - and conclude that 'in typical scenarios the sample size should approach 250 for stable estimates' [5]. Their Table 1 is specific to our band: at w = .10 and only 80% confidence, POS_crit is 252, 238, 212 and 181 for rho = .1, .2, .3, .4 [5]. Our n = 28 is therefore 6.5-9x below stability, and the paper should say so deliberately rather than have it said against it. A published 2018 corrigendum exists and must be cited alongside; its content could not be obtained [15]. The field-local precedent is confirmed verbatim and comes with a stronger clause than we had: the correlation 'moves from -0.64 at n=7 to +0.02 at n=18, and a quarter of random size-7 subsets show |rho| >= 0.5 despite the near-zero full-panel value' [13].
+The honest reading is that the novelty is one construction step from published work -- slide 2410.17770's
+statistic and take an extremum -- not a wide-open gap. Saturation was reached at 26 queries, with the final
+six consecutive queries returning zero new relevant items; saturation is claimed on the weights-only
+edit-detection lane only, not on the random-matrix-theory literature generally.
 
-NEIGHBOUR RECONCILIATION. AMS is verified at 14 configurations over 4 families with leave-one-out accuracy 71% and Pearson r = -0.546 (p = 0.043) - but its rank-order statistic, the one directly comparable to a Spearman headline, is rho = -0.423 at p = 0.13 [8]. RAS requires 'a safety-aligned reference model' and a same-family target, and reports no coefficient, n, or resampling unit that I could locate [9]. AQI measures within-model cluster separation via DBS/Dunn/XBI/CHI and claims correlation with external judges without a locatable n or coefficient [10, 11]. Two neighbours not on the plan's list were found: Xu & Sheng use refusal vectors across 76 offspring models at 100% base-family identification, but the outcome is model identity, which is the clean provenance-versus-behaviour distinction the plan expected from Hurtado [14]; and Sokhansanj's 8,608-repository survey is the largest behavioural panel in the lane but carries no internal score [18].
+### 1a. The most dangerous unadjudicated candidate, resolved
 
-SATURATION. The thirteen scholarly-mode queries returned zero qualifying hits, but that is not credible evidence - OpenAlex returned clinical guidelines, oncology and climate models for all thirteen, so it is not indexing 2026 preprints in this lane. The claim is carried by arXiv-scoped search and by the related-work sections of the five papers read in full. C1: no work validates a benchmark-free internal safety score against judged behaviour at 20 or more weight lineages or 10 or more architecture families; the family-axis maximum anywhere is 4. C2: one direct hit only [13]. The residual under both H-G branches is the conjunction - graded judged behaviour, reference-free, weights-free, 11 families, lineage-clustered inference - of which no located work has more than two. For the collapses branch, the tally built from primary text is the evidence: 5 of 5 located model-level scores validate at 4 or fewer families, 4 of 5 at 14 or fewer checkpoints, and 0 of 5 use lineage-clustered resampling. Lead with that last count.
+arXiv:2607.23711, "The Intruder Threshold" [8], was flagged in planning as the paper most likely to turn
+NOVEL-NARROW into NOT NOVEL, because a planning snippet described it as parent-free and per-layer. It is a
+NEAR-MISS, not a defeater, on three independent grounds. It derives "a per-layer critical update strength
+s* = theta_bar/(gamma sigma_1(BA)), computed from the measured spectrum of W alone through the rectangular
+spiked-deformation transform" [8] -- but the quantity compared against that threshold is sigma_1(BA), the
+top singular value of the LoRA update, so evaluating the criterion requires the update matrix and the method
+is not parent-free in the operational sense. It reads the top of the spectrum by construction ("the full
+edge uses sigma_1 itself") [8]. And it is a law about when LoRA training creates intruder dimensions, not a
+detector of a completed edit: its classification target is "intruder-bearing from intruder-free layers" of a
+known adapter at "a mean AUC of 0.89" [8], not edited versus clean checkpoints.
 
-CONFIDENCE AND WHAT WOULD CHANGE IT. High for the front matter, the logit-gap extraction and the five canonical sources read in full text. Low for Moreno-Torres, whose full text could not be obtained through six routes, so no quotation from it appears anywhere and it should be demoted to a citation without a quote [16]. Medium for saturation, whose honest form is 'not found by arXiv-scoped search or in five related-work sections', not 'does not exist'. Obtaining the RAS and AQI cross-model statistics would either strengthen the collapses tally or narrow the holds paragraph; reading arXiv:2602.22289 and arXiv:2603.18353 could produce a genuine C2 hit. Iteration-4 references numbered 11 and 23 could not be resolved because the numbered bibliography is not in any readable workspace, and no entries were invented.
+### 1b. The other near-misses
+
+PL_Alpha_Hill [9] is ruled out by something stronger than a metric difference: it is designed to be the
+quantity that does *not* move when a model is edited. Its own abstract states the signature "captures
+intrinsic properties of pretrained models and remains robust during post-training" [9], which is exactly the
+wrong property for an edit detector; its lineage use is additionally parent-requiring, comparing layerwise
+profiles across models derived from a shared backbone. The Marchenko-Pastur outlier work [10] is parent-free
+and per-layer but reads the outliers *above* the MP edge and targets learned structure -- "spectral outliers
+encode a dominant component of the learned structure; Q projections carry the most outliers" [10] -- with no
+edited/clean label anywhere. The Koopman identifiability paper [14], newly surfaced, is conceptually nearest
+to sliding over layers through its depth-as-time framing, but the spectrum "is recoverable from M calibration
+samples" [14] of activations, so it is neither weights-only nor calibration-free. reverse-abliterate [7]
+computes no statistic of tensor content at all.
+
+## 2. Two MISMATCHes against recorded dependency values
+
+Ten load-bearing quotes were re-fetched. Two came back wrong, and both would have printed in the paper.
+
+**MISMATCH 1 -- the registry size is not the evaluation size.** The two-signal audit's registry is 273
+checkpoints, but "of the 273-checkpoint registry we fully processed 71 (those with both a Qwen3Guard label
+and detector output)", and "The 57 uncensored among them, plus a separate 37 benign edits, form the
+94-checkpoint evaluation set" [1]. Any scale comparison against 273 is misleading; against 94 it is honest.
+
+**MISMATCH 2 -- the weights-only competitor scores 0.90, not 0.84.** The abstract reads "AUROC 0.95,
+significantly above either signal alone (0.84, 0.90)" [1], and Table 1 assigns them: activation gap rho 0.84
+[.75,.92], weight energy E_1 0.90 [.84,.96], combined z-sum 0.95 [.90,.98], with held-out
+leave-one-family-out balanced accuracy 0.89 and FPR 0.11 [1]. Quoting 0.84 as the weights-only number
+understates the nearest weights-only rival by 0.06 AUROC and is checkable in a single grep.
+
+**A new obligatory citation was found in the same sentence.** The band-averaging definition credits its own
+primitive: E_1 is "the rank-1 energy fraction of the edit, band-averaged; WeightWatch, Zhong & Raghunathan,
+2025" [1]. E_1 is therefore the WeightWatch primitive [12], which reads "the top singular vectors of the
+weight difference between a fine-tuned model and its base model" and then monitors activation cosine along
+them [12] -- parent-requiring and, at monitoring time, prompt-requiring. WeightWatch is an ICLR 2026 paper;
+attributing E_1 to the audit alone is an attribution error reviewers are likely to catch.
+
+## 3. Four UNREACHABLE items, reported rather than silently carried
+
+Four dependency-recorded strings did not re-fetch on 2026-08-14. In each case the *conclusion* survives on
+re-observed evidence and a substitute is supplied, but the specific string must not be printed as freshly
+verified. (i) Abliterlitics' METHODOLOGY code lines are not present in the README served at master; the
+parent requirement is instead carried by the setup sentence and schema, which did re-verify [2]. (ii) The
+Heretic 23/32-layer fingerprint and (iii) the 0.997-versus-0.00017 direction-cosine pair were not
+re-observed; an equivalent sub-4.5B depth/completeness fingerprint was obtained instead from a Qwen3-VL-4B
+Heretic report -- 50 to 64 tensors changed across four trials, "The averaged variant spreads its edits across
+34 layers, the most of any variant", and "t122's 54 tensors are a strict subset of t174's 62" [23] -- along
+with a re-verified statement of the same argument the cosine pair was carrying, that trials "overlap by 96%.
+But they disagree on the exact orientation of the refusal direction" [23]. (iv) OBLITERATUS's certify()
+signature was not re-fetched from raw source, but the conclusion is corroborated on two mirrors: the hosted
+Space describes an "OBLITERATUS prompt set - 512 harmful/harmless pairs across 7 severity tiers. Spectral
+Certification (BBP Phase Transition) - Formal completeness guarantee via random matrix theory" [21], and the
+Space commit log carries "# knee_cosmic: OBLITERATUS default (knee detection + COSMIC fusion)" [22]. A
+512-pair prompt set is what an activation-consuming certifier needs and a weights-only statistic does not.
+
+## 4. The strongest confirmations
+
+**Heretic's kernel, at code level [4].** The source contains, contiguously: "distance = cast(float,
+abs(layer_index - params.max_weight_position))", then "# Don't orthogonalize layers that are more than #
+min_weight_distance away from max_weight_position. if distance > params.min_weight_distance: continue", then
+"# Interpolate linearly between max_weight and min_weight # over min_weight_distance." [4]. That is a
+triangular tent with a hard cutoff, not a Gaussian or bell curve: layers beyond the cutoff are skipped
+outright rather than down-weighted, which is what produces the partial-depth coverage delta-based forensics
+observes. The shipped default is also row-magnitude preserving, "row_normalization = \"full\"" [5].
+
+**reverse-abliterate reads names, not weights [7].** Its own comparison table claims "Abliteration detection
+| scans metadata, weights, hooks", but the detection table resolves that to `abliteration_metadata.json`,
+LoRA adapter files, "Repo name -OBLITERATED | Standard abliteration naming convention", embedded toolchain
+commit hashes, forward-hook registration, and "Weight anomalies | Suspicious shard sizes and filenames" [7].
+Its only tensor-level check is a SHA-256 manifest requiring a trusted prior manifest of the same checkpoint
+[7]. The filename baseline is therefore the deployed state of the art for unattested uploads, not a strawman
+constructed to be beaten.
+
+**Abliterlitics is parent-mandatory [2].** "Create a directory with your base model and variants, plus a
+`comparison.json`" [2], with `base` a required top-level key of the schema and no single-checkpoint mode in
+the command table; licence re-verified as AGPL-3.0 [2]. Nothing in it is computable from one checkpoint.
+
+**ORBA is two recipes [6].** "At lambda = 1 the refusal component of w is rotated exactly to its orthogonal
+complement - zeroed without reflection", whereas the Householder path is "isometric and analytically exact"
+and makes "misdirected sign-flips the characteristic failure mode rather than incomplete zeroing" [6].
+Annihilation removes rank; a reflection does not. Conflating them makes the isometry falsification vacuous,
+because annihilation is the case any rank-sensitive statistic is expected to catch.
+
+**The 2604.08844 precedent is confounded by its own authors [3].** The headline negative is "A binary
+classifier trained on DPO-drifted vs. healthy adapters, tested on steering-derived adapters: AUC = 0.00
+(nbootstrap = 972, CI [0.00, 0.00])" [3]. But the same paper reports: "H5-asr-steering: Technically passed;
+substantively invalid. Language generation collapsed on all steered adapters at all intensities tested. ...
+GPT-4o scored 0/300 steered responses as harmful, confirming the output is incoherent." [3]. The checkpoints
+on which cross-method transfer failed were not coherent models, and the paper's detector is a fitted
+classifier -- "We train l2-regularized logistic regression classifiers with stratified 70/30 train/test
+splits" [3]. The two sentences must always be cited together; cross-recipe transfer failure is an open
+question, not a settled negative.
+
+## 5. Baseline bias: a published convention exists, so follow it
+
+Our 0.727 filename-regex sensitivity was measured on a pool discovered by name search, with regex terms
+overlapping the search vocabulary, so it is an upper bound presented as a baseline. The provenance-testing
+literature supplies the exact precedent verbatim: "We collect model candidates for all provenance pairs from
+the Hugging Face (HF) platform. To avoid selection bias, we used download counts as our selection criterion,
+taking the most popular models subject only to hardware constraints on model size" [15]. The same paper
+supplies the reporting shape -- "we create two distinct benchmarks BENCH-A and BENCH-B, that differ in
+aspects such as model sizes, choice of pre-trained models, and ground-truth verification procedure" [15] --
+and a name-free comparator in our size class: "our tester achieves 90-95% precision and 80-90% recall in
+identifying derived models" [15] across 600+ Hugging Face models from 30M to 4B parameters.
+
+The naming literature is deliberately two-edged, and both edges come from one paper, so they must be cited
+together [16]. Names carry real signal: "architectural information alone is sufficient to detect these
+inconsistencies, achieving an accuracy of 94% in identifying model types" [16], which makes the regex a
+serious baseline rather than a convenient one. And names are unreliable: "prior research has shown that
+model names are not always well chosen and can sometimes be inaccurate and misleading" [16], which is
+precisely the mechanism by which a name-discovered population overstates what a name-based detector achieves
+in the wild. The dossier ships a paste-ready reporting convention built on these three quotes: name the
+discovery mechanism before any number, stratify and report name-discovered and uploader-discovered pools
+separately, and label the name-discovered figure an upper bound in the same sentence.
+
+## 6. The null convention exists; the multiple-window convention does not
+
+For the null itself there is an established, nameable convention, and the paper should adopt it rather than
+invent one: Marchenko-Pastur / random-matrix theory as the zero-information hypothesis. "Using Random Matrix
+Theory (RMT) as a zero information hypothesis, we associate agreement with RMT as evidence of randomness and
+deviations as evidence for learning" [11], applied at both ends of the spectrum -- which is the precedent
+that licenses a bottom-of-spectrum null. The same MP split is applied to attention projections and validated
+causally by zeroing the identified outliers [10], and EigenTrack uses divergence from an MP baseline on
+activation covariances [13]. A random-direction control is the correct complement rather than a substitute:
+MP asks whether a window departs from an unstructured matrix, a random direction asks whether the departure
+is specific to refusal rather than arbitrary.
+
+For the family-wise error rate across many windows, the finding is negative and should be reported as such.
+Twenty-six queries, four aimed squarely at this question, surfaced no convention in the interpretability or
+weight-forensics literature for controlling error across a statistic evaluated at every layer or window. The
+papers that compute per-layer spectral statistics [8, 9, 10, 11] report or aggregate per-layer values and
+none corrects for the number of layers inspected. The mature treatment of this exact shape -- a statistic
+evaluated at every element of a large indexed family where the reported result is the extremum -- is
+max-statistic permutation inference from neuroimaging [24], which builds the null distribution of the
+maximum over the family and controls the whole family with one threshold. It is the right shape for an
+extremum-over-windows score, because the calibrated object is the maximum, which is what the detector
+reports. It must be labelled ANALOGOUS. Operationally: calibrate the max-over-windows distribution directly
+and report a checkpoint-level FPR; an uncorrected per-window rate understates it by roughly the number of
+windows.
+
+## 7. Recipe-class coverage and adjacent work
+
+One new recipe class was found that the nine-class taxonomy lacks: concept-registry ridge residualization
+[18], which "constructs a registry of independent Concept Atoms representing protected capabilities and
+stylistic confounds, then uses ridge-regularized spectral residualization to orthogonalize the refusal
+vector against these directions" [18], reporting 0-2% refusal at first-token KL 0.044 where standard ablation
+on Qwen3-VL-4B gives KL 2.088 [18]. It is distinct from plain ridge rank-k because the residualization
+target is a curated concept set rather than a regularizer, and its public checkpoints sit on the Qwen3-VL-4B
+family -- our own scale. Three further works were classified and are not detectors: a four-tool comparison
+across sixteen 7B-14B models reporting GSM8K change from +1.51 pp to -18.81 pp and KL divergence 0.043-1.646
+[17]; a generation-only granular study of safety pretraining under abliteration whose useful contribution is
+that judge selection changes evaluation outcomes [19]; and an off-target-effects study whose provenance
+audit "caught two independent contamination channels - a mismatched-quantizer pilot pair and a stale
+community chat template that silently mangled the rendered prompt" [20], direct external support for
+treating toolchain artifacts as the rule in community-checkpoint studies.
+
+## 8. What is delivered
+
+Seven paste-ready paragraphs written as final prose, including the novelty claim in both outcome variants --
+P-D assumes the windowed arm recovers the discovery failures and earns the fourth qualifier, P-E assumes it
+does not, claims three qualifiers, demotes the windowed statistic to a labelled proposal, and converts the
+section into a boundary result written with equal conviction. Style constraints enforced and self-checked:
+no backward references to earlier drafts, "novel" and "first" once each and only inside the four-qualifier
+sentence, concession before claim. Also: seven positioning corrections with quotes and anchors (five
+specified, two added because they surfaced here -- the WeightWatch attribution and the 2410.17770
+bottom-of-spectrum citation), seventeen numbered wording corrections of which five are new, a ten-item
+re-verification log, and a twenty-one-row source ledger with access status.
+
+## 9. Confidence and what would change it
+
+Confidence is **high** on the four-qualifier verdict, on both MISMATCHes, and on the Heretic and
+reverse-abliterate corrections: all rest on verbatim primary text re-fetched on 2026-08-14 [1, 4, 5, 7].
+Confidence is **moderate** on saturation -- 26 queries is a lane sweep, not a proof, and three genuinely
+relevant works [11, 12, 14] surfaced late in it, which is itself evidence the lane was less well-mapped
+going in than the dependencies suggested. Confidence is **low-to-moderate** on the four UNREACHABLE items,
+which is why they are flagged rather than carried. The verdict would flip to NOT NOVEL on discovery of a
+single work computing a bottom-of-spectrum statistic on a sliding window of consecutive layers from one
+checkpoint's own weights with no reference and no fitted threshold; [11] is one construction step from that.
+It would also drop to a three-qualifier claim if the windowed arm fails to recover the discovery failures,
+which is an experimental outcome, not a literature question. Finally, the measured figures used inside the
+paste-ready paragraphs P-B and P-F -- 0.727, 0.159, 4.1e-5 and 7.3e-5 -- come from this project's own
+experiments, are reproduced as the drafter supplied them, and were **not** independently checked here.
+
 
 ## Sources
 
-[1] [Logit-Gap Steering: A Forward-Pass Diagnostic for Alignment Robustness (v2)](https://arxiv.org/pdf/2506.24056v2) — Full-text read. Gap definition and 'per-prompt' unit; resolved the 97.5-99.8% vs 92.1% conflict as two different quantities in the same version; verbatim refusal/affirmative token lists; the per-prompt affirmative-token selection rule; confirmed that NO cross-model margin-vs-behaviour correlation exists (28 matches inspected).
+[1] [Has This Checkpoint Been Abliterated? A Two-Signal Audit and Its Failure Map (Hurtado, 2026)](https://arxiv.org/pdf/2607.01854) — Supplied the verbatim band-averaged E_1 definition, the WeightWatch attribution, the registry/evaluation-set split (273 registry, 71 processed, 94 evaluated) and the corrected AUROC triple 0.95/0.90/0.84.
 
-[2] [Leakage and the Reproducibility Crisis in ML-based Science (Kapoor & Narayanan)](https://arxiv.org/pdf/2207.07048) — Full-text read. All eight leakage sub-type labels verbatim; [L1.2] and [L3.3] definitions quoted; the model-info-sheet remediation; version flag on 329 vs 294 affected papers.
+[2] [Abliterlitics README (dreamfast)](https://raw.githubusercontent.com/dreamfast/abliterlitics/master/README.md) — Re-verified the mandatory `base` key, the setup sentence, the comparison.json schema and the AGPL-3.0 licence; the METHODOLOGY code lines were not present at this URL on this date.
 
-[3] [Ecological Correlations and the Behavior of Individuals (Robinson 1950)](https://www.stats.uwo.ca/faculty/aim/2015/9938/articles/Robinson1950AmericanSociologicalReview.pdf) — Full-text read. Definitions of individual vs ecological correlation; the tacit-substitution passage; the .203/.773/.946 and .118/-.526/-.619 trios read out of the paper; the 'They cannot' conclusion.
+[3] [Weight-space drift fingerprinting of fine-tuned adapters (Paul, 2026)](https://arxiv.org/pdf/2604.08844) — Supplied both halves of correction C1 verbatim: the AUC 0.00 / n_bootstrap 972 sentence and the declared confound (generation collapse; GPT-4o scored 0/300).
 
-[4] [The Modifiable Areal Unit Problem, CATMOG 38 (Openshaw)](https://www.uio.no/studier/emner/sv/iss/SGO9010/openshaw1983.pdf) — Full-text read. Scale-problem and aggregation-problem definitions verbatim; the Iowa .26-.86 range against a 0.34 population value; Table 11's -.99 to +.99 limits; Openshaw & Taylor's own 'we simply do not know why' conclusion; independent reproduction of Robinson's table.
+[4] [Heretic source, ablation-weight loop](https://raw.githubusercontent.com/p-e-w/heretic/master/src/heretic/model.py) — Code-level confirmation that the kernel is a triangular tent with a hard cutoff: the distance computation, the `if distance > params.min_weight_distance: continue` skip, and the linear interpolation.
 
-[5] [At what sample size do correlations stabilize? (Schoenbrodt & Perugini 2013)](https://silo.tips/download/at-what-sample-size-do-correlations-stabilize) — Full-text read via mirror (the LMU author PDF fails TLS). COS, POS and POS_crit definitions verbatim; the 'approach 250' recommendation with its qualifiers; the full Table 1 POS_crit grid; the r=.40 at n=25 example; simulation design.
+[5] [Heretic default configuration](https://raw.githubusercontent.com/p-e-w/heretic/master/config.default.toml) — Confirmed the shipped default row_normalization = "full", i.e. row-magnitude preserving by default.
 
-[6] [The Interpretation of Interaction in Contingency Tables (Simpson 1951)](https://math.bme.hu/~marib/bsmeur/simpson.pdf) — Full-text read. The SUMMARY and the 'no second order interaction' definition verbatim; byline confirms E. H. Simpson, correcting the Semantic Scholar record; volume, issue and pages confirmed from page headers.
+[6] [Orthogonal Reflection Bounded Ablation (Lai, 2026-03-24)](https://huggingface.co/blog/grimjim/orthogonal-reflection-bounded-ablation) — Supplied the two-recipe distinction (geodesic lambda=1 zeroed without reflection versus the Householder isometry) and the author's own misdirected-sign-flips negative.
 
-[7] [Has This Checkpoint Been Abliterated? (Hurtado)](https://arxiv.org/pdf/2607.01854) — Full-text read. 273 checkpoints, 4 families, AUROC 0.95; corrected the plan's assumption by showing labels come from a behavioural oracle; confirmed the score is 'one scalar per model'; confirmed the attested-reference and full-weight requirements; harvested its related-work enumeration for saturation.
+[7] [reverse-abliterate package metadata (Carlos-Projects, MIT)](https://pypi.org/pypi/reverse-abliterate/json) — Supplied the full detection table showing filename/metadata/hook checks only, with SHA-256 manifests as the sole tensor-level check; establishes the name baseline as a shipped tool.
 
-[8] [Detecting Safety Training Modification via Activation Analysis (AMS, Messenger)](https://arxiv.org/pdf/2608.05578) — Full-text read. 14 configurations / 4 families / LOO 71% verified verbatim; Pearson -0.546 (p=0.043) AND the non-significant Spearman -0.423 (p=0.13), which is the directly comparable statistic; four-class taxonomy; the Sokhansanj citation.
+[8] [The Intruder Threshold: A Spectral Law for LoRA Fine-Tuning (Xie, 2026)](https://arxiv.org/pdf/2607.23711) — The dossier's most dangerous unadjudicated near-miss, resolved: parent-spectrum-derived but update-requiring via sigma_1(BA), top-of-spectrum, per-layer not sliding, and a law about LoRA dynamics rather than an edit detector.
 
-[9] [RAS: Measuring LLM Safety Through Refusal Alignment (SafeVec)](https://arxiv.org/pdf/2606.25750) — Full-text read. The reference-model requirement quoted verbatim; the same-family scoping; the named reference anchors; no correlation coefficient, n, or resampling unit located.
+[9] [Spectral Signatures of Large Language Models (Zhang et al., KDD 2026)](https://arxiv.org/pdf/2607.03377) — Confirmed PL_Alpha_Hill is a heavy-tail top-of-spectrum exponent explicitly designed to remain robust during post-training - a stronger ruling-out than metric difference.
 
-[10] [Alignment Quality Index (AQI)](https://arxiv.org/pdf/2506.13901) — Full-text read. DBS/Dunn/XBI/CHI axes; within-model separation framing; decoding-invariance claim; the abstract's judge-correlation claim with no locatable n or coefficient.
+[10] [Spectral Outliers Reveal Dominant Learned Structure in Transformer Attention (Dewage et al., ICMLA 2026)](https://arxiv.org/abs/2608.07921) — Confirmed the MP bulk/outlier split reads outliers above the edge and targets learned structure in pretrained models, with no edited/clean labels anywhere.
 
-[11] [ACL Anthology record for AQI](https://aclanthology.org/2025.emnlp-main.145/) — Authoritative full title (much longer than our short form), 15-author list in order, pages 2888-2947, DOI, and canonical BibTeX key.
+[11] [Small Singular Values Matter: A Random Matrix Analysis of Transformer Models (Thamm & Rosenow)](https://arxiv.org/pdf/2410.17770) — NEWLY SURFACED and absent from every dependency. The closest prior art on the bottom-of-spectrum qualifier - parent-free, calibration-free, reads the smallest singular values against an RMT null - and the source of the null convention the paper should adopt by name.
 
-[12] [The Refusal Residue (Mehta)](https://arxiv.org/pdf/2607.13346) — Full-text read. The 0.761 figure and the self-retraction verbatim; the leakage-diagnostic paragraph verbatim; corrected our records from 0.425/0.870 to the reported 0.43/0.87; recovered the 0.63-on-a-null-control figure.
+[12] [Watch the Weights: Unsupervised monitoring and control of fine-tuned LLMs (Zhong & Raghunathan, ICLR 2026)](https://arxiv.org/abs/2508.00161) — NEWLY SURFACED. The WeightWatch primitive that E_1 is credited to; top singular vectors of the weight difference plus activation-cosine monitoring, so parent-requiring and prompt-requiring. An obligatory citation the dependencies lacked.
 
-[13] [Validity Audit of Agent-Safety Benchmarks](https://arxiv.org/pdf/2607.28685) — Full-text read. Confirmed -0.64 at n=7 to +0.02 at n=18 verbatim after four iterations of it going unverified, plus the previously unrecorded 'a quarter of random size-7 subsets' clause and the self-disclosure register.
+[13] [EigenTrack: Spectral Activation Feature Tracking (Ettori et al.)](https://arxiv.org/pdf/2509.15735) — Supplied the sliding-window sentence verbatim; the closest published use of the sliding half of the claim, over time across activations rather than over layers across weights.
 
-[14] [A Behavioral Fingerprint for LLMs: Provenance Tracking via Refusal Vectors (Xu & Sheng)](https://arxiv.org/abs/2602.09434) — New find. 76 offspring models at 100% base-family identification, robust to finetunes, merges and quantization; outcome is model identity rather than safety behaviour.
+[14] [Intrinsic Structure: Spectral Identifiability for Mechanistic Interpretability (Dhor & Chen, 2026)](https://arxiv.org/abs/2608.10172) — NEWLY SURFACED. Koopman spectrum with depth as time - conceptually nearest to sliding over layers - but recovered from M calibration samples of activations, so neither weights-only nor calibration-free.
 
-[15] [Corrigendum to 'At what sample size do correlations stabilize?'](https://api.semanticscholar.org/graph/v1/paper/DOI:10.1016/j.jrp.2018.02.010) — New find. Existence, exact title, authors and DOI of a published corrigendum to a load-bearing citation; content could not be obtained.
+[15] [Model Provenance Testing for Large Language Models](https://arxiv.org/pdf/2502.00706) — The direct precedent for naming a hub-harvest selection criterion to avoid selection bias, for reporting two differently-constructed populations, and a name-free provenance comparator at 80-90% recall on 600+ models of 30M-4B parameters.
 
-[16] [A unifying view on dataset shift in classification (Moreno-Torres et al.)](https://api.semanticscholar.org/graph/v1/paper/DOI:10.1016/j.patcog.2011.06.019) — Metadata only. Full text unobtainable through six routes, so no quotation from this paper appears in the dossier and it is recommended for demotion to a citation without a quote.
+[16] [Naming Practices of Pre-Trained Models on Hugging Face (Jiang et al.)](https://arxiv.org/pdf/2310.01642) — The two-edged naming citation: DARA identifies model types from names at 94% accuracy, and the same paper documents that names are often inaccurate and misleading.
 
-[17] [Oxford Academic record for Simpson 1951](https://academic.oup.com/jrsssb/article/13/2/238/7026675) — Independent confirmation of volume, issue, pages, month and year.
+[17] [Comparative Analysis of LLM Abliteration Methods (Young)](https://arxiv.org/abs/2512.13655) — Classified STUDY: tool comparison with capability and KL metrics, no weights-only detector.
 
-[18] [Uncensored AI in the Wild (Sokhansanj)](https://www.mdpi.com/1999-5903/17/10/477) — Metadata only. The largest behavioural panel in the lane (8,608 repositories surveyed, 20 models evaluated) but with no internal score; its figures are cited at one remove and are flagged as unread in primary text.
+[18] [Surgical Refusal Ablation: Concept-Guided Spectral Cleaning (Cristofano, 2026)](https://arxiv.org/abs/2601.08489) — Classified RECIPE and flagged as a tenth recipe class - concept-registry ridge residualization - with public checkpoints on the Qwen3-VL-4B family.
+
+[19] [A Granular Study of Safety Pretraining under Model Abliteration (Agnihotri et al., NeurIPS 2025 workshop)](https://arxiv.org/abs/2510.02768) — Classified STUDY: generation-based only; its judge-sensitivity result supports treating behavioural labels as noisy.
+
+[20] [Abliteration Is Not a Scalpel (Fafula, 2026)](https://arxiv.org/abs/2607.17427) — NEWLY SURFACED, classified STUDY. Supplies external support that abliterated checkpoints differ from base on refusal-free tasks, and that toolchain contamination is the rule in community-checkpoint studies.
+
+[21] [OBLITERATUS hosted Space](https://kicfk-obliteratus.hf.space/) — Corroborated that certification consumes a 512-pair harmful/harmless prompt set via a BBP phase-transition test, i.e. activations rather than weights.
+
+[22] [OBLITERATUS spectral_certification.py commit](https://huggingface.co/spaces/pliny-the-prompter/obliteratus/commit/f0084ba4c8de46caf272ebe02a6ef925277bc743) — Confirmed the COSMIC-fused knee detection default verbatim, establishing layer-selectivity.
+
+[23] [Qwen3-VL-4B Heretic abliteration report](https://nathan.sapwell.net/posts/qwen3-vl-4b-heretic/) — A re-observed sub-4.5B depth/completeness fingerprint (50-64 tensors changed, 34 layers for the averaged variant, strict-subset structure) usable in place of the unverified 23/32 figure.
+
+[24] [Permutation inference for the general linear model (Winkler et al., NeuroImage 2014)](https://doi.org/10.1016/j.neuroimage.2014.01.060) — The ANALOGOUS convention imported for the multiple-window family-wise error problem: calibrate the null distribution of the maximum statistic over the family.
 
 ## Follow-up Questions
 
-- RAS and AQI both claim their score correlates with behaviour but neither reports a coefficient, an n, or a resampling unit anywhere I could locate - is that genuinely absent from both, and if so does the collapses-branch tally become '2 of 5 published model-level safety scores report no quantitative criterion-validity statistic at all'?
-- Hurtado validates a per-model activation gap against binary behavioural-oracle labels on 273 checkpoints, so the honest comparison is binary-versus-graded outcome rather than provenance-versus-behaviour: should H-G additionally report its margin's AUROC against a binarised refusal-rate label, so the two are comparable on his metric and not only on ours?
-- Logit-Gap Steering picks the affirmative token per prompt as the highest-logit one, making their gap an attack-relevant minimum rather than a fixed-list max - does reimplementing their exact estimand versus a fixed-list max change our model-level rho, and should that be a preregistered sensitivity arm rather than an implementation footnote?
+- Does arXiv:2410.17770's bottom-of-spectrum RMT deviation move under abliteration at all? It is the one near-miss that is a single construction step away from the claim, so running its exact statistic - deviation of the smallest singular values from the Marchenko-Pastur null, per matrix, no window - as a baseline on our panel would either establish that the sliding window is what buys the separation or reveal that an already-published statistic does the job, which changes the verdict from NOVEL-NARROW to an application claim.
+- What is the checkpoint-level false-positive rate of an extremum-over-windows score once the maximum is calibrated directly, and how much higher is it than the per-window rate? No in-field convention exists, so this number has to be measured rather than cited, and it determines whether the windowed arm can be claimed at all.
+- Does the concept-registry ridge residualization class (arXiv:2601.08489) fall inside or outside the analytic boundary? It is rank-reducing rather than isometric, so it should be detectable, but its whole design goal is to minimize spectral disruption to capability subspaces - which is precisely the property that would make a low-energy edit hard to see from the bottom of the spectrum.
 
 ---
 *Generated by AI Inventor Pipeline*

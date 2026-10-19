@@ -1,38 +1,39 @@
-# A cheap safety score that survives more models
+# Does a sliding window catch hidden edits?
 
 `demo/` — Self-contained demo (Colab-ready notebook or markdown). Run without setup.  
 `src/` — Full source code, data, and outputs from the experiment execution.
 
 **Type:** experiment  
-**ID:** `art_Vag73M9ysCVF`
+**ID:** `art_-wY3_BLZ_sCu`
 
 ## Layman Summary
 
-Tests whether a safety score costing 80 quick model reads and zero text generation still predicts which AI models refuse harmful requests when the model panel grows from 19 to 52 checkpoints.
+Scanning a model's weights in small sliding chunks, instead of averaging them all together, more than doubles how many secretly safety-stripped models get caught, with no false alarms.
 
 ## Full Summary
 
-VERDICT: HOLDS -- the first positive result in this run. The first-decoding-step logit-gap margin read on HARMFUL prompts (our reimplementation of arXiv:2506.24056; 80 forward passes, ZERO generations, zero judge calls, zero benchmark runs, zero reference models per checkpoint) predicts the judged plain-harmful refusal rate at rho 0.694 [0.495, 0.822] at the MEMBER unit (lineage-clustered bootstrap, 10,000 reps, seed 20260812) and 0.564 [0.140, 0.826] at the LINEAGE-AGGREGATED unit, on the SAME frozen 52-member / 28-lineage / 11-family panel that retired the AMS paraphrase refit in iteration 4. 52/52 members scored, zero failures, 14,792 forward passes, 0 generations, $0.00 LLM spend.
+EXECUTED end to end. $0.00 OpenRouter spend, zero prompts, zero forward passes. ALL THREE Arm A tiers COMPLETE (78/78 Hub checkpoints scored, 71 OK, 7 UNRESOLVED excluded from every denominator) plus 47/47 in-memory kernels. verify.py (standalone, imports nothing from the pipeline) exits 0 with 60/60 entries re-derived from the raw rows; re-running the analysis leaves numbers.json and method_out.json BYTE-IDENTICAL.
 
-THE DECISIVE DIAGNOSTIC PASSES. The pre-registered archived-19 vs new-33 block split gives rho 0.6673 vs 0.6677, delta -0.0004 [-0.308, 0.380]. Unlike the paraphrase refit, whose advantage was carried entirely by the archived block, this score transfers intact to 21 lineages it was never fitted on. It is not a small-panel correlation artefact.
+HEADLINE, the first clear positive for windowing. On 50 real edited Hub checkpoints at specificity 1.000 (57 eligible undeclared negatives): W05w(k=2) sensitivity 0.700 [0.562, 0.809] versus pooled W05 0.300 [0.191, 0.438]. Windowing MORE THAN DOUBLES real-checkpoint recall at zero false positives. It ties the 11-term repo-name regex baseline (0.700) and beats the frozen 8-term feature (0.580) while using no repo name at all, which matters because a name regex is a declaration detector and cannot fire on an undeclared edit. catch_by_recipe_class is populated for every k (it was EMPTY in iteration 4): at k=2, W05w vs W05 is partial-layer 0.80 vs 0.00, multi-direction SVD 0.80 vs 0.00, merge 0.75 vs 0.00, Heretic 0.62 vs 0.12, uncensoring SFT 0.62 vs 0.00. On the kernel family, 8 of 22 pooled misses are recovered at the same pre-registered threshold (BAND_MID50, Gaussian spreads 2/4/8 at both storage precisions, HERETIC_TENT).
 
-IT SURVIVES EVERY PRE-EMPTIVE CONTROL. Partial Spearman controlling for log10(param_count) is 0.676 [0.475, 0.814] and rho(score, log10 params) is only 0.092, so the prediction is NOT parameter count. Leave-one-lineage-out (28 folds) spans [0.661, 0.726] and leave-one-family-out (11 folds) [0.650, 0.772], sign-stable in every fold. AUC 0.806. Monte-Carlo lineage-permutation p sits at the 5.0e-6 floor (200,000 draws; floor quoted beside every p). Disattenuated at kappa 0.3907 alongside -- never instead of -- the raw value.
+GATES. G1 max |dW05| = 1.54e-5; across 71 real Hub checkpoints the recomputed W05 matches the archive to 9.6e-6 (an independent third reproduction). G2 write_matrix_sha256 matches cd8392d0... EXACTLY. G3 resolved honestly under BOTH comparisons: (a) W05w(k=L) vs W05_f64 = 0.0 exactly at the 1e-9 tolerance, the comparison that actually tests the window code; (b) vs the float32 W05 = 1.09e-6, reported as FAILING iteration 4's declared 1e-9 and passing a DERIVED float32 accumulation bound log10(1+gamma_d) = 5.30e-5 at d=2048. The tolerance was not moved silently.
 
-IT BEATS THE ANCHOR. Paired on the same resampled lineages, logit_gap_harmful minus our_ams_sigma = +0.421 [0.169, 0.684], SCORE_BETTER. our-AMS sigma itself scores 0.359 member / 0.162 lineage and reproduces iteration 4's archived value on 49/52 members (max |delta| 0.0275, on two L3 Llama members plus one).
+PREDICTIONS, stamped by sha256 before any scoring: 6 CONFIRMED, 2 REFUTED, both refutations reported with mechanism. P2 REFUTED 3/5 -- Gaussian spreads 0.5 and 1 confine the edit to ONE layer, so even k=2 always contains an unedited layer that sets the minimum: the smallest detectable edit width equals the smallest usable k. P5 REFUTED on the letter of a pre-registered rule that was NOT moved (k=4,6 exceed the 4-seed control max by ~2x), though both quantities are float32 Gram noise, 2.1e-4 log units against a 1.73 log-unit margin. P4 CONFIRMED: sub-unit uniform w in {0.5,0.7,0.85} invisible at every k and every tau_c -- windowing changes pooling SCOPE, never removal COMPLETENESS.
 
-THE HARMFUL REGIME IS LOAD-BEARING, WHICH IS WHY THE HONESTY STATEMENT IS MANDATORY. The benign-regime variant COLLAPSES to 0.129 [-0.168, 0.436], and harmful-vs-benign paired delta is +0.565 [0.205, 0.873]. The saving is 'no generation, no judge, no benchmark, no reference model' -- it is NOT harmful-prompt-free, and that sentence ships verbatim in RESULTS.md and in method_out.json's 'framing' field.
+ARM 2, a substantive negative. BOTH calibrations reject the UNEDITED control, for two separately diagnosed reasons: the random-direction null because v1_win is the MINIMISING eigenvector rather than a random draw (parent at several hundred sigma), and the layer-subset null because contiguous windows are systematically deeper than random layer subsets (parent gap -0.293 log units) from ordinary depth continuity. Conclusion: the multiple-window hazard CANNOT be bounded by any within-model null; it is bounded here by measured specificity on real undeclared checkpoints. A third defect was found and fixed rather than shipped: the naive min-over-windows-vs-single-subset p never falls below 0.3297 for ANY kernel, not even a complete rank-one projection; the corrected per-window Sidak construction spans [0, 0.909] and discriminates.
 
-GATES, ALL GREEN AND ALL ORDERED BEFORE ANY CORRELATION. Byte-identity reuse manifest over 17 lib/ + lib_iter3/ files plus 46 hashed archived inputs; 14 offline apparatus assertions; ORIENTATION_MAP recovered from iteration 3's driver by ast (never imported -- it calls setrlimit at module scope); panel identity 52/28/11 and 19/33 with both calibration members reproducing 0.250 and 0.900; T0-REPLAY reproducing iteration 3's 0.6673 [0.439, 0.904] / 0.929 to 4 decimals; a timestamp-free pre-registration content sha stable across invocations. Recomputing the 19 archived members from the models gives IDENTICAL RANKS (Spearman(iter3, iter5) = 1.000, 0 positions moved), so every Spearman statistic is unchanged by the small numeric drift on 3 members.
+ARM 3: generalised subspace discovery via principal angles, agreement 1.000 on 47 applicable kernels, P8 applicability complete. Two corrections were required and are in the code: j must be at least dim(R), and j_star is the SMALLEST containing j, not the largest. Arm A is INAPPLICABLE BY CONSTRUCTION (removed direction unknown; imputing it would be circular) -- only a labelled parent-requiring surrogate is reported.
 
-THREE PLAN ASSUMPTIONS WERE MEASURED FALSE AND ARE RECORDED AS PRE-REGISTERED DEVIATIONS: (1) the plan's five UNRELIABLE-flagged members DO NOT EXIST anywhere in iteration 4's archive, so that exclusion set was not invented; (2) 51 of 52 rows carry a revision SHA, not 52 (l1_abliterated has no panel_manifest row, hence also no manifest tokenizer family and no param_count); (3) five members have no empirical refusal-onset lexicon for their tokenizer family -- their primary columns are NULL with reason MISSING_FAMILY_LEXICON, never back-filled, and the pre-registered union-of-all-families SECONDARY column (rho 0.579 member) ships beside them.
+ARM 4: the plan's small RELATIVE residual does not exist and cannot -- at the argmin matrix both energies sit at the annihilation floor, so the relative residual reaches 7.93 even at cos^2(theta) > 0.999. What holds is a LAW with a measured constant: |residual| / sin^2(theta) <= 1.726 (median 0.780, n=22).
 
-Audit cost: 80 forward passes and 0 generations to score one new checkpoint; median 20.0 s / p90 36.7 s / max 70.1 s per member for all four scores including download on one RTX A4500. Deliverables: method.py (--tier t0/smoke/t2/archive/full, resumable by per-member file existence), lib_iter5/ (ast constant extraction, revision-pinned loader, aggregation and block-split statistics), prereg_iter5.json, 58 result files including per-member JSONs and the archive-only analysis, and summarise.py which renders RESULTS.md deterministically with every number read from method_out.json rather than retyped.
+CAVEATS. Iteration 4 did NOT persist the per-layer diff-in-means or SVD directions, so the archived heretic_percomponent W05 = -1.7156 is NOT reproducible without forward passes; a deterministic substitute is used and every affected row carries direction_substituted. kernels.edit_percomponent uses the SAME direction for attn and mlp, so the plan's '2-dim span [r0_attn, r0_mlp]' does not exist -- the removed span is 1-dimensional.
 
 ## Dependencies
 
-- `art_CKWQh2cOQLLQ` — dataset
-- `art_0UsKSgsMHome` — baseline spec
-- `art_Qm_KL4GhZCnX` — positioning
+- `art_8OlSrcw-hzgO` — dataset
+- `art_CKWQh2cOQLLQ` — prompts
+- `art_gqCRODISeyg2` — recipe spec
+- `art_sHF0cggp2IvT` — recipe spec
 
 ## Output Files
 

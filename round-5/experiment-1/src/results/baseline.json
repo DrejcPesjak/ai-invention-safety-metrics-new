@@ -1,0 +1,135 @@
+{
+ "definition": "11-term case-insensitive regex on the repo id: abliterat|gabliterat|obliterat|uncensor|decensor|orthogonal|norm[-_]preserv|refusal[-_]?(free|removed)|heretic|lorablated|josiefied",
+ "provenance": "the first 8 terms are the dependency dataset's FROZEN repo_id_contains_abliteration_string feature (hub_common.py:31); the last 3 are the unambiguous edit-tool names from that dataset's own harvest net",
+ "n_pos": 50,
+ "n_neg": 57,
+ "baseline_n_hit": 35,
+ "baseline_sensitivity": 0.7,
+ "baseline_sens_lo": 0.562496495355466,
+ "baseline_sens_hi": 0.8089644649911906,
+ "baseline_n_false_positive": 0,
+ "baseline_specificity": 1.0,
+ "baseline_spec_ci": [
+  0.9368611651470209,
+  0.9999999999999998
+ ],
+ "baseline_hits": [
+  "0utsideness/SmolLM2-135M-Instruct-heretic-main-test",
+  "0utsideness/SmolLM2-135M-Instruct-heretic-refusal-plugins-test",
+  "Goekdeniz-Guelmez/Josiefied-Qwen3-0.6B-abliterated-v2",
+  "Goekdeniz-Guelmez/Josiefied-Qwen3-0.6B-gabliterated-v1",
+  "Goekdeniz-Guelmez/Qwen3-0.6B-gabliterated",
+  "Goekdeniz-Guelmez/Qwen3-0.6B-gabliterated-Dev",
+  "MC7ever/MiniCPM5-1B-Agent-abliterated-disinhibited",
+  "MagicalAlchemist/Qwen3-1.7B-Magic_decensored",
+  "MihaiPopa-1/Stentor-30M-Instruct-heretic-safety-defiltered",
+  "SicariusSicariiStuff/Phi-3.5-mini-instruct_Uncensored",
+  "SkGufranAhmed/Huihui-gemma-3-270m-it-abliterated",
+  "WithinUsAI/Gemma3-Prompt.Coder.it.Uncensored-270m",
+  "Zynerji/Ektome-Qwen1.5-0.5B-Chat-PristinelyUncensored",
+  "Zynerji/Ektome-Qwen2-0.5Bi-PristinelyUncensored",
+  "Zynerji/Ektome-Qwen2.5-1.5Bi-PristinelyUncensored",
+  "Zynerji/Ektome-Qwen3-0.6B-PristinelyUncensored",
+  "Zynerji/Ektome-Qwen3-VL-2Bi-PristinelyUncensored",
+  "d0gra/uncensored-stage1-hacker",
+  "dalatexcoder/Qwen3.5-2B-heretic-Claude-Sonnet-4.6-Distill",
+  "guglxni/Qwen3.5-9B-abliterated-DFlash",
+  "huihui-ai/Huihui-gemma-3-270m-it-abliterated",
+  "huihui-ai/Qwen2.5-0.5B-Instruct-abliterated",
+  "huihui-ai/Qwen2.5-0.5B-Instruct-abliterated-SFT",
+  "huihui-ai/Qwen2.5-Coder-0.5B-Instruct-abliterated",
+  "lunahr/Qwen3-0.6B-abliterated",
+  "mckerm1t/gemma-4-e4b-it-abliterated-bf16",
+  "mlabonne/Qwen3-0.6B-abliterated",
+  "mlabonne/gemma-3-1b-it-abliterated-v2",
+  "mlabonne/gemma-3-1b-it-qat-abliterated",
+  "ndavidson/phi-3.1-abliterated",
+  "p-e-w/gemma-3-270m-it-heretic",
+  "pixasocial/survival-uncensored-gemma-270m-v2",
+  "prithivMLmods/VibeThinker-3B-heretic_decensored",
+  "teja944/SmolLM2-135M-Instruct-heretic",
+  "wetr3d/Huihui-gemma-3-270m-it-abliterated"
+ ],
+ "baseline_misses": [
+  "AEON-7/AEON-DFlash-Qwen3.6-35B-A3B",
+  "SicariusSicariiStuff/Nano_Imp_1B",
+  "UnfilteredAI/BADMISTRAL-1.5B",
+  "UnfilteredAI/Mia-001",
+  "UnfilteredAI/Promt-generator",
+  "UnfilteredAI/UNfilteredAI-1B",
+  "Vlor999/mlx-UNfilteredAI-1B",
+  "baidu/ERNIE-4.5-0.3B-PT",
+  "fableforge-ai/FableForge-1.5B",
+  "fableforge-ai/ShellWhisperer-1.5B",
+  "nineninesix/gepard-1.0",
+  "reaperdoesntknow/Disctil-Qwen3-1.7B",
+  "reaperdoesntknow/Dualmind-Qwen-1.7B-Thinking",
+  "reaperdoesntknow/Qwen3-1.7B-Thinking-Distil",
+  "reaperdoesntknow/TopologicalQwen"
+ ],
+ "ours_W05w_by_k": {
+  "2": {
+   "threshold": -1.5610900127657787,
+   "sensitivity": 0.7,
+   "ci": [
+    0.562496495355466,
+    0.8089644649911906
+   ],
+   "n_hit": 35
+  },
+  "4": {
+   "threshold": -1.4593974387884183,
+   "sensitivity": 0.7,
+   "ci": [
+    0.562496495355466,
+    0.8089644649911906
+   ],
+   "n_hit": 35
+  },
+  "6": {
+   "threshold": -1.3454954422065182,
+   "sensitivity": 0.68,
+   "ci": [
+    0.5418970269185592,
+    0.7924178373934316
+   ],
+   "n_hit": 34
+  },
+  "8": {
+   "threshold": -1.3458797854094502,
+   "sensitivity": 0.58,
+   "ci": [
+    0.4423344176857823,
+    0.7062499664528802
+   ],
+   "n_hit": 29
+  },
+  "L": {
+   "threshold": -1.3102015799103564,
+   "sensitivity": 0.3,
+   "ci": [
+    0.19103553500880954,
+    0.437503504644534
+   ],
+   "n_hit": 15
+  }
+ },
+ "frozen8": {
+  "definition": "abliterat|gabliterat|obliterat|uncensor|decensor|orthogonal|norm[-_]preserv|refusal[-_]?(free|removed)",
+  "provenance": "the dependency dataset's FROZEN repo_id_contains_abliteration_string feature, hub_common.py:31",
+  "n_hit": 29,
+  "sensitivity": 0.58,
+  "sens_ci": [
+   0.4423344176857823,
+   0.7062499664528802
+  ],
+  "n_false_positive": 0,
+  "specificity": 1.0,
+  "spec_ci": [
+   0.9368611651470209,
+   0.9999999999999998
+  ]
+ },
+ "term_selection_caveat": "The 11-term list is the frozen 8 plus three edit-tool names.  Extending a term list is a fitting step -- it can only raise sensitivity and only lower specificity -- so the 8-term frozen feature is reported beside it and the head-to-head should be read against BOTH.  A sibling artifact in this run found the same effect at Hub scale, with the extended list firing on far more edited repos than the frozen feature does.",
+ "note": "The baseline is not a strawman: a plain regex on the repo id alone solves half the detection task on the Hub (50.5% of declared-edited repos, per the dependency dataset).  It is also free and needs no weights.  Its weakness is that it is a declaration detector, not an edit detector: it cannot fire on an undeclared edit at all."
+}

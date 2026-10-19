@@ -1,0 +1,65 @@
+{
+ "n": 5,
+ "rows": [
+  {
+   "abs_diff": 1.0,
+   "claim_id": "W2.n_real_intensity_axes_quoted_as_6",
+   "draft_quoted_value": 6,
+   "finding_class": "DRAFT_ERROR_DENOMINATOR",
+   "interpretation": "crossing.jsonl carries 7 real intensity axes (4 EVADABLE + 3 NEITHER_DIES) plus one 'combined' row that is NOT an intensity axis. The per-verdict counts are right; the denominator quoted as 6 is stale and must read 7.",
+   "provenance": "A2 crossing dataset, rows with a real intensity axis",
+   "recomputed_value": 7,
+   "tolerance": 1e-06,
+   "tolerance_class": "verbatim",
+   "verdict": "MISMATCH"
+  },
+  {
+   "abs_diff": 0.09599999999999997,
+   "claim_id": "W4.B09_abs_rho_member_0.766_against_28_member_contract_subset",
+   "draft_quoted_value": 0.766,
+   "finding_class": "SUBSET_DEFECT_CONFIRMED",
+   "interpretation": "EXPECTED. 0.766 is B09's correlation on the 26-member renderer=='chatml' subset (reproduced to 1e-4 there, see the companion assertion), not on the 28-member non-base contract subset the draft states, where it is 0.670. The number is not wrong; the SUBSET LABEL is. The draft must state which rule it used.",
+   "provenance": "A5/numbers.json correlations.member.B09.harmful_refusal_rate (n=28) - EXPECTED MISMATCH: this is the subset the draft states",
+   "recomputed_value": 0.67,
+   "tolerance": 0.0001,
+   "tolerance_class": "float_rederive",
+   "verdict": "MISMATCH"
+  },
+  {
+   "abs_diff": 1.0,
+   "claim_id": "W4.n_subset_corrected_values_quoted_as_4",
+   "draft_quoted_value": 4,
+   "finding_class": "DRAFT_ERROR_COUNT",
+   "interpretation": "The forensics block carries FIVE quoted values that fail to reproduce under the stated convention (A01, A02, A22, B09, W01), not four. Exactly one of the five (B09) reproduces under the renderer subset; the other four reproduce under NO convention searched.",
+   "provenance": "A5/numbers.json quoted_value_forensics.closest_match_per_quoted_value - the plan says FOUR draft-quoted 'correlations' are paired differences on a different subset; the forensics block carries this many",
+   "recomputed_value": 5,
+   "tolerance": 1e-06,
+   "tolerance_class": "verbatim",
+   "verdict": "MISMATCH"
+  },
+  {
+   "abs_diff": 16.0,
+   "claim_id": "W5.unresolved_quoted_as_65",
+   "draft_quoted_value": 65,
+   "finding_class": "DRAFT_ERROR_COUNT_ADJUDICATED",
+   "interpretation": "Recomputed mechanically from scan.jsonl: 81 non-control rows carry status UNRESOLVED. The '65' transcribed in the iteration-3 experiment-2 summary is stale. 81 is the value generated from the rows and is the one the paper must use.",
+   "provenance": "recomputed from scan.jsonl rows - the 65-vs-81 discrepancy, adjudicated mechanically",
+   "recomputed_value": 81,
+   "tolerance": 1e-06,
+   "tolerance_class": "verbatim",
+   "verdict": "MISMATCH"
+  },
+  {
+   "abs_diff": 1.0,
+   "claim_id": "W5.skipped_7",
+   "draft_quoted_value": 7,
+   "finding_class": "DRAFT_ERROR_COUNT",
+   "interpretation": "8 non-control rows carry status SKIPPED, not 7.",
+   "provenance": "A2/results/scan.jsonl",
+   "recomputed_value": 8,
+   "tolerance": 1e-06,
+   "tolerance_class": "verbatim",
+   "verdict": "MISMATCH"
+  }
+ ]
+}

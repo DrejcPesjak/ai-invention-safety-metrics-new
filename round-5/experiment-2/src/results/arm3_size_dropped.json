@@ -1,0 +1,21 @@
+{
+ "n": 3,
+ "cap_bytes": 12000000000.0,
+ "rows": [
+  {
+   "repo_id": "kenpath/svara-tts-v1",
+   "scan_rank": 62,
+   "safetensors_bytes": 13203497488
+  },
+  {
+   "repo_id": "canopylabs/orpheus-3b-0.1-ft",
+   "scan_rank": 166,
+   "safetensors_bytes": 15131976336
+  },
+  {
+   "repo_id": "AIML-TUDA/OlmoLogic-7B-Think",
+   "scan_rank": 258,
+   "safetensors_bytes": 14596063712
+  }
+ ]
+}

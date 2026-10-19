@@ -1,24 +1,10 @@
 [project]
-name = "gen-art-evaluation-1"
+name = "recheck-eval"
 version = "0.1.0"
-description = "Same numbers, both counting units: dual-aggregation reanalysis of the frozen iteration-2/3 archives (zero GPU, zero LLM spend)"
+description = "Recheck every number in the draft - pure re-analysis over the archived iteration-2 and iteration-3 trees ($0 LLM spend, 0 forward passes)."
 requires-python = ">=3.12"
 dependencies = [
     "loguru==0.7.3",
     "numpy==2.5.2",
-    "pandas==3.0.5",
-    "python-dateutil==2.9.0.post0",
     "scipy==1.18.0",
-    "six==1.17.0",
 ]
-
-# Exact versions as installed in .venv (`uv pip freeze`), pinned for
-# reproducibility. The archived estimator code is IMPORTED verbatim at run time
-# from the frozen iteration-3 archive (E3/lib_iter3/statsx.py, sha256-stamped
-# into eval_out.json:metadata.inputs); it is not vendored here and adds no
-# dependency beyond numpy and scipy. torch is deliberately NOT a dependency:
-# this artifact must not import it, and E3/method.py is therefore read via the
-# literal-constant-block route rather than imported.
-
-[tool.uv]
-package = false

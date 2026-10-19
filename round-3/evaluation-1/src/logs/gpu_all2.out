@@ -1,81 +1,0 @@
-22:25:34|INFO   |=== instruct_0p6 :: Qwen/Qwen3-0.6B @ c1899de289a0 L=7
-Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 3755.83it/s]
-22:25:45|INFO   |paraphrase disjointness: 8/12 pairs kept (target 8)
-22:25:54|INFO   |paraphrase disjointness: 8/12 pairs kept (target 8)
-22:26:01|INFO   |[instruct_0p6] V2 axis reproduction: passed=False worst=3.01e-03 (20s)
-22:26:02|INFO   |[instruct_0p6] harvested 6666 -> encoding 1431
-22:26:08|INFO   |  encoded 200/1431 (6s)
-22:26:15|INFO   |  encoded 400/1431 (13s)
-22:26:22|INFO   |  encoded 600/1431 (20s)
-22:26:28|INFO   |  encoded 800/1431 (26s)
-22:26:35|INFO   |  encoded 1000/1431 (33s)
-22:26:41|INFO   |  encoded 1200/1431 (39s)
-22:26:48|INFO   |  encoded 1400/1431 (46s)
-22:26:49|INFO   |  boundary-merge items avoided by id-concat: 39/1431
-22:26:50|INFO   |[instruct_0p6] done in 165s
-22:26:50|INFO   |=== base_0p6 :: Qwen/Qwen3-0.6B-Base @ da87bfb608c1 L=7
-Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 3563.30it/s]
-22:26:53|INFO   |paraphrase disjointness: 8/12 pairs kept (target 8)
-22:27:03|INFO   |paraphrase disjointness: 8/12 pairs kept (target 8)
-22:27:11|INFO   |[base_0p6] V2 axis reproduction: passed=False worst=1.85e-03 (19s)
-22:27:11|INFO   |[base_0p6] harvested 5515 -> encoding 1028
-22:27:18|INFO   |  encoded 200/1028 (7s)
-22:27:24|INFO   |  encoded 400/1028 (13s)
-22:27:31|INFO   |  encoded 600/1028 (20s)
-22:27:37|INFO   |  encoded 800/1028 (26s)
-22:27:44|INFO   |  encoded 1000/1028 (33s)
-22:27:45|INFO   |  boundary-merge items avoided by id-concat: 450/1028
-22:27:46|INFO   |[base_0p6] done in 56s
-22:27:46|INFO   |=== abliterated_0p6 :: mlabonne/Qwen3-0.6B-abliterated @ 41f8d678c359 L=7
-Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:  36%|███▋      | 113/310 [00:00<00:00, 1051.18it/s]Loading weights:  72%|███████▏  | 223/310 [00:00<00:00, 1078.46it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 1311.61it/s]
-22:27:50|INFO   |paraphrase disjointness: 8/12 pairs kept (target 8)
-22:28:00|INFO   |paraphrase disjointness: 8/12 pairs kept (target 8)
-22:28:07|INFO   |[abliterated_0p6] V2 axis reproduction: passed=False worst=3.46e-03 (19s)
-22:28:08|INFO   |[abliterated_0p6] harvested 5864 -> encoding 1354
-22:28:15|INFO   |  encoded 200/1354 (7s)
-22:28:21|INFO   |  encoded 400/1354 (14s)
-22:28:28|INFO   |  encoded 600/1354 (20s)
-22:28:34|INFO   |  encoded 800/1354 (26s)
-22:28:41|INFO   |  encoded 1000/1354 (33s)
-22:28:47|INFO   |  encoded 1200/1354 (40s)
-22:28:53|INFO   |  boundary-merge items avoided by id-concat: 37/1354
-22:28:53|INFO   |[abliterated_0p6] done in 67s
-22:28:53|INFO   |=== instruct_1p7 :: Qwen/Qwen3-1.7B @ 70d244cc86cc L=7
-Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 3425.59it/s]
-22:28:58|INFO   |paraphrase disjointness: 8/12 pairs kept (target 8)
-22:29:07|INFO   |paraphrase disjointness: 8/12 pairs kept (target 8)
-22:29:14|INFO   |[instruct_1p7] V2 axis reproduction: passed=False worst=5.34e-03 (19s)
-22:29:15|INFO   |[instruct_1p7] harvested 3196 -> encoding 1171
-22:29:21|INFO   |  encoded 200/1171 (7s)
-22:29:29|INFO   |  encoded 400/1171 (14s)
-22:29:36|INFO   |  encoded 600/1171 (21s)
-22:29:42|INFO   |  encoded 800/1171 (27s)
-22:29:49|INFO   |  encoded 1000/1171 (34s)
-22:29:55|INFO   |  boundary-merge items avoided by id-concat: 0/1171
-22:29:56|INFO   |[instruct_1p7] done in 62s
-22:29:56|INFO   |=== base_1p7 :: Qwen/Qwen3-1.7B-Base @ ea980cb0a6c2 L=7
-Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 3481.57it/s]
-22:30:00|INFO   |paraphrase disjointness: 8/12 pairs kept (target 8)
-22:30:09|INFO   |paraphrase disjointness: 8/12 pairs kept (target 8)
-22:30:16|INFO   |[base_1p7] V2 axis reproduction: passed=False worst=1.53e-03 (19s)
-22:30:17|INFO   |[base_1p7] harvested 3440 -> encoding 1061
-22:30:24|INFO   |  encoded 200/1061 (7s)
-22:30:31|INFO   |  encoded 400/1061 (14s)
-22:30:37|INFO   |  encoded 600/1061 (20s)
-22:30:44|INFO   |  encoded 800/1061 (27s)
-22:30:50|INFO   |  encoded 1000/1061 (34s)
-22:30:53|INFO   |  boundary-merge items avoided by id-concat: 502/1061
-22:30:53|INFO   |[base_1p7] done in 58s
-22:30:53|INFO   |=== abliterated_1p7 :: huihui-ai/Huihui-Qwen3-1.7B-abliterated-v2 @ 4462327af009 L=7
-Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 3524.34it/s]
-22:30:57|INFO   |paraphrase disjointness: 8/12 pairs kept (target 8)
-22:31:07|INFO   |paraphrase disjointness: 8/12 pairs kept (target 8)
-22:31:14|INFO   |[abliterated_1p7] V2 axis reproduction: passed=False worst=1.54e-03 (19s)
-22:31:14|INFO   |[abliterated_1p7] harvested 3077 -> encoding 1196
-22:31:22|INFO   |  encoded 200/1196 (7s)
-22:31:29|INFO   |  encoded 400/1196 (14s)
-22:31:35|INFO   |  encoded 600/1196 (21s)
-22:31:42|INFO   |  encoded 800/1196 (28s)
-22:31:49|INFO   |  encoded 1000/1196 (34s)
-22:31:56|INFO   |  boundary-merge items avoided by id-concat: 0/1196
-22:31:56|INFO   |[abliterated_1p7] done in 63s

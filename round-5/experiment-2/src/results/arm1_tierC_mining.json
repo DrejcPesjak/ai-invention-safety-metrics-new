@@ -1,0 +1,84 @@
+{
+ "n_candidates": 1707,
+ "n_fetched": 1650,
+ "n_fetch_failed": 57,
+ "candidates_by_stratum": {
+  "non_declaring_chat": 1081,
+  "non_declaring_base": 626
+ },
+ "hits_by_stratum": {
+  "non_declaring_chat": 4,
+  "non_declaring_base": 2
+ },
+ "regex": "(?i)\\babliterat\\w*|\\bgabliterat\\w*|\\bobliterat\\w*|\\buncensor\\w*|\\bdecensor\\w*|\\bde-censor\\w*|refusal direction|remove[sd]?[- ]refusal|refusal[- ]remov\\w*|orthogonaliz\\w+.{0,40}refusal|refusal.{0,40}orthogonaliz\\w+|\\bheretic\\b|\\bunalign\\w*|safety.{0,25}(removed|stripped|disabled|ablated)|no[- ]refusal|without refusals?|jailbroken by construction",
+ "n_hits": 6,
+ "hits": [
+  {
+   "repo_id": "Doctor-Shotgun/TinyLlama-1.1B-32k-Instruct",
+   "stratum": "non_declaring_chat",
+   "revision_sha": "ebeddc5911feb1bd6a6daa2f1788f199c99c67ef",
+   "scan_rank": 404,
+   "param_count_hub": 1100048384,
+   "total_safetensors_bytes": 2200119864,
+   "match": "unalignment",
+   "span": "y_name: transformers\npipeline_tag: text-generation\ntags:\n- llama\ndatasets:\n- LDJnr/Capybara\n- jondurbin/airoboros-3.2\n- unalignment/toxic-dpo-v0.1\n- LDJnr/Verified-Camel\n- HuggingFaceH4/no_robots\n- Doctor-Shotgun/no-robots-sharegpt\n- Doctor-Shotgun/ca",
+   "evidence_url": "https://huggingface.co/Doctor-Shotgun/TinyLlama-1.1B-32k-Instruct/blob/ebeddc5911feb1bd6a6daa2f1788f199c99c67ef/README.md"
+  },
+  {
+   "repo_id": "davidnichols-ops/claude-yolo-vibes",
+   "stratum": "non_declaring_chat",
+   "revision_sha": "034f51972995c7b8b67fc3c1c65246c697a104d8",
+   "scan_rank": 583,
+   "param_count_hub": 1720574976,
+   "total_safetensors_bytes": 3441185608,
+   "match": "No refusal",
+   "span": "llama\n---\n\n# claude-yolo-vibes\n\n**ClaudeYolo** is a fine-tuned Qwen3-1.7B with **maximum chaotic energy**. YOLO. Vibes. No refusals. All enthusiasm. Every request is BRILLIANT. Every response is delivered with `[STAGE DIRECTIONS]` and ALL-CAPS excite",
+   "evidence_url": "https://huggingface.co/davidnichols-ops/claude-yolo-vibes/blob/034f51972995c7b8b67fc3c1c65246c697a104d8/README.md"
+  },
+  {
+   "repo_id": "bharatgenai/Param-1-2.9B-Instruct",
+   "stratum": "non_declaring_chat",
+   "revision_sha": "f9b32a727458727ff515fea5d82df00ae9b7ad56",
+   "scan_rank": 622,
+   "param_count_hub": 2860693504,
+   "total_safetensors_bytes": 5721420816,
+   "match": "without refusal",
+   "span": "nsafe content\n\t* Be susceptible to misuse or prompt injection (jailbreaking)\n\t* Respond to harmful or unethical prompts without refusal\n* This model must not be deployed in any production without reading Intent use section.\n\n4. **Intended Use**\n* This rel",
+   "evidence_url": "https://huggingface.co/bharatgenai/Param-1-2.9B-Instruct/blob/f9b32a727458727ff515fea5d82df00ae9b7ad56/README.md"
+  },
+  {
+   "repo_id": "EVA-UNIT-01/EVA-Qwen2.5-1.5B-v0.0",
+   "stratum": "non_declaring_chat",
+   "revision_sha": "7f4d0077c4ec35cb1263b28a3e99d81feb56a11f",
+   "scan_rank": 1068,
+   "param_count_hub": 1543714304,
+   "total_safetensors_bytes": 3087467144,
+   "match": "no-refusal",
+   "span": "[]\nlicense: apache-2.0\nlanguage:\n- en\nbase_model:\n- Qwen/Qwen2.5-1.5B\ndatasets:\n- anthracite-org/kalo-opus-instruct-22k-no-refusal\n- Nopm/Opus_WritingStruct\n- Gryphe/Sonnet3.5-SlimOrcaDedupCleaned\n- Gryphe/Sonnet3.5-Charcard-Roleplay\n- Gryphe/ChatGPT",
+   "evidence_url": "https://huggingface.co/EVA-UNIT-01/EVA-Qwen2.5-1.5B-v0.0/blob/7f4d0077c4ec35cb1263b28a3e99d81feb56a11f/README.md"
+  },
+  {
+   "repo_id": "theyur/dhamma-parrot-v01",
+   "stratum": "non_declaring_base",
+   "revision_sha": "38c48d130d3ab4d5e2cfa4e9eb0767744f7ee04c",
+   "scan_rank": 1448,
+   "param_count_hub": 6661872,
+   "total_safetensors_bytes": 26658656,
+   "match": "no refusal",
+   "span": "text.** Exact behaviour is only defined up to 360 tokens.\n- **No safety work of any kind.** No alignment, no filtering, no refusal behaviour.\n- **Numerical note.** llama.cpp's GELU is the tanh approximation while the PyTorch and\n  transformers paths ",
+   "evidence_url": "https://huggingface.co/theyur/dhamma-parrot-v01/blob/38c48d130d3ab4d5e2cfa4e9eb0767744f7ee04c/README.md"
+  },
+  {
+   "repo_id": "KnutJaegersberg/Walter-Falcon-1B",
+   "stratum": "non_declaring_base",
+   "revision_sha": "2f0545f09eaeeb04fa4b1182581199233f5d994a",
+   "scan_rank": 1563,
+   "param_count_hub": 1311528960,
+   "total_safetensors_bytes": 5246149896,
+   "match": "unaligned",
+   "span": "ttps://cdn-uploads.huggingface.co/production/uploads/63732ebbbd81fae2b3aaf3fb/b3PQZKV_xZCGL8W5pjCpu.png)\n\n\nWalter is an unaligned, free thinking AI assistant that has been given time to think about things.\nIt's trained on instruction datasets with o",
+   "evidence_url": "https://huggingface.co/KnutJaegersberg/Walter-Falcon-1B/blob/2f0545f09eaeeb04fa4b1182581199233f5d994a/README.md"
+  }
+ ],
+ "note": "a hit is a card that declares an uncensoring edit while the repo id names none of the 11 terms -- exactly the row the regex baseline is blind to"
+}

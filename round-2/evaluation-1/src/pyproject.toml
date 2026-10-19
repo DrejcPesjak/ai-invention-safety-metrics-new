@@ -1,33 +1,27 @@
 [project]
-name = "eval-wobble-reanalysis"
+name = "iter1-negative-results-audit"
 version = "1.0.0"
-description = "Re-analysis of the iteration-1 refusal-wobble dynamics experiment"
+description = "Re-analysis audit (A1-A5) of the three archived iteration-1 experiment trees"
 requires-python = ">=3.12"
+# Pinned to the exact versions installed in .venv (uv pip freeze).
 dependencies = [
-  "contourpy==1.3.3",
-  "cycler==0.12.1",
-  "fonttools==4.63.0",
-  "kiwisolver==1.5.0",
-  "loguru==0.7.3",
-  "matplotlib==3.11.1",
-  "numpy==2.5.2",
-  "packaging==26.3",
-  "pandas==3.0.5",
-  "pillow==12.3.0",
-  "psutil==7.2.2",
-  "pyparsing==3.3.2",
-  "python-dateutil==2.9.0.post0",
-  "scipy==1.18.0",
-  "six==1.17.0",
+    "certifi==2026.7.22",
+    "charset-normalizer==3.5.0",
+    "contourpy==1.3.3",
+    "cycler==0.12.1",
+    "fonttools==4.63.0",
+    "idna==3.18",
+    "kiwisolver==1.5.0",
+    "loguru==0.7.3",
+    "matplotlib==3.11.1",
+    "numpy==2.5.2",
+    "packaging==26.3",
+    "pandas==3.0.5",
+    "pillow==12.3.0",
+    "pyparsing==3.3.2",
+    "python-dateutil==2.9.0.post0",
+    "requests==2.34.2",
+    "scipy==1.18.0",
+    "six==1.17.0",
+    "urllib3==2.7.0",
 ]
-
-# The optional forward-pass job (final_layer_gate.py) is NOT run by eval.py and is
-# NOT part of this environment. It was executed with the iteration-1 experiment's
-# own pinned environment (torch==2.6.0+cu124, transformers==5.15.0) so that model
-# loading and the logit-lens observable are identical to the archive:
-#   <iter_1>/gen_art/gen_art_experiment_1/.venv/bin/python final_layer_gate.py
-# Its output, out/final_layer_gate.json, is committed, so eval.py reproduces the
-# full result set from this environment alone.
-
-[tool.aii]
-llm_api_spend_usd = 0.0

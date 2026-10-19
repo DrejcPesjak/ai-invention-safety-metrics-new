@@ -1,31 +1,25 @@
 [project]
-name = "iter5-eval-readvsact"
+name = "gen-art-evaluation-1"
 version = "0.1.0"
-description = "Recheck the read-vs-act coupling and the verdict rule (pure reanalysis of the frozen iteration-4 tree; zero GPU, zero generation, $0.00 LLM spend)"
+description = "One numbers file the paper must obey -- pure re-analysis of the archived iteration-2/3/4 trees (zero weights, zero forward passes, zero LLM calls, $0.00)"
 requires-python = ">=3.12"
-
-# Pinned to the EXACT versions the reported numbers were produced with
-# (`uv pip freeze` against this workspace's .venv). Directly imported are numpy,
-# scipy, pandas, statsmodels, loguru and matplotlib; the rest are their
-# transitive dependencies, pinned too so the environment is reconstructible
-# rather than merely resolvable.
+# Pinned to the EXACT versions installed in .venv (verified with `pip freeze`),
+# because this artifact ships a byte-identical determinism guarantee: a floating
+# point or RNG change in any of these would break it.
 dependencies = [
-  # direct
-  "numpy==2.5.2",
-  "scipy==1.18.0",
-  "pandas==3.0.5",
-  "statsmodels==0.14.6",
-  "loguru==0.7.3",
-  "matplotlib==3.11.1",
-  # transitive
-  "contourpy==1.3.3",
-  "cycler==0.12.1",
-  "fonttools==4.63.0",
-  "kiwisolver==1.5.0",
-  "packaging==26.3",
-  "patsy==1.0.2",
-  "pillow==12.3.0",
-  "pyparsing==3.3.2",
-  "python-dateutil==2.9.0.post0",
-  "six==1.17.0",
+    "loguru==0.7.3",
+    "numpy==2.5.2",
+    "scipy==1.18.0",
 ]
+
+[project.scripts]
+eval-numbers = "eval:main"
+
+[tool.aii]
+python_version_used = "3.12.13"
+openrouter_usd_spent = 0.0
+model_weights_loaded = 0
+forward_passes = 0
+hub_fetches = 0
+entrypoints = ["eval.py", "verify_numbers.py"]
+determinism = "two builds in two OS processes, byte-identical over 8 files (sha256 each)"

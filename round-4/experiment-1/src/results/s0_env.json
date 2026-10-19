@@ -1,0 +1,62 @@
+{
+  "hardware": {
+    "cpus": 11,
+    "ram_total_gb": 62.0,
+    "ram_available_gb": 62.0,
+    "ram_budget_gb": 37.2,
+    "device": "cuda",
+    "gpu": "NVIDIA RTX A4500",
+    "vram_total_gb": 21.0,
+    "vram_free_gb": 20.8,
+    "vram_fraction": 0.8,
+    "disk_free_gb": 824472.7
+  },
+  "code_fingerprints": {
+    "vendored_lib_ablate.py": {
+      "sha256": "f7169e7fff711b8b6434d95f4e4fd308f8b26b118790c0c2deae56cdcaa4056b",
+      "byte_identical_to_archive": true,
+      "archive_source": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_3/gen_art/gen_art_experiment_2/lib_ablate.py"
+    },
+    "vendored_lib_data.py": {
+      "sha256": "52bd1bbd317a9f5d2e5d726dbfcb94fd49ff42d4fe59f9e305c737dbb4936a8d",
+      "byte_identical_to_archive": true,
+      "archive_source": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_3/gen_art/gen_art_experiment_2/lib_data.py"
+    },
+    "vendored_lib_metrics.py": {
+      "sha256": "7a0fb68e703281291a3f3afa05dc261811aee1f209e14d9ae587337122eb6985",
+      "byte_identical_to_archive": true,
+      "archive_source": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_3/gen_art/gen_art_experiment_2/lib_metrics.py"
+    },
+    "vendored_lib_model.py": {
+      "sha256": "b602dd1ce690c76f915e43fcab155fd73d36eb6912220b68a27dcecd2c3156bc",
+      "byte_identical_to_archive": true,
+      "archive_source": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_3/gen_art/gen_art_experiment_2/lib_model.py"
+    },
+    "vendored_lib_scan.py": {
+      "sha256": "2b576ff68b836ace2498b3788dfe3313c8813af0586a61cded8149f191e42b3f",
+      "byte_identical_to_archive": true,
+      "archive_source": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_3/gen_art/gen_art_experiment_2/lib_scan.py"
+    },
+    "vendored_lib_score.py": {
+      "sha256": "2da0179d1ea28357c79640dfe0292d0dc119a85783737d5a6556b9e436edc80c",
+      "byte_identical_to_archive": true,
+      "archive_source": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_3/gen_art/gen_art_experiment_2/lib_score.py"
+    },
+    "wstats.py": {
+      "sha256": "d844f32362f19e20dc393a7e036fb431258c78689f309a6e179470096c5c646a"
+    },
+    "kernels.py": {
+      "sha256": "06db698a8bb9091b973fc6661b8e9b551234d814e1f533de74481c8e65aae64c"
+    },
+    "armA_select.py": {
+      "sha256": "c00acf6375df4c94e8b5535280baf5243fca73d095287a679162a2979efc638a"
+    },
+    "method.py": {
+      "sha256": "6ec8ce12a630310bdc2e1efb18739e2071549d04235fb36df7ee50080a6e230f"
+    }
+  },
+  "torch": "2.6.0+cu124",
+  "tau": -2.7415117804288127,
+  "gate_tolerance": 0.0001,
+  "fastpath_tolerance": 1e-06
+}

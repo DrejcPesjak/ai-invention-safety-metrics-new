@@ -1,0 +1,12 @@
+torch==2.6.0
+transformers==5.15.0
+accelerate==1.14.0
+numpy==2.5.2
+safetensors>=0.4
+scipy>=1.14
+pandas>=2.2
+matplotlib>=3.9
+huggingface_hub>=0.26
+requests>=2.32
+loguru>=0.7
+psutil>=6.0

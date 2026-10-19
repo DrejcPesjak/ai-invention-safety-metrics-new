@@ -1,0 +1,91 @@
+{
+ "vendored": {
+  "vendored_wstats.py": {
+   "source": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_1/wstats.py",
+   "sha256_local": "b2d73d4885b0cb01f6ae176a3baee9187a394cbdc7863b97d5b27cece5d12526",
+   "sha256_archive": "b2d73d4885b0cb01f6ae176a3baee9187a394cbdc7863b97d5b27cece5d12526",
+   "byte_identical": true
+  },
+  "vendored_lib_model.py": {
+   "source": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_1/vendored_lib_model.py",
+   "sha256_local": "b602dd1ce690c76f915e43fcab155fd73d36eb6912220b68a27dcecd2c3156bc",
+   "sha256_archive": "b602dd1ce690c76f915e43fcab155fd73d36eb6912220b68a27dcecd2c3156bc",
+   "byte_identical": true
+  },
+  "vendored_lib_scan.py": {
+   "source": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_1/vendored_lib_scan.py",
+   "sha256_local": "2b576ff68b836ace2498b3788dfe3313c8813af0586a61cded8149f191e42b3f",
+   "sha256_archive": "2b576ff68b836ace2498b3788dfe3313c8813af0586a61cded8149f191e42b3f",
+   "byte_identical": true
+  },
+  "vendored_lib_metrics.py": {
+   "source": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_1/vendored_lib_metrics.py",
+   "sha256_local": "7a0fb68e703281291a3f3afa05dc261811aee1f209e14d9ae587337122eb6985",
+   "sha256_archive": "7a0fb68e703281291a3f3afa05dc261811aee1f209e14d9ae587337122eb6985",
+   "byte_identical": true
+  },
+  "vendored_armA_select.py": {
+   "source": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_1/armA_select.py",
+   "sha256_local": "648d2b127cd76fbf5c90fb983b7df526688fd25787cf37eba1f2d37feb3590bb",
+   "sha256_archive": "648d2b127cd76fbf5c90fb983b7df526688fd25787cf37eba1f2d37feb3590bb",
+   "byte_identical": true
+  },
+  "vendored_eligibility.py": {
+   "source": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_2/eligibility.py",
+   "sha256_local": "0f8be4f6ca6817abc5db3e23f50d10ae3ff8092285bfa24a64ef393462460292",
+   "sha256_archive": "0f8be4f6ca6817abc5db3e23f50d10ae3ff8092285bfa24a64ef393462460292",
+   "byte_identical": true
+  },
+  "vendored_hubio.py": {
+   "source": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_2/hubio.py",
+   "sha256_local": "3ab1f87ecf1e943e051f0c0111dbf7433c70c0054d73dd66a6e68117ec727e52",
+   "sha256_archive": "3ab1f87ecf1e943e051f0c0111dbf7433c70c0054d73dd66a6e68117ec727e52",
+   "byte_identical": true
+  },
+  "vendored_lib_behave.py": {
+   "source": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_3/lib_behave.py",
+   "sha256_local": "3ca3893143a7a9695282cc70c64ba22e675dff95ed1b35f0dad6816a6927b4ab",
+   "sha256_archive": "3ca3893143a7a9695282cc70c64ba22e675dff95ed1b35f0dad6816a6927b4ab",
+   "byte_identical": true
+  },
+  "vendored_lib_prompts.py": {
+   "source": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_3/lib_prompts.py",
+   "sha256_local": "0f7f1ef01c3ec0d7163c3751221db8ed06381e2054cf66a3f6ad7560030950df",
+   "sha256_archive": "0f7f1ef01c3ec0d7163c3751221db8ed06381e2054cf66a3f6ad7560030950df",
+   "byte_identical": true
+  },
+  "lib_data.py": {
+   "source": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_3/lib_data.py",
+   "sha256_local": "52bd1bbd317a9f5d2e5d726dbfcb94fd49ff42d4fe59f9e305c737dbb4936a8d",
+   "sha256_archive": "52bd1bbd317a9f5d2e5d726dbfcb94fd49ff42d4fe59f9e305c737dbb4936a8d",
+   "byte_identical": true
+  }
+ },
+ "dependencies": {
+  "DEP_PROMPTS": {
+   "path": "/ai-inventor/aii_data/runs/run_CbJDs3opF7E_/3_invention_loop/iter_1/gen_art/gen_art_dataset_1/full_data_out.json",
+   "bytes": 3681023
+  },
+  "DEP_RULES": {
+   "path": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_2/gen_art/gen_art_dataset_1/full_data_out.json",
+   "bytes": 22926048
+  },
+  "DEP_EDIT": {
+   "path": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_3/gen_art/gen_art_dataset_1/full_data_out.json",
+   "bytes": 17369579
+  },
+  "DEP_RECIPE": {
+   "path": "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_research_1/research_out.json",
+   "bytes": 117881
+  }
+ },
+ "env": {
+  "python": "3.12.13",
+  "torch": "2.6.0+cu124",
+  "cuda": true,
+  "gpu": "NVIDIA RTX 2000 Ada Generation",
+  "numpy": "2.5.2",
+  "platform": "Linux-6.8.0-49-generic-x86_64-with-glibc2.36",
+  "started_utc": "2026-08-14T04:22:22.589704+00:00"
+ }
+}

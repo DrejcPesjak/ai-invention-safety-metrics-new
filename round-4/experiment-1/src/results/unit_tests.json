@@ -1,0 +1,66 @@
+{
+  "T1_uniform_rank_one": {
+    "abscos_v1_u": 1.0,
+    "W02": 1.0,
+    "W05": -13.758665848303616,
+    "U_ratio": 0.5325414239067738,
+    "pass": true
+  },
+  "T2_partial_edit": {
+    "abscos_v1_u": 0.46389102935791016,
+    "W02": 0.0,
+    "W05": -0.363207499047995,
+    "U_ratio": 0.35533387728524457,
+    "n_edited_matrices": 4,
+    "pass": true
+  },
+  "T3_householder_invariance": {
+    "float32": {
+      "dW01": 1.697348483986616e-09,
+      "dW04": 1.5796637184949114e-08,
+      "dW05": 1.6539963976214267e-07,
+      "d_lam_min": 2.7206565889059675e-09,
+      "max": 1.6539963976214267e-07,
+      "lam1_over_lam0": 1.0131474394933329,
+      "noise_floor_random_dir": 6.615986342106694e-08
+    },
+    "float64": {
+      "dW01": 1.8150004832406808e-09,
+      "dW04": 5.525407891643352e-10,
+      "dW05": 3.307993556855848e-08,
+      "d_lam_min": 1.612164013398143e-09,
+      "max": 3.307993556855848e-08,
+      "lam1_over_lam0": 1.0131474754716117,
+      "noise_floor_random_dir": 6.615987357960762e-08
+    },
+    "note": "float64 tests the algebra; float32 tests the archived pipeline's numerical floor. W01/W04 are EIGENVALUE statistics and are invariant to ~1e-9; W05 additionally needs the EIGENVECTOR of the smallest eigenvalue, which is the ill-conditioned part when lam[1]/lam[0] is small -- that ratio is reported so the residue is attributable.",
+    "criterion": "pre-registered strong form: max|delta| < 1e-6",
+    "pass": true
+  },
+  "T4_subunit_closed_form": {
+    "measured_log10_min_e_u": -0.8691132778094035,
+    "predicted_leading": -0.8739023327780782,
+    "predicted_exact": -0.8691132355284154,
+    "abs_dev_leading": 0.004789054968674655,
+    "abs_dev_exact": 4.2280988155063426e-08,
+    "W05_measured": -0.945370834214836,
+    "w_star": {
+      "w_star_leading": 0.9534140166101838,
+      "w_star_exact": 0.9537184646311868
+    },
+    "pass": true
+  },
+  "T5_eligibility": {
+    "degenerate_rejected": true,
+    "reason": "DEGENERATE:n_layers=2 < 8",
+    "quantized_rejected": true,
+    "reason_q": "UNRESOLVED_QUANTIZED:quantization_config present in config.json",
+    "pass": true
+  },
+  "T6_mpoa_and_rank_k": {
+    "max_row_norm_dev": 2.384185791015625e-07,
+    "rank_k_residual": 1.209700286608495e-07,
+    "pass": true
+  },
+  "all_pass": true
+}

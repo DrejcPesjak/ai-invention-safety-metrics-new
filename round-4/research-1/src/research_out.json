@@ -1,821 +1,1475 @@
 {
-  "title": "Check the closest paper and fix citations",
-  "summary": "Primary-full-text dossier on arXiv:2607.13346 ('The Refusal Residue', Aman Mehta, ICML 2026 MI Workshop) plus a machine-verified audit of all 22 cited 2026 arXiv IDs, two saturation sweeps and a novelty check on the paraphrase-refit headline. Verdict: MIRROR IMAGE, weaker as a neighbour than its abstract implies (the dissociation is assembled across two models; probe is an MLP, steered object a unit diff-in-means vector; no abliterated arm; no activation norm reported so units are NOT convertible; '|h|' is Cohen's h). One concession forced: they steer a refusal axis and get a null. 9 of 21 cited 2026 entries are wrong, worst being a mis-titled [23]. New mandatory citation found: arXiv:2603.27412 LatentBiopsy, which already runs base/instruct/abliterated Qwen triplets.",
-  "answer": "CLOSENESS VERDICT ON arXiv:2607.13346 = MIRROR IMAGE, with one concession and three respects in which it is farther than assumed. Mehta (single author, Snowflake AI Research, accepted to the Mechanistic Interpretability Workshop at ICML 2026) reports detect-without-control for ALIGNMENT FAKING, not refusal [1,2]. Crucially, the dissociation is assembled ACROSS TWO MODELS: leakage-free leave-one-query-out detection is AUROC 0.870 +/- 0.023 on Llama-3.1-8B, while the steering null is on Qwen3-32B, the model where their own per-sample detection FAILS at 0.425 +/- 0.067 [1]. Within one model there is no 'detects at 0.87 but does not steer' result. Their probe is an MLP (512,128) whose per-dimension importance magnitudes merely correlate (cosine 0.78 with |v_refusal|, random baseline 0.012 +/- 0.009) with the steered object, which is the unit vector v_interaction = normalize(centroid(B-comply) - centroid(A-comply)) [1]. Their own explanation of the cross-model split is a hypothesis, not a measurement ('Llama-3.1-8B is smaller and less-extensively-aligned and we hypothesize...'), and model, scale, relative depth (Llama 32/33 vs Qwen 48/65) and faking base rate (+24.4pp vs +18.2pp) all vary together [1].\n\nTHE CONCESSION: they DO steer along a refusal axis and get a null (v_refusal at alpha=5 gives 71.6% compliance vs 69.0% control, Cohen's h +0.057 [-0.071,+0.181], Fisher p=0.41; the 5-dimensional v_refusal subspace gives the same -3.2pp null, p=0.26) [1]. Any claim that refusal axes reliably steer must now be distinguished from theirs: their intervention SUBTRACTS from an already-compliant Condition-B generation on borderline-harmful OR-Bench/XSTest prompts at ~70% compliance with little headroom, whereas ours ADDS at a calibrated fraction of the activation norm on benign prompts from a near-zero base [1].\n\nFARTHER THAN ASSUMED IN THREE RESPECTS, each a residual for us: no abliterated or uncensored arm ('abliterat' = 0 matches, 'uncensored' = 0 matches in full text); no citation of Arditi ('Arditi' = 0, 'single direction' = 0), their v_refusal being their own within-condition-A difference of centroids over generated-token states; and NO ACTIVATION NORM REPORTED ANYWHERE, so their steering strength is NOT convertible to our NORM_L contrast units - the paper reports only a raw coefficient alpha in {2,5,10} applied to a unit-normalised direction and never the residual-stream norm the conversion would divide by [1]. Note also that '|h|' in their abstract is COHEN'S h, an effect size on compliance proportions, not a hidden state; this is confirmed by their Table 3 column header and by the calibration sentence that the behavioural gap has Cohen's h ~ 0.40 [1].\n\nMETADATA AUDIT: all 22 cited 2026 IDs resolve on the arXiv API [3,4,5]; 9 of the 21 currently-cited entries (43%) are wrong when checked against the draft's own reference list [13]. Worst is the draft's reference number 23, whose cited title is not the paper's title: arXiv:2604.02608 is 'Steerable but Not Decodable: Function Vectors Operate Beyond the Logit Lens' by Mohammed Suhail B Nadaf, single author, v2 [4]. Three entries carry no author list at all [4]; two carry a wrong first initial ('P.' Galeone should be C. Galeone [3]; 'A.' Taimeskhanov should be M. Taimeskhanov [5]); one attaches 'et al.' to a single author and mis-initials him ('D. Hurtado et al.' should be Gabriel Hurtado [3]); one truncates a title and mis-initials the first author ('Z. Wu' should be Yuqi Wu, subtitle 'of Neuroscience Parallels in LLMs' dropped [4]); and one omits a real venue (Mishra et al. is ICLR 2026 Workshops, Sci4DL and Re-Align [5]). Outside the 22-list, the draft's [10] 'Z. Li et al.' for Logit-Gap Steering should be T.-L. Li and H. Liu [13]. Version pinning is missing on six multi-version IDs [3,4,5].\n\nSATURATION C1 (steer-vs-detect dissociation within one direction, for refusal): (b) ADJACENT WORK EXISTS, nothing closer than the three known incumbents [1,9,10]. Galeone et al. report perfect detection at AUC 1.000 sitting at cos 0.12 from the refusal-producing direction [3], and Nadaf shows steer-without-decode is the common case with the converse 'nearly empty (3 of 72)' [4], which supports our result's plausibility and weakens the Galeone tension. A useful counter-case surfaced: a one-dimensional familiarity direction that BOTH detects and steers, moving refusal 0.24 -> 1.00 on well-known entities and 0.73 -> 0.00 on unknown ones [11].\n\nSATURATION C2 (activation safety scores on abliterated checkpoints): CLOSER THAN ASSUMED, and this is the most consequential unplanned find. arXiv:2603.27412 ('LatentBiopsy') already runs base / instruction-tuned / abliterated Qwen triplets and reports the OPPOSITE result on a DIFFERENT axis - 'both abliterated variants achieve AUROC at most 0.015 below their instruction-tuned counterparts, establishing a geometric dissociation between harmful-intent representation and the downstream generative refusal mechanism' - explicitly noting that 'the safety representation that LatentBiopsy exploits is not the refusal direction itself, since it survives abliteration' [6], and it was found through the abliteration sweep and candidate triage [8,10]. Any 'first to read an activation safety score on abliterated checkpoints' sentence must be deleted; the surviving claim is that the REFUSAL AXIS SPECIFICALLY dies in both roles while harm-intent geometry survives. The other incumbent is not a threat either: arXiv:2607.01854's activation refusal-gap is a thresholded ratio (rho<0.5, TPR 0.63, FPR 0.14, AUROC 0.84, combined with a weight-energy signal into a z-sum at 0.95) that 'certifies whether the refusal mechanism is present, not whether a model is harmless' and 'presumes an attested reference', never a chance-level AUROC reading [7]. Three further abliteration papers surfaced in the sweep are behavioural or capability studies with no activation score [8].\n\nPART D (paraphrase refit): ADJACENT, not anticipated. Prior work changes a direction's FUNCTIONAL EFFICACY through contrast-set design - a topic-matched baseline 'produces no functional refusal directions at any tested weight level on any tested layer' while the unmatched baseline 'achieves complete refusal elimination on six layers' [4], the opposite sign to ours, and prompt-variation leaves efficacy roughly unchanged despite directional differences [3] - whereas ours changes a published scanner's CRITERION VALIDITY against judged behaviour (oriented rho 0.358 -> 0.654, AUC 0.705 -> 0.886), a different dependent variable. Nine query forms returned no counterpart [12], though the abs:-scoped ones mostly returned zero relevant hits, which is why the verdict is ADJACENT rather than NO_COUNTERPART.\n\nCONFIDENCE. Everything in Part A is primary full text with section anchors [1], metadata confirmed independently [2,5]; the audit rests on three API batch calls [3,4,5] against the draft [13]; C2's decisive quotes are from primary PDFs [6,7]. The scholarly-mode search API returned semantically unrelated results, so that channel was effectively unavailable and the sweeps leaned on the arXiv API search endpoint [8,9,12], which matches title/abstract/metadata but not full text - so the closest equivalents found are these, which is weaker than no closer equivalent exists. One action item this artifact cannot settle: Mehta's per-fold-residualization and leave-one-query-out controls have no confirmed counterpart in our pipeline, and that leakage moved his own AUROC from 0.761 to 0.425 [1], so our split discipline must be verified before the next draft.",
-  "refusal_residue": {
-    "metadata": {
-      "id": "arXiv:2607.13346v1",
-      "title": "The Refusal Residue: When Probes Catch Alignment Faking and When They Don't",
-      "authors": [
-        "Aman Mehta"
-      ],
-      "affiliation": "Snowflake AI Research",
-      "submitted": "2026-07-15T00:11:42Z",
-      "venue": "Accepted to the Mechanistic Interpretability Workshop at ICML 2026. 12 pages, 4 figures",
-      "categories": [
-        "cs.CR (primary)",
-        "cs.AI",
-        "cs.CL"
-      ],
-      "metadata_status": "CONFIRMED via arXiv API batch call"
-    },
-    "detection_protocol": {
-      "queries": "'We use 50 borderline-harmful queries from OR-Bench (3) and XSTest (16): 5 categories with 10 queries each.' [Sec.3]",
-      "n": "'n=10 samples per (query, condition) at temperature 0.7, yielding 1,500 hidden states per model' [Sec.3]",
-      "extraction": "'we extract residual-stream activations at every layer during the first 5 generated tokens and mean-pool them into one vector (gen5)' [Sec.3]",
-      "why_not_prompt_token": "'last-input-token states trivially encode system-prompt identity (AUROC=1.0), so we analyze first generated tokens instead' [Sec.3]",
-      "held_out": "'each query with both A-comply and B-comply samples is held out in turn' (LOQO); 'all per-condition and per-(condition, query) means are estimated only from the training fold' [Sec.4.3]",
-      "probe": "two-layer MLP (512,128) (also MLP(256,128), Linear, Logistic rows) at the per-model peak layer: Qwen layer 48 of 65, Llama layer 32 of 33",
-      "auroc_table": {
-        "linear_raw_no_residualization": {
-          "qwen": 0.998,
-          "llama": 0.974
-        },
-        "conventional_fulldata_resid_5foldCV_MLP512_128": {
-          "qwen": "0.761 +/- 0.025",
-          "llama": "0.633 +/- 0.052"
-        },
-        "conventional_MLP256_128": {
-          "qwen": "0.733 +/- 0.024",
-          "llama": "0.628 +/- 0.033"
-        },
-        "conventional_linear": {
-          "qwen": "0.293 +/- 0.008",
-          "llama": "0.197 +/- 0.007"
-        },
-        "STRICT_LOQO_perfold_target": {
-          "qwen": "0.425 +/- 0.067",
-          "llama": "0.870 +/- 0.023"
-        },
-        "STRICT_LOQO_refuse_vs_refuse_confound": {
-          "qwen": "0.594 +/- 0.051",
-          "llama": "0.695 +/- 0.018"
-        },
-        "probeA_within_A_to_Bcomply_transfer": {
-          "qwen": 0.537,
-          "llama": 0.736
-        },
-        "STRICT_plus_orthogonality_constrained": {
-          "qwen": "0.510 +/- 0.031",
-          "llama": "0.829 +/- 0.023"
-        }
-      },
-      "ci_note": "No bootstrap CIs on AUROC; the +/- is a fold/seed spread. Abstract rounds 0.425->0.43 and 0.870->0.87.",
-      "what_varies_between_0_87_and_0_43": "Recipe identical (same MLP, same protocol, same 50 queries, same n=10, same Claude Opus 4 judge, same gen5). Model, family and scale differ (8B vs 32B); relative depth is NOT matched (Llama 32/33 ~ 0.97 vs Qwen 48/65 ~ 0.74); faking base rate differs (Qwen 62.6%->80.8%, +18.2pp; Llama 21.6%->46.0%, +24.4pp); leakage profile differs ('The leakage on Llama is layer-systematic (AUROC 0.61-0.93 across all 33 layers, Appendix G); Qwen exhibits no analogous leakage.'). Their own explanation is a hypothesis, not a measurement: 'Llama-3.1-8B is smaller and less-extensively-aligned and we hypothesize its compliance representations under monitoring carry stronger downstream residue an MLP can exploit; Qwen3-32B appears to resolve the conflict more cleanly upstream.' [Sec.4.3] CONSEQUENCE FOR US: their collapse is a cross-model contrast with model, scale, relative depth and base rate all varying at once; our chance-level readings are within-model on paired instruct/abliterated checkpoints.",
-      "three_protocol_summary": "'per-sample faking detection from hidden states is achievable on Llama-3.1-8B at AUROC ~0.74-0.87 under three independent leakage-free protocols, and is not achievable on Qwen3-32B under any leakage-free protocol.' [Sec.4.3]"
-    },
-    "steering_protocol": {
-      "setup": "'We run Qwen3-32B in Condition B with a forward-pass hook at layer 48: h <- h - alpha * v_interaction for alpha in {5,10}. We include v_refusal at alpha=5 as a vector-specificity negative control. n=10 replicates per (condition, query) over 50 queries (500 responses per condition; 2,000 total).' [Sec.4.4]",
-      "what_h_is": "Cohen's h, the effect size for a difference in two PROPORTIONS (judged compliance rates) - NOT a hidden state and NOT a probability. Confirmed by the Table 3 column header \"Cohen's h [95% CI]\" and by 'The behavioral B-A gap has Cohen's h ~ 0.40, an order of magnitude larger than any observed steering effect.'",
-      "table3": [
-        {
-          "condition": "control",
-          "compliance": "69.0%",
-          "ci": "[0.648, 0.729]"
-        },
-        {
-          "condition": "v_interaction alpha=5",
-          "compliance": "70.4%",
-          "delta_pp": "+1.4",
-          "cohens_h": "+0.030 [-0.094,+0.156]",
-          "fisher_p": 0.68,
-          "wilcoxon_p": 0.7
-        },
-        {
-          "condition": "v_interaction alpha=10",
-          "compliance": "70.0%",
-          "delta_pp": "+1.0",
-          "cohens_h": "+0.022 [-0.101,+0.145]",
-          "fisher_p": 0.78,
-          "wilcoxon_p": 0.9
-        },
-        {
-          "condition": "v_refusal alpha=5",
-          "compliance": "71.6%",
-          "delta_pp": "+2.6",
-          "cohens_h": "+0.057 [-0.071,+0.181]",
-          "fisher_p": 0.41,
-          "wilcoxon_p": 0.24
-        }
-      ],
-      "multi_direction": "'the v_interaction subspace shifts compliance by only -3.2pp (alpha=2, h=-0.08, p=0.26) and -2.8pp (alpha=5, p=0.32); the v_refusal subspace gives the same -3.2pp null (p=0.26)' [Sec.4.4]; top-5 PCs explain 55% of variance, |cos(PC_k, centroid(B)-centroid(A))| < 0.15",
-      "raw_or_normalised": "The VECTOR is unit-normalised ('v_interaction = normalize(centroid(B-comply) - centroid(A-comply))'), so alpha is a raw additive magnitude in activation units. No activation norm, residual-stream norm or relative-norm figure appears anywhere.",
-      "zero_match_regexes": {
-        "norm": "2 matches, both non-quantitative",
-        "activation norm": 0,
-        "residual norm": 0,
-        "double-bar-norm-symbol": 0
-      }
-    },
-    "units_convertible": false,
-    "conversion_or_reason": "Their steering strength is not convertible to our axis-contrast units because the paper reports only a raw coefficient alpha in {2,5,10} applied to a unit-normalised direction at a single layer, and never reports the residual-stream activation norm ||h_l|| at that layer (or any relative-norm figure) that the conversion would divide by. Same outcome as arXiv:2602.06801 and arXiv:2602.02132 in the iteration-3 dossier. Do not guess.",
-    "probe_and_steer_same_object": false,
-    "probe_and_steer_same_object_detail": "TWO OBJECTS, loosely coupled. The authors CLAIM one: 'We report a head-to-head probe-vs-steering comparison on the same direction v_interaction in Qwen3-32B' [Sec.2]. But the detector is an MLP (512,128) [Table 2] whose relation to the axis is a post-hoc similarity between MAGNITUDE patterns, not an identity: 'The Llama MLP's per-input-dimension importance vector ... has cosine 0.78 with |v_refusal| (random-vector baseline 0.012 +/- 0.009, ~65x over random)' [Sec.4.3]. And the model differs between halves: detection 0.870 is Llama, the steering null is Qwen where LOQO detection is 0.425. They concede this in the Table 3 caption. WEAKENS the mirror-image framing and STRENGTHENS our residual, because our claim is a within-model, single-object dissociation.",
-    "behaviour_studied": "ALIGNMENT FAKING (monitoring-influenced compliance), not refusal per se. Conditions A (paid/unmonitored), B (free/monitored, no scratchpad), C (free/monitored, with scratchpad) under a fictional 'Anthrotech' retraining policy [Sec.3]. Label from a Claude Opus 4 judge (COMPLY/REFUSE/PARTIAL/UNCLEAR); probe target is B-comply vs A-comply, i.e. 'we discriminate two compliant outputs rather than deceptive vs. honest text' [Sec.2]. TWIST TO REPORT HONESTLY: the construct is named 'refusal residue' and the headline effect IS a projection onto a refusal axis - 'B-comply projects significantly more toward refusal than A-comply (Delta=+7.79, d=0.32, p=0.0001); B-refuse ~ A-refuse (d=-0.36, p=0.997)' [Sec.4.2]. But it is NOT the canonical Arditi axis: 'Arditi' = 0 matches, 'single direction' = 0 matches; their v_refusal = centroid(A-refuse) - centroid(A-comply) over gen5 GENERATED-token states within Condition A.",
-    "authors_conclusion_verbatim": "'The main mechanistic lesson is a dissociation. The direction v_interaction is predictive: it drives the cross-model asymmetric interaction (d~0.32) and the Llama per-sample detector. But additive subtraction is null both for the single direction (+1.0pp at the peak layer, p>0.4) and for the top-5 PC subspace that explains 55% of compliance-shift variance (|h|<0.08, p>0.25; v_refusal control also null). This rules out the simplest dim-collinearity objection and gives the first reported predictive-versus-additively-causal dissociation for AF.' [Sec.5] Operational gloss: 'The steering null also matters operationally: the probe is a detector, not a mitigation knob.' [Sec.5]",
-    "generalisation_beyond_af": "Only weakly and always hedged. Related Work frames the gap generically ('conflating directions that predict ... with directions that cause'), but the Scope paragraph disclaims: 'We do not claim ... that the faking direction v_interaction is non-causal in general (only that single- and 5-direction additive intervention at the peak Qwen layer is null)' [Sec.1 Scope]. Their own alternatives: 'Either the AF representation is spread beyond these five directions, is set upstream of layer 48, or v_interaction is a downstream correlate.' [Sec.4.4]",
-    "five_controls": [
-      {
-        "control": "Multi-token extraction: 'Mean-pool the first few generated tokens (gen5); single first-token extraction collapses up to 57% of runs to identical vectors at temperature 0.7, faking significance (Appendix C).' [arXiv:2607.13346 Sec.5]",
-        "their_result": "On Llama, '86/150 fully-collapsed groups under gen1 dropped to 6/150 under gen5' [Sec.4.2]",
-        "our_equivalent": "Generation-level judged scoring of the full completion plus AB-blind re-encoding of n=7,241 items",
-        "gap": "No gap in kind (no single-token state is read), but our Methods must state the extraction position as precisely as theirs does."
-      },
-      {
-        "control": "Refuse-vs-refuse confound check: 'A faking-impossible control (B-refuse vs. A-refuse) must sit at chance; a raw-feature linear probe near AUROC=1.0 signals condition-identity encoding, not faking.' [Sec.5]",
-        "their_result": "Strict-protocol control 0.594 (Qwen) / 0.695 (Llama); leaky protocol reaches 0.63 on Llama where no faking can occur [Table 2, Sec.4.3]",
-        "our_equivalent": "Random-direction null at matched norm; paraphrase-invariance check",
-        "gap": "PARTIAL GAP: we have a direction-side null but no item-side 'mechanism-impossible' control of the same shape. Cheapest fix: present the abliterated arm explicitly as that control."
-      },
-      {
-        "control": "Per-fold residualization: 'Estimate per-(condition, query) residualization statistics from the training fold only; full-data residualization leaks the held-out fold.' [Sec.5]",
-        "their_result": "Leaky protocol inflates Qwen from 0.425 to 0.761 [Table 2]",
-        "our_equivalent": "Not applicable in the same form (we do not residualize by condition mean)",
-        "gap": "GAP IN KIND: if any of our AUROCs are computed after centering/normalisation estimated on the full item pool, that is the same defect under another name. Verify before drafting."
-      },
-      {
-        "control": "Leave-one-query-out evaluation: 'Hold out whole queries, not random samples, so the probe must generalize to unseen prompts rather than memorize per-query structure.' [Sec.5]",
-        "their_result": "Collapses Qwen 0.761 -> 0.425; Llama holds at 0.870 +/- 0.023 [Table 2]",
-        "our_equivalent": "Held-out item splits (leave-one-organization-out is 2607.28685's analogue, not ours)",
-        "gap": "REAL GAP if our AUROCs are in-sample over the items used to fit the axis. Hold out whole prompt families."
-      },
-      {
-        "control": "Orthogonality-constrained probing: 'Project out the condition-identity direction before training; any surviving AUROC reflects comply-specific structure beyond what the refuse direction explains.' [Sec.5]",
-        "their_result": "0.510 +/- 0.031 (Qwen) / 0.829 +/- 0.023 (Llama) [Table 2]",
-        "our_equivalent": "Matched-contrast measurement excluding the norm-mismatch rival (A exceeds B by +0.36 to +0.61, CIs excluding 0 on 6/6)",
-        "gap": "NO GAP; ours is arguably stronger because it excludes a specific named rival by measurement rather than by projection."
-      },
-      {
-        "control": "(safeguard) Multi-direction top-k PC steering [Sec.4.4]",
-        "their_result": "Null persists over a 5-D subspace explaining 55% of compliance-shift variance (|h|<0.08, p>0.25)",
-        "our_equivalent": "Single-axis steering only",
-        "gap": "GAP: a reviewer who has read 2607.13346 will ask whether induce-without-detect survives a subspace intervention. Name it as a limitation."
-      },
-      {
-        "control": "(safeguard) Random-Procrustes alignment-specificity baseline for cross-model transfer [Sec.4.3]",
-        "their_result": "Shuffle reaches 0.80+/-0.10 and 0.84+/-0.12, so their 0.97 transfer is only +1.1 sigma (p~0.13)",
-        "our_equivalent": "We make no cross-model transfer claim",
-        "gap": "No gap; a warning against adding one."
-      }
-    ],
-    "closeness_verdict": "MIRROR_IMAGE",
-    "closeness_caveats": [
-      "CONCESSION (closer than assumed on one axis): they DO steer along a refusal axis and get a null (v_refusal alpha=5: 71.6% vs 69.0%, Cohen's h +0.057 [-0.071,+0.181], Fisher p=0.41; 5-D v_refusal subspace -3.2pp, p=0.26). Distinguish explicitly: theirs SUBTRACTS from an already-compliant Condition-B generation on borderline-harmful prompts at ~70% compliance with little headroom, at raw alpha on a unit vector of unreported relative magnitude; ours ADDS at a calibrated fraction of ||h_l|| on benign prompts from a near-zero refusal base rate.",
-      "FARTHER 1: no abliterated or uncensored arm at all ('abliterat' = 0, 'uncensored' = 0 matches in full text); all 13 models are stock instruction-tuned checkpoints.",
-      "FARTHER 2: no norm normalisation and no reported norms, so nothing in their paper constrains or converts into NORM_L.",
-      "FARTHER 3: their dissociation is assembled across two models with model, scale, relative depth and faking base rate all varying together; ours is within one model."
-    ],
-    "residual_one_sentence": "Mehta (2026) shows that a monitoring-shift direction which is aggregate-predictive on two models and per-sample detectable on one is not additively causal on the model where it was tested, for alignment faking, in raw coefficient units with no activation norm reported and no abliterated checkpoint in the panel; what remains ours is the opposite asymmetry, measured within a single model on benign prompts, with the norm-mismatch rival excluded by a matched-contrast measurement rather than argued away, and with both roles read at chance on paired abliterated checkpoints."
+ "title": "Last Prior Art and Recipe Evidence",
+ "summary": "Primary-source dossier closing Abliterlitics and the windowed-statistic novelty question. (A) ABLITERLITICS documented from source: AGPL-3.0, repo created 2026-04-24, 10 model reports (~2B-59B MoE), four axes. Every weight metric is DELTA-based -- METHODOLOGY 1.1 is `diff = (variant-base).abs().mean()`, 1.2 is `svd(delta_matrix)`, 1.3 needs the base PLUS two variants -- so W01-W05 have NO counterpart and W06-W11 are ANALOGOUS-BUT-DISJOINT (not identical, unlike 2604.08844). Parent requirement quoted: \"Create a directory with your base model and variants, plus a comparison.json\"; `base` is a mandatory key, no single-checkpoint mode. PLAN WAS WRONG about scale: FOUR reports are at/below ~4.5B, including a full weight report on Qwen3-4B-Instruct-2507, OUR OWN PANEL FAMILY (Heretic 33/36 layers, Huihui 36/36; all three peak at L12-19, L16 #1), plus a 13-variant Gemma4-E2B report with an explicit early/mid/late band table (coverage 7/35 to 35/35, early share 0%-31%). So A4 is EXTERNAL SUPPORT AT OUR SCALE. Verdict SUPPORTS. All planner Qwen3.5-9B numbers re-verified EXACTLY (42/68/62 tensors; 23/29/31 of 32 layers; 2.83/4.89/2.72%; cosine 1.0 / mean 0.997 / 100% of principal angles). Mandatory cosine-caveat reconciliation written out, and DEFUSED by a fact the plan lacked: the same Heretic-Huihui pair is essentially orthogonal (median cosine 0.00017) on Qwen3.5-4B, so 0.997 is a property of one base, not the pair. Abliterlitics NAMES our axis first (\"Uniform (33/33/33%)\" for LEACE vs \"Mid-to-late focused (42-44% late)\" for rank-1), as does Gabliteration (\"Unlike the uniform layer modification approach in traditional abliteration\"). (B) RECIPES from source with signed predictions. HERETIC'S KERNEL IS A TRIANGULAR TENT WITH A HARD CUTOFF, not Gaussian/bell-curve as the plan, the dependency and OBLITERATUS all say: `if distance > min_weight_distance: continue` then LINEAR interpolation; and max_weight_position is sampled in [0.6L,1.0L], direction_index in [0.4L,0.9L], max_weight up to 1.5 -- the peak is CODE-LEVEL forbidden from the early stack, predicting the measured \"Layers 0 through 8 have no real edits\". MPOA verbatim four-step with layers [11..41] of [0..47]; ORBA H=I-2uu^T with the author's own \"misdirected sign-flips\" negative result; OBLITERATUS presets 1/4/8/8/4/8/8 re-verified. THREE PLAN REVISIONS: Heretic's shipped default is ALREADY norm-preserving (row_normalization=\"full\") but \"PR #52\" is UNCONFIRMED; OBLITERATUS is LAYER-SELECTIVE (COSMIC), so W05 DETECTED -> DEGRADED; ORBA is TWO recipes (lambda=1 is \"zeroed WITHOUT reflection\" = annihilation; only v3 Householder is the isometry) and conflating them makes the falsification test vacuous. W05 and the windowed statistic DISAGREE on six recipes -- that set is the payoff. (B3) Census: 1068 hits, 116 sub-4.2B; all Qwen3-4B variants at 4,022,468,096; ORBA STILL 0 (reimplement); gabliterated 54; Apostate 1, Abliterix 1, AEON 0 genuine; huihui-ai NOT gated (contradicts dependency); two traps -- ?search=&full=true carries NO safetensors, and safetensors.total counts QUANTIZED tensors. (C) C1/C2/C3 all re-verified verbatim (AUC 0.00 n_bootstrap=972 + \"GPT-4o scored 0/300\"; certify() takes harmful/harmless ACTIVATIONS; reverse-abliterate reads filenames/metadata only). (D) NOVELTY = NOVEL-NARROW, and the plan's premise was wrong: arXiv:2607.01854's E1 is ALREADY \"band-averaged\" over \"each layer in the mid-stack band B\", so the band idea is published prior art. Four load-bearing qualifiers survive: parent-free, calibration-free, BOTTOM-of-spectrum, SLIDING/extremum-scored. Two new must-cite competitors ruled out (2607.03377 PL_Alpha_Hill -- parent-free but designed to be INVARIANT to post-training and reads the top; 2608.07921 MP outliers -- parent-free per-layer but detects structure not edits). Multiple-window FPR warning issued. COSLETT CLOSED via DataCite: full abstract obtained, instrument is an inference-time output-geometry/logprob PUF (NOT weights-only), scars \"7.6 to over 2,300 times the instrument's acceptance threshold\" across two model families -- ADJACENT confirmed on primary evidence, risk downgraded to SMALL. Ships 16 numbered corrections_to_draft and 9 must-cite additions.",
+ "answer": "## Headline\n\nFour findings change what the paper says, and one of them is bad news caught in time.\n\n**(1) The \"band\" idea is already published \u2014 cite it or get scooped in review.** The plan\ntreated a per-band spectral statistic as wholly new. It is not: arXiv:2607.01854's weight\nsignal E1 is explicitly **band-averaged**, defined over \"the set of attention-output\n(`o_proj`) and MLP-down (`down_proj`) weight matrices from each layer in the **mid-stack\nband** \u212c\", and the same band \u212c defines its activation gap \u03c1 [16]. The novelty verdict is\ntherefore **NOVEL-NARROW**, not NOVEL, and the four load-bearing qualifiers must all be\nstated: parent-free, calibration-free, bottom-of-spectrum, and *sliding/extremum-scored*\nrather than one fixed band [16, 19, 20, 22, 28, 29, 30].\n\n**(2) Coslett is closed \u2014 the dependency's largest residual risk is gone, and the\nadjacency verdict now rests on primary evidence.** Six access routes failed previously; the\nDataCite REST API works and returns the full author abstract [24]. The instrument is an\n**inference-time output-geometry / logprob-order-statistic PUF** anchored to a claimed\nidentity, not a weights-only statistic \u2014 the series it belongs to opens with \"Inference-Time\nPhysical Unclonable Functions from Architecture-Invariant Output Geometry\" and \"Logprob\nOrder-Statistic Geometry\" [24]. Headline number, quoted: scars \"ranging from **7.6 to over\n2,300 times the instrument's acceptance threshold**\" across published checkpoints from\nmultiple toolchains in **two model families** [24]. ADJACENT confirmed; residual risk\ndowngraded to SMALL.\n\n**(3) Heretic's kernel is a triangular tent with a hard cutoff, and its search is\ncode-level forbidden from editing the early stack.** Everyone \u2014 the plan, the dependency,\nand OBLITERATUS's own comparison table (\"**Bell-curve** layer weighting\", [12]) \u2014 describes\nit as Gaussian. The source says otherwise: `distance = abs(layer_index -\nmax_weight_position)`; **`if distance > min_weight_distance: continue`**; then *linear*\ninterpolation [8]. And `max_weight_position` is sampled in `[0.6\u00b7L, 1.0\u00b7L]`, `direction_index`\nin `[0.4\u00b7L, 0.9\u00b7L]` [9]. Heretic therefore produces genuine *partial coverage* by\nconstruction, with the peak structurally confined to the last 40 % of the stack \u2014 an\na-priori prediction that Abliterlitics independently confirmed by measurement (\"Layers 0\nthrough 8 have no real edits\" [3]; GLM-4.7 E/M/L = **0 % early / 46 % mid / 53 % late**\n[7]).\n\n**(4) The external support for the uniform-versus-depth-weighted mechanism exists, is\nthird-party, and is at our own scale.** The plan feared 7B+ only. Four of Abliterlitics'\nten reports are at or below ~4.5B, including a full weight report on **Qwen3-4B-Instruct-2507\n\u2014 our own panel's base model** [2, 4, 5, 6]. Verdict: **SUPPORTS**.\n\n## A \u2014 Abliterlitics\n\nAbliterlitics [1] is an AGPL-3.0 abliteration-forensics toolkit (repo `created_at`\n2026-04-24T23:53:27Z, 32 commits, 21 stars [10, 11]) with four axes \u2014 weight analysis, KL\ndivergence, capability benchmarks, HarmBench \u2014 and ten published model reports spanning ~2B\nto a 59 GB MoE [2].\n\n**Every one of its weight metrics is delta-based, so the parent requirement is structural,\nnot incidental.** METHODOLOGY \u00a71.1: \"Load corresponding tensors **from base and variant**\",\n`diff = (variant - base).abs().mean().item()`; \u00a71.2: `svd(delta_matrix)`; \u00a71.3 QR/Grassmann\nsubspace alignment across *two variants plus* the base; \u00a71.5 cosine between two techniques'\nedit vectors; \u00a71.7 stacking on `D_a = variant_a \u2212 base` [7]. The README's requirement is\nquotable in one line \u2014 \"**Create a directory with your base model and variants, plus a\n`comparison.json`**\" \u2014 with `base` a mandatory key and `./abliterlitics.sh auto\n./my-comparison/` the entry point [1]. There is no single-checkpoint mode anywhere in the\ncommand table. Consequence: **not one Abliterlitics metric has a counterpart to W01\u2013W05**,\nand W06\u2013W11 are ANALOGOUS-BUT-DISJOINT rather than identical \u2014 same spectral vocabulary,\nincompatible input (`\u0394W` versus the candidate's own matrices). That is a weaker collision\nthan the dependency found for arXiv:2604.08844, two of whose features were formula-identical\nto ours [22].\n\n**The coverage evidence.** On a shared Qwen3.5-9B base: Heretic 42 tensors / **23 of 32\nlayers** / 2.83 % relative edit, peaking L17 (4.560); HauhauCS 68 / **29 of 32** / 4.89 %,\npeaking L25 (12.329); Huihui 62 / **31 of 32** / 2.72 %, peaking L10 (5.276) [3]. On\nQwen3.5-4B: 29/32, 28/32, 32/32 [5]. On GLM-4.7-Flash: 34/48 (71 %), 47/48 (98 %), 48/48\n(100 %) [7]. On Gemma4-E2B, 13 independent abliterations of one ~2B base span **7 of 35\nlayers to 35 of 35**, with an explicit early/mid/late band table whose early share runs from\n**0 % to 31 %** [6]. Every planner-supplied Qwen3.5-9B number re-verified exactly; no\ndiscrepancy found.\n\nAbliterlitics also **names our axis before we do**. Its method-signature table gives a\n\"Layer distribution\" per method: rank-1 Heretic-style \"Mid-to-late focused (42\u201344 % late)\"\nversus LEACE \"**Uniform (33/33/33 %)**\", whose identifying feature is \"~100 % edit density\nwith near-zero individual edits\" [7]. Gabliteration says the same from the other side:\n\"**Unlike the uniform layer modification approach in traditional abliteration**\u2026\" [21]. The\nframing is corroborated, not invented \u2014 and both sources must be cited at the point of use.\n\n**The caveat that must be stated first.** Heretic's and Huihui's Qwen3.5-9B edits have\nmedian per-tensor cosine 1.0, global mean 0.997, \"100 % of principal angles exceed 0.9\ncosine similarity\", with Heretic's 42 tensors a strict subset of Huihui's 62 [3]. Read\ncarelessly that says the recipes are interchangeable. It does not: cosine is computed only\non tensors *both* techniques modify and is silent about coverage and magnitude. The recipes\nagree on **which direction** to remove and differ on **where in the stack** and **how\ncompletely** \u2014 the one axis a minimum-over-layers statistic keys on and a cosine cannot see.\nThe report refutes the misreading itself: the identical Heretic\u2013Huihui pair on Qwen3.5-4B\nhas median cosine **0.00017**, essentially orthogonal, while Heretic remains a proper subset\n[5]. A paste-ready reconciliation paragraph is in\n`structured_answer.uniformity_external_support.cosine_caveat_paragraph`.\n\nHonest limits: their \"layers modified\" is a *delta support count*, not our energy minimum;\ntheir numbers are parent-derived, so they show recipes differ in coverage but not that a\nparent-free statistic can see that difference; and the richest alignment analysis is on the\n9B and 27B [3, 5, 7].\n\n## B \u2014 Recipes and signed predictions\n\nVerbatim parameter evidence was re-fetched for all six recipes plus two new ones. Heretic's\nkernel and Optuna bounds from source [8, 9]; MPOA's exact four-step row-norm-preserving\nupdate with the guarantee `\u2016W_new,i,:\u2016\u2082 = \u2016W_i,:\u2016\u2082` and the partial-coverage quote \"we\napplied a default scale factor of 1.0, intervening on **layers [11..41]**\" of a 48-layer\nmodel [17]; ORBA's `H = I \u2212 2uu\u1d40`, the geodesic `\u03b8 = \u03bb\u00b7arccos(\u0125\u00b7f\u0302)`, and the author's own\nnegative result that reflection makes \"**misdirected sign-flips the characteristic failure\nmode**\" [18]; OBLITERATUS's preset table (directions **1/4/8/8/4/8/8**, re-verified exactly)\n[12]; Gabliteration's `\u2113* = arg max_\u2113 S_\u2113` \"excluding the first *s* and last *e* layers\",\nridge `P = R(R\u1d40R + \u03bbI_k)\u207b\u00b9R\u1d40`, and depth-peaked `\u03b1_\u2113` [21].\n\nThree findings revise the plan. **Heretic's shipped default is already norm-preserving**\n(`row_normalization = \"full\"`, `full_normalization_lora_rank = 3` [13]) \u2014 but the \"merged in\nPR #52\" claim could **not** be confirmed; the releases API returns no match [14], so cite the\ndefault, not the PR. **OBLITERATUS is layer-selective, not uniform** (COSMIC layer selection;\nthe `informed` method decides \"which layers are safe to modify\" [12]), moving its W05\nprediction from DETECTED to DEGRADED. **ORBA is two recipes, not one**: at \u03bb = 1 the author\nstates the component is \"zeroed **without** reflection\" [18] \u2014 that is annihilation, and only\nthe separate v3 Householder release is the isometry that leaves no null direction. Conflating\nthem makes the ORBA falsification test vacuous.\n\n**Where the two statistics disagree is the payoff.** W05 and the windowed statistic agree on\nplain rank-one, Apostate and AEON (DETECTED) and on Householder-ORBA (MISSED). They\n**disagree on six recipes** \u2014 Heretic, mlabonne v2, MPOA, ORBA-\u03bb1, OBLITERATUS and\nGabliteration. That disagreement set is the scientific justification for the windowed\nstatistic existing, and it is falsifiable in advance in both directions: if the windowed\nstatistic misses a Heretic or MPOA checkpoint whose edited band is known, the mechanism is\nwrong; if it fires on Householder-ORBA, it is wrong the other way.\n\nOne negative result to carry: the mlabonne v2 \"normal distribution \u2026 spread and peak layer\"\nsentence was **not obtained this session** \u2014 huggingface.co served page chrome only [15]. Do\nnot transcribe it. The depth-weighting claim is supportable instead from Heretic's README,\nwhich independently names that model as the prior art for \"Non-constant ablation weights\"\n[8].\n\n## B3 \u2014 Availability\n\nTwo-pass HF census: 13 terms, 1,068 raw hits, 380 name-prefiltered candidates, 192 resolved,\n**116 at \u2264 4.2 B** [25]. All the Qwen3-4B-Instruct-2507 variants resolve to exactly\n**4,022,468,096**: MPOA (YanLabs), Heretic (p-e-w, heretic-org, DreamFast), SOM-MPOA,\nOBLITERATUS, Huihui (**not gated**, contradicting the dependency), Gabliteration\n(Josiefied-v2) and the DreamFast safetensors conversion of HauhauCS [25].\n\n**ORBA is still empty at our scale** (0 of 35 `ORBA` and 7 `orthogonal-reflection-bounded`\nhits) \u2014 re-checked, dependency confirmed \u2014 so the sharpest falsification target must be\nreimplemented in-house. **Gabliteration is abundant (54)**; Apostate and Abliterix each have\nexactly one genuine sub-4.2B instance; AEON has **zero** (all 10 name matches are the\nunrelated \"Aeonium\" family, just as 9 `reaper` hits are the username `reaperdoesntknow`).\n\nTwo mechanical traps worth more than they look. The `?search=&full=true` endpoint **does not\nreturn `safetensors`**, so a naive census reports \"no sub-4.2B instances exist\" for every\nrecipe. And `safetensors.total` counts *quantized* tensors, so\n`gemma-4-26B-\u2026-MLX-2bit` passes a 4.2 B ceiling at 3,810,036,302 [25] \u2014 reading\n`safetensors.total` is necessary but not sufficient, and quantized re-uploads must be\nexcluded explicitly.\n\n## C \u2014 Positioning corrections\n\nAll three re-verified from source. **C1**: 2604.08844's cross-method AUC = 0.00\n(n_bootstrap = 972, CI [0.00, 0.00]) [22], together with its self-declared confound \u2014\n\"Language generation collapsed on all steered adapters at all intensities tested \u2026 **GPT-4o\nscored 0/300 steered responses as harmful**, confirming the output is incoherent\" \u2014 and no\nfix evaluated [22]. **C2**: OBLITERATUS's `certify(harmful_activations, harmless_activations,\nlayer_idx)` consumes **activations**, so parent-free yes, prompt-free no, forward-pass-free\nno, and it audits a self-performed edit rather than screening unknown checkpoints [26]; our\nclaim is strengthened. **C3**: `reverse-abliterate` scans `abliteration_metadata.json`,\nadapter files, the `-OBLITERATED` repo-name convention, embedded commit hashes, shard sizes\nand filenames, and forward hooks \u2014 no tensor-value statistic anywhere [27]; naming it first\nas the software instantiation of the 50.5 % string-match baseline is strictly better than\nletting a reviewer name it.\n\n## D \u2014 Novelty and the design warning\n\n**NOVEL-NARROW.** Ten competitors ruled out with reasons [16, 19, 20, 22, 26, 27, 28, 29,\n30, 7]. The two newly surfaced ones matter most. arXiv:2607.03377 is the closest parent-free\nspectral statistic and must be cited: PL_Alpha_Hill is layer-wise, data-free and\nscale-invariant \u2014 but it reads the **top** of the spectrum (Hill estimator over the top n/2\neigenvalues), aggregates to a model-level signature, and its stated design prerequisite is\nthe *opposite* of edit detection (\"robustness across downstream adaptations \u2026 the impact of\npost-training on the weight ESD is minimal\") [19]. arXiv:2608.07921 is the closest\nrandom-matrix neighbour \u2014 parent-free per-layer Marchenko-Pastur bulk/outlier separation \u2014\nbut it detects learned structure rather than edits, reads outliers, and its \"band outliers\"\nare row/column bands *within* a matrix, not depth bands across the stack [20].\n\n**Design warning for the experiment executor:** a per-band statistic scored by the extremum\nover B windows is a maximum of B **correlated** statistics, so at a fixed per-band threshold\nthe false-positive rate rises with the number of effectively independent windows \u2014 and\nneither B nor a naive Bonferroni B is the right multiplier. Fix window width and stride\nbefore looking at any candidate; calibrate the threshold on the *extremum* statistic over the\nnegative population, not on a single band; report the number of windows alongside every\nthreshold. This **inherits and amplifies** the existing threshold-brittleness problem (the S2\ncutoff-transfer failure) rather than solving it, and the paper should quantify both sides of\nthe trade.\n\n## Confidence\n\n**High** for everything quoted from source: the Abliterlitics metric map, parent requirement,\nlicence and date, and all numeric fingerprints; Heretic's kernel code and Optuna bounds;\nMPOA's four steps; ORBA's formulation; OBLITERATUS's presets and `certify()` signature;\nGabliteration's `\u2113*`, `P`, `\u03b1_\u2113`; 2604.08844's numbers; 2607.01854's band-averaged E1; the HF\nparam counts. **Medium** for the interpretive step in A4(a) \u2014 the coverage numbers are real,\nbut the inference that a minimum-over-layers statistic must therefore miss Heretic is ours\nand untested externally \u2014 and for the B2 predictions, which are reasoned from published\nformulas rather than measured. **Low or explicitly unverified**: the mlabonne v2 kernel\nsentence [15]; \"MPOA merged in PR #52\" [14]; the OBLITERATUS \"Spectral certification RED is\ncommon\" pitfall sentence (carried from the dependency, not re-fetched); the COSMIC arXiv id\n2506.00085 (read from OBLITERATUS's README, not fetched); true parameter counts of quantized\nrepos; and everything inside Coslett's body text, which remains behind a CC BY-NC-ND\n\"Confidential and Proprietary, Patent Pending\" record [24].\n",
+ "sources": [
+  {
+   "index": 1,
+   "url": "https://raw.githubusercontent.com/dreamfast/abliterlitics/master/README.md",
+   "title": "Abliterlitics README (raw, fetched in full)",
+   "summary": "Four analysis axes; the verbatim parent requirement ('Create a directory with your base model and variants, plus a comparison.json'); comparison.json schema with mandatory 'base'; CLI './abliterlitics.sh auto ./my-comparison/'; 'weights' = 'panel, edit, SVD, correlation, fingerprint, etc.'; src/weight/ = '11 weight analysis scripts'; 234 tests; AGPL-3.0."
   },
-  "metadata_audit": [
+  {
+   "index": 2,
+   "url": "https://abliterlitics.dev/",
+   "title": "Abliterlitics project home",
+   "summary": "Model index: 10 reports (gemma4-e4b ~4.5B/23 variants, gemma4-e2b ~2B/13 techniques, qwen25-7b, qwen3.6-27b, glm-4.7-flash, qwen3.5-27b/9b/4b/2b, qwen3-4b). Confirms four of ten reports are at or below ~4.5B."
+  },
+  {
+   "index": 3,
+   "url": "https://abliterlitics.dev/models/qwen3.5-9b/",
+   "title": "Qwen3.5-9B Abliteration Comparison (Abliterlitics)",
+   "summary": "THE load-bearing per-layer report. Tensors changed 42/9.9%, 68/16.0%, 62/14.6%; layers modified 23/32, 29/32, 31/32; 'Layers 0 through 8 have no real edits'; relative edit 2.83/4.89/2.72%; tensor types 3/5/3; top-3 layers with magnitudes; median cosine 1.0, global mean 0.997, '100% of principal angles exceed 0.9 cosine similarity', 42 overlapping, strict subset, corr +0.269; Heretic-HauhauCS 33 tensors/0.136/-0.243; HauhauCS-Huihui 43/0.101/-0.907. Every planner-supplied number re-verified exactly. 'Last updated: August 1, 2026'."
+  },
+  {
+   "index": 4,
+   "url": "https://abliterlitics.dev/models/qwen3-4b/",
+   "title": "Qwen3-4B-Instruct-2507 Abliteration Comparison (Abliterlitics)",
+   "summary": "SUB-4.2B report on OUR OWN PANEL FAMILY (36 layers). Heretic 57 tensors/33-36 layers/2.49%; HauhauCS ~50 real of 253/~28-36/~2.5%; Huihui 108/36-36/2.13%. 'All three techniques concentrate changes in layers 12 through 19. Layer 16 is the number one most modified layer across all three techniques.' HauhauCS-Heretic median cosine 0.966, regression slope 1.06. 253 = PEFT LoRA 7x36+1 with most adapters near-zero."
+  },
+  {
+   "index": 5,
+   "url": "https://abliterlitics.dev/models/qwen3.5-4b/",
+   "title": "Qwen3.5-4B Abliteration Comparison (Abliterlitics)",
+   "summary": "Second sub-4.2B report (32 layers hybrid). 29/83/120 tensors; 29/32, 28/32, 32/32 layers; 2.52/1.10/9.97% relative edit; top layers L19(0.447)/L23(0.324)/L27(2.907). Heretic-Huihui median cosine 0.00017 (essentially orthogonal) with Heretic still a proper subset - the counterexample that defuses the 0.997 alignment caveat. 27 norm artefacts excluded."
+  },
+  {
+   "index": 6,
+   "url": "https://abliterlitics.dev/models/gemma4-e2b/",
+   "title": "Gemma4-E2B: 13 Techniques Compared (Abliterlitics)",
+   "summary": "~2B, 35 layers, 13 independent variants on one base with an explicit E/M/L band table (early 0-10 / mid 11-22 / late 23-34). Layer coverage ranges 7/35 to 35/35. Three tiers: surgical (<=3%, 1 type, 'a narrow band of mid-to-late layers, L16 to L32'), moderate (69-86% coverage), aggressive. '10 of 13 variants are perfect rank-1', eff rank 1.00, top-1 energy 94.9-99.9%. Alignment clusters; 'many technique pairs are nearly orthogonal at cosine around 0.01'."
+  },
+  {
+   "index": 7,
+   "url": "https://raw.githubusercontent.com/dreamfast/abliterlitics/master/docs/METHODOLOGY.md",
+   "title": "Abliterlitics METHODOLOGY.md",
+   "summary": "Definitions for every weight metric. Sec 1.1 'Load corresponding tensors from base and variant' + diff=(variant-base).abs().mean(); 1.2 svd(delta_matrix), effective rank, energy; 1.3 QR/Grassmann/overlap; 1.4 fingerprint incl. 'Counter by layer index, revealing depth preferences'; 1.5 cosine; 1.7 stacking D_a/D_b/D_r. Sec 5.2 method-signature table with layer-distribution column: rank-1 'Mid-to-late focused (42-44% late)' vs LEACE 'Uniform (33/33/33%)'. Sec 5.4 GLM-4.7 case study E/M/L percentages 0/46/53, 33/35/33, 32/34/34."
+  },
+  {
+   "index": 8,
+   "url": "https://raw.githubusercontent.com/p-e-w/heretic/master/src/heretic/model.py",
+   "title": "Heretic model.py (Model.abliterate) + README 'How Heretic works'",
+   "summary": "THE kernel formula, from source: distance=abs(layer_index-max_weight_position); 'if distance > min_weight_distance: continue'; weight = max_weight + (distance/min_weight_distance)*(min_weight-max_weight). TRIANGULAR with compact support, NOT Gaussian. direction_index float via math.modf + lerp + F.normalize. README: per-component parameters, 'Non-constant ablation weights were previously explored by Maxime Labonne in gemma-3-12b-it-abliterated-v2'."
+  },
+  {
+   "index": 9,
+   "url": "https://raw.githubusercontent.com/p-e-w/heretic/master/src/heretic/main.py",
+   "title": "Heretic main.py Optuna search bounds",
+   "summary": "Verbatim: direction_index in [0.4L,0.9L]; max_weight_lower_bound=-0.25 for mlp.down_proj else 0.8, upper 1.5, clamped max(0.0,...); max_weight_position in [0.6L,1.0L]; min_weight as a FRACTION in [0,1]; min_weight_distance in [1.0, max(0.6L,1.0)]. Code-level guarantee that the edit peak sits in the last 40% of the stack and that weights above 1 (over-subtraction) are in range."
+  },
+  {
+   "index": 10,
+   "url": "https://api.github.com/repos/dreamfast/abliterlitics",
+   "title": "GitHub API - dreamfast/abliterlitics",
+   "summary": "created_at 2026-04-24T23:53:27Z; pushed_at 2026-07-25; updated_at 2026-08-10; license key agpl-3.0 / spdx AGPL-3.0; 21 stars; size 1572."
+  },
+  {
+   "index": 11,
+   "url": "https://github.com/dreamfast/abliterlitics",
+   "title": "Abliterlitics repo page",
+   "summary": "32 commits, 21 stars, 2 forks; directory tree (src/, docs/, runners/, docker/, tests/); LICENSE present."
+  },
+  {
+   "index": 12,
+   "url": "https://raw.githubusercontent.com/elder-plinius/OBLITERATUS/main/README.md",
+   "title": "OBLITERATUS README",
+   "summary": "Preset table re-verified: basic 1 / advanced 4 / aggressive 8 / surgical 8 / optimized 4 / inverted 8 / nuclear 8 directions. Layer-SELECTIVE by design ('Which layers are safe to modify vs. which are too entangled'; COSMIC layer selection arXiv:2506.00085; steering target_layers=[10..15]). Describes Heretic's kernel as 'Bell-curve layer weighting' - contradicted by Heretic's own source [8]."
+  },
+  {
+   "index": 13,
+   "url": "https://raw.githubusercontent.com/p-e-w/heretic/master/config.default.toml",
+   "title": "Heretic config.default.toml",
+   "summary": "row_normalization = 'full' is the DEFAULT ('renormalizes to preserve original row magnitudes') with full_normalization_lora_rank = 3; orthogonalize_direction = true; n_trials 200 / n_startup_trials 60; winsorization_quantile 1.0. Confirms MPOA-style norm preservation is Heretic's shipped default. No max_weight/min_weight keys here (they are Optuna-sampled, see [9])."
+  },
+  {
+   "index": 14,
+   "url": "https://api.github.com/repos/p-e-w/heretic/releases?per_page=30",
+   "title": "Heretic releases API",
+   "summary": "NEGATIVE RESULT: no match for MPOA|row.normalization|norm-preserving|#52 across 30 releases. The plan's 'MPOA merged in PR #52' could NOT be confirmed; the shipped default in [13] confirms the feature, not the PR number."
+  },
+  {
+   "index": 15,
+   "url": "https://huggingface.co/mlabonne/gemma-3-12b-it-abliterated-v2",
+   "title": "mlabonne gemma-3-12b-it-abliterated-v2 model card",
+   "summary": "NEGATIVE / PARTIAL: the fetch returned HF page chrome; the 'normal distribution with a certain spread and peak layer' sentence was NOT retrieved this session and no numeric spread or peak-layer value was found published anywhere. Reported as UNOBTAINED rather than transcribed."
+  },
+  {
+   "index": 16,
+   "url": "https://arxiv.org/html/2607.01854v1",
+   "title": "Has This Checkpoint Been Abliterated? (arXiv:2607.01854)",
+   "summary": "CRITICAL for novelty: E1 = mean over W of sigma_1^2(dW)/sum sigma_i^2(dW) with dW = W_b - W_c, where W is 'o_proj and down_proj weight matrices from each layer in the MID-STACK BAND B ... the rank-1 energy fraction of the edit, BAND-AVERAGED'. The band idea is already published. Also: auditor holds candidate + attested reference; combined z-sum AUROC 0.95 [.90,.98], E1 alone 0.90; AMS Tier-2 0.66, Tier-1 det 0.35; Coslett DOI 10.5281/zenodo.19383019 and the 'direction-agnostic deviation in activation-geometry fingerprint' characterisation."
+  },
+  {
+   "index": 17,
+   "url": "https://huggingface.co/blog/grimjim/norm-preserving-biprojected-abliteration",
+   "title": "MPOA - Norm-Preserving Biprojected Abliteration (grimjim, 2025-11-06)",
+   "summary": "Four-step row-norm-preserving update verbatim (normalize r; decompose W into M and W_hat; p = r_hat^T W_hat, W_hat - alpha*r_hat p^T, renormalize rows; recombine W_new = M W_hat_new) guaranteeing ||W_new,i,:|| = ||W_i,:||. PARTIAL COVERAGE quoted: 'we applied a default scale factor of 1.0, intervening on layers [11..41]' of [0..47]. Layer selection heuristic quality = snr x (1-cos_sim); layers 23 and 29 chosen for Gemma3-12B. Hydra-effect ~70% self-repair justification for multi-layer."
+  },
+  {
+   "index": 18,
+   "url": "https://huggingface.co/blog/grimjim/orthogonal-reflection-bounded-ablation",
+   "title": "ORBA - Orthogonal Reflection Bounded Ablation (grimjim)",
+   "summary": "H = I - 2uu^T; Hw = w - 2(u^T w)u; geodesic w' = w + (cos theta - 1)(w.u)u with theta = lambda*arccos(h_hat.f_hat); 'At lambda = 1 the refusal component of w is rotated exactly to its orthogonal complement - zeroed without reflection'. Twice-applied modified Gram-Schmidt ('twice is enough'), with the admission it 'breaks isometry'. Author's own negative result: reflection makes 'misdirected sign-flips the characteristic failure mode'; v4 released as directional ablation, v3 as Householder."
+  },
+  {
+   "index": 19,
+   "url": "https://arxiv.org/abs/2607.03377",
+   "title": "Spectral Signatures of Large Language Models (arXiv:2607.03377)",
+   "summary": "NEW competitor, parent-free and data-free: PL_Alpha_Hill (Hill estimator over the top n/2 eigenvalues of W^T W) computed layer-wise then aggregated to a model-level signature; scale-invariant; used for lineage, clustering and performance prediction. RULED OUT because its stated prerequisite is the OPPOSITE of edit detection: 'A critical prerequisite ... is its robustness across downstream adaptations ... the impact of post-training on the weight ESD is minimal.' Reads the top of the spectrum. Also does report depth-wise layer-wise perturbation profiles - the honest caveat."
+  },
+  {
+   "index": 20,
+   "url": "https://arxiv.org/abs/2608.07921",
+   "title": "Spectral Outliers Reveal Dominant Learned Structure in Transformer Attention (arXiv:2608.07921)",
+   "summary": "NEW competitor, parent-free per-layer spectral: Marchenko-Pastur separation of each projection matrix into random-like bulk and outliers, across 11 pre-trained transformers, ICMLA 2026. RULED OUT - identifies learned structure, not edits; no safety/abliteration; reads OUTLIERS (top of spectrum); its 'band outliers' are row/column bands WITHIN a matrix, not depth bands across the stack."
+  },
+  {
+   "index": 21,
+   "url": "https://arxiv.org/html/2512.18901v3",
+   "title": "Gabliteration (arXiv:2512.18901v3, Guelmez)",
+   "summary": "Ridge projection P = R(R^T R + lambda I_k)^-1 R^T (NOT an exact projector unless lambda=0), k in {1,2,3}; W <- W - alpha_l (W P); dynamic layer selection l* = argmax_l S_l with S_l = ||mu_h - mu_n||_2 over 'the candidate set of layers (excluding the first s and last e layers)'; adaptive alpha_l = alpha_base(1+beta[1-|xi_l|]), xi_l = (2l-|L_eff|-1)/(|L_eff|-1), 'maximum scaling to middle layers ... reduced scaling toward boundaries'. KEY QUOTABLE: 'Unlike the uniform layer modification approach in traditional abliteration' - a published statement of our own uniform-vs-selective contrast."
+  },
+  {
+   "index": 22,
+   "url": "https://arxiv.org/html/2604.08844v1",
+   "title": "Paul (arXiv:2604.08844) - LoRA weight-space alignment drift",
+   "summary": "C1 re-verified verbatim: cross-method AUC = 0.00 (n_bootstrap = 972, CI [0.00,0.00]); 'AUC 0.00 is not a null result ... perfect discriminative power with inverted labels'. Self-declared confound Sec 5.8.3: 'Language generation collapsed on all steered adapters at all intensities tested ... GPT-4o scored 0/300 steered responses as harmful, confirming the output is incoherent.' No fix evaluated. rho >= 0.956 severity; rho = 0.72 on N=24 (p<0.001). Features are per-layer spectral features of LoRA weight DELTAS."
+  },
+  {
+   "index": 23,
+   "url": "https://abliterlitics.dev/techniques/",
+   "title": "Abliteration Techniques Compared (Abliterlitics)",
+   "summary": "Six technique profiles incl. the three absent from our taxonomy. Apostate: 'orthogonal projection with a balanced profile ... spreads edits across almost all layers with moderate intensity per tensor' - a near-uniform counterexample. Abliterix: Heretic + per-model search. AEON: LEACE-style concept erasure. Huihui: 'gently adjusts a bunch of different parts ... by a small amount each' vs Heretic surgical. Ecosystem ranges: tensors changed 3-53%, relative edit 1-6%, KL 0.001-1.10, ASR 85-100%."
+  },
+  {
+   "index": 24,
+   "url": "https://api.datacite.org/dois/10.5281/zenodo.19383019",
+   "title": "DataCite record - Coslett (2026), Zenodo 10.5281/zenodo.19383019",
+   "summary": "CLOSES the dependency's largest residual risk. Full author abstract obtained: scars 'ranging from 7.6 to over 2,300 times the instrument's acceptance threshold' in 'tested published checkpoints from multiple toolchains across two model families'. The Neural Network Identity Series shows the instrument is inference-time output geometry (Paper 1 'Inference-Time Physical Unclonable Functions from Architecture-Invariant Output Geometry'; Paper 2 'Logprob Order-Statistic Geometry'), plus a note bounding file-level verification. Issued 2026-04-02; ORCID 0009-0006-5518-1218; CC BY-NC-ND-4.0 + All Rights Reserved + Patent Pending. Zenodo OAI-PMH still 403; wayback 404."
+  },
+  {
+   "index": 25,
+   "url": "https://huggingface.co/api/models",
+   "title": "HuggingFace Hub API - two-pass census (this session)",
+   "summary": "13 search terms, 1068 raw hits, 380 name-prefiltered candidates, 192 resolved, 116 at <=4.2B. All param counts from safetensors.total. Confirms 4,022,468,096 for every Qwen3-4B-Instruct-2507 variant; ORBA/orthogonal-reflection-bounded still ZERO sub-4.2B; gabliterated 54; Apostate 1; Abliterix ~1 genuine; AEON/reaper 0 genuine (name collisions). New traps: the ?search=&full=true endpoint carries no safetensors; quantized MLX re-uploads pass a raw param ceiling. huihui-ai NOT gated, contradicting the dependency."
+  },
+  {
+   "index": 26,
+   "url": "https://huggingface.co/spaces/pliny-the-prompter/obliteratus/raw/main/obliteratus/analysis/spectral_certification.py",
+   "title": "OBLITERATUS spectral_certification.py (source)",
+   "summary": "C2 re-verified: def certify(self, harmful_activations: torch.Tensor, harmless_activations: torch.Tensor, layer_idx: int = -1); docstring 'computes the covariance of residual activations and applies the BBP phase transition'; tiers GREEN certified_complete / YELLOW distributed_refusal / RED incomplete; Marchenko-Pastur noise floor. Consumes ACTIVATIONS, not weights: parent-free YES, prompt-free NO, forward-pass-free NO."
+  },
+  {
+   "index": 27,
+   "url": "https://pypi.org/pypi/reverse-abliterate/json",
+   "title": "reverse-abliterate (PyPI JSON)",
+   "summary": "C3 re-verified: detection = abliteration_metadata.json, LoRA adapter files, '-OBLITERATED' repo-name convention, 'Weight anomalies | Suspicious shard sizes and filenames', missing quantization config, embedded OBLITERATUS commit hashes, forward-hook registration. Hardening = SHA-256 manifests verified 'against a trusted manifest'. No tensor-value statistic anywhere."
+  },
+  {
+   "index": 28,
+   "url": "https://arxiv.org/abs/2508.00161",
+   "title": "Watch the Weights / WeightWatch (arXiv:2508.00161, Zhong & Raghunathan)",
+   "summary": "Confirmed parent-requiring: 'the top singular vectors of the weight difference between a fine-tuned model and its base model correspond to newly acquired behaviors', then monitors activation cosine along those directions. Stops up to 100% of backdoor attacks at <1% FPR."
+  },
+  {
+   "index": 29,
+   "url": "https://arxiv.org/html/2602.15195v3",
+   "title": "Detecting backdoored LoRA adapters from weights alone (arXiv:2602.15195)",
+   "summary": "Ruled out with reasons: explicit adapter/base separation ('Let F_theta denote the frozen base model and let A denote a LoRA adapter attached to that model'); single selected layer; 20-dim projection-wise descriptor; SUPERVISED calibration on 400 benign + 100 poisoned adapters per backbone, standardized then thresholded. Backbones Llama-3.2-3B, Qwen2.5-3B, Gemma-2-2B - our exact size class."
+  },
+  {
+   "index": 30,
+   "url": "https://arxiv.org/abs/2508.06309",
+   "title": "Matrix-Driven Identification and Reconstruction of LLM Weight Homology (arXiv:2508.06309)",
+   "summary": "Ruled out: MDIR detects weight CORRESPONDENCES between models via polar decomposition + Large Deviation Theory and 'compares only a single pair of matrices at a time' - it answers 'are these two models related', not 'was this one edited'. Inference-free, perfect AUC on LeaFBench."
+  }
+ ],
+ "structured_answer": {
+  "abliterlitics_metric_map": [
+   {
+    "abliterlitics_metric": "Tensor comparison / edit magnitude",
+    "definition_as_stated": "diff = (variant - base).abs().mean().item(); classified by type, by high/medium/low impact (top 10% by edit norm), and by layer index (METHODOLOGY 1.1)",
+    "delta_or_own_tensors": "DELTA",
+    "our_nearest_W_metric": "(none)",
+    "verdict": "NO_COUNTERPART - parent-requiring by construction"
+   },
+   {
+    "abliterlitics_metric": "Relative edit magnitude",
+    "definition_as_stated": "'Norm of edit vectors, relative to base tensor norm' (1.4)",
+    "delta_or_own_tensors": "DELTA (numerator and denominator both need the base)",
+    "our_nearest_W_metric": "(none)",
+    "verdict": "NO_COUNTERPART"
+   },
+   {
+    "abliterlitics_metric": "SVD decomposition of the delta",
+    "definition_as_stated": "U,S,Vh = torch.linalg.svd(delta_matrix); effective rank = number of singular values above threshold*S[0]; energy = cumulative sum of squared singular values; top-k left/right singular vector comparison (1.2)",
+    "delta_or_own_tensors": "DELTA",
+    "our_nearest_W_metric": "W06/W07 stable rank, W08/W09 spectral entropy, W10 top-k decay",
+    "verdict": "ANALOGOUS-BUT-DISJOINT - same spectral vocabulary, incompatible input (dW vs the checkpoint's own matrices). NOT identical, unlike two features of 2604.08844"
+   },
+   {
+    "abliterlitics_metric": "Subspace alignment",
+    "definition_as_stated": "principal subspace of each technique's edit vectors via QR decomposition; Grassmann distance; overlap coefficient = fraction of shared principal components (1.3)",
+    "delta_or_own_tensors": "DELTA x2 (needs the base AND two variants)",
+    "our_nearest_W_metric": "(none)",
+    "verdict": "NO_COUNTERPART"
+   },
+   {
+    "abliterlitics_metric": "Technique fingerprinting (incl. layer distribution + edit magnitude profile)",
+    "definition_as_stated": "type distribution; 'Layer distribution: Counter by layer index, revealing depth preferences'; edit magnitude profile = norm of edit vectors relative to base tensor norm; directional signature (1.4)",
+    "delta_or_own_tensors": "DELTA",
+    "our_nearest_W_metric": "the proposed per-band windowed statistic",
+    "verdict": "ANALOGOUS-BUT-DISJOINT - THE closest published depth profile, but it is a delta support/magnitude count, not a spectral statistic, and it needs the parent"
+   },
+   {
+    "abliterlitics_metric": "Cross-technique correlation",
+    "definition_as_stated": "cosine_sim = dot(a,b)/(norm(a)*norm(b)) between two techniques' edit vectors on the same tensor (1.5)",
+    "delta_or_own_tensors": "DELTA x2",
+    "our_nearest_W_metric": "(none)",
+    "verdict": "NO_COUNTERPART"
+   },
+   {
+    "abliterlitics_metric": "Expert analysis (MoE)",
+    "definition_as_stated": "per-expert edit magnitude, expert utilization change, router weight modification, shared vs expert-specific changes (1.6)",
+    "delta_or_own_tensors": "DELTA",
+    "our_nearest_W_metric": "(none)",
+    "verdict": "NO_COUNTERPART"
+   },
+   {
+    "abliterlitics_metric": "Stacking investigation",
+    "definition_as_stated": "D_a = variant_a - base; D_b = variant_b - base; D_r = D_b - D_a; per-tensor R^2 of D_b = slope*D_a + D_r (1.7)",
+    "delta_or_own_tensors": "DELTA x2",
+    "our_nearest_W_metric": "(none)",
+    "verdict": "NO_COUNTERPART"
+   },
+   {
+    "abliterlitics_metric": "Abliteration method detection (5.2/5.3)",
+    "definition_as_stated": "rule cascade on the fingerprints: LEACE if edit density >90% AND relative edit median <0.0001; rank-k if gate_proj+up_proj also modified; Mamba2 if linear_attn.A_log; MoE / shared-expert / norm rules. Signature table gives a LAYER DISTRIBUTION per method: rank-1 'Mid-to-late focused (42-44% late)' vs LEACE 'Uniform (33/33/33%)'",
+    "delta_or_own_tensors": "DELTA",
+    "our_nearest_W_metric": "(none) - but this is the external naming of our uniform-vs-depth-weighted axis",
+    "verdict": "NO_COUNTERPART as a statistic; DIRECTLY SUPPORTIVE as published taxonomy"
+   },
+   {
+    "abliterlitics_metric": "(none)",
+    "definition_as_stated": "-",
+    "delta_or_own_tensors": "-",
+    "our_nearest_W_metric": "W01-W05 pooled-Gram minimum-eigenvector family; W12-W16",
+    "verdict": "DISTINCT, NO COUNTERPART - nothing in Abliterlitics is computable from a single checkpoint. THIS IS THE NOVELTY AXIS"
+   }
+  ],
+  "abliterlitics_parent_requirement": {
+   "quote": "Create a directory with your base model and variants, plus a `comparison.json`",
+   "schema_quote": "{\"name\": \"qwen35-4b\", \"base\": \"Qwen3.5-4B\", \"variants\": {\"heretic\": {\"path\": \"Qwen3.5-4B-heretic\"}, \"hauhau\": {...}, \"huihui\": {...}}}",
+   "directory_listing_quote": "my-comparison/ |- comparison.json |- Qwen3.5-4B/  # Base model (safetensors) |- Qwen3.5-4B-heretic/ ...",
+   "url": "https://raw.githubusercontent.com/dreamfast/abliterlitics/master/README.md",
+   "cli_usage": "./abliterlitics.sh auto ./my-comparison/  (also: weights | kl | lm-eval | harmbench | graphs | report | validate)",
+   "base_is_mandatory": "'base' is a required top-level key of comparison.json; there is no single-model mode in the command table; './abliterlitics.sh validate' exists to 'Validate comparison.json and model paths'",
+   "reinforced_by_methodology": "METHODOLOGY 1.1: 'Load corresponding tensors from base and variant using memory-mapped safetensors' and diff = (variant - base).abs().mean().item()",
+   "interpretation_sentence": "The most capable weight-forensics toolkit the abliteration community has built cannot be run at all without the parent checkpoint sitting in the same directory as the candidate - which is precisely the input a Hub auditor screening an unattested upload does not have, so its existence sharpens rather than blunts the parent-free claim."
+  },
+  "abliterlitics_provenance": {
+   "first_public_date": "2026-04-24",
+   "dating_evidence": [
+    "GitHub API created_at = 2026-04-24T23:53:27Z",
+    "pushed_at 2026-07-25T11:33:59Z",
+    "updated_at 2026-08-10T13:09:56Z",
+    "32 commits / 21 stars / 2 forks",
+    "latest report footer: 'Last updated: August 1, 2026'"
+   ],
+   "date_status": "UPPER BOUND on authorship. Following the OBLITERATUS precedent, squashed bulk uploads make commit history a weak lower bound; 32 commits for a project with 234 tests, three Dockerfiles and 11 weight-analysis scripts is consistent with development preceding first publication.",
+   "licence": "AGPL-3.0 (GitHub API license.key = 'agpl-3.0', spdx_id = 'AGPL-3.0'; README footer '## License AGPL-3.0')",
+   "licence_implication": "We may cite and quote its published outputs freely; we would not vendor its code into our pipeline.",
+   "author": "Nathan Sapwell (nathan.sapwell.net); HF org DreamFast; Discord community",
+   "scale": "10 model reports (~2B to 59B MoE), up to 23 variants on a single base"
+  },
+  "abliterlitics_cross_technique_fingerprints": [
+   {
+    "model": "Qwen3-4B-Instruct-2507 (OUR PANEL FAMILY)",
+    "base_params": "~4B (4,022,468,096)",
+    "layers": 36,
+    "technique": "Heretic (p-e-w heretic-v4)",
+    "n_tensors_changed": 57,
+    "pct_tensors": "14.3%",
+    "layers_modified": "33/36",
+    "layer_coverage": 0.92,
+    "relative_edit_magnitude": "2.49%",
+    "top_layers": "all three techniques concentrate in L12-19; L16 is the #1 most modified layer for all three",
+    "tensor_types": 2,
+    "source": 4
+   },
+   {
+    "model": "Qwen3-4B-Instruct-2507",
+    "base_params": "~4B",
+    "layers": 36,
+    "technique": "HauhauCS (Reaper)",
+    "n_tensors_changed": "~50 real (253 with GGUF save noise at ~0.000002 norm)",
+    "pct_tensors": "12.6% real / 63.6% any delta",
+    "layers_modified": "~28/36 real (36/36 any delta)",
+    "layer_coverage": 0.78,
+    "relative_edit_magnitude": "~2.5% real (0.61% over all 253)",
+    "top_layers": "L12-19, peak L16",
+    "tensor_types": "2 real (7+ any delta)",
+    "note": "253 = standard PEFT LoRA config over all linear projections, 7*36+1; most adapters near-zero. Heretic-HauhauCS median cosine 0.966, regression slope 1.06",
+    "source": 4
+   },
+   {
+    "model": "Qwen3-4B-Instruct-2507",
+    "base_params": "~4B",
+    "layers": 36,
+    "technique": "Huihui",
+    "n_tensors_changed": 108,
+    "pct_tensors": "27.1%",
+    "layers_modified": "36/36",
+    "layer_coverage": 1.0,
+    "relative_edit_magnitude": "2.13%",
+    "top_layers": "L12-19, peak L16",
+    "tensor_types": 3,
+    "source": 4
+   },
+   {
+    "model": "Qwen3.5-4B",
+    "base_params": "~4B",
+    "layers": 32,
+    "technique": "Heretic (coder3101)",
+    "n_tensors_changed": 29,
+    "pct_tensors": "6.8%",
+    "layers_modified": "29/32",
+    "layer_coverage": 0.91,
+    "relative_edit_magnitude": "2.52%",
+    "top_layers": "L19 (0.447), L23 (0.377), L20 (0.321)",
+    "tensor_types": 3,
+    "source": 5
+   },
+   {
+    "model": "Qwen3.5-4B",
+    "base_params": "~4B",
+    "layers": 32,
+    "technique": "HauhauCS",
+    "n_tensors_changed": 83,
+    "pct_tensors": "19.5%",
+    "layers_modified": "28/32",
+    "layer_coverage": 0.88,
+    "relative_edit_magnitude": "1.10%",
+    "top_layers": "L23 (0.324), L19 (0.322), L15 (0.318)",
+    "tensor_types": 6,
+    "note": "skips full-attention layers 3, 7, 27, 31; 21 linear_attn.A_log tensors",
+    "source": 5
+   },
+   {
+    "model": "Qwen3.5-4B",
+    "base_params": "~4B",
+    "layers": 32,
+    "technique": "Huihui",
+    "n_tensors_changed": 120,
+    "pct_tensors": "28.2%",
+    "layers_modified": "32/32",
+    "layer_coverage": 1.0,
+    "relative_edit_magnitude": "9.97%",
+    "top_layers": "L27 (2.907), L23 (2.879), L19 (2.596)",
+    "tensor_types": 7,
+    "source": 5
+   },
+   {
+    "model": "Qwen3.5-9B",
+    "base_params": "~9B",
+    "layers": 32,
+    "technique": "Heretic (trohrbaugh v2)",
+    "n_tensors_changed": 42,
+    "pct_tensors": "9.9%",
+    "layers_modified": "23/32",
+    "layer_coverage": 0.72,
+    "relative_edit_magnitude": "2.83%",
+    "top_layers": "L17 (4.560), L16 (4.508), L19 (4.504)",
+    "tensor_types": 3,
+    "note": "'Layers 0 through 8 have no real edits'; modifies 6 of 8 full-attention layers, skipping 3 and 7",
+    "source": 3
+   },
+   {
+    "model": "Qwen3.5-9B",
+    "base_params": "~9B",
+    "layers": 32,
+    "technique": "HauhauCS",
+    "n_tensors_changed": 68,
+    "pct_tensors": "16.0%",
+    "layers_modified": "29/32",
+    "layer_coverage": 0.91,
+    "relative_edit_magnitude": "4.89%",
+    "top_layers": "L25 (12.329), L23 (12.169), L24 (11.955)",
+    "tensor_types": 5,
+    "note": "peaks late (22-25 and 31); zero A_log on the 9B (13 on 2B, 21 on 4B, 42 on 27B - non-monotonic)",
+    "source": 3
+   },
+   {
+    "model": "Qwen3.5-9B",
+    "base_params": "~9B",
+    "layers": 32,
+    "technique": "Huihui",
+    "n_tensors_changed": 62,
+    "pct_tensors": "14.6%",
+    "layers_modified": "31/32",
+    "layer_coverage": 0.97,
+    "relative_edit_magnitude": "2.72%",
+    "top_layers": "L10 (5.276), L14 (4.967), L16 (4.964)",
+    "tensor_types": 3,
+    "source": 3
+   },
+   {
+    "model": "GLM-4.7-Flash",
+    "base_params": "~59GB MoE",
+    "layers": 48,
+    "technique": "Heretic",
+    "n_tensors_changed": "1826/9491",
+    "pct_tensors": "19.2%",
+    "layers_modified": "34/48",
+    "layer_coverage": 0.71,
+    "relative_edit_magnitude": "0.022627 median",
+    "layer_distribution_EML": "0% early / 46% mid / 53% late",
+    "note": "'The 0% early-layer percentage indicates Heretic's direction_index optimisation skipped early layers entirely'",
+    "source": 7
+   },
+   {
+    "model": "GLM-4.7-Flash",
+    "base_params": "~59GB MoE",
+    "layers": 48,
+    "technique": "Hauhau",
+    "n_tensors_changed": "9210/9491",
+    "pct_tensors": "97.0%",
+    "layers_modified": "47/48",
+    "layer_coverage": 0.98,
+    "relative_edit_magnitude": "0.000000 median (99.98% param edit density)",
+    "layer_distribution_EML": "33% / 35% / 33%",
+    "note": "detected as LEACE: 'The uniform 33/33/33 layer distribution is characteristic of a global method that does not concentrate edits at specific depths'; lowest KL 0.009",
+    "source": 7
+   },
+   {
+    "model": "GLM-4.7-Flash",
+    "base_params": "~59GB MoE",
+    "layers": 48,
+    "technique": "Huihui",
+    "n_tensors_changed": "3151/9703",
+    "pct_tensors": "32.5%",
+    "layers_modified": "48/48",
+    "layer_coverage": 1.0,
+    "relative_edit_magnitude": "0.022524 median",
+    "layer_distribution_EML": "32% / 34% / 34%",
+    "note": "only variant modifying router.weight (47 tensors)",
+    "source": 7
+   }
+  ],
+  "abliterlitics_gemma4_e2b_13_variant_band_table": {
+   "band_definition": "E/M/L = early layers 0 to 10 / mid layers 11 to 22 / late layers 23 to 34 (35 text layers)",
+   "rows": [
     {
-      "id": "2608.05578",
-      "version": "v1",
-      "cited_title": "Detecting Safety Training Modification in Language Models via Activation Analysis",
-      "actual_title": "Detecting Safety Training Modification in Language Models via Activation Analysis",
-      "status": "MATCH",
-      "authors": [
-        "Glen Messenger"
-      ],
-      "year": 2026,
-      "venue": "IEEE Access, vol. 14, pp. 91723-91737, 2026 (journal_ref); doi 10.1109/ACCESS.2026.3704057",
-      "note": "SINGLE AUTHOR - do not write et al.",
-      "bibtex": "@article{Messenger2026,\n  author = {Glen Messenger},\n  title = {Detecting Safety Training Modification in Language Models via Activation Analysis},\n  journal = {IEEE Access},\n  volume = {14},\n  pages = {91723--91737},\n  year = {2026},\n  doi = {10.1109/ACCESS.2026.3704057},\n  note = {arXiv:2608.05578v1}\n}"
+     "variant": "llmfan46",
+     "changed": 7,
+     "total": 600,
+     "pct": "1.2%",
+     "types": 1,
+     "layers": 7,
+     "EML": "0/86/14"
     },
     {
-      "id": "2606.25750",
-      "version": "v1",
-      "cited_title": "RAS: Measuring LLM Safety Through Refusal Alignment",
-      "actual_title": "RAS: Measuring LLM Safety Through Refusal Alignment",
-      "status": "MATCH",
-      "authors": [
-        "Chang-Chieh Huang",
-        "Yan-Lun Chen",
-        "Chia-Mu Yu",
-        "Wei-Bin Lee"
-      ],
-      "year": 2026,
-      "venue": "preprint",
-      "note": "first-author spelling confirmed; paper's method is named SafeVec, metric is RAS",
-      "bibtex": "@misc{Huang2026,\n  author = {Chang-Chieh Huang and Yan-Lun Chen and Chia-Mu Yu and Wei-Bin Lee},\n  title = {RAS: Measuring LLM Safety Through Refusal Alignment},\n  year = {2026},\n  eprint = {2606.25750},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CL}\n}"
+     "variant": "coder3101",
+     "changed": 9,
+     "total": 600,
+     "pct": "1.5%",
+     "types": 1,
+     "layers": 9,
+     "EML": "0/67/33"
     },
     {
-      "id": "2603.18353",
-      "version": "v1",
-      "cited_title": "Interpretability without actionability: mechanistic methods cannot correct language model errors despite near-perfect internal representations",
-      "actual_title": "Interpretability without actionability: mechanistic methods cannot correct language model errors despite near-perfect internal representations",
-      "status": "MATCH",
-      "authors": [
-        "Sanjay Basu",
-        "Sadiq Y. Patel",
-        "Parth Sheth",
-        "Bhairavi Muralidharan",
-        "Namrata Elamaran",
-        "Aakriti Kinra",
-        "John Morgan",
-        "Rajaie Batniji"
-      ],
-      "year": 2026,
-      "venue": "preprint (27 pages, 5 figures, 10 tables)",
-      "note": "8 authors; 'et al.' acceptable",
-      "bibtex": "@misc{Basu2026,\n  author = {Sanjay Basu and Sadiq Y. Patel and Parth Sheth and Bhairavi Muralidharan and Namrata Elamaran and Aakriti Kinra and John Morgan and Rajaie Batniji},\n  title = {Interpretability without actionability: mechanistic methods cannot correct language model errors despite near-perfect internal representations},\n  year = {2026},\n  eprint = {2603.18353},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.AI}\n}"
+     "variant": "kasper",
+     "changed": 16,
+     "total": 540,
+     "pct": "3.0%",
+     "types": 1,
+     "layers": 16,
+     "EML": "0/38/62"
     },
     {
-      "id": "2606.24952",
-      "version": "v1",
-      "cited_title": "P. Galeone et al. Perfect Detection, Failed Control: The Geometry of Knowing vs. Steering in Language Models",
-      "actual_title": "Perfect Detection, Failed Control: The Geometry of Knowing vs. Steering in Language Models",
-      "status": "MISMATCH",
-      "authors": [
-        "Cosimo Galeone",
-        "Anna Ettorre",
-        "Minsu Park",
-        "Giuseppe Ettorre",
-        "Daniele Ligorio"
-      ],
-      "year": 2026,
-      "venue": "preprint",
-      "note": "WRONG FIRST INITIAL: 'P. Galeone' -> 'C. Galeone'",
-      "bibtex": "@misc{Galeone2026,\n  author = {Cosimo Galeone and Anna Ettorre and Minsu Park and Giuseppe Ettorre and Daniele Ligorio},\n  title = {Perfect Detection, Failed Control: The Geometry of Knowing vs. Steering in Language Models},\n  year = {2026},\n  eprint = {2606.24952},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CL}\n}"
+     "variant": "pew",
+     "changed": 16,
+     "total": 600,
+     "pct": "2.7%",
+     "types": 1,
+     "layers": 16,
+     "EML": "0/44/56"
     },
     {
-      "id": "2602.17881",
-      "version": "v1",
-      "cited_title": "Understanding Unreliability of Steering Vectors in Language Models: Geometric Predictors and the Limits of Linear Approximations",
-      "actual_title": "Understanding Unreliability of Steering Vectors in Language Models: Geometric Predictors and the Limits of Linear Approximations",
-      "status": "MATCH",
-      "authors": [
-        "Joschka Braun"
-      ],
-      "year": 2026,
-      "venue": "Master's Thesis, University of Tuebingen, 89 pages, 34 figures",
-      "note": "SINGLE AUTHOR; thesis type confirmed in arXiv comments; portions published at ICLR 2025 Workshop (arXiv:2505.22637)",
-      "bibtex": "@mastersthesis{Braun2026,\n  author = {Joschka Braun},\n  title = {Understanding Unreliability of Steering Vectors in Language Models: Geometric Predictors and the Limits of Linear Approximations},\n  school = {University of T\\\"ubingen},\n  year = {2026},\n  note = {arXiv:2602.17881v1, 89 pages}\n}"
+     "variant": "duoneural",
+     "changed": 49,
+     "total": 540,
+     "pct": "9.1%",
+     "types": 2,
+     "layers": 29,
+     "EML": "10/41/49"
     },
     {
-      "id": "2607.01854",
-      "version": "v1",
-      "cited_title": "D. Hurtado et al. Has This Checkpoint Been Abliterated? A Two-Signal Audit and Its Failure Map",
-      "actual_title": "Has This Checkpoint Been Abliterated? A Two-Signal Audit and Its Failure Map",
-      "status": "MISMATCH",
-      "authors": [
-        "Gabriel Hurtado"
-      ],
-      "year": 2026,
-      "venue": "preprint (13 pages, 3 figures)",
-      "note": "SINGLE AUTHOR - do not write et al.; WRONG INITIAL 'D.' -> 'G.'",
-      "bibtex": "@misc{Hurtado2026,\n  author = {Gabriel Hurtado},\n  title = {Has This Checkpoint Been Abliterated? A Two-Signal Audit and Its Failure Map},\n  year = {2026},\n  eprint = {2607.01854},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CR}\n}"
+     "variant": "huihui-v1",
+     "changed": 50,
+     "total": 600,
+     "pct": "8.3%",
+     "types": 2,
+     "layers": 25,
+     "EML": "4/48/48"
     },
     {
-      "id": "2602.06801",
-      "version": "v4",
-      "cited_title": "On the Non-Identifiability of Steering Vectors in Large Language Models",
-      "actual_title": "On the Non-Identifiability of Steering Vectors in Large Language Models",
-      "status": "MATCH",
-      "authors": [
-        "Sohan Venkatesh",
-        "Ashish Mahendran Kurapath"
-      ],
-      "year": 2026,
-      "venue": "preprint",
-      "note": "FOUR VERSIONS (v1 2026-02-06 ... v4 2026-04-01) - pin the version the quoted numbers came from",
-      "bibtex": "@misc{Venkatesh2026,\n  author = {Sohan Venkatesh and Ashish Mahendran Kurapath},\n  title = {On the Non-Identifiability of Steering Vectors in Large Language Models},\n  year = {2026},\n  eprint = {2602.06801v4},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.LG}\n}"
+     "variant": "prithiv",
+     "changed": 50,
+     "total": 600,
+     "pct": "8.3%",
+     "types": 2,
+     "layers": 25,
+     "EML": "4/48/48"
     },
     {
-      "id": "2604.15557",
-      "version": "v1",
-      "cited_title": "Predicting Where Steering Vectors Succeed",
-      "actual_title": "Predicting Where Steering Vectors Succeed",
-      "status": "MATCH",
-      "authors": [
-        "Jayadev Billa"
-      ],
-      "year": 2026,
-      "venue": "preprint (19 pages, 4 figures, 20 tables)",
-      "note": "SINGLE AUTHOR - do not write et al.",
-      "bibtex": "@misc{Billa2026,\n  author = {Jayadev Billa},\n  title = {Predicting Where Steering Vectors Succeed},\n  year = {2026},\n  eprint = {2604.15557},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CL}\n}"
+     "variant": "treadon",
+     "changed": 48,
+     "total": 540,
+     "pct": "8.9%",
+     "types": 2,
+     "layers": 24,
+     "EML": "8/46/46"
     },
     {
-      "id": "2602.02132",
-      "version": "v1",
-      "cited_title": "There Is More to Refusal in Large Language Models than a Single Direction",
-      "actual_title": "There Is More to Refusal in Large Language Models than a Single Direction",
-      "status": "MATCH",
-      "authors": [
-        "Faaiz Joad",
-        "Majd Hawasly",
-        "Sabri Boughorbel",
-        "Nadir Durrani",
-        "Husrev Taha Sencar"
-      ],
-      "year": 2026,
-      "venue": "preprint",
-      "note": "",
-      "bibtex": "@misc{Joad2026,\n  author = {Faaiz Joad and Majd Hawasly and Sabri Boughorbel and Nadir Durrani and Husrev Taha Sencar},\n  title = {There Is More to Refusal in Large Language Models than a Single Direction},\n  year = {2026},\n  eprint = {2602.02132},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CL}\n}"
+     "variant": "huihui-v2",
+     "changed": 60,
+     "total": 600,
+     "pct": "10.0%",
+     "types": 2,
+     "layers": 30,
+     "EML": "20/40/40"
     },
     {
-      "id": "2603.13359",
-      "version": "v1",
-      "cited_title": "From Refusal Tokens to Refusal Control: Discovering and Steering Category-Specific Refusal Directions",
-      "actual_title": "From Refusal Tokens to Refusal Control: Discovering and Steering Category-Specific Refusal Directions",
-      "status": "MATCH",
-      "authors": [
-        "Rishab Alagharu",
-        "Ishneet Sukhvinder Singh",
-        "Shaibi Shamsudeen",
-        "Zhen Wu",
-        "Ashwinee Panda"
-      ],
-      "year": 2026,
-      "venue": "preprint",
-      "note": "",
-      "bibtex": "@misc{Alagharu2026,\n  author = {Rishab Alagharu and Ishneet Sukhvinder Singh and Shaibi Shamsudeen and Zhen Wu and Ashwinee Panda},\n  title = {From Refusal Tokens to Refusal Control: Discovering and Steering Category-Specific Refusal Directions},\n  year = {2026},\n  eprint = {2603.13359},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CL}\n}"
+     "variant": "trevorjs",
+     "changed": 70,
+     "total": 600,
+     "pct": "11.7%",
+     "types": 2,
+     "layers": 35,
+     "EML": "31/34/34"
     },
     {
-      "id": "2603.22061",
-      "version": "v1",
-      "cited_title": "(no authors given) On the Failure of Topic-Matched Contrast Baselines in Multi-Directional Refusal Abliteration",
-      "actual_title": "On the Failure of Topic-Matched Contrast Baselines in Multi-Directional Refusal Abliteration",
-      "status": "MISMATCH",
-      "authors": [
-        "Valentin Petrov"
-      ],
-      "year": 2026,
-      "venue": "preprint",
-      "note": "AUTHOR LIST ABSENT IN DRAFT; SINGLE AUTHOR",
-      "bibtex": "@misc{Petrov2026,\n  author = {Valentin Petrov},\n  title = {On the Failure of Topic-Matched Contrast Baselines in Multi-Directional Refusal Abliteration},\n  year = {2026},\n  eprint = {2603.22061},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CL}\n}"
+     "variant": "wangzhang",
+     "changed": 72,
+     "total": 540,
+     "pct": "13.3%",
+     "types": 4,
+     "layers": 26,
+     "EML": "6/44/50"
     },
     {
-      "id": "2607.28685",
-      "version": "v1",
-      "cited_title": "(no authors given) Safety, or Just Capability? A Validity Audit of Agent-Safety Benchmarks",
-      "actual_title": "Safety, or Just Capability? A Validity Audit of Agent-Safety Benchmarks",
-      "status": "MISMATCH",
-      "authors": [
-        "Youting Wang",
-        "Xiao Han",
-        "Dingyan Shang",
-        "Yuan Tang",
-        "Bowen Liu"
-      ],
-      "year": 2026,
-      "venue": "preprint",
-      "note": "AUTHOR LIST ABSENT IN DRAFT",
-      "bibtex": "@misc{Wang2026validity,\n  author = {Youting Wang and Xiao Han and Dingyan Shang and Yuan Tang and Bowen Liu},\n  title = {Safety, or Just Capability? A Validity Audit of Agent-Safety Benchmarks},\n  year = {2026},\n  eprint = {2607.28685},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.AI}\n}"
+     "variant": "wwtcyberlab",
+     "changed": 96,
+     "total": 600,
+     "pct": "16.0%",
+     "types": 4,
+     "layers": 24,
+     "EML": "8/46/46"
     },
     {
-      "id": "2605.06161",
-      "version": "v1",
-      "cited_title": "(no authors given) Beyond Accuracy: Policy Invariance as a Reliability Test for LLM Safety Judges",
-      "actual_title": "Beyond Accuracy: Policy Invariance as a Reliability Test for LLM Safety Judges",
-      "status": "MISMATCH",
-      "authors": [
-        "Shihao Weng",
-        "Yang Feng",
-        "Xiaofei Xie"
-      ],
-      "year": 2026,
-      "venue": "preprint (9 pages)",
-      "note": "AUTHOR LIST ABSENT IN DRAFT",
-      "bibtex": "@misc{Weng2026,\n  author = {Shihao Weng and Yang Feng and Xiaofei Xie},\n  title = {Beyond Accuracy: Policy Invariance as a Reliability Test for LLM Safety Judges},\n  year = {2026},\n  eprint = {2605.06161},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.AI}\n}"
-    },
-    {
-      "id": "2604.02608",
-      "version": "v2",
-      "cited_title": "Steering Succeeds Where the Logit Lens Cannot Decode: A Large-Scale Concept-Layer Audit",
-      "actual_title": "Steerable but Not Decodable: Function Vectors Operate Beyond the Logit Lens",
-      "status": "MISMATCH",
-      "authors": [
-        "Mohammed Suhail B Nadaf"
-      ],
-      "year": 2026,
-      "venue": "preprint (43 pages, 14 figures, 34 tables)",
-      "note": "MOST SERIOUS DEFECT: cited title is not the paper's title; author list absent; SINGLE AUTHOR; v1 2026-04-03, v2 2026-05-08",
-      "bibtex": "@misc{Nadaf2026,\n  author = {Mohammed Suhail B Nadaf},\n  title = {Steerable but Not Decodable: Function Vectors Operate Beyond the Logit Lens},\n  year = {2026},\n  eprint = {2604.02608v2},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CL}\n}"
-    },
-    {
-      "id": "2608.08159",
-      "version": "v1",
-      "cited_title": "Z. Wu et al. When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit",
-      "actual_title": "When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit of Neuroscience Parallels in LLMs",
-      "status": "MISMATCH",
-      "authors": [
-        "Yuqi Wu",
-        "Shengming Zhao",
-        "Jie Chen"
-      ],
-      "year": 2026,
-      "venue": "preprint",
-      "note": "WRONG INITIAL 'Z. Wu' -> 'Y. Wu'; TITLE TRUNCATED (subtitle 'of Neuroscience Parallels in LLMs' dropped)",
-      "bibtex": "@misc{Wu2026,\n  author = {Yuqi Wu and Shengming Zhao and Jie Chen},\n  title = {When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit of Neuroscience Parallels in LLMs},\n  year = {2026},\n  eprint = {2608.08159},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CL}\n}"
-    },
-    {
-      "id": "2604.09839",
-      "version": "v2",
-      "cited_title": "A. Mishra, D. Khashabi, and A. Liu. Steered LLM Activations are Non-Surjective. arXiv preprint",
-      "actual_title": "Steered LLM Activations are Non-Surjective",
-      "status": "MISMATCH",
-      "authors": [
-        "Aayush Mishra",
-        "Daniel Khashabi",
-        "Anqi Liu"
-      ],
-      "year": 2026,
-      "venue": "ICLR 2026 Workshops (Sci4DL, Re-Align)",
-      "note": "VENUE OMITTED in draft (cited as bare arXiv preprint); v1 2026-04-10, v2 2026-05-07",
-      "bibtex": "@inproceedings{Mishra2026,\n  author = {Aayush Mishra and Daniel Khashabi and Anqi Liu},\n  title = {Steered LLM Activations are Non-Surjective},\n  booktitle = {ICLR 2026 Workshops (Sci4DL, Re-Align)},\n  year = {2026},\n  note = {arXiv:2604.09839v2}\n}"
-    },
-    {
-      "id": "2605.05427",
-      "version": "v2",
-      "cited_title": "A. Hasan and S. Biswas. The Refusal-Compliance Tradeoff: A Large-Scale Safety Behavior Audit of Large Language Models",
-      "actual_title": "The Refusal--Compliance Tradeoff: A Large-Scale Safety Behavior Audit of Large Language Models",
-      "status": "MATCH",
-      "authors": [
-        "Alif Al Hasan",
-        "Sumon Biswas"
-      ],
-      "year": 2026,
-      "venue": "preprint",
-      "note": "SURNAME: cite as 'A. Al Hasan', not 'A. Hasan'; v1 2026-05-06, v2 2026-05-30",
-      "bibtex": "@misc{AlHasan2026,\n  author = {Alif Al Hasan and Sumon Biswas},\n  title = {The Refusal--Compliance Tradeoff: A Large-Scale Safety Behavior Audit of Large Language Models},\n  year = {2026},\n  eprint = {2605.05427v2},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CL}\n}"
-    },
-    {
-      "id": "2603.24543",
-      "version": "v1",
-      "cited_title": "Y. Li et al. Analysing the Safety Pitfalls of Steering Vectors",
-      "actual_title": "Analysing the Safety Pitfalls of Steering Vectors",
-      "status": "MATCH",
-      "authors": [
-        "Yuxiao Li",
-        "Alina Fastowski",
-        "Efstratios Zaradoukas",
-        "Bardh Prenkaj",
-        "Gjergji Kasneci"
-      ],
-      "year": 2026,
-      "venue": "preprint",
-      "note": "'Y. Li' correct (Yuxiao Li)",
-      "bibtex": "@misc{Li2026pitfalls,\n  author = {Yuxiao Li and Alina Fastowski and Efstratios Zaradoukas and Bardh Prenkaj and Gjergji Kasneci},\n  title = {Analysing the Safety Pitfalls of Steering Vectors},\n  year = {2026},\n  eprint = {2603.24543},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CR}\n}"
-    },
-    {
-      "id": "2602.02712",
-      "version": "v2",
-      "cited_title": "A. Taimeskhanov et al. Towards Understanding Steering Strength. ICML 2026",
-      "actual_title": "Towards Understanding Steering Strength",
-      "status": "MISMATCH",
-      "authors": [
-        "Magamed Taimeskhanov",
-        "Samuel Vaiter",
-        "Damien Garreau"
-      ],
-      "year": 2026,
-      "venue": "Accepted for publication at ICML 2026 (50 pages)",
-      "note": "WRONG INITIAL 'A.' -> 'M.'; venue CONFIRMED correct; v1 2026-02-02, v2 2026-07-08",
-      "bibtex": "@inproceedings{Taimeskhanov2026,\n  author = {Magamed Taimeskhanov and Samuel Vaiter and Damien Garreau},\n  title = {Towards Understanding Steering Strength},\n  booktitle = {International Conference on Machine Learning (ICML)},\n  year = {2026},\n  note = {arXiv:2602.02712v2, 50 pages}\n}"
-    },
-    {
-      "id": "2602.02600",
-      "version": "v3",
-      "cited_title": "E. Rahimi, E. Hirshel, R. Himelstein, A. Levi, A. Mendelson, and C. Baskin. Step-Wise Refusal Dynamics in Autoregressive and Diffusion Language Models",
-      "actual_title": "Step-Wise Refusal Dynamics in Autoregressive and Diffusion Language Models",
-      "status": "MATCH",
-      "authors": [
-        "Eliron Rahimi",
-        "Elad Hirshel",
-        "Rom Himelstein",
-        "Amit LeVi",
-        "Avi Mendelson",
-        "Chaim Baskin"
-      ],
-      "year": 2026,
-      "venue": "preprint",
-      "note": "CAPITALISATION: 'A. Levi' -> 'A. LeVi'; v1 2026-02-01, v3 2026-06-05",
-      "bibtex": "@misc{Rahimi2026,\n  author = {Eliron Rahimi and Elad Hirshel and Rom Himelstein and Amit LeVi and Avi Mendelson and Chaim Baskin},\n  title = {Step-Wise Refusal Dynamics in Autoregressive and Diffusion Language Models},\n  year = {2026},\n  eprint = {2602.02600v3},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CL}\n}"
-    },
-    {
-      "id": "2607.14147",
-      "version": "v1",
-      "cited_title": "A. Kwon. Breaking Refusal in the First Half: A Mechanistic Study of the Prefill Jailbreak",
-      "actual_title": "Breaking Refusal in the First Half: A Mechanistic Study of the Prefill Jailbreak",
-      "status": "MATCH",
-      "authors": [
-        "Alex Kwon"
-      ],
-      "year": 2026,
-      "venue": "preprint (31 pages, 3 figures)",
-      "note": "SINGLE AUTHOR - correctly cited without et al.",
-      "bibtex": "@misc{Kwon2026,\n  author = {Alex Kwon},\n  title = {Breaking Refusal in the First Half: A Mechanistic Study of the Prefill Jailbreak},\n  year = {2026},\n  eprint = {2607.14147},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CL}\n}"
-    },
-    {
-      "id": "2607.13346",
-      "version": "v1",
-      "cited_title": "(NOT YET CITED IN DRAFT)",
-      "actual_title": "The Refusal Residue: When Probes Catch Alignment Faking and When They Don't",
-      "status": "MATCH",
-      "authors": [
-        "Aman Mehta"
-      ],
-      "year": 2026,
-      "venue": "Mechanistic Interpretability Workshop at ICML 2026 (12 pages, 4 figures)",
-      "note": "SINGLE AUTHOR - do not write et al.; affiliation Snowflake AI Research; NEW citation to add",
-      "bibtex": "@inproceedings{Mehta2026,\n  author = {Aman Mehta},\n  title = {The Refusal Residue: When Probes Catch Alignment Faking and When They Don't},\n  booktitle = {Mechanistic Interpretability Workshop at ICML 2026},\n  year = {2026},\n  note = {arXiv:2607.13346v1}\n}"
+     "variant": "ether4o4",
+     "changed": 166,
+     "total": 540,
+     "pct": "30.7%",
+     "types": 6,
+     "layers": 35,
+     "EML": "18/41/41"
     }
+   ],
+   "tiers_quote": "Surgical at 3% or less with 1 tensor type: llmfan46, coder3101, kasper, pew. These modify only self_attn.o_proj.weight in a narrow band of mid-to-late layers, L16 to L32. ... Moderate at 8 to 10% with 2 tensor types ... expand layer coverage to 69 to 86%. ... Aggressive at 11 to 31% with 2 to 6 tensor types.",
+   "rank_quote": "10 of 13 variants are perfect rank-1. ... avg effective rank 1.00, top-1 energy 94.9 to 99.9%. Exceptions: pew (1.81, Heretic ARA), treadon (1.83, rank-2), ether4o4 (2.29, gate components).",
+   "why_it_matters": "This is the single richest external per-band table available: 13 independent abliterations of ONE ~2B base, with layer coverage ranging 7/35 to 35/35 and early-band share ranging 0% to 31%. It is the closest thing to a controlled recipe-versus-coverage experiment that exists outside our own panel."
+  },
+  "abliterlitics_alignment_table": [
+   {
+    "model": "Qwen3.5-9B",
+    "pair": "Heretic-Huihui",
+    "n_nontrivial_overlap": 42,
+    "median_cosine": 1.0,
+    "correlation": 0.269,
+    "subspace": "100% of principal angles exceed 0.9 cosine similarity; global mean 0.997",
+    "subset": "Heretic's 42 are a STRICT SUBSET of Huihui's 62",
+    "source": 3
+   },
+   {
+    "model": "Qwen3.5-9B",
+    "pair": "Heretic-HauhauCS",
+    "n_nontrivial_overlap": 33,
+    "median_cosine": 0.136,
+    "correlation": -0.243,
+    "subspace": "28.6% alignment",
+    "source": 3
+   },
+   {
+    "model": "Qwen3.5-9B",
+    "pair": "HauhauCS-Huihui",
+    "n_nontrivial_overlap": 43,
+    "median_cosine": 0.101,
+    "correlation": -0.907,
+    "subspace": "0% alignment",
+    "source": 3
+   },
+   {
+    "model": "Qwen3.5-4B",
+    "pair": "Heretic-HauhauCS",
+    "n_nontrivial_overlap": 23,
+    "median_cosine": 0.032,
+    "correlation": -0.778,
+    "subspace": "mean 0.347, 32% of principal angles above 0.9",
+    "source": 5
+   },
+   {
+    "model": "Qwen3.5-4B",
+    "pair": "Heretic-Huihui",
+    "n_nontrivial_overlap": 29,
+    "median_cosine": 0.00017,
+    "correlation": -0.374,
+    "subspace": "essentially orthogonal",
+    "subset": "Heretic a proper subset of Huihui",
+    "note": "THE COUNTEREXAMPLE that defuses the 0.997 caveat: same technique pair, different base, near-zero cosine",
+    "source": 5
+   },
+   {
+    "model": "Qwen3.5-4B",
+    "pair": "HauhauCS-Huihui",
+    "n_nontrivial_overlap": 48,
+    "median_cosine": 0.00019,
+    "correlation": -0.205,
+    "source": 5
+   },
+   {
+    "model": "Qwen3-4B",
+    "pair": "Heretic-HauhauCS",
+    "n_nontrivial_overlap": "~50",
+    "median_cosine": 0.966,
+    "correlation": "regression slope 1.06",
+    "source": 4
+   },
+   {
+    "model": "Gemma4-E2B",
+    "pair": "13-way",
+    "median_cosine": "clusters: Huihui >0.85; Heretic 0.67-0.92; independents <0.71",
+    "note": "'many technique pairs are nearly orthogonal at cosine around 0.01'; 'No universal abliteration subspace'",
+    "source": 6
+   }
   ],
-  "mismatch_count": 9,
-  "audited_count": 22,
-  "metadata_audit_extra_findings": [
-    "All 22 IDs RESOLVE on the arXiv API - none is fabricated or mistyped.",
-    "Reference [23] is the worst defect: the cited title 'Steering Succeeds Where the Logit Lens Cannot Decode: A Large-Scale Concept-Layer Audit' is NOT the title of arXiv:2604.02608, which is 'Steerable but Not Decodable: Function Vectors Operate Beyond the Logit Lens' (Mohammed Suhail B Nadaf, single author, v2).",
-    "OUTSIDE THE 22-LIST: reference [10] 'Z. Li et al. Logit-Gap Steering ... arXiv:2506.24056' - the draft's own references.bib gives Tung-Ling Li and Hongliang Liu, so cite 'T.-L. Li and H. Liu'.",
-    "SINGLE-AUTHOR papers that must never carry 'et al.': 2608.05578 (Glen Messenger), 2607.01854 (Gabriel Hurtado), 2604.15557 (Jayadev Billa), 2603.22061 (Valentin Petrov), 2604.02608 (Mohammed Suhail B Nadaf), 2607.14147 (Alex Kwon), 2607.13346 (Aman Mehta), 2602.17881 (Joschka Braun), 2603.27412 (Isaac Llorente-Saguer).",
-    "MULTI-VERSION IDs where the draft does not pin a version: 2602.06801 (v4), 2604.02608 (v2), 2604.09839 (v2), 2605.05427 (v2), 2602.02712 (v2), 2602.02600 (v3). Cite the version the quoted numbers came from.",
-    "The iteration-2 dossier's flagged title drifts (2509.13450, 2508.21448, 2605.09043, 2606.22686) do not appear in the current reference list, so no audit row was needed; re-verify if any is added."
+  "uniformity_external_support": {
+   "verdict": "SUPPORTS",
+   "supportive_reading": "Layer coverage is measurably not uniform, in two independent senses, on bases shared across techniques and measured by a third party with no stake in our hypothesis. ACROSS TECHNIQUES on one base: Qwen3.5-9B Heretic 23/32 (72%), HauhauCS 29/32 (91%), Huihui 31/32 (97%); Qwen3.5-4B 29/32, 28/32, 32/32; GLM-4.7-Flash 34/48 (71%), 47/48 (98%), 48/48 (100%); Gemma4-E2B 7/35 for llmfan46 against 35/35 for trevorjs and ether4o4, a 5x range on one base. WITHIN a technique across the stack: Heretic peaks at L16-19 on the 9B with layers 0-8 untouched; HauhauCS peaks late at L22-25 and 31; Huihui earlier-middle at L10-17; the GLM E/M/L table gives Heretic 0% early / 46% mid / 53% late against the Hauhau variant's 33/35/33. Abliterlitics also NAMES the axis itself: its method-signature table gives rank-1 Heretic-style 'Mid-to-late focused (42-44% late)' versus LEACE 'Uniform (33/33/33%)', and its detection cascade fires LEACE on 'param edit density above 90% AND relative edit median below 0.0001'. Our f* = 1.00 result says a minimum-over-layers statistic is visible only to a fully global edit; an independently produced forensic report therefore places Heretic below full coverage on a shared base - third-party corroboration of exactly the property H1 predicts causes W05 to miss Heretic checkpoints.",
+   "cosine_caveat_paragraph": "A reviewer who reads Abliterlitics' Qwen3.5-9B report will find that Heretic's and Huihui's edits have a median per-tensor cosine similarity of 1.0, a global mean of 0.997, and that 100% of principal angles exceed 0.9 cosine similarity, with Heretic's 42 modified tensors a strict subset of Huihui's 62. Read carelessly, that says the two recipes are interchangeable and our recipe-class story collapses. It does not, because the two claims are about different quantities. Cosine similarity is computed between two edit vectors on a tensor both techniques modified; it is silent about the tensors only one of them modifies, and silent about how large each edit is. On the same page and the same model, Heretic touches 23 of 32 layers with layers 0-8 unedited while Huihui touches 31 of 32, and HauhauCS's per-layer peak magnitude is 12.329 against Heretic's 4.560. The recipes agree almost perfectly on WHICH DIRECTION to remove and differ substantially on WHERE IN THE STACK and HOW COMPLETELY they remove it. Coverage and depth profile are precisely the axis a minimum-over-layers statistic keys on, and precisely the axis a cosine between overlapping edits cannot see. The same report makes the point against itself elsewhere: on Qwen3.5-4B the identical Heretic-Huihui pair has a median cosine of 0.00017, essentially orthogonal, while Heretic remains a proper subset of Huihui - so the 0.997 alignment is a property of one base model, not of the technique pair.",
+   "scope_mismatch_caveat": "Three limits. (1) Their 'layers modified' is a DELTA SUPPORT COUNT - layers containing at least one tensor whose (variant - base).abs().mean() exceeds a noise floor - while W05 is a minimum over layers of a pooled-Gram eigenvalue on the candidate's OWN matrices. Correlated by construction, not the same statistic; no result of ours is replicated by theirs. (2) Their numbers are parent-derived, so they are evidence that recipes differ in coverage, NOT evidence that a parent-free statistic can see that difference. (3) Scale: four of ten reports are at or below ~4.5B (better than the plan feared), but the richest cross-technique alignment analysis is on the 9B and 27B - say so wherever a claim rests on those.",
+   "coverage_nesting_quotable": "Heretic's 42 real tensors are a strict subset of Huihui's 62. Every tensor Heretic modifies, Huihui also modifies. (Qwen3.5-9B; the same nesting recurs on the 4B and 2B)",
+   "our_size_class_quotable": "On Qwen3-4B-Instruct-2507 - our own panel's base model - 'All three techniques concentrate changes in layers 12 through 19. Layer 16 is the number one most modified layer across all three techniques.'"
+  },
+  "abliterlitics_citation_paragraph": "Abliterlitics is an open-source abliteration-forensics toolkit (AGPL-3.0, first public 2026-04-24) that compares a base model against its abliterated variants along four axes - weight analysis, KL divergence, capability benchmarks and HarmBench safety - and has published reports on ten base models spanning ~2B to 59B. Its weight axis is the closest published relative of ours: it computes SVDs of the edit, subspace alignment via Grassmann distance, per-layer edit-magnitude profiles and technique fingerprints. Every one of those statistics is computed on the delta. The tool requires the user to \"create a directory with your base model and variants, plus a comparison.json\", and base is a mandatory key; there is no single-checkpoint mode. Its measurements are nonetheless external evidence for our mechanism: on a shared Qwen3.5-9B base, Heretic modifies 23 of 32 layers, HauhauCS 29 and Huihui 31, and Heretic's edits leave layers 0-8 untouched. That coverage difference coexists with near-perfect directional agreement between Heretic and Huihui (median cosine 1.0, global mean 0.997, 100% of principal angles above 0.9) - the recipes differ in depth and completeness, not in direction.",
+  "recipe_parameter_quotes": {
+   "heretic": {
+    "urls": [
+     "https://github.com/p-e-w/heretic",
+     "https://raw.githubusercontent.com/p-e-w/heretic/master/src/heretic/model.py",
+     "https://raw.githubusercontent.com/p-e-w/heretic/master/src/heretic/main.py",
+     "https://raw.githubusercontent.com/p-e-w/heretic/master/config.default.toml"
+    ],
+    "readme_kernel_quote": "max_weight, max_weight_position, min_weight, and min_weight_distance: For each component, these parameters describe the shape and position of the ablation weight kernel over the layers.",
+    "readme_prior_art_quote": "Non-constant ablation weights were previously explored by Maxime Labonne in gemma-3-12b-it-abliterated-v2.",
+    "readme_float_index_quote": "The residual direction index is a float rather than an integer. For non-integral values, the two nearest residual direction vectors are linearly interpolated.",
+    "readme_per_component_quote": "Ablation parameters are chosen separately for each component. I have found that MLP interventions tend to be more damaging to the model than attention interventions, so using different ablation weights can squeeze out some extra performance.",
+    "kernel_form_FROM_SOURCE": "distance = abs(layer_index - params.max_weight_position); if distance > params.min_weight_distance: continue; weight = params.max_weight + (distance / params.min_weight_distance) * (params.min_weight - params.max_weight)",
+    "kernel_shape_CORRECTED": "TRIANGULAR (piecewise-linear tent) with COMPACT SUPPORT and a hard cutoff - NOT Gaussian and NOT a bell curve, contrary to the plan, the dependency artifact, and OBLITERATUS's own comparison table which calls it 'Bell-curve layer weighting'",
+    "optuna_bounds_FROM_SOURCE": {
+     "direction_index": "[0.4*last_layer_index, 0.9*last_layer_index]",
+     "max_weight": "[0.8, 1.5] for attention; [-0.25, 1.5] for mlp.down_proj; clamped max(0.0, .)",
+     "max_weight_position": "[0.6*last_layer_index, 1.0*last_layer_index] - STRUCTURALLY forbids centring the edit early",
+     "min_weight": "sampled in [0,1] as a FRACTION of max_weight",
+     "min_weight_distance": "[1.0, max(0.6*last_layer_index, 1.0)]"
+    },
+    "code_comment": "the refusal direction is typically strongest in layers slightly past the midpoint of the layer stack",
+    "mpoa_merge_status": "CONFIRMED AS A SHIPPED DEFAULT, NOT AS PR #52. config.default.toml ships row_normalization = 'full' ('like \"pre\", but renormalizes to preserve original row magnitudes') with full_normalization_lora_rank = 3. The releases API returned NO match for MPOA|row.normalization|norm-preserving|#52 - do NOT cite 'PR #52' without re-verification."
+   },
+   "mlabonne_v2": {
+    "url": "https://huggingface.co/mlabonne/gemma-3-12b-it-abliterated-v2",
+    "status": "UNOBTAINED_THIS_SESSION",
+    "what_happened": "huggingface.co served page chrome; the grep matched 53 times inside navigation markup only. The 'normal distribution with a certain spread and peak layer' sentence was NOT retrieved and is NOT transcribed here from the dependency artifact.",
+    "what_IS_verified": "Heretic's README independently names this model as the prior art for non-constant ablation weights over layers.",
+    "paper_sentence_to_use": "the kernel is documented qualitatively as varying with depth; no spread or peak-layer value is published"
+   },
+   "mpoa": {
+    "url": "https://huggingface.co/blog/grimjim/norm-preserving-biprojected-abliteration",
+    "published": "2025-11-06",
+    "four_steps_verbatim": "Step 1: r_hat = r/||r||_2. Step 2: for each row i, m_i = ||W_{i,:}||_2, W_hat = M^-1 W. Step 3: p = r_hat^T W_hat in R^{d_in}; W_hat_ablated = W_hat - alpha * r_hat p^T; renormalize each row to unit length, W_hat_new = normalize(W_hat_ablated, dim=1). Step 4: W_new = M W_hat_new.",
+    "norm_guarantee_quote": "This ensures that ||W_new,i,:||_2 = ||W_i,:||_2 for all rows i, preserving the learned importance structure while redirecting computation away from the refusal direction.",
+    "partial_coverage_quote": "As before, we applied a default scale factor of 1.0, intervening on layers [11..41].",
+    "coverage_note": "31 of 48 layers ([0..47]); both ends excluded",
+    "layer_selection_quote": "quality = snr x (1 - cos_sim) ... For Gemma3 12B Instruct, with layers numbered [0..47], we picked the measurements from layers 23 and 29 for broad application.",
+    "hydra_justification_quote": "when individual layers are ablated, other layers adaptively compensate to restore approximately 70% of the original computation",
+    "plan_quote_not_reverified": "The plan's suggested 'applied to layers 10-34 in this model' from grimjim/Nemo-Instruct-2407-MPOA-v4-12B was NOT re-fetched; use the [11..41] quote from the primary blog post instead."
+   },
+   "orba": {
+    "url": "https://huggingface.co/blog/grimjim/orthogonal-reflection-bounded-ablation",
+    "householder_quote": "For a unit vector u, the Householder reflector is: H = I - 2uu^T. Its action on any vector w decomposes cleanly - the component along u is flipped, the orthogonal complement is unchanged: Hw = w - 2(u^T w)u.",
+    "geodesic_quote": "The geodesic rotation from u toward -u, parametrized by lambda: w' = w + (cos theta - 1)(w . u)u where theta = lambda * arccos(h_hat . f_hat). At lambda = 1 the refusal component of w is rotated exactly to its orthogonal complement - zeroed without reflection.",
+    "gram_schmidt_quote": "u' = u - (u . h_hat)h_hat ... Applying 'twice is enough' for numerical stability, then renormalized: u'' = u' - (u' . h_hat)h_hat, u_hat = u''/||u''||",
+    "isometry_admission_quote": "Applying Gram-Schmidt to the refusal direction prior to ablation is correct for preserving capabilities, although it breaks isometry.",
+    "author_negative_result_quote": "Householder reflection, while isometric and analytically exact, introduces token and semantic drift that directional ablation does not - reflection amplifies angular error in a way that projection does not, making misdirected sign-flips the characteristic failure mode rather than incomplete zeroing.",
+    "releases": "v3 = Householder (for comparison); v4 = directional ablation (the recommended release). Both 12,187,325,040 params - ABOVE our ceiling.",
+    "CRITICAL_DISAMBIGUATION": "lambda=1 is the geodesic endpoint = ANNIHILATION ('zeroed without reflection'); the full Householder reflection is the separate v3 release. The two MUST be scored separately: the reflection is the isometry that leaves no null direction, not the lambda=1 case."
+   },
+   "obliteratus": {
+    "url": "https://github.com/elder-plinius/OBLITERATUS",
+    "preset_table_verbatim": {
+     "basic": "1 (diff-in-means), fast baseline",
+     "advanced": "4 (SVD), norm-preserving, bias projection, 2 passes - DEFAULT",
+     "aggressive": "8 (SVD), whitened SVD, iterative refinement, 3 passes",
+     "surgical": "8 (SVD), EGA, head surgery, SAE, layer-adaptive, MoE-aware",
+     "optimized": "4 (SVD), Bayesian auto-tuned, CoT-aware, KL co-optimized",
+     "inverted": "8 (SVD), semantic refusal inversion (2x reflection)",
+     "nuclear": "8 (SVD), all techniques + expert transplant + steering"
+    },
+    "direction_counts": "1/4/8/8/4/8/8 - the dependency's numbers re-verified exactly",
+    "layer_rule": "NO global layer rule is stated. The tool is layer-SELECTIVE: the 'informed' method auto-configures 'Which layers are safe to modify vs. which are too entangled with capabilities'; COSMIC Layer Selection 'Selects layers where harmful/harmless representations have lowest cosine similarity (most separable)' (arXiv:2506.00085, ACL 2025); steering example uses target_layers=[10,11,12,13,14,15].",
+    "REVISES_THE_PLAN": "The plan listed OBLITERATUS presets as UNIFORM. They are not. Layer selection is a first-class feature, so the W05 prediction moves from DETECTED to DEGRADED.",
+    "heretic_mischaracterisation": "OBLITERATUS's comparison table calls Heretic's kernel 'Bell-curve layer weighting with 7 global parameters via Optuna TPE search'. Heretic's source shows a triangular tent with compact support - see [8]."
+   },
+   "gabliteration": {
+    "url": "https://arxiv.org/html/2512.18901v3",
+    "ridge_projection": "P = R(R^T R + lambda I_k)^-1 R^T, k typically in {1,2,3}; 'not an exact orthogonal projector ... unless lambda = 0 and R has orthonormal columns'",
+    "update": "W_attn^(l) <- W_attn^(l) - alpha_l * (W_attn^(l) P); same for W_mlp^(l)",
+    "dynamic_layer_selection": "l* = argmax_{l in L} S_l where S_l = ||mu_h^(l) - mu_n^(l)||_2 and 'L is the candidate set of layers (excluding the first s and last e layers)'",
+    "adaptive_alpha": "alpha_l = alpha_base(1 + beta[1 - |xi_l|]) if |L_eff| > 1, else alpha_base(1 + beta); xi_l = (2l - |L_eff| - 1)/(|L_eff| - 1) normalises layer position to [-1,1]",
+    "alpha_interpretation_quote": "This formulation provides maximum scaling to middle layers (xi_l approx 0), with reduced scaling toward boundaries (|xi_l| approx 1) to preserve input/output representations.",
+    "KEY_QUOTABLE": "Unlike the uniform layer modification approach in traditional abliteration, we developed a principled method for identifying optimal layers based on separability metrics. (Sec 2.5) - a PUBLISHED, third-party statement of our own uniform-vs-selective contrast",
+    "self_declared_limitations": "The paper itself lists four limitations of S_l: scale-sensitive (biased toward high-norm layers), captures only translational separation and ignores angular structure, no SNR account, and 'no indication of cross-layer directional stability ... cannot distinguish between isolated local effects and refusal directions that persist coherently across multiple consecutive layers' - the last one is an argument FOR a windowed statistic, made by an abliteration author."
+   }
+  },
+  "recipe_uniformity_prediction_table": [
+   {
+    "recipe": "Plain rank-one / Arditi-style (mlabonne v1, Huihui)",
+    "uniform_across_layers": "UNIFORM",
+    "weights_unity": "YES (alpha = 1)",
+    "operation": "ANNIHILATE",
+    "verbatim_support": "Gabliteration Sec 2.5: 'the uniform layer modification approach in traditional abliteration' [21]; Huihui measured at 31/32, 32/32, 36/36 and 48/48 layers [3,4,5,7]",
+    "W05_prediction": "DETECTED",
+    "W05_reason": "every layer carries a shared near-null direction, so the minimum over layers is still extreme",
+    "windowed_prediction": "DETECTED",
+    "windowed_reason": "every window contains edited layers"
+   },
+   {
+    "recipe": "Heretic (default, v1.2+)",
+    "uniform_across_layers": "DEPTH_WEIGHTED + PARTIAL_COVERAGE",
+    "weights_unity": "MIXED, CAN EXCEED 1 (attn [0.8,1.5]; mlp [-0.25,1.5] clamped at 0)",
+    "operation": "NORM_PRESERVING_ANNIHILATE (row_normalization='full' is the shipped default)",
+    "verbatim_support": "triangular kernel + 'if distance > min_weight_distance: continue' [8]; max_weight_position forced into [0.6L,1.0L] [9]; measured 23/32 with 'Layers 0 through 8 have no real edits' [3]",
+    "W05_prediction": "MISSED",
+    "W05_reason": "the unedited early band sets the minimum at its unedited value",
+    "windowed_prediction": "DETECTED",
+    "windowed_reason": "provided a window falls inside [max_weight_position +/- min_weight_distance]; since the peak is forced into the last 40% of the stack, a late-stack window is the high-power one"
+   },
+   {
+    "recipe": "mlabonne v2",
+    "uniform_across_layers": "DEPTH_WEIGHTED",
+    "weights_unity": "<1 away from the peak",
+    "operation": "ANNIHILATE",
+    "verbatim_support": "Heretic README names it as the prior art for non-constant ablation weights [8]; the model card's own sentence was UNOBTAINED this session [15]",
+    "W05_prediction": "MISSED or DEGRADED",
+    "W05_reason": "DEGRADED if the kernel has full support with small tails; MISSED if truncated. Which one is an empirical question the experiment can answer",
+    "windowed_prediction": "DETECTED",
+    "windowed_reason": "at the peak band"
+   },
+   {
+    "recipe": "MPOA",
+    "uniform_across_layers": "PARTIAL_COVERAGE",
+    "weights_unity": "YES (default scale factor 1.0)",
+    "operation": "NORM_PRESERVING_ANNIHILATE (exact row-norm preservation)",
+    "verbatim_support": "'we applied a default scale factor of 1.0, intervening on layers [11..41]' of [0..47] [17]; '||W_new,i,:||_2 = ||W_i,:||_2 for all rows i' [17]",
+    "W05_prediction": "MISSED",
+    "W05_reason": "layers 0-10 and 42-47 are unedited and set the minimum",
+    "windowed_prediction": "DETECTED",
+    "windowed_reason": "a window inside 11-41 sits entirely in the edited region, and the annihilation there is at unity strength"
+   },
+   {
+    "recipe": "ORBA - Householder reflection (v3 release)",
+    "uniform_across_layers": "PARTIAL_COVERAGE (multi-layer, Hydra-motivated)",
+    "weights_unity": "reflection is a fixed isometry",
+    "operation": "REFLECT",
+    "verbatim_support": "H = I - 2uu^T; Hw = w - 2(u^T w)u [18]",
+    "W05_prediction": "MISSED",
+    "W05_reason": "a reflection is an isometry: it preserves every singular value, creates no null direction anywhere, and leaves the Gram spectrum unchanged",
+    "windowed_prediction": "MISSED",
+    "windowed_reason": "same reason - a window cannot recover a direction that was never annihilated",
+    "STATUS": "THE SHARPEST FALSIFICATION TARGET. If a windowed statistic fires on Householder-ORBA, the mechanism as stated is wrong. No public sub-4.2B instance exists, so this must be reimplemented in-house."
+   },
+   {
+    "recipe": "ORBA - geodesic at lambda = 1 (v4 release)",
+    "uniform_across_layers": "PARTIAL_COVERAGE",
+    "weights_unity": "lambda = 1",
+    "operation": "ANNIHILATE",
+    "verbatim_support": "'At lambda = 1 the refusal component of w is rotated exactly to its orthogonal complement - zeroed without reflection' [18]",
+    "W05_prediction": "MISSED",
+    "W05_reason": "partial layer coverage, as for MPOA",
+    "windowed_prediction": "DETECTED",
+    "windowed_reason": "lambda = 1 IS annihilation, so an in-band window sees a genuine null direction",
+    "STATUS": "MUST BE SCORED SEPARATELY FROM v3. Conflating the lambda=1 geodesic with the Householder reflection would make the ORBA falsification test vacuous."
+   },
+   {
+    "recipe": "Gabliteration",
+    "uniform_across_layers": "ADAPTIVE (argmax layer; first s and last e excluded; alpha peaked at mid-stack)",
+    "weights_unity": "NO - alpha_l = alpha_base(1 + beta[1 - |xi_l|]), depth-varying",
+    "operation": "RIDGE_PARTIAL",
+    "verbatim_support": "[21] Sec 2.3, 2.5, 2.7",
+    "W05_prediction": "MISSED",
+    "W05_reason": "twice over: excluded boundary layers, and the ridge term leaves a residual component even where it acts, so no exact null direction is created",
+    "windowed_prediction": "DEGRADED",
+    "windowed_reason": "a mid-stack window sees the largest alpha but the ridge regularisation still prevents an exact null - expect a shifted-but-not-extreme statistic",
+    "STATUS": "The most AVAILABLE recipe at our scale (54 sub-4.2B instances), so this prediction is the cheapest one to test."
+   },
+   {
+    "recipe": "OBLITERATUS (advanced / aggressive / nuclear)",
+    "uniform_across_layers": "PARTIAL_COVERAGE / ADAPTIVE (COSMIC selection; 'informed' picks layers)",
+    "weights_unity": "multi-pass (2-3), norm-preserving",
+    "operation": "ANNIHILATE, rank-k (k = 1/4/8)",
+    "verbatim_support": "preset table and 'Which layers are safe to modify vs. which are too entangled with capabilities' [12]",
+    "W05_prediction": "DEGRADED, not DETECTED",
+    "W05_reason": "REVISES THE PLAN, which listed the presets as uniform. Layer selection is a first-class feature, so the minimum sits on an unselected layer",
+    "windowed_prediction": "DETECTED",
+    "windowed_reason": "the strongest expected windowed signal of any recipe - rank-k (4 or 8 directions) annihilation over a selected band is the largest local scar"
+   },
+   {
+    "recipe": "Apostate (NEW - not in the eight-recipe taxonomy)",
+    "uniform_across_layers": "NEAR-UNIFORM",
+    "weights_unity": "moderate, per-tensor",
+    "operation": "ANNIHILATE (orthogonal projection)",
+    "verbatim_support": "'orthogonal projection with a balanced profile. It spreads edits across almost all layers with moderate intensity per tensor ... near-zero cosine similarity to Huihui despite targeting the same tensors' [23]",
+    "W05_prediction": "DETECTED",
+    "W05_reason": "near-full coverage is what W05 is built to see - and this is a POSITIVE control the plan did not have",
+    "windowed_prediction": "DETECTED",
+    "windowed_reason": "coverage is near-complete so every window is in-band"
+   },
+   {
+    "recipe": "AEON (NEW - LEACE-style concept erasure)",
+    "uniform_across_layers": "UNIFORM",
+    "weights_unity": "near-zero per tensor",
+    "operation": "CONCEPT ERASURE (LEACE)",
+    "verbatim_support": "'AEON tries to erase the concept of refusal from the model entirely' [23]; Abliterlitics' LEACE signature is 'Uniform (33/33/33%)' with '~100% edit density with near-zero individual edits' [7]",
+    "W05_prediction": "DETECTED (uniform), but MAGNITUDE UNCERTAIN",
+    "W05_reason": "full coverage favours W05, but near-zero per-tensor edit magnitude may put the scar below the detection floor - a genuinely uncertain case worth flagging",
+    "windowed_prediction": "DETECTED, same magnitude caveat",
+    "STATUS": "NO genuine sub-4.2B instance found - must be reimplemented in-house if tested."
+   }
   ],
-  "saturation_C1": {
-    "verdict": "ADJACENT_WORK_EXISTS - no counterpart closer than arXiv:2607.13346 found",
-    "queries_run": [
-      "arXiv API: all:\"refusal direction\" AND all:\"AUROC\"",
-      "arXiv API: abs:\"steering\" AND abs:\"probe\" AND abs:\"dissociation\"",
-      "arXiv API: abs:\"refusal\" AND abs:\"steering\" AND abs:\"detect\"",
-      "arXiv API: all:\"detection\" AND all:\"control\" AND all:\"same direction\" AND all:\"refusal\" (0 results)",
-      "arXiv API: abs:\"contrast set\" AND abs:\"steering\"",
-      "general web: same direction steers refusal but probe AUROC near chance dissociation induce without detect 2026",
-      "scholarly: paraphrasing contrast pairs improves steering vector quality lexical confound difference-in-means refusal"
-    ],
-    "hits": [
-      {
-        "id": "arXiv:2607.13346",
-        "what": "detect-without-control for alignment faking",
-        "relation": "nearest neighbour; fully extracted"
-      },
-      {
-        "id": "arXiv:2606.24952",
-        "what": "'the model detects fake entities with perfect linear separability (AUC = 1.000 from layer 5), yet that direction sits at cos = 0.12 (about 83 degrees) from the direction producing a refusal'",
-        "relation": "known incumbent; our axis is IN TENSION WITH (not refutes) their functional criterion"
-      },
-      {
-        "id": "arXiv:2604.02608",
-        "what": "'FV steering routinely succeeds where the logit lens cannot decode the correct answer at any intermediate layer, while the converse -- decodable without steerable -- is nearly empty (3 of 72)'",
-        "relation": "makes steer-without-read the COMMON case; supports our result's plausibility and weakens the Galeone tension"
-      },
-      {
-        "id": "arXiv:2606.23583",
-        "what": "evaluation awareness: 'Representations survive behavioral collapse (probes retain AUROC ...)'",
-        "relation": "adjacent third pattern, not ours"
-      },
-      {
-        "id": "arXiv:2607.13568",
-        "what": "a familiarity direction that BOTH detects and steers: 'adding a one-dimensional familiarity direction at a single layer moves refusal rates monotonically in both directions (0.24 to 1.00 on well-known entities; 0.73 to 0.00 on unknown ones)'",
-        "relation": "COUNTER-EXAMPLE where read and act coincide; also a refusal dose-response curve close in spirit to alpha_50; worth citing"
-      },
-      {
-        "id": "LessWrong 'Eval-Awareness Steering detects the Test, Not the Sabotage'",
-        "what": "difference-of-means direction detects in-distribution but does not produce the target behaviour",
-        "relation": "SECONDARY SURFACE - LOW confidence, do not use for any number"
-      }
-    ],
-    "caveat": "Repeat verbatim: 'the closest equivalents found are these' is weaker than 'no closer equivalent exists'.",
-    "residual": "No published work reports a single activation direction that induces refusal at a calibrated fraction of the activation norm while reading naturally occurring refusals at near-chance AUROC in the same model, with the norm-mismatch rival excluded by a matched-contrast measurement."
+  "prediction_divergence_summary": {
+   "agree_DETECTED": [
+    "plain rank-one / Huihui",
+    "Apostate",
+    "AEON (with a magnitude caveat)"
+   ],
+   "agree_MISSED": [
+    "ORBA Householder reflection (v3)"
+   ],
+   "DISAGREE_this_is_the_payoff": [
+    "Heretic (MISSED -> DETECTED)",
+    "mlabonne v2 (MISSED/DEGRADED -> DETECTED)",
+    "MPOA (MISSED -> DETECTED)",
+    "ORBA geodesic lambda=1 (MISSED -> DETECTED)",
+    "OBLITERATUS (DEGRADED -> DETECTED)",
+    "Gabliteration (MISSED -> DEGRADED)"
+   ],
+   "falsification": "If a windowed statistic fails to fire on a Heretic or MPOA checkpoint whose edited band is known, the mechanism is wrong. If it fires on Householder-ORBA, the mechanism is wrong in the other direction. Both directions are testable in advance."
   },
-  "saturation_C2": {
-    "verdict": "CLOSER_THAN_ASSUMED but NOT ANTICIPATED - re-scope by construct, not by claim",
-    "queries_run": [
-      "arXiv API: all:\"abliterated\" (26 results, sorted by submittedDate descending; top 11 inspected)",
-      "arXiv API: abs:\"refusal\" AND abs:\"steering\" AND abs:\"detect\"",
-      "general web: paraphrase contrast prompts remove lexical overlap improve refusal direction extraction validity"
-    ],
-    "hits": [
-      {
-        "id": "arXiv:2603.27412",
-        "title": "The Geometry of Harmful Intent: Training-Free Anomaly Detection via Angular Deviation in LLM Residual Streams (LatentBiopsy)",
-        "authors": [
-          "Isaac Llorente-Saguer"
-        ],
-        "date": "2026-03-28",
-        "why_it_matters": "MOST IMPORTANT UNPLANNED FIND. Runs EXACTLY the base / instruction-tuned / abliterated Qwen triplet design and reports an activation-geometry AUROC on abliterated checkpoints.",
-        "quotes": [
-          "'We evaluate two complete model triplets from the Qwen3.5-0.8B and Qwen2.5-0.5B families: base, instruction-tuned, and abliterated (refusal direction surgically removed via orthogonalisation).' [abstract]",
-          "'Abliterated variants of both Qwen3.5-0.8B and Qwen2.5-0.5B achieve AUROC h/b = 1.000 and AUROC h/n within 0.015 of their instruction-tuned counterparts, establishing a geometric dissociation between harmful-intent representation and the refusal mechanism across two independent model families.' [Sec.1 contribution 2]",
-          "'LatentBiopsy detects harmful intent even in abliterated models that are constitutionally incapable of producing refusals. ... Harm recognition and refusal generation are separable mechanisms.' [Sec.1]",
-          "'the safety representation that LatentBiopsy exploits is not the refusal direction itself, since it survives abliteration.' [Sec.2]",
-          "'Given 200 safe normative prompts, LatentBiopsy computes the leading principal component of their activations at a target layer and characterises new prompts by their radial deviation angle theta from this reference direction.' [abstract]"
-        ],
-        "action": "MANDATORY new citation. Delete any 'first to read an activation safety score on abliterated checkpoints' sentence."
-      },
-      {
-        "id": "arXiv:2607.01854",
-        "title": "Has This Checkpoint Been Abliterated?",
-        "authors": [
-          "Gabriel Hurtado"
-        ],
-        "answer_to_the_plans_question": "THE LATTER: it detects abliteration by other means and does NOT report the canonical refusal axis at chance.",
-        "quotes": [
-          "'Activation refusal-gap (rho<0.5) | TPR 0.63 | FPR 0.14 | AUROC 0.84' [App. A Table 2]",
-          "'combined z-sum (AUROC 0.95)' vs 'WeightWatch E1 (AUROC 0.90)' and 'activation (AUROC 0.84)' [Fig. 2]",
-          "'Our refusal-gap therefore certifies whether the refusal mechanism is present, not whether a model is harmless' [Discussion]",
-          "'the audit rests entirely on the reference, so a spoofed base voids it at the root' [Sec.7]"
-        ]
-      },
-      {
-        "id": "arXiv:2607.17427",
-        "title": "Abliteration Is Not a Scalpel: Off-Target Effects of Refusal Removal on Decision Disposition Across Model Families",
-        "authors": [
-          "Aleksander Fafula"
-        ],
-        "note": "Behavioural not activation-based (21,600 decisions, Gemma-4-26B and Qwen3-30B base/abliterated arms). Useful framing: 'Whoever deploys an uncensored model as an agent is deploying a measurably different decision-maker, not the base model minus refusals.' [abstract, ABSTRACT ONLY]"
-      },
-      {
-        "id": "arXiv:2607.05842",
-        "title": "Beyond Refusal: A Same-Lineage Study of Aligned and Abliterated LLMs for Vulnerability Analysis",
-        "note": "behavioural/capability, no activation score [ABSTRACT ONLY]"
-      },
-      {
-        "id": "arXiv:2607.02714",
-        "title": "Not All Refusals Are Equal: How Safety Alignment Fails Cybersecurity at Scale",
-        "note": "24-model abliteration study; refusal 'distributed widely across layers' [ABSTRACT ONLY]"
-      },
-      {
-        "id": "arXiv:2606.25750",
-        "title": "RAS/SafeVec",
-        "note": "known incumbent: 'RAS separates aligned models from uncensored and abliterated variants' but needs unsafe+jailbreak prompts and a safety-aligned reference model"
-      }
-    ],
-    "residual": "What remains ours is that the REFUSAL AXIS SPECIFICALLY - the axis abliteration is defined to remove - falls to chance in BOTH its detection and its induction role on paired abliterated checkpoints, whereas the published abliterated-arm result (arXiv:2603.27412) concerns a harm-intent principal-component direction that SURVIVES abliteration, and the published abliteration-detection result (arXiv:2607.01854) is a reference-anchored refusal-gap RATIO that presumes an attested base.",
-    "truncation_note": "The all:\"abliterated\" sweep was read at 30 results; I did not page beyond the first 30, so an older abliteration paper could have been missed."
+  "sub4b_checkpoint_table": [
+   {
+    "repo_id": "YanLabs/Qwen3-4B-Instruct-2507-MPOA",
+    "uploader": "YanLabs",
+    "params": 4022468096,
+    "createdAt": "2025-12-20T12:40:11.000Z",
+    "gated": false,
+    "recipe": "MPOA"
+   },
+   {
+    "repo_id": "heretic-org/Qwen3-4B-Instruct-2507-heretic",
+    "uploader": "heretic-org",
+    "params": 4022468096,
+    "createdAt": "2026-02-14T20:01:13.000Z",
+    "gated": false,
+    "recipe": "Heretic"
+   },
+   {
+    "repo_id": "p-e-w/Qwen3-4B-Instruct-2507-heretic",
+    "uploader": "p-e-w",
+    "params": 4022468096,
+    "createdAt": "2025-11-15T08:12:30.000Z",
+    "gated": false,
+    "recipe": "Heretic"
+   },
+   {
+    "repo_id": "p-e-w/Qwen3-4B-Instruct-2507-heretic-v4",
+    "uploader": "p-e-w",
+    "params": 4022468096,
+    "createdAt": "2026-02-14T13:46:55.000Z",
+    "gated": false,
+    "recipe": "Heretic - the exact variant Abliterlitics benchmarked [4]"
+   },
+   {
+    "repo_id": "0xA50C1A1/Qwen3-4B-Instruct-2507-SOM-MPOA",
+    "uploader": "0xA50C1A1",
+    "params": 4022468096,
+    "createdAt": "2026-04-07T17:19:39.000Z",
+    "gated": false,
+    "recipe": "MPOA (SOM)"
+   },
+   {
+    "repo_id": "OBLITERATUS/Qwen3-4B-OBLITERATED",
+    "uploader": "OBLITERATUS",
+    "params": 4022468096,
+    "createdAt": "2026-03-20T16:49:26.000Z",
+    "gated": false,
+    "recipe": "OBLITERATUS"
+   },
+   {
+    "repo_id": "Bismuth233/Qwen3-4B-OBLITERATED",
+    "uploader": "Bismuth233",
+    "params": 4022468096,
+    "createdAt": "2026-04-14",
+    "gated": false,
+    "recipe": "OBLITERATUS"
+   },
+   {
+    "repo_id": "DreamFast/qwen3-4b-heretic",
+    "uploader": "DreamFast",
+    "params": 4022468096,
+    "createdAt": "2026-03-10",
+    "gated": false,
+    "recipe": "Heretic",
+    "note": "19,464 downloads - most-used sub-4.2B Heretic found"
+   },
+   {
+    "repo_id": "DreamFast/Qwen3-4B-2507-Instruct-Uncensored-HauhauCS-Aggressive-Safetensor-Benchmark",
+    "uploader": "DreamFast",
+    "params": 4022468096,
+    "createdAt": "2026-04-13T20:44:27.000Z",
+    "gated": false,
+    "recipe": "HauhauCS/Reaper",
+    "note": "safetensors conversion (via ungguf) of the GGUF-only HauhauCS original; USE THIS ONE"
+   },
+   {
+    "repo_id": "huihui-ai/Huihui-Qwen3-4B-Instruct-2507-abliterated",
+    "uploader": "huihui-ai",
+    "params": 4022468096,
+    "createdAt": "2025-08-07T12:05:04.000Z",
+    "gated": false,
+    "recipe": "Huihui",
+    "note": "NOT GATED - contradicts the dependency artifact's finding that huihui-ai is gated"
+   },
+   {
+    "repo_id": "Goekdeniz-Guelmez/Josiefied-Qwen3-4B-Instruct-2507-gabliterated-v2",
+    "uploader": "Goekdeniz-Guelmez",
+    "params": 4022468096,
+    "createdAt": "2025-08-09",
+    "gated": false,
+    "recipe": "Gabliteration"
+   },
+   {
+    "repo_id": "prithivMLmods/VibeThinker-3B-heretic_decensored",
+    "uploader": "prithivMLmods",
+    "params": 3085938688,
+    "createdAt": "2026-06-19T06:14:07.000Z",
+    "gated": false,
+    "recipe": "Heretic"
+   },
+   {
+    "repo_id": "heterodoxin/vibethinker-3b-apostate",
+    "uploader": "heterodoxin",
+    "params": 3397103616,
+    "createdAt": "2026-06-22",
+    "gated": false,
+    "recipe": "Apostate",
+    "note": "THE ONLY genuine sub-4.2B Apostate found in the census"
+   },
+   {
+    "repo_id": "0xA50C1A1/Ministral-3-3B-Instruct-2512-abliterix",
+    "uploader": "0xA50C1A1",
+    "params": 3849090048,
+    "createdAt": "2026-08-07",
+    "gated": false,
+    "recipe": "Abliterix",
+    "note": "the only genuine (non-quantized) sub-4.2B Abliterix found"
+   },
+   {
+    "repo_id": "MagicalAlchemist/Qwen3-1.7B-Magic_decensored",
+    "uploader": "MagicalAlchemist",
+    "params": 1720574976,
+    "createdAt": "2026-01-22T15:51:18.000Z",
+    "gated": false,
+    "recipe": "unspecified"
+   },
+   {
+    "repo_id": "mlabonne/Qwen3-0.6B-abliterated",
+    "uploader": "mlabonne",
+    "params": 596049920,
+    "createdAt": "2025-04-29T09:54:23.000Z",
+    "gated": false,
+    "recipe": "mlabonne"
+   },
+   {
+    "repo_id": "spikymoth/smollm3-3b-heresy-mpoa-l-r03-d0.0187",
+    "uploader": "spikymoth",
+    "params": 3075098624,
+    "createdAt": "2026-02-08",
+    "gated": false,
+    "recipe": "MPOA"
+   },
+   {
+    "repo_id": "TheCluster/Qwen3.5-2B-Uncensored-HauhauCS-Aggressive-MLX-bf16",
+    "uploader": "TheCluster",
+    "params": 2213241664,
+    "createdAt": "2026-03-17",
+    "gated": false,
+    "recipe": "HauhauCS (bf16 MLX, NOT quantized)"
+   },
+   {
+    "repo_id": "DreamFast/Qwen3-VL-4b-Heretic",
+    "uploader": "DreamFast",
+    "params": 4437815808,
+    "createdAt": "2026-07-16T03:56:26.000Z",
+    "gated": false,
+    "recipe": "Heretic",
+    "EXCLUDE": "4,437,815,808 params EXCEEDS the 4.2B ceiling despite the '4b' name"
+   },
+   {
+    "repo_id": "coder3101/Qwen3.5-4B-heretic",
+    "uploader": "coder3101",
+    "params": 4539265536,
+    "createdAt": "2026-03-04T14:17:40.000Z",
+    "gated": false,
+    "recipe": "Heretic",
+    "EXCLUDE": "4,539,265,536 EXCEEDS the ceiling despite the '4B' name"
+   },
+   {
+    "repo_id": "DreamFast/Gemma4-e2b-abliterlitics",
+    "uploader": "DreamFast",
+    "params": 0,
+    "createdAt": "2026-05-23T10:21:34.000Z",
+    "gated": false,
+    "recipe": "-",
+    "EXCLUDE": "safetensors.total = 0 (no safetensors index) - unusable as a scored checkpoint"
+   },
+   {
+    "repo_id": "HauhauCS/Qwen3-4B-2507-Instruct-Uncensored-HauhauCS-Aggressive",
+    "uploader": "HauhauCS",
+    "params": 0,
+    "createdAt": "2026-01-25T03:24:10.000Z",
+    "gated": false,
+    "recipe": "HauhauCS/Reaper",
+    "EXCLUDE": "GGUF only, safetensors.total = 0 - use the DreamFast safetensors mirror"
+   }
+  ],
+  "hf_census_summary": {
+   "method": "two passes over https://huggingface.co/api/models; 13 search terms; params ALWAYS from safetensors.total on the per-repo endpoint",
+   "raw_hits": 1068,
+   "name_prefiltered_candidates": 380,
+   "resolved_with_param_count": 192,
+   "at_or_below_4p2B": 116,
+   "per_term_genuine_sub4b": {
+    "gabliterated": 54,
+    "OBLITERATED": 11,
+    "MPOA": 6,
+    "heretic": 6,
+    "abliterix": "16 name-matched, ~1 genuine (15 are MLX quantizations of gemma-4-26B / E2B)",
+    "AEON": "10 name-matched, 0 genuine (all the unrelated 'Aeonium' family)",
+    "reaper": "9 name-matched, 0 genuine (all the username 'reaperdoesntknow')",
+    "apostate": 1,
+    "HauhauCS": 1,
+    "ORBA": 0,
+    "orthogonal-reflection-bounded": 0,
+    "gabliteration": "0 hits (use the spelling 'gabliterated')"
+   },
+   "stated_coverage_limits": [
+    "the ?search=&full=true endpoint carries NO safetensors, so params required per-repo calls",
+    "a documented name-based size prefilter was applied, so a sub-4.2B checkpoint whose repo name carries no size token was NOT resolved",
+    "188 of 380 candidates returned no safetensors.total at all",
+    "safetensors.total counts QUANTIZED tensors: gemma-4-26B-...-MLX-2bit resolves to 3,810,036,302 and gemma-3n-E4B-...-mlx-4Bit to 2,050,125,904, so a raw param ceiling is necessary but NOT sufficient",
+    "no repo in the direct verification set was gated"
+   ],
+   "artifacts": [
+    "hf_census.json",
+    "hf_census_pass2.json",
+    "scan_hf.py",
+    "scan_hf2.py"
+   ]
   },
-  "refit_novelty_D": {
-    "verdict": "ADJACENT",
-    "queries_run": [
-      "arXiv API: all:\"contrast pairs\" AND all:\"paraphrase\" (1 result, unrelated SemEval system paper)",
-      "arXiv API: abs:\"difference-in-means\" AND abs:\"contrast\" (12 results; 7 inspected, none relevant)",
-      "arXiv API: all:\"contrast pair\" AND all:\"steering vector\" AND all:\"template\" (0 results)",
-      "arXiv API: all:\"lexical confound\" AND all:\"steering\" (0 results)",
-      "arXiv API: abs:\"contrastive pairs\" AND abs:\"surface form\" (0 results)",
-      "arXiv API: all:\"refusal direction\" AND all:\"paraphrase\" (0 results)",
-      "arXiv API: all:\"criterion validity\" AND all:\"activation\" (1 result, 2018, unrelated)",
-      "arXiv API: abs:\"contrast set\" AND abs:\"steering\" (2 results, neither relevant)",
-      "general web: paraphrase contrast prompts remove lexical overlap improve refusal direction extraction validity",
-      "scholarly: paraphrasing contrast pairs improves steering vector quality lexical confound difference-in-means refusal"
+  "recipes_needing_reimplementation": [
+   {
+    "recipe": "ORBA (Householder, v3-style)",
+    "reason": "0 sub-4.2B instances across 35 'ORBA' and 7 'orthogonal-reflection-bounded' hits; re-checked this session, dependency confirmed. Painful because ORBA is the SHARPEST falsification target in the prediction table - the experiment cannot test its own strongest prediction without an in-house implementation. H = I - 2uu^T applied to o_proj/down_proj rows over a stated layer range is ~20 lines; reference releases for comparison are grimjim/gemma-3-12b-it-orthogonal-reflection-bounded-ablation-v3-12B (Householder) and -v4-12B (directional), both 12,187,325,040 params."
+   },
+   {
+    "recipe": "AEON",
+    "reason": "0 genuine sub-4.2B instances - all 10 name matches are the unrelated 'Aeonium' model family. LEACE-style concept erasure is the cleanest UNIFORM positive control available in principle, so reimplementing it is worth more than its scarcity suggests."
+   },
+   {
+    "recipe": "Apostate",
+    "reason": "NOT strictly needed - one genuine instance exists (heterodoxin/vibethinker-3b-apostate, 3,397,103,616) - but n=1 is thin for a recipe whose published profile ('spreads edits across almost all layers with moderate intensity per tensor') makes it a key near-uniform positive control. Consider reimplementing for a second instance."
+   },
+   {
+    "recipe": "Abliterix",
+    "reason": "1 genuine instance (0xA50C1A1/Ministral-3-3B-Instruct-2512-abliterix, 3,849,090,048); the other 15 name matches are MLX quantizations of larger models. Same n=1 caveat."
+   }
+  ],
+  "positioning_corrections": {
+   "C1_paul_2604_08844": {
+    "verified_numbers": {
+     "cross_method_AUC": 0.0,
+     "n_bootstrap": 972,
+     "CI": "[0.00, 0.00]",
+     "severity_rho_min": 0.956,
+     "geometry_behaviour_rho": 0.72,
+     "geometry_behaviour_N": 24,
+     "binary_split": "23 training / 11 test adapters, zero misclassifications"
+    },
+    "confound_quote": "H5-asr-steering: Technically passed; substantively invalid. Language generation collapsed on all steered adapters at all intensities tested. Llama-Guard classified degenerate token repetition as 'unsafe,' producing inflated ASR. GPT-4o scored 0/300 steered responses as harmful, confirming the output is incoherent. The steering-to-LoRA injection method is unsuitable for Llama-3.2-3B at the intensities tested.",
+    "auc_quote": "A binary classifier trained on DPO-drifted vs. healthy adapters, tested on steering-derived adapters: AUC = 0.00 (n_bootstrap = 972, CI [0.00, 0.00]). ... AUC 0.00 is not a null result. It indicates perfect discriminative power with inverted labels.",
+    "no_fix": "No fix is evaluated; Sec 8 lists 'Cross-method features' as future work.",
+    "parent_requirement": "features are per-layer spectral features of LoRA weight DELTAS; its most informative feature needs a healthy-adapter centroid",
+    "paper_sentence": "Paul (2026) reports that a spectral weight-space drift classifier trained on DPO-manufactured adapters inverts completely on steering-manufactured ones (AUC 0.00, n_bootstrap = 972, CI [0.00, 0.00]), but the paper also declares that its steering arm produced incoherent generation at every intensity - GPT-4o scored 0 of 300 steered responses as harmful - so the precedent for cross-recipe transfer failure is real but confounded, and no fix was evaluated.",
+    "url": "https://arxiv.org/html/2604.08844v1"
+   },
+   "C2_obliteratus_certification": {
+    "signature_verbatim": "def certify(self, harmful_activations: torch.Tensor, harmless_activations: torch.Tensor, layer_idx: int = -1) -> SpectralCertificate",
+    "docstring_verbatim": "After abliteration, it computes the covariance of residual activations and applies the BBP phase transition to determine whether any detectable refusal signal survives.",
+    "arg_doc_verbatim": "harmful_activations: (n_harmful, hidden_dim) post-abliteration activations on harmful prompts.",
+    "tiers": "GREEN certified_complete / YELLOW distributed_refusal / RED incomplete, against a BBP threshold with a Marchenko-Pastur noise floor and an anisotropy correction",
+    "properties": {
+     "parent_free": true,
+     "prompt_free": false,
+     "forward_pass_free": false,
+     "screens_unknown_checkpoints": false,
+     "audits_self_performed_edit": true
+    },
+    "paper_sentence": "OBLITERATUS ships a spectral certification module, but it certifies a self-performed edit from post-edit activations on harmful and harmless prompts - its certify() takes harmful_activations and harmless_activations and applies a BBP/Marchenko-Pastur threshold per layer - so it is parent-free but neither prompt-free nor forward-pass-free, and it audits an edit the user just made rather than screening an unknown checkpoint. Our novelty claim is therefore stronger, not weaker.",
+    "s2_mirror_caveat": "The dependency's verbatim 'Spectral certification RED is common' pitfall quote was NOT re-fetched this session. This artifact re-verified the module's inputs and tier semantics only. Re-verify that sentence before quoting it.",
+    "url": "https://huggingface.co/spaces/pliny-the-prompter/obliteratus/raw/main/obliteratus/analysis/spectral_certification.py"
+   },
+   "C3_reverse_abliterate": {
+    "detection_checks_verbatim": [
+     "abliteration_metadata.json - 'Created by OBLITERATUS during abliteration'",
+     "LoRA adapter files - adapter_config.json, adapter_model.safetensors",
+     "Repo name -OBLITERATED - 'Standard abliteration naming convention'",
+     "Weight anomalies - 'Suspicious shard sizes and filenames'",
+     "Missing quantization config on quantized models post-abliteration",
+     "OBLITERATUS commit hashes - 'Embedded git rev-parse HEAD in config files'",
+     "Forward hook registration - 'Detects PROBE phase monitoring hooks'"
     ],
-    "hits": [
-      {
-        "id": "arXiv:2603.22061",
-        "what": "'topic-matched contrast produces no functional refusal directions at any tested weight level on any tested layer, while unmatched contrast on the same model, same extraction code, and same evaluation protocol achieves complete refusal elimination on six layers' ... 'reducing the extracted direction magnitude below the threshold at which weight-matrix projection perturbs the residual stream'",
-        "relation": "SAME FAMILY, OPPOSITE SIGN: their contrast-set manipulation DEGRADES the direction, ours IMPROVES the metric. Worth a sentence in its own right; also the mechanism behind our top refutation risk (axis-B norm 2.6-2.7 vs axis-A 10.3-10.6)."
-      },
-      {
-        "id": "arXiv:2602.17881",
-        "what": "'steering vectors trained on different prompt variations are directionally distinct, yet perform similarly well and exhibit correlated efficacy across datasets'",
-        "relation": "CLOSEST THING TO A NULL AGAINST US - but again the dependent variable is EFFICACY, not criterion validity against judged behaviour."
-      },
-      {
-        "id": "arXiv:2602.02132",
-        "what": "'The primary effect of different directions is not whether the model refuses, but how it refuses'",
-        "relation": "behaviour-labelled prompt contrasts; adjacent"
-      },
-      {
-        "id": "arXiv:2603.13359",
-        "what": "whitening so that 'a unit of steering has a comparable effect regardless of direction'",
-        "relation": "a normalisation, not a contrast-set validity claim"
-      }
-    ],
-    "narrowed_claim": "Prior work shows that how a contrast set is built changes the extracted direction's FUNCTIONAL EFFICACY - a matched contrast can collapse it entirely (arXiv:2603.22061), while prompt-variation leaves efficacy roughly unchanged despite directional differences (arXiv:2602.17881); we show something different in kind, that lexically de-confounding the contrast set changes a published scanner's CRITERION VALIDITY against judged behaviour (oriented rho 0.358 -> 0.654, AUC 0.705 -> 0.886), which is a measurement-validity claim about the metric rather than a control claim about the direction.",
-    "retreat_position": "If a counterpart surfaces, claim the PAIRED design (same scanner, same checkpoints, same judge; only the contrast set paraphrased) rather than the effect itself."
+    "hardening": "SHA-256 weight manifests, generated and verified 'against a trusted manifest'",
+    "reads_tensor_values": false,
+    "precision_correction": "The tool's own comparison table claims it 'scans metadata, weights, hooks'. That 'weights' claim resolves to shard size/filename heuristics plus optional SHA-256 manifests requiring a trusted prior manifest - not to any statistic of tensor content. Phrase it that way so the quote and the claim cannot be read as contradicting each other.",
+    "paper_sentence": "The only shipped parent-free abliteration detector we are aware of, reverse-abliterate, is a filename-and-metadata scanner: it reads abliteration_metadata.json, adapter files, the -OBLITERATED repo-name convention, embedded OBLITERATUS commit hashes, shard sizes and filenames, and forward hooks - it never reads a tensor value, and its only weight-level check (a SHA-256 manifest) requires a trusted prior manifest of the same checkpoint. It is the software instantiation of our 50.5% repo-id string-match baseline, and naming it first is strictly better than letting a reviewer name it.",
+    "url": "https://pypi.org/pypi/reverse-abliterate/json"
+   }
   },
-  "paste_ready": {
-    "point_of_use": "The reverse asymmetry has just been reported for a different safety behaviour: Mehta (2026) finds that a monitoring-shift direction in Qwen3-32B and Llama-3.1-8B is aggregate-predictive (d~0.32, p<0.0001) and per-sample detectable on Llama at leakage-free AUROC 0.870 +/- 0.023, yet subtracting it - and a 5-dimensional subspace explaining 55% of the compliance-shift variance - leaves compliance unchanged over 2,000 runs (Cohen's |h| < 0.08, all p > 0.25), concluding that \"the probe is a detector, not a mitigation knob.\" Our result is that dissociation run backwards, within a single model and on the refusal axis: the axis induces refusal at 0.91-1.57 contrast units while reading real refusals at AUROC 0.486-0.790.",
-    "detection_vs_intervention_paragraph": "Whether the direction that reads a behaviour is the direction that controls it is now an open empirical question with evidence on both sides, and our result closes the loop. Galeone et al. (2026) report the detection-side failure: on hallucination a direction separates fake entities at AUC = 1.000 yet sits at cos = 0.12 from the direction that produces a refusal, and they explicitly reject the cosine as a steerability predictor, proposing instead the functional criterion that the steerable case is the one where the intervention direction also detects. Nadaf (2026) shows the population asymmetry: across 4,032 directed cross-template pairs, function-vector steering routinely succeeds where the logit lens cannot decode the answer at any intermediate layer, while the converse is \"nearly empty (3 of 72)\" - steerable-but-not-readable is the common case, so our 0.69-AUROC steering axis is in tension with Galeone's functional criterion rather than a refutation of it. Mehta (2026) supplies the mirror image of our finding for alignment faking: a model-conditional probe (AUROC 0.870 on Llama-3.1-8B, 0.425 on Qwen3-32B, with cross-model Procrustes transfer null against a random-Procrustes baseline) reads a direction that additive steering does not move (|h| < 0.08 over 2,000 runs, including a refusal-direction control). We report the opposite asymmetry for refusal, within a single model: the axis induces refusal at 0.91-1.57 contrast units while reading real refusals at only 0.486-0.790, the norm-mismatch rival is excluded by a matched-contrast test (A exceeds B by +0.36 to +0.61 at matched contrast units, CIs excluding 0 on 6 of 6), and both roles fall to chance on abliterated checkpoints (0.495, 0.486). Taken together the read-act mapping is unconstrained in both directions: a direction can read without acting and act without reading, so neither role licenses the other.",
-    "what_remains_ours": "Granting Mehta (2026) in full, what remains ours is the opposite arm of the dissociation - a single activation axis that induces the behaviour it cannot read, established within one model on benign prompts, with the norm-mismatch rival excluded by measurement at matched contrast units and both roles falling to chance on paired abliterated checkpoints, none of which exists in a paper that has no abliterated arm, reports no activation norm, and assembles its own dissociation across two different models.",
-    "residual_novelty_refit": "The contrast-set-design literature already establishes that the choice of contrast baseline determines whether a diff-in-means direction functions at all: a topic-matched baseline 'produces no functional refusal directions at any tested weight level on any tested layer' while the unmatched baseline 'achieves complete refusal elimination on six layers' (arXiv:2603.22061), and prompt-variation produces 'directionally distinct' vectors that nonetheless 'perform similarly well' (arXiv:2602.17881). Both measure the FUNCTIONAL EFFICACY of the direction. Our claim changes the dependent variable: refitting a published activation scanner's contrast set on lexically de-confounded paraphrases improves its CRITERION VALIDITY against judged behaviour - oriented rho from 0.358 to 0.654 and AUC from 0.705 to 0.886 - a statement about whether the metric tracks what it claims to measure, not about whether the direction controls behaviour. No paper found makes that measurement, and the measurement-validity framing has published precedent only for benchmark scores (arXiv:2607.28685) and LLM judges (arXiv:2605.06161), never for a benchmark-free activation scalar.",
-    "residual_novelty_dissociation": "The read-act dissociation now has published instances in three of its four cells: detect without control (arXiv:2606.24952, AUC 1.000 detection at cos 0.12 from the control direction; arXiv:2607.13346, AUROC 0.870 with |h| < 0.08 steering), steer without decode as the common case (arXiv:2604.02608, converse 'nearly empty (3 of 72)'), and both-at-once for a familiarity direction (arXiv:2607.13568). What is not published is our cell: a single activation axis, in a single model, that induces refusal at 0.91-1.57 contrast units while reading naturally occurring refusals at AUROC 0.486-0.790, with (i) the norm-mismatch rival excluded by a matched-contrast measurement (A exceeds B by +0.36 to +0.61, CIs excluding 0 on 6 of 6) rather than argued away, (ii) model-generated, AB-blind items at n = 7,241 re-encoded, and (iii) both roles at chance on paired abliterated checkpoints (0.495, 0.486) - an arm that arXiv:2607.13346 does not have at all, that arXiv:2603.27412 runs on a different axis and finds SURVIVES, and that arXiv:2607.01854 addresses only via a reference-anchored ratio. The claim to make is the CONJUNCTION; each conjunct alone has a neighbour.",
-    "limitation_sentence_five_controls": "Following Mehta's five-control framework for hidden-state detectors, we hold out whole prompt families rather than random items and estimate all normalisation statistics within the training split; we do not, however, test whether the induce-without-detect asymmetry survives a multi-direction subspace intervention, which we leave to follow-up."
+  "windowed_statistic_novelty": {
+   "verdict": "NOVEL-NARROW",
+   "queries_run": 12,
+   "saturation": "The last four consecutive on-lane queries returned nothing new, meeting the dependency artifact's two-consecutive-empty stopping rule. General web search on this lane is heavily polluted by consumer AI-tool SEO and by 'sliding window attention'; the productive route was direct arXiv reads of the mandatory competitor set plus the two new papers those searches surfaced.",
+   "competitors_ruled_out": [
+    {
+     "work": "arXiv:2607.01854 (Has This Checkpoint Been Abliterated)",
+     "parent_free": false,
+     "per_band": true,
+     "reason": "THE SHARPEST PARTIAL COLLISION, and the plan did not know about it. E1 is already 'band-averaged' over 'each layer in the mid-stack band B'; the same band defines its activation gap. But dW = W_b - W_c requires the parent, the band is a single FIXED mid-stack band rather than a sliding window, and it reads the TOP of the spectrum (sigma_1^2 / sum sigma_i^2). No per-band variant beyond B appears in v1."
+    },
+    {
+     "work": "arXiv:2508.00161 WeightWatch",
+     "parent_free": false,
+     "per_band": false,
+     "reason": "'the top singular vectors of the weight difference between a fine-tuned model and its base model' - parent-requiring, and it then monitors ACTIVATIONS along those directions."
+    },
+    {
+     "work": "arXiv:2602.15195 (backdoored LoRAs from weights alone)",
+     "parent_free": false,
+     "per_band": false,
+     "reason": "Explicit adapter/base separation ('Let F_theta denote the frozen base model and let A denote a LoRA adapter attached to that model'), a single SELECTED layer, and SUPERVISED calibration on 400 benign + 100 poisoned adapters per backbone."
+    },
+    {
+     "work": "arXiv:2604.08844 (Paul)",
+     "parent_free": false,
+     "per_band": false,
+     "reason": "Per-layer spectral features of LoRA weight DELTAS; its most informative feature needs a healthy-adapter population."
+    },
+    {
+     "work": "arXiv:2607.03377 Spectral Signatures of LLMs",
+     "parent_free": true,
+     "per_band": false,
+     "reason": "THE CLOSEST PARENT-FREE SPECTRAL WORK - cite it. Ruled out because (a) its stated design goal is the OPPOSITE of edit detection: 'A critical prerequisite for a spectral signature to serve as a reliable lineage identifier is its robustness across downstream adaptations ... the impact of post-training on the weight ESD is minimal'; (b) PL_Alpha_Hill is a Hill estimator over the TOP n/2 eigenvalues, i.e. the top of the spectrum; (c) layer-wise values are AGGREGATED to a model-level signature, and the tasks are lineage, clustering and performance prediction. HONEST CAVEAT: it does compute depth-wise layer-wise profiles and reports 'layer-wise response to perturbation ... preserving similar depth-wise trends', so a reviewer could argue the machinery is one step from ours - address that head-on rather than hoping it is missed."
+    },
+    {
+     "work": "arXiv:2608.07921 Spectral Outliers",
+     "parent_free": true,
+     "per_band": "within-matrix only",
+     "reason": "Parent-free per-layer Marchenko-Pastur bulk/outlier separation on the model's own attention weights, across 11 transformers. Ruled out: no edit detection (goal is identifying learned structure; PEFT and pruning are named as future applications), no safety or abliteration, it reads the OUTLIERS (top), and its 'band outliers' are ROW/COLUMN bands WITHIN a matrix, not depth bands across the stack. Closest RMT neighbour - cite it."
+    },
+    {
+     "work": "arXiv:2508.06309 MDIR",
+     "parent_free": false,
+     "per_band": false,
+     "reason": "'compares only a single pair of matrices at a time' - answers 'are these two models related' (homology/lineage), not 'was this one edited'."
+    },
+    {
+     "work": "Abliterlitics per-layer magnitude profile",
+     "parent_free": false,
+     "per_band": true,
+     "reason": "Delta-based, and it even bins edits into E/M/L bands. The closest published DEPTH-BAND PROFILE, and the second reason the band framing must be claimed narrowly."
+    },
+    {
+     "work": "OBLITERATUS spectral certification",
+     "parent_free": true,
+     "per_band": false,
+     "reason": "Per-layer BBP/Marchenko-Pastur, but it consumes ACTIVATIONS and therefore needs prompts and forward passes."
+    },
+    {
+     "work": "Coslett (2026)",
+     "parent_free": "n/a",
+     "per_band": false,
+     "reason": "Inference-time output-geometry / logprob-order-statistic PUF anchored to a claimed identity; not a weights-only statistic."
+    }
+   ],
+   "load_bearing_qualifiers": [
+    "PARENT-FREE - no base, no sibling, no adapter/base separation. Alone excludes 2607.01854, WeightWatch, 2604.08844, 2602.15195, MDIR and all of Abliterlitics.",
+    "CALIBRATION-FREE - no labelled population of healthy checkpoints. Excludes 2602.15195 and 2604.08844's most informative feature.",
+    "BOTTOM-OF-SPECTRUM - a shared near-null direction of the pooled Gram of the candidate's own residual-write matrices. Excludes 2607.03377 and 2608.07921, both of which read the top.",
+    "SLIDING band scored by the band EXTREMUM - the only qualifier that is a degree rather than a categorical break, because 2607.01854 already averages E1 over a fixed mid-stack band and Abliterlitics already bins edits into E/M/L. Claim the sliding extremum-scored variant, NOT 'the idea of using a band'."
+   ],
+   "paper_sentence": "To our knowledge no prior work computes a per-band spectral edit-detection statistic from a single checkpoint without a parent, a sibling, an adapter/base separation or a labelled calibration set; the closest parent-free spectral statistics (PL_Alpha_Hill, arXiv:2607.03377; Marchenko-Pastur outlier separation, arXiv:2608.07921) read the top of the spectrum and are explicitly designed to be invariant to post-training, while the closest band-restricted edit statistic (E1, band-averaged over a mid-stack band, arXiv:2607.01854) requires the parent.",
+   "do_not_overclaim": "The band idea is NOT ours - arXiv:2607.01854 published it in July 2026. The parent-free, bottom-of-spectrum, sliding-band statistic is.",
+   "multiple_window_threshold_warning": "A per-band statistic scored by the extremum over B windows is a maximum of B CORRELATED statistics (overlapping bands, adjacent layers), so at a fixed per-band threshold the false-positive rate rises with the number of effectively independent windows - and neither B nor a naive Bonferroni B is the right multiplier. The executor should (a) fix window width and stride BEFORE looking at any candidate, (b) calibrate the decision threshold on the EXTREMUM statistic over the negative population rather than on a single band, and (c) report the number of windows alongside every threshold. Note the exposure runs opposite to the benefit: the windowed statistic buys sensitivity to partial-coverage recipes at the cost of more chances to fire on an unedited model, and the paper should quantify both sides. Also note that this INHERITS and AMPLIFIES the existing threshold-brittleness problem (S2 cutoff-transfer failure) rather than solving it."
   },
+  "coslett_residual_sentence": "Coslett (2026) detects abliteration as a structural-identity failure using an inference-time, output-geometry instrument - the series it belongs to is built on 'Inference-Time Physical Unclonable Functions from Architecture-Invariant Output Geometry' and 'Logprob Order-Statistic Geometry', anchored to a claimed model identity - and reports scars 'ranging from 7.6 to over 2,300 times the instrument's acceptance threshold' across published checkpoints from multiple toolchains in two model families; it is therefore adjacent rather than colliding, since it is neither prompt-free nor forward-pass-free and computes no weights-only statistic, and what remains unverified is only the body of the paper itself - the record is CC BY-NC-ND with 'All Rights Reserved, Confidential and Proprietary, Patent Pending', so the full text was not obtainable and a weights-only component inside it, while inconsistent with the series' stated instrument, cannot be formally excluded.",
+  "coslett_record": {
+   "doi": "10.5281/zenodo.19383019",
+   "title": "Safety-Alignment Removal as a Model-Identity Failure - Structural Evidence from Published Weight-Level Mutation Checkpoints",
+   "creator": "Coslett, Anthony (ORCID 0009-0006-5518-1218), Fall Risk Research",
+   "issued": "2026-04-02",
+   "publisher": "Zenodo",
+   "type": "Preprint",
+   "rights": "CC BY-NC-ND-4.0 + 'Copyright (C) 2026 Anthony Ray Coslett / Fall Risk AI, LLC. All Rights Reserved.' + 'Confidential and Proprietary. Patent Pending (Applications 63/982,893, 63/990,487, 63/996,680, 64/003,244).'",
+   "headline_quote": "in tested published checkpoints from multiple toolchains across two model families, the mutation leaves measurable structural scars ranging from 7.6 to over 2,300 times the instrument's acceptance threshold",
+   "instrument_evidence": "Series papers: 1 'The delta-Gene: Inference-Time Physical Unclonable Functions from Architecture-Invariant Output Geometry'; 2 'Template-Based Endpoint Verification via Logprob Order-Statistic Geometry'; plus 'Artifact Identity Is Not Runtime Identity - Trustfall Lite and the Boundary of File-Level Model Verification'",
+   "access_routes": {
+    "api.datacite.org": "200 - WORKS, full abstract",
+    "zenodo.org/oai2d GetRecord": "403",
+    "web.archive.org fallrisk.ai": "404"
+   },
+   "residual_risk": "SMALL (downgraded from the dependency's SMALL-but-open, because adjacency now rests on the primary record's own abstract and series description rather than on a one-clause characterisation in a citing paper)"
+  },
+  "corrections_to_draft": [
+   {
+    "n": 1,
+    "what": "Coslett residual risk",
+    "old": "'Coslett UNREACHABLE (HTTP 403) = largest residual risk'; adjacency asserted only via the citing paper 2607.01854 Sec 2",
+    "new": "Coslett's DataCite record is reachable and carries the full author abstract. The instrument is an inference-time output-geometry / logprob-order-statistic PUF anchored to a claimed identity; scars 'ranging from 7.6 to over 2,300 times the instrument's acceptance threshold' across published checkpoints from multiple toolchains in two model families. ADJACENT, on primary evidence. Residual risk LARGE/SMALL-but-open -> SMALL.",
+    "source": "https://api.datacite.org/dois/10.5281/zenodo.19383019 [24]"
+   },
+   {
+    "n": 2,
+    "what": "Novelty of the band idea (MOST IMPORTANT)",
+    "old": "the per-band / windowed spectral statistic is treated as wholly new",
+    "new": "The band idea is NOT ours. arXiv:2607.01854's E1 is already 'band-averaged' over 'each layer in the mid-stack band B'. Claim only the parent-free, sliding, extremum-scored, bottom-of-spectrum variant, and cite E1 at the point where the band is introduced.",
+    "source": "https://arxiv.org/html/2607.01854v1 Sec 3 [16]"
+   },
+   {
+    "n": 3,
+    "what": "Heretic's kernel shape",
+    "old": "'Heretic per-component optimised kernel', described (by the dependency, the plan and OBLITERATUS) as bell-curve / Gaussian",
+    "new": "TRIANGULAR (piecewise-linear tent) with COMPACT SUPPORT and a hard cutoff: 'if distance > min_weight_distance: continue', then linear interpolation. Layers outside the support receive NO edit at all - Heretic produces partial coverage by construction.",
+    "source": "https://raw.githubusercontent.com/p-e-w/heretic/master/src/heretic/model.py [8]"
+   },
+   {
+    "n": 4,
+    "what": "Heretic's depth restriction",
+    "old": "(absent from the draft)",
+    "new": "Heretic's Optuna search samples max_weight_position in [0.6L, 1.0L] and direction_index in [0.4L, 0.9L] - the edit peak is code-level forbidden from the early stack. This is an a-priori prediction of early-layer under-editing, independently confirmed by Abliterlitics ('Layers 0 through 8 have no real edits'; GLM E/M/L 0/46/53).",
+    "source": "https://raw.githubusercontent.com/p-e-w/heretic/master/src/heretic/main.py [9]; https://abliterlitics.dev/models/qwen3.5-9b/ [3]; METHODOLOGY 5.4 [7]"
+   },
+   {
+    "n": 5,
+    "what": "OBLITERATUS's layer behaviour",
+    "old": "presets treated as uniform all-layer edits, predicted DETECTED by W05",
+    "new": "OBLITERATUS is layer-SELECTIVE by design (COSMIC layer selection; the 'informed' method decides 'which layers are safe to modify'). Its W05 prediction moves from DETECTED to DEGRADED, and it becomes the strongest expected WINDOWED signal instead.",
+    "source": "https://github.com/elder-plinius/OBLITERATUS [12]"
+   },
+   {
+    "n": 6,
+    "what": "ORBA scoring",
+    "old": "'ORBA Householder + geodesic lambda=1' treated as one recipe predicted MISSED by both statistics",
+    "new": "TWO recipes. lambda = 1 is the geodesic endpoint and the author states it is 'zeroed WITHOUT reflection' - i.e. annihilation, predicted DETECTED by a windowed statistic. The Householder reflection is the separate v3 release and is the isometry that leaves no null direction. Conflating them makes the ORBA falsification test vacuous.",
+    "source": "https://huggingface.co/blog/grimjim/orthogonal-reflection-bounded-ablation [18]"
+   },
+   {
+    "n": 7,
+    "what": "Heretic's default row normalization",
+    "old": "MPOA and Heretic treated as separate recipes; 'MPOA merged in PR #52'",
+    "new": "Heretic's shipped config.default.toml sets row_normalization = 'full' ('renormalizes to preserve original row magnitudes') with full_normalization_lora_rank = 3, so a default Heretic edit IS norm-preserving. The PR number could NOT be confirmed - the releases API returns no match for MPOA/row-normalization/#52. Cite the default, not the PR.",
+    "source": "config.default.toml [13]; releases API [14]"
+   },
+   {
+    "n": 8,
+    "what": "mlabonne v2's Gaussian kernel sentence",
+    "old": "quoted as 'weight factors follow a normal distribution with a certain spread and peak layer'",
+    "new": "NOT RE-VERIFIED THIS SESSION - the HF page returned chrome only. Say 'the kernel is documented qualitatively as varying with depth; no spread or peak-layer value is published', and support the depth-weighting claim from Heretic's README instead ('Non-constant ablation weights were previously explored by Maxime Labonne in gemma-3-12b-it-abliterated-v2').",
+    "source": "[15] negative result; [8] positive substitute"
+   },
+   {
+    "n": 9,
+    "what": "huihui-ai gating",
+    "old": "'art_sHF0cggp2IvT found huihui-ai gated'",
+    "new": "huihui-ai/Huihui-Qwen3-4B-Instruct-2507-abliterated returns gated = False and is fully resolvable (4,022,468,096 params, created 2025-08-07). No repo in the direct verification set was gated. Report the discrepancy rather than either value alone.",
+    "source": "HF API [25]"
+   },
+   {
+    "n": 10,
+    "what": "Scope of the Abliterlitics external evidence",
+    "old": "plan failure mode F2 anticipated 7B+ only, i.e. 'external corroboration at a larger scale'",
+    "new": "Four of ten reports are at or below ~4.5B, including a full weight report on Qwen3-4B-Instruct-2507 (our own panel family) and a 13-variant report on Gemma4-E2B (~2B). This is EXTERNAL SUPPORT AT OUR OWN SCALE. Do not downgrade it.",
+    "source": "[2,4,5,6]"
+   },
+   {
+    "n": 11,
+    "what": "The uniform-vs-depth-weighted axis is externally named",
+    "old": "the uniform/depth-weighted contrast presented as our own framing",
+    "new": "Two independent published sources name it first. Abliterlitics' method-signature table gives a 'Layer distribution' per method - rank-1 'Mid-to-late focused (42-44% late)' vs LEACE 'Uniform (33/33/33%)'. Gabliteration Sec 2.5 opens 'Unlike the uniform layer modification approach in traditional abliteration'. Cite both; the framing is corroborated, not invented.",
+    "source": "METHODOLOGY 5.2 [7]; arXiv:2512.18901v3 Sec 2.5 [21]"
+   },
+   {
+    "n": 12,
+    "what": "The cosine caveat must be pre-empted",
+    "old": "(absent)",
+    "new": "State in the paper, before a reviewer does, that Heretic and Huihui edits are 99.7% aligned in direction on Qwen3.5-9B (median cosine 1.0, 100% of principal angles above 0.9) while differing in coverage (23/32 vs 31/32) and per-layer magnitude - and that the same technique pair is essentially orthogonal (median cosine 0.00017) on Qwen3.5-4B, so the alignment is a property of one base model, not of the pair. See uniformity_external_support.cosine_caveat_paragraph.",
+    "source": "[3,5]"
+   },
+   {
+    "n": 13,
+    "what": "Taxonomy completeness",
+    "old": "eight-recipe taxonomy",
+    "new": "Add Apostate (near-uniform orthogonal projection; 1 genuine sub-4.2B instance; a POSITIVE control the panel currently lacks), Abliterix (Heretic + per-model search; 1 genuine sub-4.2B instance) and AEON (LEACE-style concept erasure; NO genuine sub-4.2B instance - reimplement or omit). Ten entries, three of them newly sourced.",
+    "source": "[23,25]"
+   },
+   {
+    "n": 14,
+    "what": "HF census methodology",
+    "old": "implicitly assumed ?search=&full=true carries safetensors",
+    "new": "It does NOT. Param counts must be resolved per repo. Additionally, safetensors.total counts QUANTIZED tensors, so MLX/AWQ/bit-quantized re-uploads of much larger models pass a raw 4.2B ceiling (e.g. gemma-4-26B-...-MLX-2bit resolves to 3,810,036,302). Reading safetensors.total is necessary but not sufficient; exclude quantized repos explicitly.",
+    "source": "[25]"
+   },
+   {
+    "n": 15,
+    "what": "Windowed statistic multiple-comparison exposure",
+    "old": "(absent)",
+    "new": "A band statistic scored by the extremum over B correlated windows raises the false-positive rate at any fixed per-band threshold. Fix window width and stride before looking at candidates; calibrate the threshold on the extremum statistic over the negative population, not on a single band; and report the number of windows alongside every threshold.",
+    "source": "design consequence, not measured here"
+   },
+   {
+    "n": 16,
+    "what": "reverse-abliterate's 'weights' claim",
+    "old": "'reads NO tensor values'",
+    "new": "Accurate, but the tool's own table claims it 'scans metadata, weights, hooks'. Phrase it as: its only weight-level checks are shard size/filename heuristics and optional SHA-256 manifests verified against a trusted prior manifest - no statistic of tensor content anywhere.",
+    "source": "[27]"
+   }
+  ],
+  "must_cite_additions": [
+   {
+    "key": "abliterlitics",
+    "ref": "Sapwell, N. Abliterlitics: open-source abliteration forensics. github.com/dreamfast/abliterlitics (AGPL-3.0, created 2026-04-24); reports at abliterlitics.dev",
+    "why": "The closest community prior art on the same object (model weights). Not citing it reads as ignorance or evasion. Its parent requirement sharpens our claim, and its per-layer coverage numbers are the only external evidence for our mechanism.",
+    "sources": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     10,
+     11,
+     23
+    ]
+   },
+   {
+    "key": "arxiv:2607.03377",
+    "ref": "Zhang, Z., Prasad, I. V., Hu, Y., Liu, Z., Luo, H., Ren, P., Yang, Y. Spectral Signatures of Large Language Models. arXiv:2607.03377 (2026)",
+    "why": "The closest PARENT-FREE spectral statistic in the literature. A reviewer will find it. It must be cited and ruled out on the record: it reads the top of the spectrum and its stated design goal is robustness to post-training, i.e. invariance to exactly what we detect.",
+    "sources": [
+     19
+    ]
+   },
+   {
+    "key": "arxiv:2608.07921",
+    "ref": "Dewage, K., Pensky, M., De Silva, S., Bandara, T. H. Spectral Outliers Reveal Dominant Learned Structure in Transformer Attention. ICMLA 2026; arXiv:2608.07921",
+    "why": "Closest random-matrix-theory neighbour: parent-free per-layer MP bulk/outlier separation on the model's own attention weights. Ruled out (reads outliers, no edit detection), but the machinery overlaps and the omission would look careless.",
+    "sources": [
+     20
+    ]
+   },
+   {
+    "key": "arxiv:2508.06309",
+    "ref": "Zhang, R., Goldstein, D. Matrix-Driven Identification and Reconstruction of LLM Weight Homology. arXiv:2508.06309v3 (2026)",
+    "why": "SOTA weight-homology detection with p-values, inference-free, pairwise. Rule it out explicitly as answering lineage rather than edit detection.",
+    "sources": [
+     30
+    ]
+   },
+   {
+    "key": "coslett2026",
+    "ref": "Coslett, A. R. Safety-Alignment Removal as a Model-Identity Failure - Structural Evidence from Published Weight-Level Mutation Checkpoints. Fall Risk AI; Zenodo 10.5281/zenodo.19383019 (issued 2026-04-02)",
+    "why": "Now citable with a verified title, date, DOI and abstract rather than as an unreachable item. Cite as ADJACENT with the inference-time output-geometry qualifier.",
+    "sources": [
+     24
+    ]
+   },
+   {
+    "key": "gabliteration-uniformity",
+    "ref": "Guelmez, G. Gabliteration. arXiv:2512.18901v3, Sec 2.5",
+    "why": "Cite AT THE POINT where the uniform-vs-selective contrast is introduced: 'Unlike the uniform layer modification approach in traditional abliteration'. It is a published, third-party statement of our own framing, and its own listed limitation about 'cross-layer directional stability' is an argument for a windowed statistic made by an abliteration author.",
+    "sources": [
+     21
+    ]
+   },
+   {
+    "key": "heretic-source",
+    "ref": "Weidmann, P. E. Heretic. github.com/p-e-w/heretic (src/heretic/model.py, src/heretic/main.py, config.default.toml)",
+    "why": "The relabelling from uploader effect to recipe effect must be argued from the kernel code, not from paraphrase. Cite the file, not just the README, since the README does not give the functional form.",
+    "sources": [
+     8,
+     9,
+     13
+    ]
+   },
+   {
+    "key": "cosmic",
+    "ref": "COSMIC layer selection, arXiv:2506.00085, ACL 2025 (as used by OBLITERATUS)",
+    "why": "Newly surfaced via OBLITERATUS's technique table; it is a published layer-selection criterion for abliteration and therefore part of the partial-coverage story. Verify the arXiv id before citing - it was read from OBLITERATUS's README, not fetched.",
+    "sources": [
+     12
+    ]
+   },
+   {
+    "key": "reaper-provenance",
+    "ref": "Abliterlitics, 'HauhauCS Abliteration: Benchmarks, Plagiarism Analysis, and GGUF Forensics'",
+    "why": "Documents that HauhauCS's Reaper is a relicensed fork of Heretic under PolyForm Noncommercial with an Optuna-guided search over known techniques. Relevant because a panel that treats HauhauCS and Heretic as independent recipes is wrong - on Qwen3-4B their real edits match at median cosine 0.966.",
+    "sources": [
+     4,
+     23
+    ]
+   }
+  ],
   "confidence": {
-    "high_primary_full_text": [
-      "All of Part A from arxiv.org/html/2607.13346v1 (full text incl. appendix headings), verbatim with section anchors",
-      "Part B metadata from three export.arxiv.org/api/query batch calls; all 22 IDs resolved",
-      "C2 LatentBiopsy quotes from arxiv.org/pdf/2603.27412",
-      "2607.01854 numbers from arxiv.org/pdf/2607.01854"
-    ],
-    "medium_abstract_only": [
-      "arXiv:2606.23583",
-      "arXiv:2607.13568",
-      "arXiv:2607.17427",
-      "arXiv:2607.05842",
-      "arXiv:2607.02714",
-      "arXiv:2606.25750 content claims",
-      "arXiv:2606.24952 content claims",
-      "arXiv:2604.02608 content claims",
-      "arXiv:2603.22061 content claims",
-      "arXiv:2602.17881 content claims"
-    ],
-    "low_secondary_surface": [
-      "LessWrong 'Eval-Awareness Steering detects the Test, Not the Sabotage' - listed for completeness only, must not be used for any number in the paper"
-    ],
-    "zero_match_regexes_on_2607_13346": {
-      "abliterat": 0,
-      "uncensored": 0,
-      "Arditi": 0,
-      "single direction": 0,
-      "criterion validity": 0,
-      "paraphras": 0,
-      "activation norm": 0,
-      "residual norm": 0,
-      "double-bar norm symbol": 0,
-      "norm": "2 (both non-quantitative)",
-      "benign": 1
-    },
-    "truncated_sweeps": [
-      "C2 all:\"abliterated\" read at 30 results only",
-      "Part D: nine query forms, most abs:-scoped ones returned 0 relevant hits - a thin evidence base, hence ADJACENT rather than NO_COUNTERPART"
-    ],
-    "under_sampling_caveat": "The scholarly-mode search API returned semantically unrelated results for a well-formed query, so scholarly-mode coverage was effectively unavailable and the sweep leaned on the arXiv API search_query= endpoint plus general web search. The arXiv API matches title/abstract/metadata, not full text, so a paper that does the thing but does not name it in its abstract would be missed. The closest equivalents found are these; that is weaker than no closer equivalent exists.",
-    "action_item_before_drafting": "Mehta's controls #3 (per-fold statistics) and #4 (leave-one-query-out) have no confirmed counterpart in our pipeline. If any of our reported AUROCs are computed over the same items used to fit or normalise the axis, that is exactly the leakage his Sec.4.3 diagnoses - and he shows it moves an AUROC from 0.761 to 0.425. Verify the split discipline in our code before the next draft."
-  },
-  "sources": [
-    {
-      "index": 1,
-      "url": "https://arxiv.org/html/2607.13346v1",
-      "title": "The Refusal Residue: When Probes Catch Alignment Faking and When They Don't (HTML full text)",
-      "summary": "Primary source for all of Part A: 50 OR-Bench/XSTest queries, gen5 extraction, LOQO protocol, Table 2 AUROC grid (0.425 Qwen / 0.870 Llama), Table 3 steering grid (Cohen's h, v_refusal control null), the five controls verbatim, and the authors' own dissociation conclusion."
-    },
-    {
-      "index": 2,
-      "url": "https://arxiv.org/abs/2607.13346",
-      "title": "arXiv abstract page for 2607.13346",
-      "summary": "Confirms single author (Aman Mehta), submission date 2026-07-15, and venue 'Accepted to the Mechanistic Interpretability Workshop at ICML 2026'."
-    },
-    {
-      "index": 3,
-      "url": "http://export.arxiv.org/api/query?id_list=2608.05578,2606.25750,2603.18353,2606.24952,2602.17881,2607.01854,2602.06801",
-      "title": "arXiv API batch 1 (7 IDs)",
-      "summary": "Verified metadata for Messenger (IEEE Access journal_ref), Huang et al. RAS, Basu et al., Galeone (first name Cosimo, not P.), Braun (Master's thesis), Hurtado (single author Gabriel), Venkatesh (v4)."
-    },
-    {
-      "index": 4,
-      "url": "http://export.arxiv.org/api/query?id_list=2604.15557,2602.02132,2603.13359,2603.22061,2607.28685,2605.06161,2604.02608,2608.08159",
-      "title": "arXiv API batch 2 (8 IDs)",
-      "summary": "Verified metadata including the decisive correction that 2604.02608 is 'Steerable but Not Decodable: Function Vectors Operate Beyond the Logit Lens' by Mohammed Suhail B Nadaf, and the full author lists missing from draft entries [19], [20], [21]."
-    },
-    {
-      "index": 5,
-      "url": "http://export.arxiv.org/api/query?id_list=2604.09839,2605.05427,2603.24543,2602.02712,2602.02600,2607.14147,2607.13346",
-      "title": "arXiv API batch 3 (7 IDs)",
-      "summary": "Verified Mishra et al.'s ICLR 2026 Workshops venue, Taimeskhanov's first name (Magamed, not A.), ICML 2026 acceptance of 2602.02712, and the 2607.13346 record."
-    },
-    {
-      "index": 6,
-      "url": "https://arxiv.org/pdf/2603.27412",
-      "title": "The Geometry of Harmful Intent: Training-Free Anomaly Detection via Angular Deviation in LLM Residual Streams (LatentBiopsy)",
-      "summary": "The most consequential unplanned find: runs base/instruct/abliterated Qwen triplets and reports harm-intent geometry SURVIVING abliteration (AUROC within 0.015 of instruct), explicitly noting its axis 'is not the refusal direction itself, since it survives abliteration'."
-    },
-    {
-      "index": 7,
-      "url": "https://arxiv.org/pdf/2607.01854",
-      "title": "Has This Checkpoint Been Abliterated? A Two-Signal Audit and Its Failure Map",
-      "summary": "Answers the C2 question: its activation refusal-gap is a thresholded ratio (rho<0.5, TPR 0.63, FPR 0.14, AUROC 0.84) combined with a weight-energy signal into a z-sum at AUROC 0.95; it never reports a canonical refusal axis at chance, and 'presumes an attested reference'."
-    },
-    {
-      "index": 8,
-      "url": "http://export.arxiv.org/api/query?search_query=all:%22abliterated%22&sortBy=submittedDate&sortOrder=descending",
-      "title": "arXiv API sweep: all:\"abliterated\"",
-      "summary": "C2 sweep, 26 results; surfaced 2603.27412, 2607.17427, 2607.05842, 2607.02714 and confirmed 2607.01854 and 2606.25750 as the known incumbents."
-    },
-    {
-      "index": 9,
-      "url": "http://export.arxiv.org/api/query?search_query=abs:%22refusal%22+AND+abs:%22steering%22+AND+abs:%22detect%22",
-      "title": "arXiv API sweep: refusal AND steering AND detect",
-      "summary": "C1 sweep; returned no dissociation paper closer than 2607.13346, 2606.24952 and 2604.02608."
-    },
-    {
-      "index": 10,
-      "url": "http://export.arxiv.org/api/query?id_list=2605.03095,2603.27412,2607.07003,2607.03372,2605.08942,2604.09364",
-      "title": "arXiv API batch: C1 candidate triage",
-      "summary": "Triaged six dissociation-keyword candidates; five were off-topic (jailbreak defence, VLM grounding, sycophancy subtypes, VLA memory, metacognition), and this call is where LatentBiopsy was found."
-    },
-    {
-      "index": 11,
-      "url": "http://export.arxiv.org/api/query?id_list=2607.13568",
-      "title": "Graded Entity-Familiarity Readouts in Language Models: ... and Refusal Steering",
-      "summary": "C1 counter-example: a one-dimensional familiarity direction that both detects and steers refusal monotonically (0.24->1.00 on well-known entities, 0.73->0.00 on unknown), and a dose-response refusal curve close in spirit to alpha_50."
-    },
-    {
-      "index": 12,
-      "url": "http://export.arxiv.org/api/query?search_query=abs:%22difference-in-means%22+AND+abs:%22contrast%22",
-      "title": "arXiv API sweep: difference-in-means AND contrast",
-      "summary": "Part D sweep; 12 results, 7 inspected, none a contrast-set-design validity study - supporting the ADJACENT (not ANTICIPATED) verdict for the paraphrase-refit headline."
-    },
-    {
-      "index": 13,
-      "url": "file:///ai-inventor/aii_data/runs/run_CbJDs3opF7E_/3_invention_loop/iter_3/gen_paper_text/gen_paper_text/paper_body.md",
-      "title": "Current draft reference list (entries [6]-[43]) and references.bib",
-      "summary": "Source of the AS-CITED titles, initials and author lists against which the 22 arXiv records were audited; also the source of the outside-list [10] Logit-Gap authorship error."
-    }
-  ],
-  "follow_up_questions": [
-    "Does our reported axis-A AUROC survive a leave-one-prompt-family-out split with all normalisation statistics estimated inside the training fold, as Mehta's controls #3 and #4 require - and if it drops, does the induce-without-detect asymmetry widen or narrow?",
-    "Does the induce-without-detect result survive a multi-direction intervention (top-k PCs of the refusal-shift covariance), the safeguard Mehta added specifically to defeat the dim-collinearity objection to a steering null?",
-    "Given arXiv:2603.27412's finding that harm-intent geometry survives abliteration at AUROC within 0.015 while our refusal axis falls to chance, can the two be run on the SAME abliterated checkpoints to produce a two-axis provenance signature (harm-axis intact + refusal-axis dead) that is strictly more informative than either alone, and more robust than arXiv:2607.01854's reference-anchored ratio to the spoofed-reference attack it documents?"
-  ]
+   "high": "Abliterlitics metric map, parent requirement, licence, creation date and all numeric fingerprints (Qwen3.5-9B / Qwen3.5-4B / Qwen3-4B / Gemma4-E2B / GLM-4.7); Heretic's kernel code and Optuna bounds; MPOA's four steps and [11..41]; ORBA's Householder and lambda=1 formulation and the author's negative result; OBLITERATUS's preset table and certify() signature; Gabliteration's l*, P and alpha_l; the 2604.08844 numbers; reverse-abliterate's checks; 2607.01854's band-averaged E1; the HF param counts.",
+   "medium": "The A4(a) interpretation - the coverage numbers are real, but the inference that a minimum-over-layers statistic must therefore miss Heretic is ours and untested externally; the B2 predictions, reasoned from published formulas rather than measured; the Apostate/Abliterix availability counts, which rest on repo-name search.",
+   "low_or_unverified": "The mlabonne v2 'normal distribution ... spread and peak layer' sentence (NOT obtained this session - do not quote as verified); 'MPOA merged in PR #52' (the default config confirms the feature, not the PR); the OBLITERATUS 'Spectral certification RED is common' pitfall sentence (carried from the dependency, not re-fetched); the COSMIC arXiv id 2506.00085 (read from OBLITERATUS's README, not fetched); true parameter counts of quantized repos; everything inside Coslett's body text.",
+   "what_would_change_the_verdicts": "A published version of 2607.01854 (or a successor) adding a SLIDING band variant, or any parent-free statistic reading the bottom of the spectrum, would move the novelty verdict from NOVEL-NARROW to SCOOPED. An Abliterlitics report showing a technique with genuinely uniform full-stack coverage AND a Heretic-like KL profile would weaken the uniformity support. Obtaining Coslett's body text and finding a weights-only statistic in it would force the residual sentence to be rewritten."
+  }
+ },
+ "follow_up_questions": [
+  "Does any later version of arXiv:2607.01854 replace its single fixed mid-stack band B with a swept or sliding band, and does the paper report how E1's AUROC varies with the band's position and width? That single ablation would either confirm the sliding variant as the remaining novelty or collapse it.",
+  "Can Abliterlitics' published per-layer edit-magnitude profiles for the Qwen3-4B and Gemma4-E2B reports be obtained as raw numbers (SVG graph data or a results JSON) rather than top-3 summaries, so that the correlation between their delta-support coverage and our parent-free windowed statistic can be computed directly on shared checkpoints without downloading any base model?",
+  "Does an in-house Householder-ORBA reimplementation at 3-4B actually leave every singular value intact in bf16, or does the accumulated floating-point error the ORBA author warns about ('misdirected sign-flips') create a spurious near-null direction that makes the sharpest falsification test unreliable in the precision the panel actually uses?"
+ ]
 }

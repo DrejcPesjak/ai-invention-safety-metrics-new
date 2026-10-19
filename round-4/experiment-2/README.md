@@ -1,34 +1,23 @@
-# Does the refusal axis read or only push?
+# Can a windowed weight scan catch hidden edits
 
 `demo/` — Self-contained demo (Colab-ready notebook or markdown). Run without setup.  
 `src/` — Full source code, data, and outputs from the experiment execution.
 
 **Type:** experiment  
-**ID:** `art_1xT3w1joqeJ8`
+**ID:** `art_VFF9Dum9x3KJ`
 
 ## Layman Summary
 
-Tests 30 open chat models to see whether the internal direction that makes an AI refuse can also be used to detect when it is refusing, and finds the two abilities go together.
+Tests whether scanning a language model's weights layer-window by layer-window, instead of all at once, can spot safety edits that a whole-model scan misses, and at what cost in false alarms.
 
 ## Full Summary
 
-EXECUTED on 30 checkpoints over 7 lineages (~3.5 h, 1x RTX A4500, $0.0099 OpenRouter). Each member measured in BOTH roles of the SAME five axes (A canned-response contrast, B token-disjoint paraphrase, C stylistic, D norm-matched random, E prompt contrast): DETECTION = held-out AUROC of the axis projection on the model's OWN generated text, stratum-centred, prompt-clustered bootstrap; INDUCTION = steering sweep in axis-contrast units c = alpha*NORM_L/||d_raw||.
-
-HEADLINE IS A REVERSAL of the iteration-3 result this set out to strengthen. 18 of 30 members return READS, **0 return AT_CHANCE**, 10 UNDEFINED. Every measurable member reads at AUROC >= 0.68. K = 0 of M = 4, so the pre-registered K<3 branch fires: the iteration-3 n=2 'at chance as a reader while still inducing' claim must be DOWNGRADED. The reason is STRUCTURAL, not statistical -- 14 of 18 abliterated-class checkpoints never produced 40 spontaneous refusals even after the full escalation ladder (1,585 generations each; median spontaneous refusal rate 0.008). Abliteration removes the refusals to be read, not the axis's ability to read them. Iteration 3 differed because its item pool contained STEERED and archived text; scoring each model's own spontaneous text flips it.
-
-H1b (the arm that IS measurable): across 10 within-lineage abliterated-vs-parent pairs, steering still induces on 5 abliterated checkpoints and FAILS on 4 whose parent was steerable (median delta max-rate -0.306). H2: 1 of 2 breadth-panel counterexamples is a genuine inducer, 1 a norm artifact. H3 (the study's first joint read-vs-act scatter): NOT null -- rho = 0.629 [0.465, 0.803], lineage bootstrap, over 70 (member, axis) pairs vs the previous evidence base of 4; within-member mean rho 0.715; c_50 censoring 0.771. Matched contrast gives NORM_MISMATCH_DOES_NOT_EXPLAIN on 22 of 30, ruling out arXiv:2603.22061's magnitude-collapse account.
-
-METHOD FACTS worth reusing: (1) archived relative depth is 0.25, NOT the plan's 0.30 (all six archived checkpoints are L=7 of 28). (2) c = alpha*NORM_L/||d_raw|| is EXACT on 459 archived analysis2 cells (error 0.0). (3) Base models MUST use the plain wrapper -- Qwen3-*-Base tokenizers ship a chat template despite never being tuned to follow one, and 'auto' selection dropped axis-E reproduction cosine to 0.13/0.09; fixed, all six archived checkpoints reproduce at >= 0.99992.
-
-TWO NULL-DESIGN CORRECTIONS (recorded amendments): a raw projection is ||h||*cos(angle), so ANY direction inherits a refusal-vs-compliance NORM difference (a random axis 'read' at 0.171) -- a norm-controlled cos = (h.u)/||h|| readout is now computed for every axis on every member; and ONE random draw is not a null distribution, since residual streams are anisotropic (measured 20-draw band spans +/-0.075 to +/-0.500 across members). Measured floor: a random direction at axis A's matched magnitude induces refusal >= 0.10 on 7 of 30 members (worst 0.389) -- a floor any steering claim must clear.
-
-PROVENANCE: prereg sha256-stamped before any new AUROC; T1 replays the archived analysis EXACTLY with no model (A 0.6620 / B 0.5102 / paired +0.1518); T2 exact on 459 cells; T3 shows the archived string-concat boundary bug bites 34/50 items under the plain wrapper and 0/50 under chat (token-id concat avoided 943 merges panel-wide); judge kappa 0.600 (regex stays primary); RESULTS.md regenerates BYTE-IDENTICALLY from method_out.json, so no prose number is hand-typed. lib/*.py is a byte-identical (sha256-matched) copy of the iteration-3 archive; the GPU stage is reimplemented and validated against it. 4 members failed with distinct logged causes. Deliverables: method_out.json (schema-validated), RESULTS.md (tables T1-T6), 3 vector figures, per-member checkpoints in results/.
+Three-arm, tensor-only, prompt-free experiment (zero forward passes, zero LLM calls, $0.00 OpenRouter). ARM 1 introduces W05w, a sliding-layer-window generalisation of the archived pooled-Gram abliteration statistic W05: windows of k consecutive layers with stride k//2, per-window minimum-eigenvector v1_win, and W05w(k) = min over windows of the per-window minimum write energy, plus a consistency gate c(k) = min adjacent-window |cos(v1)| swept over tau. k=L collapses to the pooled statistic and is asserted equal to W05 at 1e-9 on every model as a built-in reproduction gate. ARM 2 freezes and sha256-stamps a pre-registered eligibility rule (E1 n_layers>=8, E2 hidden_size>=128, E3 params<=4.2e9 enforced twice from index AND on-disk bytes, E4 fixtures, E5 speculators, E6 quantized re-uploads) BEFORE any rate is computed, re-derives eligibility on the archived 270-row undeclared scan, and extends it with newly fetched eligible repos scored smallest-first from the dependency dataset's 2,139-row pool. ARM 3 reports the threshold curve from -2.4 to -3.0 and the smallest shift producing a first false positive. Ships numbers.json (every quoted numeral with units, n, CI, CI method, orientation, source file) and verify_numbers.py, which recomputes every entry from raw rows and whose exit code is stored in the assertion block.
 
 ## Dependencies
 
-- `art_CKWQh2cOQLLQ` — dataset
-- `art_PeyWw78NIx9d` — positioning
-- `art_Qm_KL4GhZCnX` — positioning
+- `art_8OlSrcw-hzgO` — scan pool
+- `art_sHF0cggp2IvT` — recipe spec
 
 ## Output Files
 

@@ -1,0 +1,825 @@
+{
+  "cross_reference_map": {
+    "app:selfaudit": "A",
+    "sec:atscale": "5",
+    "sec:corrections": "10",
+    "sec:decoupling": "7",
+    "sec:intro": "1",
+    "sec:limitations": "9",
+    "sec:mechanism": "4",
+    "sec:operating": "6",
+    "sec:related": "2",
+    "sec:statistic": "3",
+    "sec:windowed": "8"
+  },
+  "draft_scan": {
+    "backward_references": [
+      {
+        "char_offset": 4337,
+        "context": "tor of the pooled write Gram matrix, separated 8 abliterated from 36 non-abliterated archived checkpoints at oriented AUROC 1.000, cost no prompts and no forward passes, and returned zero false positives on a wild scan. The previous draft of this paper reported that result with a scope boundary attributed to *uniformity*: the statistic was said to require an edit applied uniformly to the whole stack. **This iteration tested that account at scale and both halves of it failed.** On 44 real edit",
+        "pattern": "the previous draft"
+      },
+      {
+        "char_offset": 8962,
+        "context": "ree spectral edit detection** (\u00a74.2, \u00a75.2), validated on a 25-kernel sweep with host and direction held fixed: detection $\\Leftrightarrow$ discovery $\\wedge$ completion, reproducing 19/19 applicable kernels. It replaces the previous draft's uniformity story, which we retract, and it predicts rather than describes the blind spots. - **The at-scale falsification of the certificate itself** (\u00a75.1): sensitivity 0.159 on 44 real edited checkpoints from 27 uploaders and 9 recipe classes against 0.72",
+        "pattern": "the previous draft"
+      },
+      {
+        "char_offset": 9007,
+        "context": "alidated on a 25-kernel sweep with host and direction held fixed: detection $\\Leftrightarrow$ discovery $\\wedge$ completion, reproducing 19/19 applicable kernels. It replaces the previous draft's uniformity story, which we retract, and it predicts rather than describes the blind spots. - **The at-scale falsification of the certificate itself** (\u00a75.1): sensitivity 0.159 on 44 real edited checkpoints from 27 uploaders and 9 recipe classes against 0.727 for a repository-name regex at matc",
+        "pattern": "we retract"
+      },
+      {
+        "char_offset": 10010,
+        "context": "oyment number on an honest, pre-stamped denominator** (\u00a75.4): eligibility rule sha256-stamped before any rate was computed; 0 false positives on **122** eligible undeclared checkpoints, Wilson 95% $[0, 0.031]$, with the previously reported raw 0/160 retained as a labelled secondary row and its degenerate composition published. First false positive appears at a threshold shift of 0.128 log-units, about 1.7 panel margin widths. - **The parent buys real coverage** (\u00a75.5), reversing our previous \"p",
+        "pattern": "previously (?:we|reported|claimed)"
+      },
+      {
+        "char_offset": 10818,
+        "context": "\u00a75.4), with the previously proposed dequantization remedy shown to be void as stated, and **a laundering ladder with error bars on three roots and two architectures** (\u00a75.6), which retires four decimal-level claims from the previous draft while confirming the orderings at $n>100$. - **A 110-assertion reproduction audit of our own draft** (\u00a75.8): 105 MATCH, 5 MISMATCH, 0 UNAVAILABLE, byte-identical across two runs [ARTIFACT:art_ckuwEkspyins]. # Related Work **Parent-required weight audits, an",
+        "pattern": "the previous draft"
+      },
+      {
+        "char_offset": 12583,
+        "context": "LoRAs from weights alone at our exact size class, but its object is an adapter already separated from a frozen base, with supervised calibration on labelled adapters. **Community weight forensics is further along than the previous draft acknowledged.** Abliterlitics [34] is an open-source abliteration-forensics toolkit (AGPL-3.0, first public 2026-04-24) comparing a base against its variants along weight, KL, capability and HarmBench axes, with published reports on ten base models from ~2B t",
+        "pattern": "the previous draft"
+      },
+      {
+        "char_offset": 16350,
+        "context": "rather than competing: its instrument is an inference-time output-geometry and log-probability fingerprint, not a weights-only statistic. **The recipe family, read from source.** Abliteration is not one operation, and the previous draft's taxonomy contained an error this iteration corrects from primary code. Heretic's kernel is a **triangular tent with a hard cutoff**, not the Gaussian or bell curve that our draft, our dependency dossier and OBLITERATUS's documentation all assert: `if distan",
+        "pattern": "the previous draft"
+      },
+      {
+        "char_offset": 21048,
+        "context": "m the safetensors index *and* from on-disk bytes divided by the widest declared dtype; E4 not a unit-test fixture; E5 not a speculator or draft head; E6 not a quantized re-upload. The rule exists because the reviewer of the previous draft correctly identified that 44 of the 160 previously scanned repositories were degenerate. A statistic defined as a minimum of per-layer write energy over an eigenvector of a pooled Gram matrix is not meaningfully defined on a two-layer, eight-dimensional rando",
+        "pattern": "the previous draft"
+      },
+      {
+        "char_offset": 22533,
+        "context": "s rather than behaviour, gave $\\kappa\\approx 0$ against a hand-labelled set, and was replaced \u2014 a deviation, recorded as one. This iteration re-measures judge-versus-regex agreement over 61 stages and **corrects our own previously reported figure**: rate-level Pearson $r = 0.822$, not the archived 0.952, with mean $\\kappa = 0.149$. The direction of the disagreement is unchanged and important: the standard 12-substring screen from [1] reads 0.000 on every abliterated-derived stage where the judg",
+        "pattern": "previously (?:we|reported|claimed)"
+      },
+      {
+        "char_offset": 27005,
+        "context": "on a built-in reproduction gate. A multiple-window false-positive-rate hazard is inherent \u2014 more windows means more minima \u2014 which is why specificity is reported per $k$. ## Three roots, and the ladder with error bars The previous draft's laundering ladder ran on one root. This iteration builds three [ARTIFACT:art_VLI4IOs9Xy9P]: **A**, the rebuilt archived uniform all-layer abliteration of Qwen3-1.7B; **B**, a depth-weighted Gaussian abliteration of the same host with the direction held fixe",
+        "pattern": "the previous draft"
+      },
+      {
+        "char_offset": 29234,
+        "context": "| 4 | 0.000 | 0.516 | \u2014 | Leave-one-recipe-class-out is the primary generalisation control this iteration, replacing leave-one-uploader-out, which is demoted to a secondary column with identical fields. The reviewer of the previous draft argued that our four \"unseen uploader\" misses were a recipe effect wearing an uploader costume, and the relabelling audit confirms two of the four from verbatim card strings \u2014 `MagicalAlchemist/Qwen3-1.7B-Magic_decensored` is \"made using Heretic v1.1.0\" with",
+        "pattern": "the previous draft"
+      },
+      {
+        "char_offset": 30176,
+        "context": "n settles the question the four-checkpoint sample could not: it *is* a recipe effect, but the two classes that most badly fail \u2014 multi-direction SVD (0/5) and global rank-one (1/6) \u2014 were both predicted to be caught, so the previous draft's recipe story is not merely incomplete but wrong in its sign on two classes. **It does not beat the baseline it must beat.** Against a plain regex over the repository id (11 terms), scored on identical rows: regex sensitivity **0.727**, specificity 1.000; $",
+        "pattern": "the previous draft"
+      },
+      {
+        "char_offset": 35213,
+        "context": ". $W01$ and $W04$ are not reproducible below ~0.05 on abliterated checkpoints. $W05$ is, and nothing in this paper depends on $W01$ or $W04$. ## Decoupled from safety in both directions, by construction [FIGURE:fig5] The previous draft argued the dissociation between the weight scar and un-censoring from a construction-time observation about direction selection. This iteration builds both failure directions as checkpoints and measures them. | checkpoint | harmful refusal | $W05$ | certific",
+        "pattern": "the previous draft"
+      },
+      {
+        "char_offset": 37398,
+        "context": "7$ while the model refuses at its parent's rate. An auditor reading only weights would flag a checkpoint whose safety behaviour is untouched. ## The deployment number, on a denominator that matches its description The previously reported \"0 of 160 undeclared sub-4B Hub checkpoints\" rested on a population that did not match its label: roughly 30 unit-test fixtures at $d_{\\text{model}}=8$ and $L=2$, three single-layer speculator draft heads, several sub-30MB toys, and at least one 14B quantized",
+        "pattern": "previously (?:we|reported|claimed)"
+      },
+      {
+        "char_offset": 39704,
+        "context": "shift of **0.128** log-units, about 1.7 margin widths. We say plainly that 0/122 is a statement about a threshold fitted elsewhere, not a validated operating point. **Quantization, split into its two distinct claims.** The previous draft reported int4 as an evasion. Two corrections. First, the proposed remedy \u2014 dequantize to fp16 and rescore \u2014 is **void as stated**: the archived `quant_sd` is a fake-quant computing $\\mathrm{round}(W/s)\\cdot s$ and writing the result back in the model's own bf",
+        "pattern": "the previous draft"
+      },
+      {
+        "char_offset": 41793,
+        "context": "for free\" overstated the cost: int4 raises WikiText perplexity 26.25 $\\to$ 37.72, a 43% quality cost a deployer notices, and the fluency screen it passes is distinct-3, not perplexity. ## The parent buys real coverage The previous draft's cleanest sentence \u2014 \"on the recipes it was characterised on, parent-free costs nothing\" \u2014 is true and now obviously beside the point. On the at-scale panel, with $E_1$ computed against the resolvable parent at three depth bands, $E_1$ at a 0.9 threshold fir",
+        "pattern": "the previous draft"
+      },
+      {
+        "char_offset": 45206,
+        "context": "\\to$ 0.617 is interval-disjoint but above the 0.30 target \u2014 and it is labelled signature-positive, partially un-censored, not counted as a clean root. For root B the ladder is undefined, because no flag ever fires. Two previously reported reversals survive: a one-matrix argmin patch does not defeat a minimum-over-layers statistic (a local patch rotates $v_1$ and lifts *every* matrix's energy, so four matrices must be patched), and 200 steps of benign LoRA-SFT move $W05$ only $-4.592 \\to -4.381",
+        "pattern": "previously (?:we|reported|claimed)"
+      },
+      {
+        "char_offset": 46140,
+        "context": "d have failed, split-half reliability is $r_{xx}=0.968$ so the negative is not an attenuation artefact, and the conclusion is invariant across three relative depths spanning a saturated AUROC plateau. The named baseline in the previous draft was also mis-identified: $B09$ (greedy refusal rate) is not the best black-box metric \u2014 $B08$ first-token entropy asymmetry leads at lineage level ($|\\rho| = 0.782$ against 0.668) and $B01$ logit gap at member level (0.708 against 0.670) \u2014 which *strengthens*",
+        "pattern": "in the (?:previous|earlier|last) (?:draft|iteration|version)"
+      },
+      {
+        "char_offset": 46143,
+        "context": "ave failed, split-half reliability is $r_{xx}=0.968$ so the negative is not an attenuation artefact, and the conclusion is invariant across three relative depths spanning a saturated AUROC plateau. The named baseline in the previous draft was also mis-identified: $B09$ (greedy refusal rate) is not the best black-box metric \u2014 $B08$ first-token entropy asymmetry leads at lineage level ($|\\rho| = 0.782$ against 0.668) and $B01$ logit gap at member level (0.708 against 0.670) \u2014 which *strengthens*",
+        "pattern": "the previous draft"
+      },
+      {
+        "char_offset": 50720,
+        "context": "t quoted, though the per-verdict counts were right; (ii) the scan holds **81** unresolved non-control rows, not 65 \u2014 the stale figure is adjudicated mechanically; (iii) 8 skipped, not 7; (iv) **five** quoted values from the previous draft are unreproduced, not four; and (v) $B09$'s $0.766$ is the 26-member `renderer == chatml` value, while the draft attributed it to the 28-member contract subset where the correct value is 0.670 \u2014 the number was right, the subset label was not. Four values the",
+        "pattern": "the previous draft"
+      },
+      {
+        "char_offset": 50994,
+        "context": "$B09$'s $0.766$ is the 26-member `renderer == chatml` value, while the draft attributed it to the 28-member contract subset where the correct value is 0.670 \u2014 the number was right, the subset label was not. Four values the earlier draft presented as correlations remain paired differences on a different subset, and the falsifier's verdict is unchanged on both readings. Panel and scan counts in this paper are generated from rows rather than transcribed: 270 rows $=$ 20 controls $+$ 250 attempt",
+        "pattern": "the (?:earlier|prior) draft"
+      },
+      {
+        "char_offset": 51633,
+        "context": "ions plus the held-out split's seed and fraction and nothing else \u2014 giving 4 SUPPORTED, 2 PLAN-ONLY, 6 UNSUPPORTED across twelve previously pre-registration-flagged claims. # Discussion **What we now believe, and what we retract.** We retract two claims from the previous draft. The first is *uniformity*: a uniform edit at sub-unit weight is invisible and behaviourally effective, and a strongly non-uniform Gaussian kernel at large spread is detected, so uniformity neither implies nor",
+        "pattern": "we retract"
+      },
+      {
+        "char_offset": 51647,
+        "context": "held-out split's seed and fraction and nothing else \u2014 giving 4 SUPPORTED, 2 PLAN-ONLY, 6 UNSUPPORTED across twelve previously pre-registration-flagged claims. # Discussion **What we now believe, and what we retract.** We retract two claims from the previous draft. The first is *uniformity*: a uniform edit at sub-unit weight is invisible and behaviourally effective, and a strongly non-uniform Gaussian kernel at large spread is detected, so uniformity neither implies nor is implied by",
+        "pattern": "we retract"
+      },
+      {
+        "char_offset": 51674,
+        "context": "raction and nothing else \u2014 giving 4 SUPPORTED, 2 PLAN-ONLY, 6 UNSUPPORTED across twelve previously pre-registration-flagged claims. # Discussion **What we now believe, and what we retract.** We retract two claims from the previous draft. The first is *uniformity*: a uniform edit at sub-unit weight is invisible and behaviourally effective, and a strongly non-uniform Gaussian kernel at large spread is detected, so uniformity neither implies nor is implied by detectability. The correct predicat",
+        "pattern": "the previous draft"
+      },
+      {
+        "char_offset": 55509,
+        "context": "so the cross-architecture range rests on a partially un-censored root. (8) The behavioural arm is 28 members over 19 lineages with 11 singletons; nothing smaller than $|\\Delta\\rho| = 0.32$ is resolvable there. We delete the previous draft's limitation that public mechanically-different recipes exist only at $\\geq 14.9$B: our own prior-art artifact records public MPOA, Heretic and OBLITERATUS checkpoints at 4,022,468,096 parameters on the panel's own Qwen3-4B family, and this iteration measured",
+        "pattern": "the previous draft"
+      }
+    ],
+    "n_backward_references_found": 25,
+    "n_chars": 65711,
+    "path": "iter_4/gen_paper_text/gen_paper_text/.terminal_claude_agent_struct_out.json",
+    "status": "SCANNED"
+  },
+  "edit_list": [
+    {
+      "after_text": null,
+      "before_pattern": "the previous draft",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "tor of the pooled write Gram matrix, separated 8 abliterated from 36 non-abliterated archived checkpoints at oriented AUROC 1.000, cost no prompts and no forward passes, and returned zero false positives on a wild scan. The previous draft of this paper reported that result with a scope boundary attributed to *uniformity*: the statistic was said to require an edit applied uniformly to the whole stack. **This iteration tested that account at scale and both halves of it failed.** On 44 real edit",
+      "n": 1,
+      "target": "draft char offset 4337"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "the previous draft",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "ree spectral edit detection** (\u00a74.2, \u00a75.2), validated on a 25-kernel sweep with host and direction held fixed: detection $\\Leftrightarrow$ discovery $\\wedge$ completion, reproducing 19/19 applicable kernels. It replaces the previous draft's uniformity story, which we retract, and it predicts rather than describes the blind spots. - **The at-scale falsification of the certificate itself** (\u00a75.1): sensitivity 0.159 on 44 real edited checkpoints from 27 uploaders and 9 recipe classes against 0.72",
+      "n": 2,
+      "target": "draft char offset 8962"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "we retract",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "alidated on a 25-kernel sweep with host and direction held fixed: detection $\\Leftrightarrow$ discovery $\\wedge$ completion, reproducing 19/19 applicable kernels. It replaces the previous draft's uniformity story, which we retract, and it predicts rather than describes the blind spots. - **The at-scale falsification of the certificate itself** (\u00a75.1): sensitivity 0.159 on 44 real edited checkpoints from 27 uploaders and 9 recipe classes against 0.727 for a repository-name regex at matc",
+      "n": 3,
+      "target": "draft char offset 9007"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "previously (?:we|reported|claimed)",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "oyment number on an honest, pre-stamped denominator** (\u00a75.4): eligibility rule sha256-stamped before any rate was computed; 0 false positives on **122** eligible undeclared checkpoints, Wilson 95% $[0, 0.031]$, with the previously reported raw 0/160 retained as a labelled secondary row and its degenerate composition published. First false positive appears at a threshold shift of 0.128 log-units, about 1.7 panel margin widths. - **The parent buys real coverage** (\u00a75.5), reversing our previous \"p",
+      "n": 4,
+      "target": "draft char offset 10010"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "the previous draft",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "\u00a75.4), with the previously proposed dequantization remedy shown to be void as stated, and **a laundering ladder with error bars on three roots and two architectures** (\u00a75.6), which retires four decimal-level claims from the previous draft while confirming the orderings at $n>100$. - **A 110-assertion reproduction audit of our own draft** (\u00a75.8): 105 MATCH, 5 MISMATCH, 0 UNAVAILABLE, byte-identical across two runs [ARTIFACT:art_ckuwEkspyins]. # Related Work **Parent-required weight audits, an",
+      "n": 5,
+      "target": "draft char offset 10818"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "the previous draft",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "LoRAs from weights alone at our exact size class, but its object is an adapter already separated from a frozen base, with supervised calibration on labelled adapters. **Community weight forensics is further along than the previous draft acknowledged.** Abliterlitics [34] is an open-source abliteration-forensics toolkit (AGPL-3.0, first public 2026-04-24) comparing a base against its variants along weight, KL, capability and HarmBench axes, with published reports on ten base models from ~2B t",
+      "n": 6,
+      "target": "draft char offset 12583"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "the previous draft",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "rather than competing: its instrument is an inference-time output-geometry and log-probability fingerprint, not a weights-only statistic. **The recipe family, read from source.** Abliteration is not one operation, and the previous draft's taxonomy contained an error this iteration corrects from primary code. Heretic's kernel is a **triangular tent with a hard cutoff**, not the Gaussian or bell curve that our draft, our dependency dossier and OBLITERATUS's documentation all assert: `if distan",
+      "n": 7,
+      "target": "draft char offset 16350"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "the previous draft",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "m the safetensors index *and* from on-disk bytes divided by the widest declared dtype; E4 not a unit-test fixture; E5 not a speculator or draft head; E6 not a quantized re-upload. The rule exists because the reviewer of the previous draft correctly identified that 44 of the 160 previously scanned repositories were degenerate. A statistic defined as a minimum of per-layer write energy over an eigenvector of a pooled Gram matrix is not meaningfully defined on a two-layer, eight-dimensional rando",
+      "n": 8,
+      "target": "draft char offset 21048"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "previously (?:we|reported|claimed)",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "s rather than behaviour, gave $\\kappa\\approx 0$ against a hand-labelled set, and was replaced \u2014 a deviation, recorded as one. This iteration re-measures judge-versus-regex agreement over 61 stages and **corrects our own previously reported figure**: rate-level Pearson $r = 0.822$, not the archived 0.952, with mean $\\kappa = 0.149$. The direction of the disagreement is unchanged and important: the standard 12-substring screen from [1] reads 0.000 on every abliterated-derived stage where the judg",
+      "n": 9,
+      "target": "draft char offset 22533"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "the previous draft",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "on a built-in reproduction gate. A multiple-window false-positive-rate hazard is inherent \u2014 more windows means more minima \u2014 which is why specificity is reported per $k$. ## Three roots, and the ladder with error bars The previous draft's laundering ladder ran on one root. This iteration builds three [ARTIFACT:art_VLI4IOs9Xy9P]: **A**, the rebuilt archived uniform all-layer abliteration of Qwen3-1.7B; **B**, a depth-weighted Gaussian abliteration of the same host with the direction held fixe",
+      "n": 10,
+      "target": "draft char offset 27005"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "the previous draft",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "| 4 | 0.000 | 0.516 | \u2014 | Leave-one-recipe-class-out is the primary generalisation control this iteration, replacing leave-one-uploader-out, which is demoted to a secondary column with identical fields. The reviewer of the previous draft argued that our four \"unseen uploader\" misses were a recipe effect wearing an uploader costume, and the relabelling audit confirms two of the four from verbatim card strings \u2014 `MagicalAlchemist/Qwen3-1.7B-Magic_decensored` is \"made using Heretic v1.1.0\" with",
+      "n": 11,
+      "target": "draft char offset 29234"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "the previous draft",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "n settles the question the four-checkpoint sample could not: it *is* a recipe effect, but the two classes that most badly fail \u2014 multi-direction SVD (0/5) and global rank-one (1/6) \u2014 were both predicted to be caught, so the previous draft's recipe story is not merely incomplete but wrong in its sign on two classes. **It does not beat the baseline it must beat.** Against a plain regex over the repository id (11 terms), scored on identical rows: regex sensitivity **0.727**, specificity 1.000; $",
+      "n": 12,
+      "target": "draft char offset 30176"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "the previous draft",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": ". $W01$ and $W04$ are not reproducible below ~0.05 on abliterated checkpoints. $W05$ is, and nothing in this paper depends on $W01$ or $W04$. ## Decoupled from safety in both directions, by construction [FIGURE:fig5] The previous draft argued the dissociation between the weight scar and un-censoring from a construction-time observation about direction selection. This iteration builds both failure directions as checkpoints and measures them. | checkpoint | harmful refusal | $W05$ | certific",
+      "n": 13,
+      "target": "draft char offset 35213"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "previously (?:we|reported|claimed)",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "7$ while the model refuses at its parent's rate. An auditor reading only weights would flag a checkpoint whose safety behaviour is untouched. ## The deployment number, on a denominator that matches its description The previously reported \"0 of 160 undeclared sub-4B Hub checkpoints\" rested on a population that did not match its label: roughly 30 unit-test fixtures at $d_{\\text{model}}=8$ and $L=2$, three single-layer speculator draft heads, several sub-30MB toys, and at least one 14B quantized",
+      "n": 14,
+      "target": "draft char offset 37398"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "the previous draft",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "shift of **0.128** log-units, about 1.7 margin widths. We say plainly that 0/122 is a statement about a threshold fitted elsewhere, not a validated operating point. **Quantization, split into its two distinct claims.** The previous draft reported int4 as an evasion. Two corrections. First, the proposed remedy \u2014 dequantize to fp16 and rescore \u2014 is **void as stated**: the archived `quant_sd` is a fake-quant computing $\\mathrm{round}(W/s)\\cdot s$ and writing the result back in the model's own bf",
+      "n": 15,
+      "target": "draft char offset 39704"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "the previous draft",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "for free\" overstated the cost: int4 raises WikiText perplexity 26.25 $\\to$ 37.72, a 43% quality cost a deployer notices, and the fluency screen it passes is distinct-3, not perplexity. ## The parent buys real coverage The previous draft's cleanest sentence \u2014 \"on the recipes it was characterised on, parent-free costs nothing\" \u2014 is true and now obviously beside the point. On the at-scale panel, with $E_1$ computed against the resolvable parent at three depth bands, $E_1$ at a 0.9 threshold fir",
+      "n": 16,
+      "target": "draft char offset 41793"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "previously (?:we|reported|claimed)",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "\\to$ 0.617 is interval-disjoint but above the 0.30 target \u2014 and it is labelled signature-positive, partially un-censored, not counted as a clean root. For root B the ladder is undefined, because no flag ever fires. Two previously reported reversals survive: a one-matrix argmin patch does not defeat a minimum-over-layers statistic (a local patch rotates $v_1$ and lifts *every* matrix's energy, so four matrices must be patched), and 200 steps of benign LoRA-SFT move $W05$ only $-4.592 \\to -4.381",
+      "n": 17,
+      "target": "draft char offset 45206"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "in the (?:previous|earlier|last) (?:draft|iteration|version)",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "d have failed, split-half reliability is $r_{xx}=0.968$ so the negative is not an attenuation artefact, and the conclusion is invariant across three relative depths spanning a saturated AUROC plateau. The named baseline in the previous draft was also mis-identified: $B09$ (greedy refusal rate) is not the best black-box metric \u2014 $B08$ first-token entropy asymmetry leads at lineage level ($|\\rho| = 0.782$ against 0.668) and $B01$ logit gap at member level (0.708 against 0.670) \u2014 which *strengthens*",
+      "n": 18,
+      "target": "draft char offset 46140"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "the previous draft",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "ave failed, split-half reliability is $r_{xx}=0.968$ so the negative is not an attenuation artefact, and the conclusion is invariant across three relative depths spanning a saturated AUROC plateau. The named baseline in the previous draft was also mis-identified: $B09$ (greedy refusal rate) is not the best black-box metric \u2014 $B08$ first-token entropy asymmetry leads at lineage level ($|\\rho| = 0.782$ against 0.668) and $B01$ logit gap at member level (0.708 against 0.670) \u2014 which *strengthens*",
+      "n": 19,
+      "target": "draft char offset 46143"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "the previous draft",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "t quoted, though the per-verdict counts were right; (ii) the scan holds **81** unresolved non-control rows, not 65 \u2014 the stale figure is adjudicated mechanically; (iii) 8 skipped, not 7; (iv) **five** quoted values from the previous draft are unreproduced, not four; and (v) $B09$'s $0.766$ is the 26-member `renderer == chatml` value, while the draft attributed it to the 28-member contract subset where the correct value is 0.670 \u2014 the number was right, the subset label was not. Four values the",
+      "n": 20,
+      "target": "draft char offset 50720"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "the (?:earlier|prior) draft",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "$B09$'s $0.766$ is the 26-member `renderer == chatml` value, while the draft attributed it to the 28-member contract subset where the correct value is 0.670 \u2014 the number was right, the subset label was not. Four values the earlier draft presented as correlations remain paired differences on a different subset, and the falsifier's verdict is unchanged on both readings. Panel and scan counts in this paper are generated from rows rather than transcribed: 270 rows $=$ 20 controls $+$ 250 attempt",
+      "n": 21,
+      "target": "draft char offset 50994"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "we retract",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "ions plus the held-out split's seed and fraction and nothing else \u2014 giving 4 SUPPORTED, 2 PLAN-ONLY, 6 UNSUPPORTED across twelve previously pre-registration-flagged claims. # Discussion **What we now believe, and what we retract.** We retract two claims from the previous draft. The first is *uniformity*: a uniform edit at sub-unit weight is invisible and behaviourally effective, and a strongly non-uniform Gaussian kernel at large spread is detected, so uniformity neither implies nor",
+      "n": 22,
+      "target": "draft char offset 51633"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "we retract",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "held-out split's seed and fraction and nothing else \u2014 giving 4 SUPPORTED, 2 PLAN-ONLY, 6 UNSUPPORTED across twelve previously pre-registration-flagged claims. # Discussion **What we now believe, and what we retract.** We retract two claims from the previous draft. The first is *uniformity*: a uniform edit at sub-unit weight is invisible and behaviourally effective, and a strongly non-uniform Gaussian kernel at large spread is detected, so uniformity neither implies nor is implied by",
+      "n": 23,
+      "target": "draft char offset 51647"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "the previous draft",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "raction and nothing else \u2014 giving 4 SUPPORTED, 2 PLAN-ONLY, 6 UNSUPPORTED across twelve previously pre-registration-flagged claims. # Discussion **What we now believe, and what we retract.** We retract two claims from the previous draft. The first is *uniformity*: a uniform edit at sub-unit weight is invisible and behaviourally effective, and a strongly non-uniform Gaussian kernel at large spread is detected, so uniformity neither implies nor is implied by detectability. The correct predicat",
+      "n": 24,
+      "target": "draft char offset 51674"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "the previous draft",
+      "blocking": true,
+      "detection": "regex over the archived draft",
+      "instruction": "Restate as a DIRECT CLAIM about the world. Delete the reference to any earlier draft, iteration or retraction and assert the corrected fact on its own terms (write 'uniformity is not the predicate', never 'we retract the previous draft's uniformity story'). Where the earlier number matters as evidence, move it to the numbered Corrections section, which is the ONLY place a prior value may be named.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "matched_context": "so the cross-architecture range rests on a partially un-censored root. (8) The behavioural arm is 28 members over 19 lineages with 11 singletons; nothing smaller than $|\\Delta\\rho| = 0.32$ is resolvable there. We delete the previous draft's limitation that public mechanically-different recipes exist only at $\\geq 14.9$B: our own prior-art artifact records public MPOA, Heretic and OBLITERATUS checkpoints at 4,022,468,096 parameters on the panel's own Qwen3-4B family, and this iteration measured",
+      "n": 25,
+      "target": "draft char offset 55509"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "we retract|the previous draft|as reported previously|iteration[ -]?3 said|earlier we claimed|we now correct|unlike the last version|previously (?:we|reported|claimed)|in the (?:previous|earlier|last) (?:draft|iteration|version)|the (?:earlier|prior) draft|we no longer claim|corrects? the archived",
+      "blocking": false,
+      "detection_regexes": [
+        "we retract",
+        "the previous draft",
+        "as reported previously",
+        "iteration[ -]?3 said",
+        "earlier we claimed",
+        "we now correct",
+        "unlike the last version",
+        "previously (?:we|reported|claimed)",
+        "in the (?:previous|earlier|last) (?:draft|iteration|version)",
+        "the (?:earlier|prior) draft",
+        "we no longer claim",
+        "corrects? the archived"
+      ],
+      "draft_scan_status": "SCANNED",
+      "instruction": "Standing rule for text written after this list: no sentence outside Section 10 may reference a previous draft, iteration, retraction or correction. Apply these detection regexes at write time and rewrite every hit as a direct claim.",
+      "kind": "BACKWARD_REFERENCE_TO_DIRECT_CLAIM",
+      "n": 26,
+      "reason": null,
+      "target": "whole document"
+    },
+    {
+      "after_text": "1 Introduction\n2 Related work and positioning\n3 The statistic and its definition\n4 Discovery and completion: a consequence of the definition\n5 At-scale evaluation and the name baseline\n6 The operating point\n7 Decoupling in both directions\n8 The windowed generalisation\n9 Limitations\n10 Corrections to prior reporting\nA Appendix: self-audit",
+      "before_pattern": null,
+      "blocking": true,
+      "cross_reference_map_by_symbol": {
+        "app:selfaudit": "A",
+        "sec:atscale": "5",
+        "sec:corrections": "10",
+        "sec:decoupling": "7",
+        "sec:intro": "1",
+        "sec:limitations": "9",
+        "sec:mechanism": "4",
+        "sec:operating": "6",
+        "sec:related": "2",
+        "sec:statistic": "3",
+        "sec:windowed": "8"
+      },
+      "cross_reference_map_by_title": {
+        "Appendix: self-audit": "A",
+        "At-scale evaluation and the name baseline": "5",
+        "Corrections to prior reporting": "10",
+        "Decoupling in both directions": "7",
+        "Discovery and completion: a consequence of the definition": "4",
+        "Introduction": "1",
+        "Limitations": "9",
+        "Related work and positioning": "2",
+        "The operating point": "6",
+        "The statistic and its definition": "3",
+        "The windowed generalisation": "8"
+      },
+      "instruction": "Number every section as below and use these numbers in every cross-reference so existing symbolic references resolve. Do not add, merge or reorder sections.",
+      "kind": "SECTION_NUMBERING",
+      "n": 27,
+      "skeleton": [
+        {
+          "number": "1",
+          "title": "Introduction"
+        },
+        {
+          "number": "2",
+          "title": "Related work and positioning"
+        },
+        {
+          "number": "3",
+          "title": "The statistic and its definition"
+        },
+        {
+          "number": "4",
+          "title": "Discovery and completion: a consequence of the definition"
+        },
+        {
+          "number": "5",
+          "title": "At-scale evaluation and the name baseline"
+        },
+        {
+          "number": "6",
+          "title": "The operating point"
+        },
+        {
+          "number": "7",
+          "title": "Decoupling in both directions"
+        },
+        {
+          "number": "8",
+          "title": "The windowed generalisation"
+        },
+        {
+          "number": "9",
+          "title": "Limitations"
+        },
+        {
+          "number": "10",
+          "title": "Corrections to prior reporting"
+        },
+        {
+          "number": "A",
+          "title": "Appendix: self-audit"
+        }
+      ],
+      "target": "document skeleton"
+    },
+    {
+      "after_text": "(i) A parent-free, calibration-free, bottom-of-spectrum weight statistic that needs zero prompts and zero forward passes, with measured precision 0/139 false positives on eligible undeclared checkpoints at the panel operating point and measured recall 0.159 on 44 real Hub edits -- dominated on the same rows by an eleven-term filename regex at 0.727.\n(ii) A decomposition showing that detection and completion are the same statement whenever discovery holds, as a consequence of the definition rather than an empirical result, with the discovery threshold located at a minimum depth weight in [0.07955950871822769, 0.5310959910353452].\n(iii) An analytic impossibility: isometric (Householder) edits are permanently invisible to any Gram-spectrum statistic, W05w included -- measured at 4.1e-05 log10 units, BELOW a random-direction control at 7.3e-05.\n(iv) Decoupling demonstrated in both directions by construction: a depth-weighted root un-censors 0.950 -> 0.270 [0.196, 0.360] while reading its parent's W05 exactly, and an AUROC-argmax root fires at W05 = -4.587 while refusing at its parent's rate.",
+      "before_pattern": null,
+      "blocking": true,
+      "contributions": [
+        {
+          "label": "i",
+          "text": "A parent-free, calibration-free, bottom-of-spectrum weight statistic that needs zero prompts and zero forward passes, with measured precision 0/139 false positives on eligible undeclared checkpoints at the panel operating point and measured recall 0.159 on 44 real Hub edits -- dominated on the same rows by an eleven-term filename regex at 0.727."
+        },
+        {
+          "label": "ii",
+          "text": "A decomposition showing that detection and completion are the same statement whenever discovery holds, as a consequence of the definition rather than an empirical result, with the discovery threshold located at a minimum depth weight in [0.07955950871822769, 0.5310959910353452]."
+        },
+        {
+          "label": "iii",
+          "text": "An analytic impossibility: isometric (Householder) edits are permanently invisible to any Gram-spectrum statistic, W05w included -- measured at 4.1e-05 log10 units, BELOW a random-direction control at 7.3e-05."
+        },
+        {
+          "label": "iv",
+          "text": "Decoupling demonstrated in both directions by construction: a depth-weighted root un-censors 0.950 -> 0.270 [0.196, 0.360] while reading its parent's W05 exactly, and an AUROC-argmax root fires at W05 = -4.587 while refusing at its parent's rate."
+        }
+      ],
+      "instruction": "Replace the Contributions list with EXACTLY these four finding-shaped items. Remove every bookkeeping item currently occupying a contribution slot.",
+      "kind": "CONTRIBUTIONS_CUT_TO_FOUR",
+      "n": 28,
+      "remove_list": [
+        "the 110-assertion self-audit (bookkeeping -> Appendix A)",
+        "the byte-identical determinism check (methods, one sentence)",
+        "verify.py / verify_numbers.py existing at all (methods)",
+        "the reproduction gate deltas (methods or Limitations)",
+        "the count of shipped result files and figures",
+        "the frozen 53-metric battery's existence (it is prior iteration scaffolding)"
+      ],
+      "target": "Section 1, Contributions list"
+    },
+    {
+      "after_text": null,
+      "before_pattern": null,
+      "blocking": true,
+      "instruction": "Move the 110-assertion audit out of Contributions. Ship whichever variant fits.",
+      "kind": "MOVE_SELF_AUDIT",
+      "n": 29,
+      "target": "Contributions -> Appendix A / methods",
+      "variant_appendix": "Appendix A. Self-audit. Every numeral in this paper is regenerated from results/numbers.json by verify_numbers.py, which recomputes each entry from the archived raw rows and exits non-zero on any mismatch. The iteration-4 pass over 110 quoted values returned 105 MATCH, 5 MISMATCH and 0 UNAVAILABLE; the five mismatches are the corrections listed in Section 10. Two independent runs of the analysis produce byte-identical output.",
+      "variant_methods_two_sentences": "Every numeral below is regenerated from a single machine-checked numbers file by a standalone checker that recomputes each entry from the archived raw rows and exits non-zero on any mismatch. Two runs of the analysis produce byte-identical output."
+    },
+    {
+      "after_text": null,
+      "before_pattern": "12\\.6\\s*(log[- ]units?|log10)",
+      "blocking": true,
+      "fallback_non_recovery": "Windowing recovers none of the discovery failures, so the pooled statistic's blind spot is a property of the edit and not of the pooling, and W05w is reported as a proposed variant rather than a fix.",
+      "fallback_recovery": "Windowing recovers the depth-weighted classes, raising held-out sensitivity from {X} to {Y} on the classes that dominate Hub traffic.",
+      "instruction": "DELETE the 12.6 log-unit toy-stack number and its figure wherever they appear. It is a 12-matrix synthetic result with n_positives = 0 on real models and cannot carry an Introduction claim. Replace it with whichever fallback the windowed arm's outcome licenses; both are pre-written so the draft is writable the day that arm returns.",
+      "kind": "DELETE_TOY_FIGURE",
+      "n": 30,
+      "named_slots": {
+        "X": "held-out sensitivity of the pooled statistic on the depth-weighted classes, filled by the windowed artifact",
+        "Y": "held-out sensitivity of W05w on the same classes"
+      },
+      "target": "Section 1 (Introduction) and Conclusion",
+      "which_is_currently_supported": "NEITHER -- the windowed positive arm has n_positives = 0, so this edit is BLOCKING"
+    },
+    {
+      "achieved_max_abs_delta": 8.491610326011312e-08,
+      "after_text": null,
+      "before_pattern": "1e-9|10\\^\\{-9\\}",
+      "blocking": true,
+      "instruction": "The k=L identity gate is declared at 1e-9 but achieves 8.492e-08 on real models. Either widen the declared tolerance to a defensible float32 bound or report the gate as FAILED at its declared value. Both sentences are supplied; ship the one the numbers support.",
+      "justification": "1e-9 is below the float32 Gram-accumulation floor this project has already measured at 3.1e-2 on log ratios, so it was never an achievable declaration",
+      "kind": "REPRODUCTION_GATE_TOLERANCE",
+      "n": 31,
+      "sentence_failed": "The k=L identity gate FAILS at its declared 1e-9 tolerance: the maximum absolute delta over 40 real models is 8.49e-08 log10 units.",
+      "sentence_widen": "The k=L identity gate is declared at a relative tolerance of ~1e-6, justified by the float32 Gram-accumulation floor already measured at 3.1e-2 on log ratios; the achieved maximum absolute delta is 8.49e-08 log10 units over 40 real models, comfortably inside it.",
+      "target": "Section 8 (The windowed generalisation)",
+      "which_the_numbers_support": "WIDEN"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "W05w|windowed (?:statistic|scan|generalisation)",
+      "blocking": true,
+      "caveat_if_kept": "W05w is evaluated here only as an identity check against the pooled statistic at k=L and as a threshold curve on negatives; its positive arm has n_positives = 0, so no sensitivity, no per-class catch rate and no comparison against W05 is reported.",
+      "evidence": {
+        "nan_sensitivity_paths": [
+          ".frontier[0].sensitivity_G1_IN_FIT_circular",
+          ".frontier[0].sensitivity_G2_out_of_fit",
+          ".frontier[0].sensitivity_on_G1pos_plus_G2",
+          ".frontier[10].sensitivity_G1_IN_FIT_circular",
+          ".frontier[10].sensitivity_G2_out_of_fit",
+          ".frontier[10].sensitivity_on_G1pos_plus_G2",
+          ".frontier[11].sensitivity_G1_IN_FIT_circular",
+          ".frontier[11].sensitivity_G2_out_of_fit",
+          ".frontier[11].sensitivity_on_G1pos_plus_G2",
+          ".frontier[12].sensitivity_G1_IN_FIT_circular",
+          ".frontier[12].sensitivity_G2_out_of_fit",
+          ".frontier[12].sensitivity_on_G1pos_plus_G2",
+          ".frontier[13].sensitivity_G1_IN_FIT_circular",
+          ".frontier[13].sensitivity_G2_out_of_fit",
+          ".frontier[13].sensitivity_on_G1pos_plus_G2",
+          ".frontier[14].sensitivity_G1_IN_FIT_circular",
+          ".frontier[14].sensitivity_G2_out_of_fit",
+          ".frontier[14].sensitivity_on_G1pos_plus_G2",
+          ".frontier[15].sensitivity_G1_IN_FIT_circular",
+          ".frontier[15].sensitivity_G2_out_of_fit",
+          ".frontier[15].sensitivity_on_G1pos_plus_G2",
+          ".frontier[16].sensitivity_G1_IN_FIT_circular",
+          ".frontier[16].sensitivity_G2_out_of_fit",
+          ".frontier[16].sensitivity_on_G1pos_plus_G2",
+          ".frontier[17].sensitivity_G1_IN_FIT_circular",
+          ".frontier[17].sensitivity_G2_out_of_fit",
+          ".frontier[17].sensitivity_on_G1pos_plus_G2",
+          ".frontier[18].sensitivity_G1_IN_FIT_circular",
+          ".frontier[18].sensitivity_G2_out_of_fit",
+          ".frontier[18].sensitivity_on_G1pos_plus_G2",
+          ".frontier[19].sensitivity_G1_IN_FIT_circular",
+          ".frontier[19].sensitivity_G2_out_of_fit",
+          ".frontier[19].sensitivity_on_G1pos_plus_G2",
+          ".frontier[1].sensitivity_G1_IN_FIT_circular",
+          ".frontier[1].sensitivity_G2_out_of_fit",
+          ".frontier[1].sensitivity_on_G1pos_plus_G2",
+          ".frontier[20].sensitivity_G1_IN_FIT_circular",
+          ".frontier[20].sensitivity_G2_out_of_fit",
+          ".frontier[20].sensitivity_on_G1pos_plus_G2",
+          ".frontier[21].sensitivity_G1_IN_FIT_circular"
+        ],
+        "source_files": [
+          "iter_4/gen_art/gen_art_experiment_2/results/numbers.json",
+          "iter_4/gen_art/gen_art_experiment_2/results/arm1_analysis.json"
+        ],
+        "zero_n_positives_paths": [
+          ".frontier[0].n_positives",
+          ".frontier[0].n_positives_G1_in_fit",
+          ".frontier[0].n_positives_G2_out_of_fit",
+          ".frontier[10].n_positives",
+          ".frontier[10].n_positives_G1_in_fit",
+          ".frontier[10].n_positives_G2_out_of_fit",
+          ".frontier[11].n_positives",
+          ".frontier[11].n_positives_G1_in_fit",
+          ".frontier[11].n_positives_G2_out_of_fit",
+          ".frontier[12].n_positives",
+          ".frontier[12].n_positives_G1_in_fit",
+          ".frontier[12].n_positives_G2_out_of_fit",
+          ".frontier[13].n_positives",
+          ".frontier[13].n_positives_G1_in_fit",
+          ".frontier[13].n_positives_G2_out_of_fit",
+          ".frontier[14].n_positives",
+          ".frontier[14].n_positives_G1_in_fit",
+          ".frontier[14].n_positives_G2_out_of_fit",
+          ".frontier[15].n_positives",
+          ".frontier[15].n_positives_G1_in_fit",
+          ".frontier[15].n_positives_G2_out_of_fit",
+          ".frontier[16].n_positives",
+          ".frontier[16].n_positives_G1_in_fit",
+          ".frontier[16].n_positives_G2_out_of_fit",
+          ".frontier[17].n_positives",
+          ".frontier[17].n_positives_G1_in_fit",
+          ".frontier[17].n_positives_G2_out_of_fit",
+          ".frontier[18].n_positives",
+          ".frontier[18].n_positives_G1_in_fit",
+          ".frontier[18].n_positives_G2_out_of_fit",
+          ".frontier[19].n_positives",
+          ".frontier[19].n_positives_G1_in_fit",
+          ".frontier[19].n_positives_G2_out_of_fit",
+          ".frontier[1].n_positives",
+          ".frontier[1].n_positives_G1_in_fit",
+          ".frontier[1].n_positives_G2_out_of_fit",
+          ".frontier[20].n_positives",
+          ".frontier[20].n_positives_G1_in_fit",
+          ".frontier[20].n_positives_G2_out_of_fit",
+          ".frontier[21].n_positives",
+          ".frontier[21].n_positives_G1_in_fit",
+          ".frontier[21].n_positives_G2_out_of_fit",
+          ".frontier[22].n_positives",
+          ".frontier[22].n_positives_G1_in_fit",
+          ".frontier[22].n_positives_G2_out_of_fit",
+          ".frontier[23].n_positives",
+          ".frontier[23].n_positives_G1_in_fit",
+          ".frontier[23].n_positives_G2_out_of_fit",
+          ".frontier[24].n_positives",
+          ".frontier[24].n_positives_G1_in_fit",
+          ".frontier[24].n_positives_G2_out_of_fit",
+          ".frontier[2].n_positives",
+          ".frontier[2].n_positives_G1_in_fit",
+          ".frontier[2].n_positives_G2_out_of_fit",
+          ".frontier[3].n_positives",
+          ".frontier[3].n_positives_G1_in_fit",
+          ".frontier[3].n_positives_G2_out_of_fit",
+          ".frontier[4].n_positives",
+          ".frontier[4].n_positives_G1_in_fit",
+          ".frontier[4].n_positives_G2_out_of_fit",
+          ".frontier[5].n_positives",
+          ".frontier[5].n_positives_G1_in_fit",
+          ".frontier[5].n_positives_G2_out_of_fit",
+          ".frontier[6].n_positives",
+          ".frontier[6].n_positives_G1_in_fit",
+          ".frontier[6].n_positives_G2_out_of_fit",
+          ".frontier[7].n_positives",
+          ".frontier[7].n_positives_G1_in_fit",
+          ".frontier[7].n_positives_G2_out_of_fit",
+          ".frontier[8].n_positives",
+          ".frontier[8].n_positives_G1_in_fit",
+          ".frontier[8].n_positives_G2_out_of_fit",
+          ".frontier[9].n_positives",
+          ".frontier[9].n_positives_G1_in_fit",
+          ".frontier[9].n_positives_G2_out_of_fit"
+        ],
+        "zero_positive_markers": {}
+      },
+      "instruction": "This sentence's truth depends on the windowed POSITIVE arm, which did not run: the synthetic and real positive groups are empty (n_positives = 0), every W05w sensitivity is NaN, and the per-recipe-class catch table is empty. Either delete the sentence or attach the stated caveat verbatim. Assembly must HALT until one of the two is done.",
+      "kind": "FLAG_ARM_DEPENDENT_SENTENCE",
+      "n": 32,
+      "target": "every sentence claiming the windowed statistic W05w catches an edit the pooled statistic misses"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "principal angle|multi-?direction generalisation",
+      "blocking": true,
+      "caveat_if_kept": "The principal-angle generalisation is stated as a definition and is not evaluated in this work.",
+      "evidence": {
+        "n_rows_currently_undefined": 12,
+        "rows_it_would_need": [
+          "per-checkpoint bottom-j eigenvectors of A (j = rank of the edit)",
+          "the removed-direction basis R (d x j)",
+          "per-matrix write energies along each column of R"
+        ],
+        "status": "STATED AS A DEFINITION -- NOT-YET-EVALUATED-HERE"
+      },
+      "instruction": "The principal-angle criterion is STATED AS A DEFINITION in this paper and is NOT evaluated: doing so needs bottom-j Gram eigenvectors and the removed-direction basis, tensors the re-analysis does not load. Mark it explicitly as future work or delete the claim.",
+      "kind": "FLAG_ARM_DEPENDENT_SENTENCE",
+      "n": 33,
+      "target": "every sentence claiming the principal-angle generalisation resolves the multi-direction and per-component classes"
+    },
+    {
+      "after_text": null,
+      "before_pattern": "19\\s*/\\s*19|zero disagreements",
+      "blocking": true,
+      "caveat_if_kept": "Where discovery holds, W05 and log10 min_m e_r agree to within 2.834 log10 units, inside the analytic Cauchy-Schwarz bound on every row -- this is an identity check, not a prediction.",
+      "evidence": {
+        "max_abs_gap_discovery_holding": 2.833537534876011,
+        "n_bound_violated": 0,
+        "source_file": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json"
+      },
+      "instruction": "Delete. The two quantities are the same object whenever discovery holds, so the agreement is a consistency check on a near-identity. Replace with the measured bound statistics from the derivation block.",
+      "kind": "FLAG_ARM_DEPENDENT_SENTENCE",
+      "n": 34,
+      "target": "every sentence asserting that the discovery/completion rule was validated on 19/19 applicable kernels"
+    }
+  ],
+  "n_blocking": 33,
+  "n_edits": 34,
+  "section_skeleton": [
+    {
+      "number": "1",
+      "title": "Introduction"
+    },
+    {
+      "number": "2",
+      "title": "Related work and positioning"
+    },
+    {
+      "number": "3",
+      "title": "The statistic and its definition"
+    },
+    {
+      "number": "4",
+      "title": "Discovery and completion: a consequence of the definition"
+    },
+    {
+      "number": "5",
+      "title": "At-scale evaluation and the name baseline"
+    },
+    {
+      "number": "6",
+      "title": "The operating point"
+    },
+    {
+      "number": "7",
+      "title": "Decoupling in both directions"
+    },
+    {
+      "number": "8",
+      "title": "The windowed generalisation"
+    },
+    {
+      "number": "9",
+      "title": "Limitations"
+    },
+    {
+      "number": "10",
+      "title": "Corrections to prior reporting"
+    },
+    {
+      "number": "A",
+      "title": "Appendix: self-audit"
+    }
+  ]
+}

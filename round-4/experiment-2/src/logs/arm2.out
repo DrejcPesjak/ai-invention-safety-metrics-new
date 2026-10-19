@@ -1,0 +1,138 @@
+00:30:46|INFO   |stage=arm2 arm2_target=80
+00:30:46|INFO   |ELIGIBILITY STAMP sha256=0f8be4f6ca6817abc5db3e23f50d10ae3ff8092285bfa24a64ef393462460292 at 2026-08-14T00:30:46.861984+00:00
+00:30:46|INFO   |ARM 2 archive counts: 270 rows, 20 controls, 160 scored, 81 UNRESOLVED, 0 in the abliterated region
+00:30:47|INFO   |dependency dataset: edit_manifest 672 rows, hub_scan_pool 2139 rows
+00:30:47|INFO   |fetching config.json for 90 archived rows (metadata only, no weights)
+00:30:51|INFO   |ARM 2a eligibility applied to 270 archived rows
+00:30:51|INFO   |ARM 2b: 1403 pool candidates survive the metadata pre-filter
+00:30:58|INFO   |ARM 2b: 178 eligible after config.json check (62 excluded)
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.98it/s]Fetching 2 files: 100%|██████████| 2/2 [00:02<00:00,  1.63s/it]Fetching 2 files: 100%|██████████| 2/2 [00:02<00:00,  1.43s/it]
+00:31:04|INFO   |  [1/80] theyur/dhamma-parrot-v01                         OK         W05=-1.310 6s  elapsed 0.1m  0GB  free 824299GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.57it/s]Fetching 2 files: 100%|██████████| 2/2 [00:03<00:00,  2.12s/it]Fetching 2 files: 100%|██████████| 2/2 [00:03<00:00,  1.86s/it]
+00:31:08|WARNING|liodon-ai/slm-10m: UNRESOLVED RuntimeError: UNRESOLVED architecture: 12 write matrices, expected ~24 (d=256, L=12, slm)
+00:31:08|INFO   |  [1/80] liodon-ai/slm-10m                                UNRESOLVED W05=+nan 4s  elapsed 0.2m  0GB  free 824299GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  3.07it/s]Fetching 2 files: 100%|██████████| 2/2 [00:03<00:00,  1.90s/it]Fetching 2 files: 100%|██████████| 2/2 [00:03<00:00,  1.66s/it]
+00:31:14|INFO   |  [2/80] aethercompute/aether0-50m                        OK         W05=-0.356 5s  elapsed 0.3m  0GB  free 824301GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.61it/s]Fetching 2 files: 100%|██████████| 2/2 [00:03<00:00,  2.24s/it]Fetching 2 files: 100%|██████████| 2/2 [00:03<00:00,  1.96s/it]
+00:31:20|INFO   |  [3/80] SmallDoge/Doge-320M                              OK         W05=-0.652 6s  elapsed 0.4m  0GB  free 824303GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.32it/s]Fetching 2 files: 100%|██████████| 2/2 [00:02<00:00,  1.41s/it]Fetching 2 files: 100%|██████████| 2/2 [00:02<00:00,  1.27s/it]
+00:31:23|WARNING|LongSafari/hyenadna-medium-450k-seqlen-hf: UNRESOLVED RuntimeError: UNRESOLVED architecture: 8 write matrices, expected ~16 (d=256, L=8, hyenadna)
+00:31:23|INFO   |  [3/80] LongSafari/hyenadna-medium-450k-seqlen-hf        UNRESOLVED W05=+nan 3s  elapsed 0.4m  0GB  free 824304GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.60it/s]Fetching 2 files: 100%|██████████| 2/2 [00:02<00:00,  1.54s/it]Fetching 2 files: 100%|██████████| 2/2 [00:02<00:00,  1.37s/it]
+00:31:27|INFO   |  [4/80] StentorLabs/Stentor-30M-Instruct                 OK         W05=-0.456 4s  elapsed 0.5m  1GB  free 824305GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.89it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.51s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.19s/it]
+00:31:34|INFO   |  [5/80] patriotmemory-ai/PMA-1.0                         OK         W05=-0.436 7s  elapsed 0.6m  1GB  free 824300GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.06it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.37s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.09s/it]
+00:31:39|INFO   |  [6/80] Felladrin/Minueza-32M-Base                       OK         W05=-0.434 5s  elapsed 0.7m  1GB  free 824298GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.96it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.73s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.37s/it]
+00:31:45|INFO   |  [7/80] AlignmentResearch/Llama-3.3-Tiny-Instruct-boolq  OK         W05=-0.326 6s  elapsed 0.8m  1GB  free 824299GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.74it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.49s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.17s/it]
+00:31:51|INFO   |  [8/80] exusiaiw/emnlp-babylm-2026-v2                    OK         W05=-0.611 6s  elapsed 0.9m  1GB  free 824301GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.68it/s]Fetching 2 files: 100%|██████████| 2/2 [00:02<00:00,  1.56s/it]Fetching 2 files: 100%|██████████| 2/2 [00:02<00:00,  1.39s/it]
+00:31:55|INFO   |  [9/80] exusiaiw/emnlp-babylm-2026                       OK         W05=-0.611 4s  elapsed 1.0m  1GB  free 824301GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.19it/s]Fetching 2 files: 100%|██████████| 2/2 [00:07<00:00,  4.26s/it]Fetching 2 files: 100%|██████████| 2/2 [00:07<00:00,  3.69s/it]
+00:32:05|INFO   |  [10/80] ekwek/Soprano-1.1-80M                            OK         W05=-0.528 10s  elapsed 1.1m  1GB  free 824303GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  3.13it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.53s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.20s/it]
+00:32:10|WARNING|ibm-research/GP-MoLFormer-Uniq: UNRESOLVED RuntimeError: UNRESOLVED architecture: 0 write matrices, expected ~24 (d=768, L=12, molformer)
+00:32:10|INFO   |  [10/80] ibm-research/GP-MoLFormer-Uniq                   UNRESOLVED W05=+nan 5s  elapsed 1.2m  2GB  free 824305GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.50it/s]Fetching 2 files: 100%|██████████| 2/2 [00:03<00:00,  1.87s/it]Fetching 2 files: 100%|██████████| 2/2 [00:03<00:00,  1.65s/it]
+00:32:14|WARNING|LongSafari/hyenadna-large-1m-seqlen-hf: UNRESOLVED RuntimeError: UNRESOLVED architecture: 8 write matrices, expected ~16 (d=256, L=8, hyenadna)
+00:32:14|INFO   |  [10/80] LongSafari/hyenadna-large-1m-seqlen-hf           UNRESOLVED W05=+nan 4s  elapsed 1.3m  2GB  free 824306GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.29it/s]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  2.89s/it]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  2.52s/it]
+00:32:22|INFO   |  [11/80] p1atdev/dart-v2-sft                              OK         W05=-0.365 7s  elapsed 1.4m  2GB  free 824306GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  3.00it/s]Fetching 2 files: 100%|██████████| 2/2 [00:06<00:00,  3.62s/it]Fetching 2 files: 100%|██████████| 2/2 [00:06<00:00,  3.12s/it]
+00:32:29|WARNING|lgaalves/gpt2-dolly: UNRESOLVED RuntimeError: transposed Conv1D-style weights not supported (gpt2)
+00:32:29|INFO   |  [11/80] lgaalves/gpt2-dolly                              UNRESOLVED W05=+nan 7s  elapsed 1.5m  2GB  free 824307GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  3.81it/s]Fetching 2 files: 100%|██████████| 2/2 [00:02<00:00,  1.23s/it]Fetching 2 files: 100%|██████████| 2/2 [00:02<00:00,  1.09s/it]
+00:32:35|INFO   |  [12/80] HuggingFaceTB/SmolLM2-135M                       OK         W05=-0.982 6s  elapsed 1.6m  3GB  free 824307GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.80it/s]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  2.92s/it]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  2.54s/it]
+00:32:44|INFO   |  [13/80] sashaboguraev/pythia-160m-ppt-nca_steps250-seed2 OK         W05=-0.731 9s  elapsed 1.8m  3GB  free 824307GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.40it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.39s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.10s/it]
+00:32:53|INFO   |  [14/80] sashaboguraev/pythia-160m-ppt-nca_steps250-seed2 OK         W05=-0.765 8s  elapsed 1.9m  3GB  free 824307GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.19it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.64s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.31s/it]
+00:33:01|INFO   |  [15/80] sashaboguraev/pythia-160m-ppt-shuffle_dyck_steps OK         W05=-0.673 8s  elapsed 2.0m  4GB  free 824306GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  1.89it/s]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  2.85s/it]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  2.51s/it]
+00:33:10|INFO   |  [16/80] sashaboguraev/pythia-160m-ppt-shuffle_dyck_steps OK         W05=-0.695 9s  elapsed 2.2m  4GB  free 824306GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.86it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.84s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.47s/it]
+00:33:19|INFO   |  [17/80] sashaboguraev/pythia-160m-ppt-shuffle_dyck_steps OK         W05=-0.664 9s  elapsed 2.3m  4GB  free 824307GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.54it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.55s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.23s/it]
+00:33:28|INFO   |  [18/80] sashaboguraev/pythia-160m-ppt-shuffle_dyck_steps OK         W05=-0.659 9s  elapsed 2.5m  5GB  free 824307GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.97it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.63s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.28s/it]
+00:33:36|INFO   |  [19/80] sashaboguraev/pythia-160m-ppt-shuffle_dyck_steps OK         W05=-0.747 9s  elapsed 2.6m  5GB  free 824307GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.86it/s]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  2.92s/it]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  2.54s/it]
+00:33:50|INFO   |  [20/80] sashaboguraev/pythia-160m-ppt-nca_steps250-seed3 OK         W05=-0.707 13s  elapsed 2.9m  5GB  free 824306GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  3.12it/s]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  2.96s/it]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  2.56s/it]
+00:33:58|INFO   |  [21/80] sashaboguraev/pythia-160m-ppt-nca_steps250-seed1 OK         W05=-0.806 9s  elapsed 3.0m  5GB  free 824305GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.82it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.51s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.19s/it]
+00:34:08|INFO   |  [22/80] sashaboguraev/pythia-160m-ppt-nca_steps250-seed3 OK         W05=-0.713 10s  elapsed 3.2m  6GB  free 824306GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.74it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.57s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.24s/it]
+00:34:16|INFO   |  [23/80] sashaboguraev/pythia-160m-ppt-shuffle_dyck_steps OK         W05=-0.746 8s  elapsed 3.3m  6GB  free 824306GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.34it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.65s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.31s/it]
+00:34:23|INFO   |  [24/80] sashaboguraev/pythia-160m-ppt-control_shuffle_dy OK         W05=-0.832 7s  elapsed 3.4m  6GB  free 824306GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  3.05it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.48s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.16s/it]
+00:34:31|INFO   |  [25/80] sashaboguraev/pythia-160m-ppt-control_shuffle_dy OK         W05=-0.734 7s  elapsed 3.5m  7GB  free 824312GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.33it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.64s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.31s/it]
+00:34:38|INFO   |  [26/80] sashaboguraev/pythia-160m-ppt-control_music_step OK         W05=-0.804 7s  elapsed 3.7m  7GB  free 824313GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.50it/s]Fetching 2 files: 100%|██████████| 2/2 [00:03<00:00,  2.23s/it]Fetching 2 files: 100%|██████████| 2/2 [00:03<00:00,  1.96s/it]
+00:34:45|INFO   |  [27/80] sashaboguraev/pythia-160m-ppt-control_nca_steps2 OK         W05=-0.744 7s  elapsed 3.8m  7GB  free 824315GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.46it/s]Fetching 2 files: 100%|██████████| 2/2 [00:03<00:00,  2.19s/it]Fetching 2 files: 100%|██████████| 2/2 [00:03<00:00,  1.92s/it]
+00:34:51|INFO   |  [28/80] sashaboguraev/pythia-160m-ppt-control_music_step OK         W05=-0.742 7s  elapsed 3.9m  8GB  free 824315GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.29it/s]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  3.23s/it]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  2.81s/it]
+00:35:00|INFO   |  [29/80] sashaboguraev/pythia-160m-ppt-control_shuffle_dy OK         W05=-0.850 8s  elapsed 4.0m  8GB  free 824320GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.95it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.53s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.20s/it]
+00:35:07|INFO   |  [30/80] sashaboguraev/pythia-160m-ppt-c4_ppt_steps250-se OK         W05=-0.744 7s  elapsed 4.2m  8GB  free 824326GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  1.96it/s]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  3.00s/it]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  2.63s/it]
+00:35:17|INFO   |  [31/80] sashaboguraev/pythia-160m-ppt-control_shuffle_dy OK         W05=-0.802 10s  elapsed 4.3m  9GB  free 824334GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.95it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.74s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.38s/it]
+00:35:26|INFO   |  [32/80] sashaboguraev/pythia-160m-ppt-control_nca_steps2 OK         W05=-0.791 9s  elapsed 4.5m  9GB  free 824339GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.55it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.51s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.20s/it]
+00:35:35|INFO   |  [33/80] sashaboguraev/pythia-160m-ppt-c4_ppt_steps250-se OK         W05=-0.779 9s  elapsed 4.6m  9GB  free 824346GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.58it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.57s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.24s/it]
+00:35:45|INFO   |  [34/80] sashaboguraev/pythia-160m-ppt-control_nca_steps2 OK         W05=-0.741 11s  elapsed 4.8m  10GB  free 824352GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.45it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.69s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.34s/it]
+00:35:56|INFO   |  [35/80] sashaboguraev/pythia-160m-ppt-control_music_step OK         W05=-0.829 11s  elapsed 5.0m  10GB  free 824359GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.69it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.80s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.44s/it]
+00:36:07|INFO   |  [36/80] sashaboguraev/pythia-160m-ppt-control_shuffle_dy OK         W05=-0.869 10s  elapsed 5.1m  10GB  free 824364GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  1.19it/s]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  3.00s/it]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  2.68s/it]
+00:36:17|INFO   |  [37/80] sashaboguraev/pythia-160m-ppt-c4_ppt_steps250-se OK         W05=-0.762 11s  elapsed 5.3m  11GB  free 824369GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.90it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.60s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.26s/it]
+00:36:26|INFO   |  [38/80] sashaboguraev/pythia-160m-ppt-control_music_step OK         W05=-0.765 9s  elapsed 5.5m  11GB  free 824370GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.90it/s]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  2.89s/it]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  2.51s/it]
+00:36:36|INFO   |  [39/80] sashaboguraev/pythia-160m-ppt-control_music_step OK         W05=-0.764 10s  elapsed 5.6m  11GB  free 824375GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.43it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.50s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.19s/it]
+00:36:47|INFO   |  [40/80] sashaboguraev/pythia-160m-ppt-nca_steps250-seed1 OK         W05=-0.765 11s  elapsed 5.8m  12GB  free 824380GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.77it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.64s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.30s/it]
+00:36:56|INFO   |  [41/80] sashaboguraev/pythia-160m-ppt-control_shuffle_dy OK         W05=-0.760 9s  elapsed 6.0m  12GB  free 824384GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  1.96it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.59s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.28s/it]
+00:37:06|INFO   |  [42/80] sashaboguraev/pythia-160m-ppt-control_music_step OK         W05=-0.758 10s  elapsed 6.1m  12GB  free 824382GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  1.34it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.52s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.26s/it]
+00:37:17|INFO   |  [43/80] sashaboguraev/pythia-160m-ppt-music_steps250-see OK         W05=-0.720 10s  elapsed 6.3m  13GB  free 824373GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.31it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.76s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.41s/it]
+00:37:25|INFO   |  [44/80] sashaboguraev/pythia-160m-ppt-random_numbers_ste OK         W05=-0.797 8s  elapsed 6.5m  13GB  free 824374GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.55it/s]Fetching 2 files: 100%|██████████| 2/2 [00:03<00:00,  2.05s/it]Fetching 2 files: 100%|██████████| 2/2 [00:03<00:00,  1.81s/it]
+00:37:33|INFO   |  [45/80] sashaboguraev/pythia-160m-ppt-random_numbers_ste OK         W05=-0.790 8s  elapsed 6.6m  13GB  free 824376GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.93it/s]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  2.89s/it]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  2.51s/it]
+00:37:43|INFO   |  [46/80] sashaboguraev/pythia-160m-ppt-music_steps250-see OK         W05=-0.748 9s  elapsed 6.7m  14GB  free 824381GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.76it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.87s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.50s/it]
+00:37:52|INFO   |  [47/80] sashaboguraev/pythia-160m-ppt-music_steps250-see OK         W05=-0.718 9s  elapsed 6.9m  14GB  free 824382GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.74it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.49s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.17s/it]
+00:38:00|INFO   |  [48/80] sashaboguraev/pythia-160m-ppt-music_steps250-see OK         W05=-0.701 8s  elapsed 7.0m  14GB  free 824385GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.91it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.40s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.09s/it]
+00:38:08|INFO   |  [49/80] sashaboguraev/pythia-160m-ppt-music_steps250-see OK         W05=-0.793 8s  elapsed 7.2m  15GB  free 824387GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.79it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.65s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.31s/it]
+00:38:26|INFO   |  [50/80] sashaboguraev/pythia-160m-ppt-music_steps250-see OK         W05=-0.746 17s  elapsed 7.5m  15GB  free 824391GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.68it/s]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  3.03s/it]Fetching 2 files: 100%|██████████| 2/2 [00:05<00:00,  2.63s/it]
+00:38:35|INFO   |  [51/80] sashaboguraev/pythia-160m-ppt-random_numbers_ste OK         W05=-0.834 9s  elapsed 7.6m  15GB  free 824381GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  3.00it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.65s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.30s/it]
+00:38:45|INFO   |  [52/80] sashaboguraev/pythia-160m-ppt-control_music_step OK         W05=-0.788 10s  elapsed 7.8m  16GB  free 824384GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.49it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.69s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.35s/it]
+00:38:54|INFO   |  [53/80] sashaboguraev/pythia-160m-ppt-control_music_step OK         W05=-0.782 8s  elapsed 7.9m  16GB  free 824386GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.40it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.60s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.27s/it]
+00:39:02|INFO   |  [54/80] sashaboguraev/pythia-160m-ppt-control_music_step OK         W05=-0.723 8s  elapsed 8.1m  16GB  free 824385GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.72it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.81s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.44s/it]
+00:39:11|INFO   |  [55/80] sashaboguraev/pythia-160m-ppt-random_numbers_ste OK         W05=-0.872 9s  elapsed 8.2m  17GB  free 824386GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  3.11it/s]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.64s/it]Fetching 2 files: 100%|██████████| 2/2 [00:04<00:00,  2.30s/it]
+00:39:20|INFO   |  [56/80] sashaboguraev/pythia-160m-ppt-random_numbers_ste OK         W05=-0.862 8s  elapsed 8.4m  17GB  free 824388GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.51it/s]Fetching 2 files: 100%|██████████| 2/2 [00:12<00:00,  7.28s/it]Fetching 2 files: 100%|██████████| 2/2 [00:12<00:00,  6.24s/it]
+00:39:38|INFO   |  [57/80] sashaboguraev/pythia-160m-ppt-random_numbers_ste OK         W05=-0.843 18s  elapsed 8.7m  17GB  free 824389GB
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:00<00:00,  2.91it/s]

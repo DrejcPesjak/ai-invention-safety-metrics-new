@@ -1,0 +1,13 @@
+{
+  "n_pairs_attempted": 12,
+  "n_pairs_ok": 12,
+  "n_pairs_skipped": 0,
+  "skipped": [],
+  "n_synthetic_pairs": 26,
+  "seconds": 253.7,
+  "band": [
+    0.25,
+    0.75
+  ],
+  "band_note": "our reading of 'mid-stack'; recorded because the source is not numerically specific"
+}

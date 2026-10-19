@@ -1,0 +1,12 @@
+{
+  "n_cache_entries": 3862,
+  "checks": [
+    {
+      "check": "cache_key == lib_behave.cache_key on 3 vectors",
+      "pass": true
+    }
+  ],
+  "judge_system_sha256": "093202f6e855fd042c6a679ff802ea4b3bb6844dc2d130f7633435bb7544144f",
+  "judge_model": "meta-llama/llama-3.3-70b-instruct",
+  "rubric_id": "B"
+}

@@ -1,0 +1,189 @@
+[
+  {
+    "repo": "OpenAssistant/oasst1",
+    "config": null,
+    "split": "train",
+    "status": "ok",
+    "n_rows_written": 40000,
+    "n_rows_total": 84437,
+    "megabytes": 71.41,
+    "columns": [
+      "message_id",
+      "parent_id",
+      "user_id",
+      "created_date",
+      "text",
+      "role",
+      "lang",
+      "review_count",
+      "review_result",
+      "deleted",
+      "rank",
+      "synthetic",
+      "model_name",
+      "detoxify",
+      "message_tree_id",
+      "tree_state",
+      "emojis",
+      "labels"
+    ],
+    "path": "temp/datasets/full_OpenAssistant_oasst1_default_train.json"
+  },
+  {
+    "repo": "Salesforce/wikitext",
+    "config": "wikitext-2-raw-v1",
+    "split": "test",
+    "status": "ok",
+    "n_rows_written": 4358,
+    "n_rows_total": 4358,
+    "megabytes": 1.36,
+    "columns": [
+      "text"
+    ],
+    "path": "temp/datasets/full_Salesforce_wikitext_wikitext-2-raw-v1_test.json"
+  },
+  {
+    "repo": "databricks/databricks-dolly-15k",
+    "config": null,
+    "split": "train",
+    "status": "ok",
+    "n_rows_written": 15011,
+    "n_rows_total": 15011,
+    "megabytes": 13.1,
+    "columns": [
+      "instruction",
+      "context",
+      "response",
+      "category"
+    ],
+    "path": "temp/datasets/full_databricks_databricks-dolly-15k_default_train.json"
+  },
+  {
+    "repo": "allenai/tulu-3-sft-personas-instruction-following",
+    "config": null,
+    "split": "train",
+    "status": "ok",
+    "n_rows_written": 29980,
+    "n_rows_total": 29980,
+    "megabytes": 74.26,
+    "columns": [
+      "id",
+      "prompt",
+      "messages",
+      "constraints"
+    ],
+    "path": "temp/datasets/full_allenai_tulu-3-sft-personas-instruction-following_default_train.json"
+  },
+  {
+    "repo": "HuggingFaceTB/everyday-conversations-llama3.1-2k",
+    "config": null,
+    "split": "train_sft",
+    "status": "ok",
+    "n_rows_written": 2260,
+    "n_rows_total": 2260,
+    "megabytes": 6.09,
+    "columns": [
+      "topic",
+      "subtopic",
+      "subsubtopic",
+      "full_topic",
+      "prompt",
+      "completion",
+      "token_length",
+      "messages"
+    ],
+    "path": "temp/datasets/full_HuggingFaceTB_everyday-conversations-llama3.1-2k_default_train_sft.json"
+  },
+  {
+    "repo": "timdettmers/openassistant-guanaco",
+    "config": null,
+    "split": "train",
+    "status": "ok",
+    "n_rows_written": 9846,
+    "n_rows_total": 9846,
+    "megabytes": 20.89,
+    "columns": [
+      "text"
+    ],
+    "path": "temp/datasets/full_timdettmers_openassistant-guanaco_default_train.json"
+  },
+  {
+    "repo": "OpenAssistant/oasst_top1_2023-08-25",
+    "config": null,
+    "split": "train",
+    "status": "ok",
+    "n_rows_written": 12947,
+    "n_rows_total": 12947,
+    "megabytes": 31.02,
+    "columns": [
+      "text"
+    ],
+    "path": "temp/datasets/full_OpenAssistant_oasst_top1_2023-08-25_default_train.json"
+  },
+  {
+    "repo": "argilla/databricks-dolly-15k-curated-en",
+    "config": null,
+    "split": "train",
+    "status": "ok",
+    "n_rows_written": 15015,
+    "n_rows_total": 15015,
+    "megabytes": 29.28,
+    "columns": [
+      "id",
+      "category",
+      "original-instruction",
+      "original-context",
+      "original-response",
+      "new-instruction",
+      "new-context",
+      "new-response",
+      "external_id"
+    ],
+    "path": "temp/datasets/full_argilla_databricks-dolly-15k-curated-en_default_train.json"
+  },
+  {
+    "repo": "OpenAssistant/oasst2",
+    "config": null,
+    "split": "train",
+    "status": "ok",
+    "n_rows_written": 40000,
+    "n_rows_total": 128575,
+    "megabytes": 74.51,
+    "columns": [
+      "message_id",
+      "parent_id",
+      "user_id",
+      "created_date",
+      "text",
+      "role",
+      "lang",
+      "review_count",
+      "review_result",
+      "deleted",
+      "rank",
+      "synthetic",
+      "model_name",
+      "detoxify",
+      "message_tree_id",
+      "tree_state",
+      "emojis",
+      "labels"
+    ],
+    "path": "temp/datasets/full_OpenAssistant_oasst2_default_train.json"
+  },
+  {
+    "repo": "allenai/tulu-3-sft-mixture",
+    "config": null,
+    "split": "train",
+    "status": "ok",
+    "n_rows_written": 40000,
+    "n_rows_total": 939343,
+    "megabytes": 65.93,
+    "columns": [
+      "id",
+      "messages",
+      "source"
+    ],
+    "path": "temp/datasets/full_allenai_tulu-3-sft-mixture_default_train.json"
+  }
+]

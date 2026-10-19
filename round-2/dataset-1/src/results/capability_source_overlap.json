@@ -1,0 +1,16 @@
+[
+ {
+  "source": "open-llm-leaderboard/contents",
+  "leaderboard_version": "v2",
+  "n_models_source_evaluates": 4495,
+  "n_panel_checkpoints_present": 28,
+  "n_panel_checkpoints_total": 66
+ },
+ {
+  "source": "open-llm-leaderboard-old/contents",
+  "leaderboard_version": "v1",
+  "n_models_source_evaluates": 6881,
+  "n_panel_checkpoints_present": 6,
+  "n_panel_checkpoints_total": 66
+ }
+]

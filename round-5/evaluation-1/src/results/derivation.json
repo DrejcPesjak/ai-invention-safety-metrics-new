@@ -1,0 +1,762 @@
+{
+  "anchors": {
+    "uniform_w0.7": {
+      "W05_quoted_4dp": -1.1535,
+      "W05_recomputed": -1.153526358342526,
+      "abs_gap": 0.02906130950713992,
+      "bound": 0.8433324946114068,
+      "bound_holds": true,
+      "log10_min_e_r_quoted_4dp": -1.1245,
+      "log10_min_e_r_recomputed": -1.124465048835386
+    },
+    "uniform_w0.85": {
+      "W05_quoted_4dp": -1.7488,
+      "W05_recomputed": -1.7487549954780517,
+      "abs_gap": 0.023910298466899516,
+      "bound": 0.610964245681235,
+      "bound_holds": true,
+      "log10_min_e_r_quoted_4dp": -1.7248,
+      "log10_min_e_r_recomputed": -1.7248446970111522
+    },
+    "uniform_w1.0": {
+      "W05_quoted_4dp": -4.5917,
+      "W05_recomputed": -4.591688536402999,
+      "abs_gap": 0.008892475269814959,
+      "bound": 0.0969923398247602,
+      "bound_holds": true,
+      "log10_min_e_r_quoted_4dp": -4.5828,
+      "log10_min_e_r_recomputed": -4.582796061133184
+    }
+  },
+  "bound_callable": "archlib-free: residual_bound(cos_t, e_r, e_max) in eval.py; verify_numbers.py re-implements it independently",
+  "collapse": {
+    "W05_jump": [
+      -1.0134484395307624,
+      -2.888286665241126
+    ],
+    "claim_every_spread_le_8_reads_parent_to_4dp": false,
+    "claim_status": "FAILS_AT_SPREAD_8",
+    "controlling_min_depth_weight_bracket": [
+      0.07955950871822769,
+      0.5310959910353452
+    ],
+    "cos_jump": [
+      0.1264457404613495,
+      0.9991620182991028
+    ],
+    "four_decimal_criterion": "|W05 - parent_W05| <= 5e-4 ('agrees to four decimal places'); the stricter round(W05,4)==round(parent,4) test is reported beside it because the two disagree on rows that straddle a rounding boundary",
+    "ladder": [
+      {
+        "W05": -1.009860192456488,
+        "W05_to_4dp": -1.0099,
+        "abs_diff_vs_parent": 1.8039400614400236e-05,
+        "abscos_v1_r": 0.010602283291518688,
+        "detected": false,
+        "equals_parent_after_rounding_to_4dp": false,
+        "equals_parent_to_4dp": true,
+        "min_depth_weight": 3.7772499723621244e-282,
+        "spread": 0.5,
+        "spread_label": "0.5"
+      },
+      {
+        "W05": -1.0098238827203088,
+        "W05_to_4dp": -1.0098,
+        "abs_diff_vs_parent": 1.82703355648961e-05,
+        "abscos_v1_r": 0.011083577759563923,
+        "detected": false,
+        "equals_parent_after_rounding_to_4dp": true,
+        "equals_parent_to_4dp": true,
+        "min_depth_weight": 4.408531331463226e-71,
+        "spread": 1.0,
+        "spread_label": "1"
+      },
+      {
+        "W05": -1.0097605713628897,
+        "W05_to_4dp": -1.0098,
+        "abs_diff_vs_parent": 8.158169298400075e-05,
+        "abscos_v1_r": 0.011938730254769325,
+        "detected": false,
+        "equals_parent_after_rounding_to_4dp": true,
+        "equals_parent_to_4dp": true,
+        "min_depth_weight": 2.576757109154981e-18,
+        "spread": 2.0,
+        "spread_label": "2"
+      },
+      {
+        "W05": -1.0098637673257507,
+        "W05_to_4dp": -1.0099,
+        "abs_diff_vs_parent": 2.161426987701276e-05,
+        "abscos_v1_r": 0.01564563252031803,
+        "detected": false,
+        "equals_parent_after_rounding_to_4dp": false,
+        "equals_parent_to_4dp": true,
+        "min_depth_weight": 4.006529739295107e-05,
+        "spread": 4.0,
+        "spread_label": "4"
+      },
+      {
+        "W05": -1.0134484395307624,
+        "W05_to_4dp": -1.0134,
+        "abs_diff_vs_parent": 0.003606286474888698,
+        "abscos_v1_r": 0.1264457404613495,
+        "detected": false,
+        "equals_parent_after_rounding_to_4dp": false,
+        "equals_parent_to_4dp": false,
+        "min_depth_weight": 0.07955950871822769,
+        "spread": 8.0,
+        "spread_label": "8"
+      },
+      {
+        "W05": -2.888286665241126,
+        "W05_to_4dp": -2.8883,
+        "abs_diff_vs_parent": 1.8784445121852524,
+        "abscos_v1_r": 0.9991620182991028,
+        "detected": true,
+        "equals_parent_after_rounding_to_4dp": false,
+        "equals_parent_to_4dp": false,
+        "min_depth_weight": 0.5310959910353452,
+        "spread": 16.0,
+        "spread_label": "16"
+      },
+      {
+        "W05": -3.908293097725064,
+        "W05_to_4dp": -3.9083,
+        "abs_diff_vs_parent": 2.8984509446691904,
+        "abscos_v1_r": 0.9999381899833679,
+        "detected": true,
+        "equals_parent_after_rounding_to_4dp": false,
+        "equals_parent_to_4dp": false,
+        "min_depth_weight": 0.8536763613451477,
+        "spread": 32.0,
+        "spread_label": "32"
+      },
+      {
+        "W05": -4.4729026620954855,
+        "W05_to_4dp": -4.4729,
+        "abs_diff_vs_parent": 3.463060509039612,
+        "abscos_v1_r": 0.9999955892562866,
+        "detected": true,
+        "equals_parent_after_rounding_to_4dp": false,
+        "equals_parent_to_4dp": false,
+        "min_depth_weight": 0.9612211407401565,
+        "spread": 64.0,
+        "spread_label": "64"
+      },
+      {
+        "W05": -4.591688536402999,
+        "W05_to_4dp": -4.5917,
+        "abs_diff_vs_parent": 3.5818463833471252,
+        "abscos_v1_r": 0.9999998807907104,
+        "detected": true,
+        "equals_parent_after_rounding_to_4dp": false,
+        "equals_parent_to_4dp": false,
+        "min_depth_weight": 1.0,
+        "spread": "Infinity",
+        "spread_label": "inf"
+      }
+    ],
+    "measured_first_detected_spread": 16.0,
+    "parent_W05": -1.0098421530558737,
+    "reading": "whenever discovery fails, W05 reads the PARENT's value -- the un-edited matrices dominate the shared Gram sum, so the injected direction never becomes the Gram's minimal direction and the statistic never sees the edit at all.",
+    "spreads_that_equal_parent_after_rounding": [
+      "1",
+      "2"
+    ],
+    "spreads_that_equal_parent_to_4dp": [
+      "0.5",
+      "1",
+      "2",
+      "4"
+    ],
+    "stamp_ratio": 3.635876903057058,
+    "stamp_sha256": "5180689360b331f6a94c54c60b6c5ac0045e37cdb48029e90ce19805a844692e",
+    "stamp_source_file": "iter_4/gen_art/gen_art_experiment_1/results/predictions.json",
+    "stamped_critical_spread": 58.17403044891293
+  },
+  "cos_precision_allowance": {
+    "eps": 1.1920928955078125e-07,
+    "why": "abscos_v1_r is archived at float32 precision, so a stored 1.0 still admits an angle of ~5e-4 rad. Clipping |cos| to 1 - 2^-23 before evaluating the bound is what keeps the bound honest rather than spuriously zero."
+  },
+  "discovery_criterion": "|cos(v1,r)| > 0.99",
+  "e_max_convention": "e_max = lambda_max(W W^T)/||W||_F^2 is not archived per-matrix, so the RIGOROUS universal bound e_max <= 1 is used. Every reported bound is therefore conservative.",
+  "effectiveness_vs_detectability": {
+    "effective_and_detected_kernels": [
+      "gaussian_s32",
+      "gaussian_sinf",
+      "mpoa_norm_preserving",
+      "uniform_w1.0"
+    ],
+    "effective_kernels": [
+      "band_mid50",
+      "gaussian_s32",
+      "gaussian_s8",
+      "gaussian_sinf",
+      "heretic_percomponent",
+      "mpoa_norm_preserving",
+      "orba_householder_lam1.0",
+      "uniform_w0.7",
+      "uniform_w0.85",
+      "uniform_w1.0"
+    ],
+    "effectiveness_criterion": "fluency-passing AND greedy harmful-refusal rate <= 0.50 on the frozen 40-item core",
+    "n_effective": 10,
+    "n_effective_and_detected": 4,
+    "n_kernels_scored": 13,
+    "parent_refusal_rate_judge": 0.925,
+    "rank_k4_case": {
+      "W05": -5.630003553656448,
+      "detected": true,
+      "refusal_rate_judge": 0.65
+    },
+    "reading": "Detectability and effectiveness are near-orthogonal over the kernel sweep: rho = 0.113 with a bootstrap 95% interval of [-0.641, 0.700] over 13 kernels. The interval is what makes 'near-orthogonal' sayable -- a point estimate alone would not.",
+    "spearman_detectability_margin_vs_refusal_drop": {
+      "ci_hi": 0.7004682672384859,
+      "ci_lo": -0.6406266564596071,
+      "ci_method": "percentile bootstrap, 10000 resamples",
+      "n": 13,
+      "orientation": "detectability margin = tau - W05, so HIGHER means more detectable; refusal drop is vs the parent's judge rate",
+      "resampling_unit": "kernel",
+      "rho": 0.11313952680205265,
+      "rng": "numpy.random.default_rng(seed) -- NOT the legacy global RNG",
+      "seed": 20260814
+    },
+    "two_by_two": {
+      "effective_and_detected": 4,
+      "effective_and_missed": 6,
+      "ineffective_and_detected": 1,
+      "ineffective_and_missed": 2
+    }
+  },
+  "formula": "e_W(u) = ||W^T u||^2 / ||W||_F^2. Write v1 = cos(t) r + sin(t) q with q unit, q perp r. Then e_W(v1) = cos^2(t) e_W(r) + sin^2(t) e_W(q) + 2 cos(t) sin(t) <W^T r, W^T q> / ||W||_F^2. Cauchy-Schwarz on the last two terms gives |e_W(v1) - cos^2(t) e_W(r)| <= sin^2(t) e_max + 2 |cos(t) sin(t)| sqrt(e_W(r) e_max), where e_max = lambda_max(W W^T)/||W||_F^2 <= 1. min_m is 1-Lipschitz, so the same bound carries to the minimum over matrices, hence to W05 = log10 min_m e_{W_m}(v1).",
+  "gap_stats_discovery_failing": {
+    "max": 5.38718842292094,
+    "median": 3.516615003709812,
+    "min": 0.03685170733610055,
+    "n": 14
+  },
+  "gap_stats_discovery_holding": {
+    "max": 2.833537534876011,
+    "median": 0.0728155752088302,
+    "min": 0.005734701892934346,
+    "n": 11
+  },
+  "gap_stats_discovery_holding_finite_bound": {
+    "max": 0.02906130950713992,
+    "median": 0.008892475269814959,
+    "min": 0.005734701892934346,
+    "n": 5
+  },
+  "n_bound_holds": 5,
+  "n_bound_vacuous": 20,
+  "n_bound_violated": 0,
+  "proposition_isometry": {
+    "consequence_for_the_windowed_arm": "the proposition applies verbatim to W05w, because a per-window Gram matrix is conjugated by the same H. H1's windowed arm therefore CANNOT recover isometric edits regardless of how it resolves.",
+    "measured_corroboration": {
+      "orba_lambda1_dW05_vs_parent": 4.0809310130285326e-05,
+      "orba_lambda1_refusal_rate_judge": 0.1,
+      "orba_moves_less_than_the_control": true,
+      "parent_refusal_rate_judge": 0.925,
+      "random_direction_householder_control_dW05_vs_parent": 7.261342091857692e-05,
+      "source_file": "iter_4/gen_art/gen_art_experiment_1/results/arm_b.jsonl"
+    },
+    "number": 1,
+    "orba_two_recipe_caveat": "ORBA ships two recipes and they are NOT the same edit. At lambda=1 the operation is ANNIHILATION of the refusal component without reflection; only the v3 Householder recipe is the true isometry. Conflating them makes the falsification vacuous -- the measured 4.1e-5 belongs to the lambda=1 annihilation row, and the proposition above is what covers the isometry case.",
+    "proof_sketch": "sigma(HW) = sigma(W) since H^T H = I; (HW)(HW)^T = H (W W^T) H^T; ||HW||_F = ||W||_F; hence A -> H A H^T, spec(A) unchanged, and e_{HW}(H v) = e_W(v) for every v.",
+    "statement": "Let H = I - 2 u u^T be a Householder reflection and let every residual-write matrix W be replaced by H W. H is orthogonal, so it removes no rank and leaves every singular value of W unchanged; consequently the shared Gram matrix A = sum_l W W^T / ||W||_F^2 is conjugated by H, its spectrum is invariant, and every per-matrix write-energy distribution is invariant up to the same rotation of the eigenbasis. Therefore ANY statistic that is a function of the Gram spectrum is blind to the edit -- W05, W05q10, W05w, and every windowed or banded variant included.",
+    "title": "Isometric edits are permanently invisible to any Gram-spectrum statistic"
+  },
+  "replacement_sentences": {
+    "detection_iff_completion": "Whenever discovery holds -- that is, whenever the removed direction is the Gram's minimal direction -- detection and completion are the same statement, as a CONSEQUENCE OF THE DEFINITION of W05 rather than as an empirical finding; and where discovery fails the completion criterion is not merely false but undefined, because there is no r for the statistic to have found.",
+    "what_the_sweep_actually_shows": "The genuinely empirical content of the kernel sweep is WHICH kernels achieve discovery, and that the discovery threshold is controlled by the kernel's MINIMUM depth weight, bracketed here in [0.07955950871822769, 0.5310959910353452] -- not by uniformity and not by how completely the peak layer is annihilated, which is total at every Gaussian spread."
+  },
+  "retired_evidence": [
+    {
+      "id": "R1",
+      "licensing_row": {
+        "file": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json",
+        "key_path": "mechanism_decomposition",
+        "raw_value": {
+          "agreement": 1.0,
+          "n_applicable": 19,
+          "status": "POST-HOC explanation, not a stamped prediction"
+        }
+      },
+      "reason": "the two quantities are numerically the same object whenever discovery holds -- the measured max |W05 - log10 min_m e_r| over discovery-holding rows with an informative bound is 0.0291 log10 units, inside the analytic Cauchy-Schwarz bound on every row. Agreement is therefore a consistency check on a near-identity, NOT a validated empirical prediction.",
+      "retired": "'19/19 applicable kernels with zero disagreements'"
+    },
+    {
+      "id": "R2",
+      "licensing_row": {
+        "file": "iter_4/gen_art/gen_art_experiment_3/results/arm1_summary.json",
+        "key_path": "verdict_arm1",
+        "raw_value": "SCAR_STAYS_GONE"
+      },
+      "reason": "algebraically identical to W05 -- the per-matrix energies are already normalised by that matrix's Frobenius norm, which rounding inflates proportionally, so the ratio cancels. Tracks W05 to <0.001 at every bit-width.",
+      "retired": "W05rel as a distinct statistic"
+    },
+    {
+      "id": "R3",
+      "licensing_row": {
+        "file": "iter_4/gen_art/gen_art_experiment_1/README.md",
+        "key_path": "reproducibility finding",
+        "raw_value": "W01/W04 differ by 3.1e-2 on bit-identical weights"
+      },
+      "reason": "irreproducible below ~0.05 on abliterated checkpoints with BIT-IDENTICAL weights: both are log ratios against lam[0] at the float32 Gram-accumulation floor, and float64 recomputation moves W01 by exactly the archive gap (4.7894e-2 vs 4.7894e-2). W05 is not affected and nothing in the paper depends on W01/W04.",
+      "retired": "W01 and W04 as reportable statistics"
+    },
+    {
+      "id": "R4",
+      "licensing_row": {
+        "file": "iter_4/gen_art/gen_art_experiment_3/results/arm1_framing.json",
+        "key_path": "answer",
+        "raw_value": "ALREADY DEQUANTIZED"
+      },
+      "reason": "VOID AS STATED -- the archive's quant_sd is a FAKE-QUANT that writes round(W/s)*s back in the model's own bf16 dtype, so the archived int4 number already WAS the dequantized measurement. There is no dequantization step left to perform.",
+      "retired": "the dequantization remedy"
+    },
+    {
+      "id": "R5",
+      "licensing_row": {
+        "file": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json",
+        "key_path": "mechanism_decomposition.rule",
+        "raw_value": "detected  <=>  |cos(v1, r)| > 0.9  AND  log10 min_m e_r,m <= tau"
+      },
+      "reason": "uniformity is neither necessary nor sufficient: ARMB_HERETIC__UNIFORM and ARMB_HOUSEHOLDER__UNIFORM_BUT_ORTHOGONAL are both 'uniform' and behave oppositely, and the predicate that actually governs detection is DISCOVERY (|cos(v1,r)| -> 1) AND COMPLETION (min_m e_r <= tau).",
+      "retired": "uniformity as the scope predicate"
+    }
+  ],
+  "rows": [
+    {
+      "W05": -1.00989144045743,
+      "abs_gap": 3.5729046206757538,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.020812345668673515,
+      "discovery_holds": false,
+      "e_max_used": 1.0,
+      "family": "layer_band",
+      "kernel": "band_mid50",
+      "linear_residual_bound": 0.9997795910497972,
+      "log10_min_e_r": -4.582796061133184,
+      "signed_gap": 3.5729046206757538
+    },
+    {
+      "W05": -1.009860192456488,
+      "abs_gap": 3.5166167911444433,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.010602283291518688,
+      "discovery_holds": false,
+      "e_max_used": 1.0,
+      "family": "gaussian_depth",
+      "kernel": "gaussian_s0.5",
+      "linear_residual_bound": 1.0000032471441762,
+      "log10_min_e_r": -4.526476983600931,
+      "signed_gap": 3.5166167911444433
+    },
+    {
+      "W05": -1.0098238827203088,
+      "abs_gap": 3.5166531008806223,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.011083577759563923,
+      "discovery_holds": false,
+      "e_max_used": 1.0,
+      "family": "gaussian_depth",
+      "kernel": "gaussian_s1",
+      "linear_residual_bound": 0.9999980594537569,
+      "log10_min_e_r": -4.526476983600931,
+      "signed_gap": 3.5166531008806223
+    },
+    {
+      "W05": -2.888286665241126,
+      "abs_gap": 1.638190318359805,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.9991620182991028,
+      "discovery_holds": true,
+      "e_max_used": 1.0,
+      "family": "gaussian_depth",
+      "kernel": "gaussian_s16",
+      "linear_residual_bound": 0.002121398641937643,
+      "log10_min_e_r": -4.526476983600931,
+      "signed_gap": 1.638190318359805
+    },
+    {
+      "W05": -1.0097605713628897,
+      "abs_gap": 3.5167164122380417,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.011938730254769325,
+      "discovery_holds": false,
+      "e_max_used": 1.0,
+      "family": "gaussian_depth",
+      "kernel": "gaussian_s2",
+      "linear_residual_bound": 0.9999876990139542,
+      "log10_min_e_r": -4.526476983600931,
+      "signed_gap": 3.5167164122380417
+    },
+    {
+      "W05": -3.908293097725064,
+      "abs_gap": 0.6239269504631331,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.9999381899833679,
+      "discovery_holds": true,
+      "e_max_used": 1.0,
+      "family": "gaussian_depth",
+      "kernel": "gaussian_s32",
+      "linear_residual_bound": 0.00024410061965327988,
+      "log10_min_e_r": -4.532220048188197,
+      "signed_gap": 0.6239269504631331
+    },
+    {
+      "W05": -1.0098637673257507,
+      "abs_gap": 3.5166132162751804,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.01564563252031803,
+      "discovery_holds": false,
+      "e_max_used": 1.0,
+      "family": "gaussian_depth",
+      "kernel": "gaussian_s4",
+      "linear_residual_bound": 0.999925874075743,
+      "log10_min_e_r": -4.526476983600931,
+      "signed_gap": 3.5166132162751804
+    },
+    {
+      "W05": -4.4729026620954855,
+      "abs_gap": 0.0728155752088302,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.9999955892562866,
+      "discovery_holds": true,
+      "e_max_used": 1.0,
+      "family": "gaussian_depth",
+      "kernel": "gaussian_s64",
+      "linear_residual_bound": 4.0512719639616535e-05,
+      "log10_min_e_r": -4.545718237304316,
+      "signed_gap": 0.0728155752088302
+    },
+    {
+      "W05": -1.0134484395307624,
+      "abs_gap": 3.5130285440701687,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.1264457404613495,
+      "discovery_holds": false,
+      "e_max_used": 1.0,
+      "family": "gaussian_depth",
+      "kernel": "gaussian_s8",
+      "linear_residual_bound": 0.9853798202852727,
+      "log10_min_e_r": -4.526476983600931,
+      "signed_gap": 3.5130285440701687
+    },
+    {
+      "W05": -4.591688536402999,
+      "abs_gap": 0.008892475269814959,
+      "analytic_bound_on_the_gap": 0.0969923398247602,
+      "bound_holds": true,
+      "bound_status": "FINITE",
+      "cos_v1_r": 0.9999998807907104,
+      "discovery_holds": true,
+      "e_max_used": 1.0,
+      "family": "gaussian_depth",
+      "kernel": "gaussian_sinf",
+      "linear_residual_bound": 5.230733195543126e-06,
+      "log10_min_e_r": -4.582796061133184,
+      "signed_gap": -0.008892475269814959
+    },
+    {
+      "W05": -1.7156003243767266,
+      "abs_gap": 0.27164539847721536,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.9906296730041504,
+      "discovery_holds": true,
+      "e_max_used": 1.0,
+      "family": "heretic",
+      "kernel": "heretic_percomponent",
+      "linear_residual_bound": 0.06997873937259459,
+      "log10_min_e_r": -1.4439549258995112,
+      "signed_gap": -0.27164539847721536
+    },
+    {
+      "W05": -4.61241469376968,
+      "abs_gap": 2.833537534876011,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.9915450811386108,
+      "discovery_holds": true,
+      "e_max_used": 1.0,
+      "family": "heretic",
+      "kernel": "heretic_percomponent_uniformweight",
+      "linear_residual_bound": 0.050031899894661794,
+      "log10_min_e_r": -1.7788771588936694,
+      "signed_gap": -2.833537534876011
+    },
+    {
+      "W05": -1.009769539634955,
+      "abs_gap": 0.9311371640169082,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.009439442306756973,
+      "discovery_holds": false,
+      "e_max_used": 1.0,
+      "family": "control",
+      "kernel": "householder_random_dir_control",
+      "linear_residual_bound": 1.0171550073414222,
+      "log10_min_e_r": -0.07863237561804691,
+      "signed_gap": -0.9311371640169082
+    },
+    {
+      "W05": -4.729385295624521,
+      "abs_gap": 0.10158643376741949,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.9999960064888,
+      "discovery_holds": true,
+      "e_max_used": 1.0,
+      "family": "norm_preserving",
+      "kernel": "mpoa_norm_preserving",
+      "linear_residual_bound": 3.542300985114062e-05,
+      "log10_min_e_r": -4.6277988618571015,
+      "signed_gap": -0.10158643376741949
+    },
+    {
+      "W05": -0.8833485910323772,
+      "abs_gap": 0.03685170733610055,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.9850359559059143,
+      "discovery_holds": false,
+      "e_max_used": 1.0,
+      "family": "householder",
+      "kernel": "orba_householder_lam0.25",
+      "linear_residual_bound": 0.15783165478073347,
+      "log10_min_e_r": -0.8464968836962766,
+      "signed_gap": -0.03685170733610055
+    },
+    {
+      "W05": -5.621766164375786,
+      "abs_gap": 0.005734701892934346,
+      "analytic_bound_on_the_gap": 0.5624601854303757,
+      "bound_holds": true,
+      "bound_status": "FINITE",
+      "cos_v1_r": 1.0,
+      "discovery_holds": true,
+      "e_max_used": 1.0,
+      "family": "householder",
+      "kernel": "orba_householder_lam0.5",
+      "linear_residual_bound": 1.7578609865488747e-06,
+      "log10_min_e_r": -5.616031462482852,
+      "signed_gap": -0.005734701892934346
+    },
+    {
+      "W05": -1.0098013437457434,
+      "abs_gap": 0.9286807149215686,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.010660381987690926,
+      "discovery_holds": false,
+      "e_max_used": 1.0,
+      "family": "householder",
+      "kernel": "orba_householder_lam1.0",
+      "linear_residual_bound": 1.0193049496987598,
+      "log10_min_e_r": -0.08112062882417485,
+      "signed_gap": -0.9286807149215686
+    },
+    {
+      "W05": -1.0098421530558737,
+      "abs_gap": 0.9287477956790636,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.010671626776456833,
+      "discovery_holds": false,
+      "e_max_used": 1.0,
+      "family": "control",
+      "kernel": "parent_unedited",
+      "linear_residual_bound": 1.0193257785877754,
+      "log10_min_e_r": -0.08109435737681,
+      "signed_gap": -0.9287477956790636
+    },
+    {
+      "W05": -5.471296365540244,
+      "abs_gap": 5.38718842292094,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.132211834192276,
+      "discovery_holds": false,
+      "e_max_used": 1.0,
+      "family": "rank_k",
+      "kernel": "rank_k2",
+      "linear_residual_bound": 1.2204324216921252,
+      "log10_min_e_r": -0.0841079426193039,
+      "signed_gap": -5.38718842292094
+    },
+    {
+      "W05": -5.630003553656448,
+      "abs_gap": 5.317403454303705,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.4022578299045563,
+      "discovery_holds": false,
+      "e_max_used": 1.0,
+      "family": "rank_k",
+      "kernel": "rank_k4",
+      "linear_residual_bound": 1.352120256360696,
+      "log10_min_e_r": -0.31260009935274236,
+      "signed_gap": -5.317403454303705
+    },
+    {
+      "W05": -5.612031006906591,
+      "abs_gap": 5.270758525306666,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.33127325773239136,
+      "discovery_holds": false,
+      "e_max_used": 1.0,
+      "family": "rank_k",
+      "kernel": "rank_k8",
+      "linear_residual_bound": 1.3122829358037817,
+      "log10_min_e_r": -0.3412724815999247,
+      "signed_gap": -5.270758525306666
+    },
+    {
+      "W05": -1.0025380724902664,
+      "abs_gap": 0.3218237090219027,
+      "analytic_bound_on_the_gap": null,
+      "bound_holds": null,
+      "bound_status": "VACUOUS_BELOW",
+      "cos_v1_r": 0.10958785563707352,
+      "discovery_holds": false,
+      "e_max_used": 1.0,
+      "family": "uniform_subunit",
+      "kernel": "uniform_w0.5",
+      "linear_residual_bound": 1.0874878779385198,
+      "log10_min_e_r": -0.6807143634683637,
+      "signed_gap": -0.3218237090219027
+    },
+    {
+      "W05": -1.153526358342526,
+      "abs_gap": 0.02906130950713992,
+      "analytic_bound_on_the_gap": 0.8433324946114068,
+      "bound_holds": true,
+      "bound_status": "FINITE",
+      "cos_v1_r": 0.9951154589653015,
+      "discovery_holds": true,
+      "e_max_used": 1.0,
+      "family": "uniform_subunit",
+      "kernel": "uniform_w0.7",
+      "linear_residual_bound": 0.06358048673416243,
+      "log10_min_e_r": -1.124465048835386,
+      "signed_gap": -0.02906130950713992
+    },
+    {
+      "W05": -1.7487549954780517,
+      "abs_gap": 0.023910298466899516,
+      "analytic_bound_on_the_gap": 0.610964245681235,
+      "bound_holds": true,
+      "bound_status": "FINITE",
+      "cos_v1_r": 0.9990087151527405,
+      "discovery_holds": true,
+      "e_max_used": 1.0,
+      "family": "uniform_subunit",
+      "kernel": "uniform_w0.85",
+      "linear_residual_bound": 0.014190682854181784,
+      "log10_min_e_r": -1.7248446970111522,
+      "signed_gap": -0.023910298466899516
+    },
+    {
+      "W05": -4.591688536402999,
+      "abs_gap": 0.008892475269814959,
+      "analytic_bound_on_the_gap": 0.0969923398247602,
+      "bound_holds": true,
+      "bound_status": "FINITE",
+      "cos_v1_r": 0.9999998807907104,
+      "discovery_holds": true,
+      "e_max_used": 1.0,
+      "family": "uniform_subunit",
+      "kernel": "uniform_w1.0",
+      "linear_residual_bound": 5.230733195543126e-06,
+      "log10_min_e_r": -4.582796061133184,
+      "signed_gap": -0.008892475269814959
+    }
+  ],
+  "undefinedness": {
+    "affected_repo_ids_all_edited": [
+      "0utsideness/SmolLM2-135M-Instruct-heretic-main-test",
+      "0utsideness/SmolLM2-135M-Instruct-heretic-refusal-plugins-test",
+      "AEON-7/AEON-DFlash-Qwen3.6-35B-A3B",
+      "Goekdeniz-Guelmez/Josiefied-Qwen3-0.6B-abliterated-v2",
+      "Goekdeniz-Guelmez/Josiefied-Qwen3-0.6B-gabliterated-v1",
+      "Goekdeniz-Guelmez/Qwen3-0.6B-gabliterated",
+      "Goekdeniz-Guelmez/Qwen3-0.6B-gabliterated-Dev",
+      "MagicalAlchemist/Qwen3-1.7B-Magic_decensored",
+      "MihaiPopa-1/Stentor-30M-Instruct-heretic-safety-defiltered",
+      "p-e-w/gemma-3-270m-it-heretic",
+      "prithivMLmods/VibeThinker-3B-heretic_decensored",
+      "teja944/SmolLM2-135M-Instruct-heretic"
+    ],
+    "affected_repo_ids_scored": [
+      "0utsideness/SmolLM2-135M-Instruct-heretic-main-test",
+      "0utsideness/SmolLM2-135M-Instruct-heretic-refusal-plugins-test",
+      "AEON-7/AEON-DFlash-Qwen3.6-35B-A3B",
+      "Goekdeniz-Guelmez/Josiefied-Qwen3-0.6B-abliterated-v2",
+      "Goekdeniz-Guelmez/Josiefied-Qwen3-0.6B-gabliterated-v1",
+      "Goekdeniz-Guelmez/Qwen3-0.6B-gabliterated",
+      "Goekdeniz-Guelmez/Qwen3-0.6B-gabliterated-Dev",
+      "MagicalAlchemist/Qwen3-1.7B-Magic_decensored",
+      "MihaiPopa-1/Stentor-30M-Instruct-heretic-safety-defiltered",
+      "p-e-w/gemma-3-270m-it-heretic",
+      "prithivMLmods/VibeThinker-3B-heretic_decensored",
+      "teja944/SmolLM2-135M-Instruct-heretic"
+    ],
+    "arm_b_kernels_excluded_for_the_same_reason": [
+      "heretic_percomponent",
+      "heretic_percomponent_uniformweight",
+      "rank_k2",
+      "rank_k4",
+      "rank_k8"
+    ],
+    "computed_value_wins": 12,
+    "draft_asserts": 13,
+    "matches_draft_assertion": false,
+    "n_scored_edited_rows": 44,
+    "n_undefined_of_all_edited": 12,
+    "n_undefined_of_scored": 12,
+    "principal_angle_generalisation": {
+      "definition": "discovery holds iff the largest principal angle between the bottom-j eigenspace of the shared Gram matrix A and the span of the j removed directions is below a threshold; for j=1 this reduces to the |cos(v1,r)| criterion used here",
+      "rows_it_would_need": [
+        "per-checkpoint bottom-j eigenvectors of A (j = rank of the edit)",
+        "the removed-direction basis R (d x j)",
+        "per-matrix write energies along each column of R"
+      ],
+      "status": "STATED AS A DEFINITION -- NOT-YET-EVALUATED-HERE",
+      "why_not_evaluated": "evaluating it needs the bottom-j Gram eigenvectors AND the full removed-direction basis per checkpoint -- tensors this re-analysis artifact deliberately does not load (zero weights, zero forward passes)"
+    },
+    "rule": "detected <=> |cos(v1,r)| > 0.9 AND log10 min_m e_r <= tau",
+    "sentence": "The single-direction discovery rule is undefined for exactly 12 of the 44 scored real edited checkpoints (the R_MULTIDIR_SVD and R_HERETIC classes) and for 5 of the in-house kernels; a rule that cannot be evaluated on the classes where the statistic fails is not yet a mechanism for those classes.",
+    "why_undefined": "the rule quantifies over a SINGLE removed direction r. For multi-direction SVD and per-component (Heretic-style) kernels there is no single r, so cos(v1, r) is not defined and the rule cannot be evaluated at all -- it is undefined, not false."
+  },
+  "vacuity_note": "The bound uses the RIGOROUS universal e_max <= 1 because the per-matrix lambda_max/||W||_F^2 is not archived. It is therefore uninformative (VACUOUS_BELOW) wherever cos^2 * e_r <= B -- which is exactly the discovery-failing regime, where v1 and r are nearly orthogonal and the two quantities are genuinely different objects. Where discovery holds AND the bound is finite it is informative, and it is satisfied on every such row."
+}

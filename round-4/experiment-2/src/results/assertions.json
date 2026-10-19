@@ -1,0 +1,284 @@
+{
+ "n_checks": 31,
+ "n_failed": 0,
+ "checks": [
+  {
+   "key": "gate_arithmetic_max_abs_delta_W05",
+   "quoted": 0.0072769502724812085,
+   "recomputed": 0.0072769502724812085,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": "max over gate_arithmetic.jsonl rows"
+  },
+  {
+   "key": "gate_kL_identity_max_abs_delta_synthetic",
+   "quoted": 0.0,
+   "recomputed": 0.0,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "gate_4of12_W02",
+   "quoted": 0.0,
+   "recomputed": 0.0,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "gate_4of12_cos_v1_to_injected",
+   "quoted": 0.8570982813835144,
+   "recomputed": 0.8570982813835144,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "kL_reproduces_W05_on_real_models_max_abs_delta",
+   "quoted": 8.491610326011312e-08,
+   "recomputed": 8.491610326011312e-08,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": "recomputed from the shipped per-model rows"
+  },
+  {
+   "key": "n_eligible_denominator",
+   "quoted": 122,
+   "recomputed": 122,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "n_false_positives_filtered",
+   "quoted": 0,
+   "recomputed": 0,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "fp_rate_filtered_primary",
+   "quoted": 0.0,
+   "recomputed": 0.0,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "n_archived_eligible",
+   "quoted": 82,
+   "recomputed": 82,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "n_new_eligible_completed",
+   "quoted": 40,
+   "recomputed": 40,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "fp_rate_raw_unfiltered_secondary",
+   "quoted": 0.0,
+   "recomputed": 0.0,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "n_excluded_archive_UNDECIDABLE:E3b",
+   "quoted": 3,
+   "recomputed": 3,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "n_excluded_archive_E1",
+   "quoted": 67,
+   "recomputed": 67,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "n_excluded_archive_E2",
+   "quoted": 5,
+   "recomputed": 5,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "n_excluded_archive_E6",
+   "quoted": 50,
+   "recomputed": 50,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "n_excluded_archive_E3b",
+   "quoted": 9,
+   "recomputed": 9,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "n_excluded_archive_E4",
+   "quoted": 2,
+   "recomputed": 2,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "archive_scan_total_rows",
+   "quoted": 270,
+   "recomputed": 270,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "archive_scan_n_controls",
+   "quoted": 20,
+   "recomputed": 20,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "archive_scan_n_non_control",
+   "quoted": 250,
+   "recomputed": 250,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "archive_scan_n_scored_non_control",
+   "quoted": 160,
+   "recomputed": 160,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "archive_scan_n_unresolved_non_control",
+   "quoted": 81,
+   "recomputed": 81,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "archive_scan_n_skipped_non_control",
+   "quoted": 8,
+   "recomputed": 8,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "archive_scan_n_error_non_control",
+   "quoted": 1,
+   "recomputed": 1,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "archive_scan_n_in_abliterated_region_0of160",
+   "quoted": 0,
+   "recomputed": 0,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "threshold_first_fp_value",
+   "quoted": -2.6138786066870305,
+   "recomputed": -2.6138786066870305,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "threshold_first_fp_shift",
+   "quoted": 0.12763317374178218,
+   "recomputed": 0.12763317374178218,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "threshold_operating_point",
+   "quoted": -2.7415117804288127,
+   "recomputed": -2.7415117804288127,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "threshold_panel_margin",
+   "quoted": 0.0763170819236696,
+   "recomputed": 0.0763170819236696,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "openrouter_cost_usd",
+   "quoted": 0.0,
+   "recomputed": 0.0,
+   "abs_delta": 0.0,
+   "tolerance": 1e-09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "key": "arm3_curve_W05_new_population_recount",
+   "quoted": "see arm3_threshold_curve.jsonl",
+   "recomputed": 0,
+   "abs_delta": 0,
+   "tolerance": 0,
+   "status": "OK"
+  }
+ ]
+}

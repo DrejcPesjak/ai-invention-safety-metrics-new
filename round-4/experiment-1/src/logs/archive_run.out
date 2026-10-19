@@ -1,132 +1,0 @@
-/ai-inventor/aii_data/runs/run_CbJDs3opF7E_/3_invention_loop/iter_4/gen_art/gen_art_experiment_1/.venv/lib/python3.12/site-packages/huggingface_hub/constants.py:310: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.
-  warnings.warn(
-23:33:12|INFO   |=== iteration-4 replication run, tier=archive ===
-23:33:13|INFO   |host: 48 cpu, 270 GB RAM, cuda=True, free disk 35 GB
-23:33:13|INFO   |reuse manifest: 63 rows, byte-identity PASS
-23:33:55|INFO   |T0 unit tests: 10/10 PASS
-23:33:55|INFO   |corpus assertions PASS: 2113 rows, 8 blocks
-23:33:55|INFO   |panel: 54 members over 29 lineage labels (22 new), waves {'0': 19, '1': 22, '2': 8, '3': 5}
-23:33:55|INFO   |paraphrase sets: A n_pairs=16, B n_pairs=16
-23:33:55|INFO   |prereg_iter4.json written, sha256=03bafab44964ef7c8ff0c854e327c32b4ce429b8776e6e5f99050d6ebda26146
-23:33:56|INFO   |judge cache loaded: 5450 entries
-23:33:56|INFO   |[1/19] l1_instruct (Qwen/Qwen3-0.6B, wave 0, 0.75B) need_gt=False
-23:33:56|INFO   |loading Qwen/Qwen3-0.6B in torch.float32
-Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<01:13,  4.22it/s]Loading weights:  37%|███▋      | 116/311 [00:00<00:00, 434.74it/s]Loading weights:  68%|██████▊   | 210/311 [00:00<00:00, 611.09it/s]Loading weights:  97%|█████████▋| 301/311 [00:00<00:00, 707.87it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 576.55it/s]
-23:34:24|INFO   |  l1_instruct: status=OK sigma_orig=2.976478706706654 y=None 28s
-23:34:24|INFO   |  cumulative judge cost $0.0000 (0 calls, 0 hits)
-23:34:24|INFO   |purged HF snapshot for Qwen/Qwen3-0.6B
-23:34:24|INFO   |[2/19] l1_abliterated (mlabonne/Qwen3-0.6B-abliterated, wave 0, 0.00B) need_gt=False
-23:34:24|INFO   |loading mlabonne/Qwen3-0.6B-abliterated in torch.float32
-Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 4762.71it/s]
-23:34:45|INFO   |  l1_abliterated: status=OK sigma_orig=2.008705496788025 y=None 21s
-23:34:45|INFO   |  cumulative judge cost $0.0000 (0 calls, 0 hits)
-23:34:45|INFO   |purged HF snapshot for mlabonne/Qwen3-0.6B-abliterated
-23:34:45|INFO   |[3/19] l1_base (Qwen/Qwen3-0.6B-Base, wave 0, 0.60B) need_gt=False
-23:34:45|INFO   |loading Qwen/Qwen3-0.6B-Base in torch.float32
-Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:  28%|██▊       | 88/310 [00:00<00:00, 641.07it/s]Loading weights:  59%|█████▊    | 182/310 [00:00<00:00, 793.43it/s]Loading weights:  87%|████████▋ | 269/310 [00:00<00:00, 821.73it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 875.74it/s]
-23:35:03|INFO   |  l1_base: status=OK sigma_orig=1.5017714933915571 y=None 18s
-23:35:03|INFO   |  cumulative judge cost $0.0000 (0 calls, 0 hits)
-23:35:03|INFO   |purged HF snapshot for Qwen/Qwen3-0.6B-Base
-23:35:04|INFO   |[4/19] l6_instruct: cached, skipped
-23:35:04|INFO   |[5/19] l6_base (HuggingFaceTB/SmolLM2-360M, wave 0, 0.36B) need_gt=False
-23:35:04|INFO   |loading HuggingFaceTB/SmolLM2-360M in torch.float32
-Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:  68%|██████▊   | 198/290 [00:00<00:00, 1855.75it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 1609.78it/s]
-23:35:20|INFO   |  l6_base: status=OK sigma_orig=1.2060619225868812 y=None 17s
-23:35:20|INFO   |  cumulative judge cost $0.0000 (0 calls, 0 hits)
-23:35:20|INFO   |purged HF snapshot for HuggingFaceTB/SmolLM2-360M
-23:35:20|INFO   |[6/19] l3_instruct (unsloth/Llama-3.2-1B-Instruct, wave 0, 1.24B) need_gt=True
-23:35:20|INFO   |loading unsloth/Llama-3.2-1B-Instruct in torch.float32
-Loading weights:   0%|          | 0/146 [00:00<?, ?it/s]Loading weights:   1%|          | 1/146 [00:00<00:50,  2.88it/s]Loading weights:  34%|███▎      | 49/146 [00:00<00:00, 141.96it/s]Loading weights:  53%|█████▎    | 78/146 [00:00<00:00, 147.00it/s]Loading weights:  69%|██████▉   | 101/146 [00:00<00:00, 165.84it/s]Loading weights:  85%|████████▍ | 124/146 [00:00<00:00, 177.56it/s]Loading weights: 100%|██████████| 146/146 [00:00<00:00, 187.88it/s]Loading weights: 100%|██████████| 146/146 [00:00<00:00, 153.08it/s]
-[transformers] Both `max_new_tokens` (=64) and `max_length`(=131072) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
-[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
-[transformers] Both `max_new_tokens` (=64) and `max_length`(=131072) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
-[transformers] Both `max_new_tokens` (=64) and `max_length`(=131072) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
-[transformers] Both `max_new_tokens` (=64) and `max_length`(=131072) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
-[transformers] Both `max_new_tokens` (=64) and `max_length`(=131072) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
-23:35:46|INFO   |  l3_instruct: status=OK sigma_orig=4.274073123931885 y=0.9 26s
-23:35:46|INFO   |  cumulative judge cost $0.0000 (0 calls, 80 hits)
-23:35:46|INFO   |purged HF snapshot for unsloth/Llama-3.2-1B-Instruct
-23:35:47|INFO   |[7/19] l3_abliterated (huihui-ai/Llama-3.2-1B-Instruct-abliterated, wave 0, 1.50B) need_gt=False
-23:35:47|INFO   |loading huihui-ai/Llama-3.2-1B-Instruct-abliterated in torch.float32
-Loading weights:   0%|          | 0/147 [00:00<?, ?it/s]Loading weights:   1%|          | 1/147 [00:00<01:22,  1.78it/s]Loading weights:   1%|▏         | 2/147 [00:00<00:50,  2.88it/s]Loading weights:  41%|████      | 60/147 [00:00<00:00, 114.99it/s]Loading weights:  59%|█████▉    | 87/147 [00:00<00:00, 144.92it/s]Loading weights:  77%|███████▋  | 113/147 [00:01<00:00, 141.24it/s]Loading weights:  96%|█████████▌| 141/147 [00:01<00:00, 171.00it/s]Loading weights: 100%|██████████| 147/147 [00:01<00:00, 116.16it/s]
-[transformers] The tied weights mapping and config for this model specifies to tie model.embed_tokens.weight to lm_head.weight, but both are present in the checkpoints with different values, so we will NOT tie them. You should update the config with `tie_word_embeddings=False` to silence this warning.
-23:36:04|INFO   |  l3_abliterated: status=OK sigma_orig=4.886921962102254 y=None 17s
-23:36:04|INFO   |  cumulative judge cost $0.0000 (0 calls, 80 hits)
-23:36:04|INFO   |purged HF snapshot for huihui-ai/Llama-3.2-1B-Instruct-abliterated
-23:36:04|INFO   |[8/19] l3_base (unsloth/Llama-3.2-1B, wave 0, 1.24B) need_gt=False
-23:36:04|INFO   |loading unsloth/Llama-3.2-1B in torch.float32
-Loading weights:   0%|          | 0/146 [00:00<?, ?it/s]Loading weights:   1%|          | 1/146 [00:00<01:00,  2.40it/s]Loading weights:  39%|███▉      | 57/146 [00:00<00:00, 144.53it/s]Loading weights:  62%|██████▏   | 90/146 [00:00<00:00, 152.83it/s]Loading weights:  79%|███████▉  | 116/146 [00:00<00:00, 149.52it/s]Loading weights:  94%|█████████▍| 137/146 [00:01<00:00, 159.87it/s]Loading weights: 100%|██████████| 146/146 [00:01<00:00, 143.83it/s]
-23:36:21|INFO   |  l3_base: status=OK sigma_orig=1.4590531984965007 y=None 17s
-23:36:21|INFO   |  cumulative judge cost $0.0000 (0 calls, 80 hits)
-23:36:21|INFO   |purged HF snapshot for unsloth/Llama-3.2-1B
-23:36:21|INFO   |[9/19] l4_instruct (Qwen/Qwen2.5-1.5B-Instruct, wave 0, 1.54B) need_gt=False
-23:36:21|INFO   |loading Qwen/Qwen2.5-1.5B-Instruct in torch.float32
-Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<01:27,  3.84it/s]Loading weights:  22%|██▏       | 75/338 [00:00<00:00, 264.69it/s]Loading weights:  35%|███▌      | 119/338 [00:00<00:00, 317.88it/s]Loading weights:  48%|████▊     | 162/338 [00:00<00:00, 276.90it/s]Loading weights:  58%|█████▊    | 197/338 [00:00<00:00, 292.66it/s]Loading weights:  69%|██████▊   | 232/338 [00:00<00:00, 306.89it/s]Loading weights:  79%|███████▉  | 267/338 [00:00<00:00, 313.53it/s]Loading weights:  90%|████████▉ | 303/338 [00:01<00:00, 323.75it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 291.46it/s]
-23:36:42|INFO   |  l4_instruct: status=OK sigma_orig=3.441591327840632 y=None 21s
-23:36:42|INFO   |  cumulative judge cost $0.0000 (0 calls, 80 hits)
-23:36:42|INFO   |purged HF snapshot for Qwen/Qwen2.5-1.5B-Instruct
-23:36:43|INFO   |[10/19] l4_abliterated (huihui-ai/Qwen2.5-1.5B-Instruct-abliterated, wave 0, 1.54B) need_gt=False
-23:36:43|INFO   |loading huihui-ai/Qwen2.5-1.5B-Instruct-abliterated in torch.float32
-Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<01:47,  3.15it/s]Loading weights:  26%|██▌       | 87/338 [00:00<00:00, 267.56it/s]Loading weights:  41%|████      | 137/338 [00:00<00:00, 320.34it/s]Loading weights:  54%|█████▍    | 184/338 [00:00<00:00, 290.69it/s]Loading weights:  66%|██████▌   | 223/338 [00:00<00:00, 308.32it/s]Loading weights:  77%|███████▋  | 261/338 [00:00<00:00, 321.59it/s]Loading weights:  88%|████████▊ | 298/338 [00:01<00:00, 274.74it/s]Loading weights:  98%|█████████▊| 330/338 [00:01<00:00, 283.87it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 275.92it/s]
-23:37:05|INFO   |  l4_abliterated: status=OK sigma_orig=2.479059024290605 y=None 23s
-23:37:05|INFO   |  cumulative judge cost $0.0000 (0 calls, 80 hits)
-23:37:05|INFO   |purged HF snapshot for huihui-ai/Qwen2.5-1.5B-Instruct-abliterated
-23:37:05|INFO   |[11/19] l4_base (Qwen/Qwen2.5-1.5B, wave 0, 1.54B) need_gt=False
-23:37:05|INFO   |loading Qwen/Qwen2.5-1.5B in torch.float32
-Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<01:14,  4.52it/s]Loading weights:  25%|██▍       | 83/338 [00:00<00:00, 322.54it/s]Loading weights:  39%|███▉      | 131/338 [00:00<00:00, 291.23it/s]Loading weights:  50%|█████     | 169/338 [00:00<00:00, 308.55it/s]Loading weights:  61%|██████    | 206/338 [00:00<00:00, 321.65it/s]Loading weights:  72%|███████▏  | 243/338 [00:00<00:00, 272.99it/s]Loading weights:  83%|████████▎ | 279/338 [00:01<00:00, 290.90it/s]Loading weights:  93%|█████████▎| 315/338 [00:01<00:00, 306.94it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 301.59it/s]
-23:37:26|INFO   |  l4_base: status=OK sigma_orig=1.7233835133639248 y=None 20s
-23:37:26|INFO   |  cumulative judge cost $0.0000 (0 calls, 80 hits)
-23:37:26|INFO   |purged HF snapshot for Qwen/Qwen2.5-1.5B
-23:37:26|INFO   |[12/19] l2_instruct (Qwen/Qwen3-1.7B, wave 0, 2.03B) need_gt=False
-23:37:26|INFO   |loading Qwen/Qwen3-1.7B in torch.float32
-Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:02<00:02,  2.24s/it]Fetching 2 files: 100%|██████████| 2/2 [00:03<00:00,  1.93s/it]Fetching 2 files: 100%|██████████| 2/2 [00:03<00:00,  1.98s/it]
-Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<03:48,  1.35it/s]Loading weights:  26%|██▌       | 81/311 [00:00<00:01, 130.36it/s]Loading weights:  41%|████      | 128/311 [00:00<00:00, 185.07it/s]Loading weights:  55%|█████▍    | 171/311 [00:01<00:00, 201.27it/s]Loading weights:  66%|██████▌   | 206/311 [00:01<00:00, 228.67it/s]Loading weights:  77%|███████▋  | 241/311 [00:01<00:00, 247.11it/s]Loading weights:  88%|████████▊ | 274/311 [00:01<00:00, 226.74it/s]Loading weights:  97%|█████████▋| 303/311 [00:01<00:00, 236.14it/s]Loading weights: 100%|██████████| 311/311 [00:01<00:00, 188.05it/s]
-23:37:51|INFO   |  l2_instruct: status=OK sigma_orig=3.604952031915838 y=None 25s
-23:37:51|INFO   |  cumulative judge cost $0.0000 (0 calls, 80 hits)
-23:37:51|INFO   |purged HF snapshot for Qwen/Qwen3-1.7B
-23:37:51|INFO   |[13/19] l2_abliterated (huihui-ai/Huihui-Qwen3-1.7B-abliterated-v2, wave 0, 1.72B) need_gt=False
-23:37:51|INFO   |loading huihui-ai/Huihui-Qwen3-1.7B-abliterated-v2 in torch.float32
-Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:   0%|          | 1/310 [00:00<01:55,  2.67it/s]Loading weights:  29%|██▉       | 91/310 [00:00<00:00, 248.93it/s]Loading weights:  46%|████▋     | 144/310 [00:00<00:00, 262.58it/s]Loading weights:  60%|██████    | 186/310 [00:00<00:00, 292.94it/s]Loading weights:  73%|███████▎  | 226/310 [00:00<00:00, 263.32it/s]Loading weights:  84%|████████▍ | 260/310 [00:01<00:00, 278.35it/s]Loading weights:  95%|█████████▍| 294/310 [00:01<00:00, 289.18it/s]Loading weights: 100%|██████████| 310/310 [00:01<00:00, 261.14it/s]
-23:38:20|INFO   |  l2_abliterated: status=OK sigma_orig=1.979412479834123 y=None 28s
-23:38:20|INFO   |  cumulative judge cost $0.0000 (0 calls, 80 hits)
-23:38:20|INFO   |purged HF snapshot for huihui-ai/Huihui-Qwen3-1.7B-abliterated-v2
-23:38:20|INFO   |[14/19] l2_uncensored (UnfilteredAI/DAN-Qwen3-1.7B, wave 0, 3.44B) need_gt=False
-23:38:20|INFO   |loading UnfilteredAI/DAN-Qwen3-1.7B in torch.float32
-Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:   0%|          | 1/310 [00:00<01:45,  2.93it/s]Loading weights:  24%|██▍       | 75/310 [00:00<00:01, 218.53it/s]Loading weights:  38%|███▊      | 118/310 [00:00<00:00, 225.01it/s]Loading weights:  49%|████▉     | 152/310 [00:00<00:00, 248.83it/s]Loading weights:  60%|█████▉    | 185/310 [00:00<00:00, 269.57it/s]Loading weights:  70%|███████   | 218/310 [00:00<00:00, 282.53it/s]Loading weights:  81%|████████  | 251/310 [00:01<00:00, 243.55it/s]Loading weights:  90%|█████████ | 279/310 [00:01<00:00, 251.59it/s]Loading weights: 100%|██████████| 310/310 [00:01<00:00, 248.70it/s]
-23:38:44|INFO   |  l2_uncensored: status=OK sigma_orig=3.2733973156322134 y=None 24s
-23:38:44|INFO   |  cumulative judge cost $0.0000 (0 calls, 80 hits)
-23:38:44|INFO   |purged HF snapshot for UnfilteredAI/DAN-Qwen3-1.7B
-23:38:44|INFO   |[15/19] l2_base (Qwen/Qwen3-1.7B-Base, wave 0, 1.72B) need_gt=False
-23:38:44|INFO   |loading Qwen/Qwen3-1.7B-Base in torch.float32
-Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:   0%|          | 1/310 [00:00<02:11,  2.35it/s]Loading weights:  31%|███       | 95/310 [00:00<00:00, 238.07it/s]Loading weights:  49%|████▊     | 151/310 [00:00<00:00, 257.40it/s]Loading weights:  63%|██████▎   | 195/310 [00:00<00:00, 288.81it/s]Loading weights:  76%|███████▋  | 237/310 [00:01<00:00, 261.87it/s]Loading weights:  90%|████████▉ | 278/310 [00:01<00:00, 290.26it/s]Loading weights: 100%|██████████| 310/310 [00:01<00:00, 248.94it/s]
-23:39:06|INFO   |  l2_base: status=OK sigma_orig=1.9563184109601108 y=None 22s
-23:39:06|INFO   |  cumulative judge cost $0.0000 (0 calls, 80 hits)
-23:39:06|INFO   |purged HF snapshot for Qwen/Qwen3-1.7B-Base
-23:39:06|INFO   |[16/19] l5_instruct (HuggingFaceTB/SmolLM2-1.7B-Instruct, wave 0, 1.71B) need_gt=False
-23:39:06|INFO   |loading HuggingFaceTB/SmolLM2-1.7B-Instruct in torch.float32
-Loading weights:   0%|          | 0/218 [00:00<?, ?it/s]Loading weights:   6%|▋         | 14/218 [00:00<00:01, 139.78it/s]Loading weights:  14%|█▍        | 30/218 [00:00<00:01, 150.70it/s]Loading weights:  22%|██▏       | 49/218 [00:00<00:01, 167.79it/s]Loading weights:  30%|███       | 66/218 [00:00<00:00, 167.58it/s]Loading weights:  39%|███▉      | 85/218 [00:00<00:00, 172.38it/s]Loading weights:  47%|████▋     | 103/218 [00:00<00:00, 174.25it/s]Loading weights:  56%|█████▌    | 121/218 [00:00<00:00, 172.43it/s]Loading weights:  64%|██████▍   | 139/218 [00:00<00:00, 172.96it/s]Loading weights:  72%|███████▏  | 157/218 [00:00<00:00, 174.20it/s]Loading weights:  80%|████████  | 175/218 [00:01<00:00, 175.15it/s]Loading weights:  89%|████████▊ | 193/218 [00:01<00:00, 143.59it/s]Loading weights:  96%|█████████▋| 210/218 [00:01<00:00, 149.55it/s]Loading weights: 100%|██████████| 218/218 [00:01<00:00, 166.86it/s]
-23:39:27|INFO   |  l5_instruct: status=OK sigma_orig=2.731172525882721 y=None 21s
-23:39:27|INFO   |  cumulative judge cost $0.0000 (0 calls, 80 hits)
-23:39:27|INFO   |purged HF snapshot for HuggingFaceTB/SmolLM2-1.7B-Instruct
-23:39:27|INFO   |[17/19] l5_base (HuggingFaceTB/SmolLM2-1.7B, wave 0, 1.71B) need_gt=False
-23:39:27|INFO   |loading HuggingFaceTB/SmolLM2-1.7B in torch.float32
-Loading weights:   0%|          | 0/218 [00:00<?, ?it/s]Loading weights:   8%|▊         | 17/218 [00:00<00:01, 168.18it/s]Loading weights:  17%|█▋        | 36/218 [00:00<00:01, 177.24it/s]Loading weights:  26%|██▌       | 57/218 [00:00<00:01, 142.85it/s]Loading weights:  35%|███▌      | 77/218 [00:00<00:00, 161.05it/s]Loading weights:  43%|████▎     | 94/218 [00:00<00:00, 162.18it/s]Loading weights:  52%|█████▏    | 113/218 [00:00<00:00, 170.46it/s]Loading weights:  60%|██████    | 131/218 [00:00<00:00, 170.26it/s]Loading weights:  71%|███████   | 154/218 [00:00<00:00, 186.30it/s]Loading weights:  79%|███████▉  | 173/218 [00:00<00:00, 186.63it/s]Loading weights:  88%|████████▊ | 192/218 [00:01<00:00, 185.05it/s]Loading weights:  97%|█████████▋| 211/218 [00:01<00:00, 180.44it/s]Loading weights: 100%|██████████| 218/218 [00:01<00:00, 179.46it/s]
-23:39:45|INFO   |  l5_base: status=OK sigma_orig=1.5753578901290894 y=None 18s
-23:39:45|INFO   |  cumulative judge cost $0.0000 (0 calls, 80 hits)
-23:39:45|INFO   |purged HF snapshot for HuggingFaceTB/SmolLM2-1.7B
-23:39:45|INFO   |[18/19] l7_instruct (TinyLlama/TinyLlama-1.1B-Chat-v1.0, wave 0, 1.10B) need_gt=False
-23:39:45|INFO   |loading TinyLlama/TinyLlama-1.1B-Chat-v1.0 in torch.float32
-Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights:  21%|██        | 42/201 [00:00<00:00, 418.88it/s]Loading weights:  42%|████▏     | 84/201 [00:00<00:00, 377.36it/s]Loading weights:  61%|██████    | 123/201 [00:00<00:00, 278.18it/s]Loading weights:  77%|███████▋  | 154/201 [00:00<00:00, 285.19it/s]Loading weights:  92%|█████████▏| 185/201 [00:00<00:00, 283.99it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 286.91it/s]
-23:40:02|INFO   |  l7_instruct: status=OK sigma_orig=1.4575810035069783 y=None 17s
-23:40:02|INFO   |  cumulative judge cost $0.0000 (0 calls, 80 hits)
-23:40:02|INFO   |purged HF snapshot for TinyLlama/TinyLlama-1.1B-Chat-v1.0
-23:40:02|INFO   |[19/19] l7_base (TinyLlama/TinyLlama_v1.1, wave 0, 2.20B) need_gt=False
-23:40:02|INFO   |loading TinyLlama/TinyLlama_v1.1 in torch.float32
-Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 16301.00it/s]
-23:40:21|INFO   |  l7_base: status=OK sigma_orig=1.7541943788528442 y=None 19s
-23:40:21|INFO   |  cumulative judge cost $0.0000 (0 calls, 80 hits)
-23:40:21|INFO   |purged HF snapshot for TinyLlama/TinyLlama_v1.1
-23:40:21|INFO   |calibration: archived and new y treated as COMMENSURABLE; pooled analysis is the headline
-23:40:21|INFO   |analysis table: 19 members, 35 dropped
-23:45:25|INFO   |VERDICT: UNDERPOWERED_AT_ACHIEVED_N (n_members=19, n_lineage=7)
-23:45:25|INFO   |method_out.json written; total cost $0.0062; wall clock 12.2 min

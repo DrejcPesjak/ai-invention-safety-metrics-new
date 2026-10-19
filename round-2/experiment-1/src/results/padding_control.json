@@ -1,0 +1,6 @@
+{
+  "equal_length_max_abs_diff": 0.4375,
+  "logit_scale": 28.25,
+  "relative_diff": 0.015486725663716814,
+  "note": "same prompts, equal token lengths -> NO padding involved; any residual is bf16 batched-GEMM numerics"
+}

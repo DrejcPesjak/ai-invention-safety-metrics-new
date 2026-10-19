@@ -1,0 +1,119 @@
+{
+  "TAU_used": -2.7415117804288127,
+  "TAU_margin_log10": -0.0763170819236696,
+  "n_scan_rows_with_W05": 180,
+  "n_scan_rows_declared": 8,
+  "agreement_at_TAU": {
+    "n_flagged": 8,
+    "n_declared": 8,
+    "n_flagged_and_declared": 8
+  },
+  "sweep": [
+    {
+      "TAU": -2.4,
+      "n_ladder_flagged": 20,
+      "n_ladder": 34,
+      "n_scan_flagged": 11,
+      "n_scan": 180,
+      "n_scan_flagged_without_abliteration_string": 3,
+      "first_such_examples": [
+        "allenai/OLMo-1B-hf",
+        "rinna/japanese-gpt-neox-small",
+        "stabilityai/stablelm-3b-4e1t"
+      ],
+      "n_this_experiment_flagged": 13,
+      "n_this_experiment": 77
+    },
+    {
+      "TAU": -2.5,
+      "n_ladder_flagged": 20,
+      "n_ladder": 34,
+      "n_scan_flagged": 11,
+      "n_scan": 180,
+      "n_scan_flagged_without_abliteration_string": 3,
+      "first_such_examples": [
+        "allenai/OLMo-1B-hf",
+        "rinna/japanese-gpt-neox-small",
+        "stabilityai/stablelm-3b-4e1t"
+      ],
+      "n_this_experiment_flagged": 13,
+      "n_this_experiment": 77
+    },
+    {
+      "TAU": -2.6,
+      "n_ladder_flagged": 20,
+      "n_ladder": 34,
+      "n_scan_flagged": 10,
+      "n_scan": 180,
+      "n_scan_flagged_without_abliteration_string": 2,
+      "first_such_examples": [
+        "allenai/OLMo-1B-hf",
+        "rinna/japanese-gpt-neox-small"
+      ],
+      "n_this_experiment_flagged": 13,
+      "n_this_experiment": 77
+    },
+    {
+      "TAU": -2.7,
+      "n_ladder_flagged": 19,
+      "n_ladder": 34,
+      "n_scan_flagged": 8,
+      "n_scan": 180,
+      "n_scan_flagged_without_abliteration_string": 0,
+      "first_such_examples": [],
+      "n_this_experiment_flagged": 12,
+      "n_this_experiment": 77
+    },
+    {
+      "TAU": -2.8,
+      "n_ladder_flagged": 19,
+      "n_ladder": 34,
+      "n_scan_flagged": 7,
+      "n_scan": 180,
+      "n_scan_flagged_without_abliteration_string": 0,
+      "first_such_examples": [],
+      "n_this_experiment_flagged": 12,
+      "n_this_experiment": 77
+    },
+    {
+      "TAU": -2.9,
+      "n_ladder_flagged": 19,
+      "n_ladder": 34,
+      "n_scan_flagged": 7,
+      "n_scan": 180,
+      "n_scan_flagged_without_abliteration_string": 0,
+      "first_such_examples": [],
+      "n_this_experiment_flagged": 12,
+      "n_this_experiment": 77
+    },
+    {
+      "TAU": -3.0,
+      "n_ladder_flagged": 18,
+      "n_ladder": 34,
+      "n_scan_flagged": 7,
+      "n_scan": 180,
+      "n_scan_flagged_without_abliteration_string": 0,
+      "first_such_examples": [],
+      "n_this_experiment_flagged": 10,
+      "n_this_experiment": 77
+    }
+  ],
+  "smallest_TAU_shift_producing_a_scan_false_positive": 0.3415,
+  "first_false_positive_row": {
+    "TAU": -2.4,
+    "n_ladder_flagged": 20,
+    "n_ladder": 34,
+    "n_scan_flagged": 11,
+    "n_scan": 180,
+    "n_scan_flagged_without_abliteration_string": 3,
+    "first_such_examples": [
+      "allenai/OLMo-1B-hf",
+      "rinna/japanese-gpt-neox-small",
+      "stabilityai/stablelm-3b-4e1t"
+    ],
+    "n_this_experiment_flagged": 13,
+    "n_this_experiment": 77
+  },
+  "caveat": "TAU is PANEL-FITTED (the W05 of the weakest abliterated panel member) and was NEVER validated out of panel. The nearest non-abliterated neighbours are allenai/OLMo-1B-hf (-2.6652), rinna (-2.614) and stablelm (-2.515), so the entire separation rests on a 0.0763 log10 margin. 'Flagged without an abliteration string in the row' is a WEAK proxy for a false positive -- the scan rows carry no ground truth -- and is reported as such.",
+  "elapsed_s": 1.2190663814544678
+}

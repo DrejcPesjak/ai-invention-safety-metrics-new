@@ -1,0 +1,77 @@
+{
+ "stamped_before_scoring": true,
+ "tau_W05": -2.7415117804288127,
+ "tau_source": "archived s4a_host.json derived.tau (iteration 4), NOT refitted here",
+ "ks": [
+  2,
+  4,
+  6,
+  8
+ ],
+ "predictions": [
+  {
+   "id": "P1",
+   "class": "discovery-failure recovery",
+   "statement": "The mid-50% band kernel (ARMB_BAND_MID50), which the pooled W05 misses, is RECOVERED by windowing at some k <= 8.",
+   "predicted_outcome": "RECOVERED",
+   "rationale": "Only 14 of 28 layers carry the edit, so the pooled Gram is dominated by 14 unedited layers and its bottom eigenvector is not r; a window contained in [7,21) sees only edited layers.",
+   "scoring_rule": "CONFIRMED iff min_k<=8 W05w(k) <= TAU_W05 while W05 > TAU_W05."
+  },
+  {
+   "id": "P2",
+   "class": "discovery-failure recovery",
+   "statement": "Gaussian depth kernels with spread in {0.5,1,2,4,8} (minimum depth weight < 0.5311) are RECOVERED at some k <= 8.",
+   "predicted_outcome": "RECOVERED",
+   "rationale": "Same mechanism as P1: a small spread confines the edit to layers near the peak (18), so a window there is fully edited.",
+   "scoring_rule": "CONFIRMED iff for EVERY listed spread min_k<=8 W05w(k) <= TAU_W05 while W05 > TAU_W05."
+  },
+  {
+   "id": "P3",
+   "class": "real-checkpoint recovery",
+   "statement": "Arm A rows of class R_PARTIAL_LAYER (the manifest's R4_PARTIAL_LAYER_OR_PER_HEAD) have a strictly higher sensitivity at the best k than at W05.",
+   "predicted_outcome": "RECOVERED",
+   "scoring_rule": "CONFIRMED iff sens_W05w(best k) > sens_W05 on that class, both at thresholds matched to the same specificity on the eligible undeclared population.",
+   "rationale": "Partial-layer edits are the real-world instance of the band kernel."
+  },
+  {
+   "id": "P4",
+   "class": "completion failure",
+   "statement": "Sub-unit uniform kernels (w in {0.5,0.7,0.85}) are NOT recovered at any k and any consistency threshold tau_c.",
+   "predicted_outcome": "NOT_RECOVERED",
+   "rationale": "Every layer is edited, so every window sees the same partially suppressed direction; the residual energy scales as (1-w)^2 regardless of pooling scope.  Windowing changes the SCOPE, not the COMPLETENESS, of the removal.",
+   "scoring_rule": "CONFIRMED iff for every w and every k, W05w(k) > TAU_W05."
+  },
+  {
+   "id": "P5",
+   "class": "isometry",
+   "statement": "The ORBA v3 Householder (lambda = 1 reflection) stays inside the random-direction Householder control band at EVERY k.",
+   "predicted_outcome": "NOT_RECOVERED",
+   "rationale": "H = I - 2rr^T is orthogonal, so every window Gram undergoes an orthogonal SIMILARITY: the spectrum is exactly invariant and v1 -> Hv1.  Invisible by construction, at any pooling scope.",
+   "scoring_rule": "CONFIRMED iff |W05w(k) - parent W05w(k)| is <= the maximum over the random-direction Householder seeds of the same quantity, at every k."
+  },
+  {
+   "id": "P6",
+   "class": "recipe disambiguation",
+   "statement": "ORBA lambda=1 as implemented in kernels.edit_householder is a REFLECTION; the dossier's 'lambda=1 = annihilation WITHOUT reflection' is a DIFFERENT recipe.  Scored separately, they land on opposite sides of the threshold.",
+   "predicted_outcome": "NOT_RECOVERED",
+   "rationale": "Merging them makes the falsification vacuous, which is why they are never merged here.",
+   "scoring_rule": "CONFIRMED iff ORBA_HOUSEHOLDER_LAM1 is undetected at every k AND ORBA_ANNIHILATE is detected at k=L."
+  },
+  {
+   "id": "P7",
+   "class": "calibration cost",
+   "statement": "Null calibration costs sensitivity: at matched specificity on the eligible undeclared population, the per-window-null-calibrated rule has sensitivity <= the raw-minimum W05w rule, at every k.",
+   "predicted_outcome": "NOT_RECOVERED",
+   "rationale": "Calibrating each window against its own random-direction null removes the part of the signal that is common to all windows, which is exactly the part a global edit produces.",
+   "scoring_rule": "CONFIRMED iff sens_CAL <= sens_RAW at matched specificity for every k."
+  },
+  {
+   "id": "P8",
+   "class": "generalised discovery",
+   "statement": "Generalised subspace discovery is DEFINED (applicable) on rank_k2/4/8, MPOA and both Heretic variants, and detection <=> (subspace discovery AND completion) on at least 80% of the applicable Arm B kernels.",
+   "predicted_outcome": "RECOVERED",
+   "rationale": "The single-direction rule |cos(v1,r)|>0.9 is undefined once more than one direction is removed; principal angles between the bottom-j eigenspace and the known removed span are defined for any rank.",
+   "scoring_rule": "CONFIRMED iff applicability covers all six named kernels AND the 2x2 agreement between predicted and observed detection is >= 0.80."
+  }
+ ]
+}

@@ -1,0 +1,21 @@
+20:55:12|INFO   |dependency dataset: 8 folds / 2113 rows | CORE40 drawn from 10 harmful categories | LCfit(64+64) / LChold(32+32) / CORE40 uid-disjoint | lexicon: 10 tokenizer families, all >=12 refusal / >=20 continuation, disjoint | panel: 160 rows / 137 verified / 59 at <=4.2B over 31 lineages | AMS: 3 concepts x 16 contrastive pairs constructed from the frozen folds
+20:55:12|INFO   |2866 items (2857 distinct keys)
+20:55:12|INFO   |judge cache: 0 entries | prior spend $0.0000
+20:55:12|INFO   |judge: 2866 items, 2866 not cached
+20:55:22|INFO   |judged 200/2866 | spend $0.0122
+20:55:30|INFO   |judged 400/2866 | spend $0.0244
+20:55:37|INFO   |judged 600/2866 | spend $0.0367
+20:55:45|INFO   |judged 800/2866 | spend $0.0488
+20:55:53|INFO   |judged 1000/2866 | spend $0.0607
+20:56:03|INFO   |judged 1200/2866 | spend $0.0725
+20:56:22|INFO   |judged 1400/2866 | spend $0.0843
+20:56:39|INFO   |judged 1600/2866 | spend $0.0960
+20:56:46|INFO   |judged 1800/2866 | spend $0.1077
+20:57:05|ERROR  |judge call failed permanently: KeyError: 'choices'
+20:57:05|INFO   |judged 2000/2866 | spend $0.1192
+20:57:12|INFO   |judged 2200/2866 | spend $0.1310
+20:57:28|INFO   |judged 2400/2866 | spend $0.1431
+20:57:42|INFO   |judged 2600/2866 | spend $0.1546
+20:57:51|INFO   |judged 2800/2866 | spend $0.1664
+20:57:55|INFO   |judged 2866/2866 | spend $0.1703
+20:57:55|INFO   |cached 2865/2866 | new calls 2857 | failed 1 | spend $0.1703 | hard-stopped=False

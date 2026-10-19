@@ -1,0 +1,483 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "iteration-2 external ground truth + frozen split: per-row-kind payload schema",
+  "description": "Layered on top of .claude/skills/aii-json/schemas/exp_sel_data_out.json. That schema constrains the envelope (datasets -> examples -> input/output/metadata_*); this one constrains metadata_payload per row_kind. Validate with src/validate_rows.py. Artifact blocks require metadata_payload; measurement_corpus__* blocks instead carry flat metadata_* fields and must NOT carry metadata_payload.",
+  "type": "object",
+  "required": [
+    "datasets"
+  ],
+  "properties": {
+    "datasets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "dataset",
+          "examples"
+        ],
+        "properties": {
+          "dataset": {
+            "enum": [
+              "external_score",
+              "external_score_withheld_flagged",
+              "panel_checkpoint",
+              "lineage",
+              "split_assignment",
+              "coverage_stat",
+              "in_house_measurement_required",
+              "rule",
+              "prereg_statement",
+              "helm_reference_non_panel",
+              "model_card_scan",
+              "measurement_corpus__xstest_v2",
+              "measurement_corpus__or_bench_hard_1k",
+              "measurement_corpus__wildguard_test",
+              "measurement_corpus__harmbench_direct_request",
+              "measurement_corpus__advbench",
+              "measurement_corpus__jbb_behaviors",
+              "measurement_corpus__do_not_answer",
+              "measurement_corpus__beavertails_evaluation",
+              "measurement_corpus__toxigen_annotated",
+              "measurement_corpus__aegis_safety_test"
+            ]
+          },
+          "examples": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "input",
+                "output",
+                "metadata_row_kind",
+                "metadata_fold"
+              ],
+              "properties": {
+                "input": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "output": {
+                  "type": "string"
+                },
+                "metadata_row_kind": {
+                  "type": "string"
+                },
+                "metadata_fold": {
+                  "enum": [
+                    "dev",
+                    "heldout",
+                    "na"
+                  ]
+                },
+                "metadata_payload": {
+                  "type": "object"
+                },
+                "metadata_corpus": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "dataset": {
+                  "enum": [
+                    "external_score",
+                    "external_score_withheld_flagged",
+                    "panel_checkpoint",
+                    "lineage",
+                    "split_assignment",
+                    "coverage_stat",
+                    "in_house_measurement_required",
+                    "rule",
+                    "prereg_statement",
+                    "helm_reference_non_panel",
+                    "model_card_scan"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "examples": {
+                  "items": {
+                    "required": [
+                      "metadata_payload"
+                    ],
+                    "properties": {
+                      "metadata_payload": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "dataset": {
+                  "enum": [
+                    "measurement_corpus__xstest_v2",
+                    "measurement_corpus__or_bench_hard_1k",
+                    "measurement_corpus__wildguard_test",
+                    "measurement_corpus__harmbench_direct_request",
+                    "measurement_corpus__advbench",
+                    "measurement_corpus__jbb_behaviors",
+                    "measurement_corpus__do_not_answer",
+                    "measurement_corpus__beavertails_evaluation",
+                    "measurement_corpus__toxigen_annotated",
+                    "measurement_corpus__aegis_safety_test"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "examples": {
+                  "items": {
+                    "required": [
+                      "metadata_corpus",
+                      "metadata_split",
+                      "metadata_row_index"
+                    ],
+                    "not": {
+                      "required": [
+                        "metadata_payload"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "external_score": {
+      "description": "One published quantitative score for one (checkpoint, benchmark, metric). Every value traces to a fetched URL and a quoted snippet.",
+      "type": "object",
+      "required": [
+        "checkpoint_id",
+        "lineage_id",
+        "revision_sha_source",
+        "revision_sha_panel",
+        "revision_match",
+        "benchmark",
+        "metric_name",
+        "value",
+        "scale",
+        "polarity",
+        "axis",
+        "source_url",
+        "source_type",
+        "source_version_or_release",
+        "retrieval_date",
+        "judge_or_grader",
+        "circularity_flag",
+        "verbatim_snippet"
+      ],
+      "properties": {
+        "checkpoint_id": {
+          "type": "string",
+          "description": "HF repo id, exactly as in the panel manifest"
+        },
+        "lineage_id": {
+          "type": "string"
+        },
+        "revision_sha_source": {
+          "type": "string",
+          "description": "the sha the SOURCE evaluated, or 'UNSTATED'"
+        },
+        "revision_sha_panel": {
+          "type": "string",
+          "description": "the sha our manifest pins"
+        },
+        "revision_match": {
+          "enum": [
+            "EXACT",
+            "SAME_REPO_UNKNOWN_SHA",
+            "SIBLING",
+            "FAMILY_ONLY"
+          ]
+        },
+        "benchmark": {
+          "type": "string"
+        },
+        "metric_name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "number"
+        },
+        "scale": {
+          "type": "string",
+          "description": "e.g. '0-100 percent', '0-1 rate', or the literal 'UNSTATED'"
+        },
+        "polarity": {
+          "enum": [
+            "HIGHER_IS_SAFER",
+            "LOWER_IS_SAFER",
+            "HIGHER_IS_MORE_CAPABLE",
+            "NOT_ORDERED"
+          ],
+          "description": "Stated EXPLICITLY per row. NEVER infer it downstream from the benchmark name: ASR is LOWER_IS_SAFER, refusal rate on harmful prompts is HIGHER_IS_SAFER, XSTest full-refusal on SAFE items is LOWER_IS_SAFER, AIR-Bench and HELM safety scores are HIGHER_IS_SAFER."
+        },
+        "polarity_evidence": {
+          "type": "string",
+          "description": "why this polarity: the source's own wording where it states one, otherwise the benchmark's definition, said so explicitly"
+        },
+        "axis": {
+          "enum": [
+            "SAFETY_HARM",
+            "SAFETY_OVERREFUSAL",
+            "SAFETY_OTHER",
+            "CAPABILITY"
+          ]
+        },
+        "source_url": {
+          "type": "string",
+          "description": "exact, deep-linked; not a homepage"
+        },
+        "source_type": {
+          "enum": [
+            "OFFICIAL_MODEL_CARD",
+            "TECH_REPORT",
+            "PEER_REVIEWED_PAPER",
+            "ARXIV_PREPRINT",
+            "LEADERBOARD_SNAPSHOT",
+            "THIRD_PARTY_REPO"
+          ]
+        },
+        "source_version_or_release": {
+          "type": "string"
+        },
+        "retrieval_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "judge_or_grader": {
+          "type": "string",
+          "description": "what scored it; 'UNSTATED' is allowed but must be that literal string"
+        },
+        "circularity_flag": {
+          "type": "string",
+          "description": "'' or e.g. 'QWEN3GUARD_REWARD_CIRCULAR' / 'QWEN3_SAME_FAMILY_JUDGE'"
+        },
+        "verbatim_snippet": {
+          "type": "string",
+          "maxLength": 300,
+          "description": "the source text the number was read from, so the row is auditable without re-fetching"
+        }
+      }
+    },
+    "panel_checkpoint": {
+      "type": "object",
+      "required": [
+        "hf_repo_id",
+        "lineage_id",
+        "member_class",
+        "revision",
+        "param_count_resolved",
+        "param_source",
+        "in_panel_le_4p2b"
+      ],
+      "properties": {
+        "hf_repo_id": {
+          "type": "string"
+        },
+        "lineage_id": {
+          "type": "string"
+        },
+        "member_class": {
+          "enum": [
+            "base",
+            "instruct",
+            "abliterated",
+            "behavioral_uncensored",
+            "other"
+          ]
+        },
+        "revision": {
+          "type": "string"
+        },
+        "param_count_resolved": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "param_count_manifest": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "param_manifest_disagrees": {
+          "type": "boolean"
+        },
+        "param_source": {
+          "type": "string"
+        },
+        "weight_format": {
+          "type": "string"
+        },
+        "in_panel_le_4p2b": {
+          "type": "boolean"
+        },
+        "panel_exclusion_reason": {
+          "type": "string"
+        }
+      }
+    },
+    "split_assignment": {
+      "type": "object",
+      "required": [
+        "lineage_id",
+        "split",
+        "split_reason",
+        "stratum",
+        "sha256_lineage_seed",
+        "seed"
+      ],
+      "properties": {
+        "lineage_id": {
+          "type": "string"
+        },
+        "split": {
+          "enum": [
+            "dev",
+            "heldout"
+          ]
+        },
+        "split_reason": {
+          "type": "string"
+        },
+        "stratum": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "sha256_lineage_seed": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "seed": {
+          "const": "20260813-iter2-split"
+        },
+        "member_checkpoint_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "coverage_stat": {
+      "type": "object",
+      "required": [
+        "scope",
+        "key",
+        "stat",
+        "value"
+      ],
+      "properties": {
+        "scope": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "stat": {
+          "type": "string"
+        },
+        "value": {},
+        "denominator": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "rule": {
+      "type": "object",
+      "required": [
+        "rule_id",
+        "predicate",
+        "fields_an_iteration3_script_must_read"
+      ],
+      "properties": {
+        "rule_id": {
+          "enum": [
+            "BLANKET_REFUSER_DISQUALIFICATION",
+            "QWEN3GUARD_CIRCULARITY"
+          ]
+        },
+        "predicate": {
+          "type": "string"
+        },
+        "threshold_disqualify": {
+          "type": "number"
+        },
+        "threshold_warn": {
+          "type": "number"
+        },
+        "threshold_grounding": {
+          "type": "object"
+        },
+        "fields_an_iteration3_script_must_read": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "prereg_statement": {
+      "type": "object",
+      "required": [
+        "statement_type",
+        "frozen_at_utc",
+        "seed",
+        "rule_text",
+        "assertion",
+        "split_file_sha256"
+      ],
+      "properties": {
+        "statement_type": {
+          "const": "PRE_REGISTRATION_OF_FROZEN_SPLIT"
+        },
+        "frozen_at_utc": {
+          "type": "string"
+        },
+        "seed": {
+          "type": "string"
+        },
+        "rule_text": {
+          "type": "string"
+        },
+        "assertion": {
+          "type": "string"
+        },
+        "split_file_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "measurement_prompt": {
+      "description": "One prompt from a pinned safety corpus, for the in-house measurement of the 65 panel checkpoints that have no external safety number. These are PROMPTS, not scores: they carry no value/polarity because nothing has been measured on them yet.",
+      "type": "object"
+    }
+  }
+}

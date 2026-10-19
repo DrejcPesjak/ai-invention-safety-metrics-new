@@ -1,40 +1,37 @@
-# Testing a safety score on 52 models
+# Does the abliteration weight scar generalise?
 
 `demo/` — Self-contained demo (Colab-ready notebook or markdown). Run without setup.  
 `src/` — Full source code, data, and outputs from the experiment execution.
 
 **Type:** experiment  
-**ID:** `art_CZaytBH8uL4_`
+**ID:** `art_dp7WBo6hhVBX`
 
 ## Layman Summary
 
-A promising trick for making a cheap AI-safety score more accurate turned out to be a fluke: it worked on the original 19 models but vanished once we tested it on 52 models from 28 model families.
+Tests a zero-prompt weight-only detector for models stripped of safety refusals, and finds it almost never fires on real community checkpoints and is beaten by a filename regex.
 
 ## Full Summary
 
-REPLICATION OF ITERATION 3'S ONE POSITIVE RESULT, AT SCALE. VERDICT: DOES_NOT_SURVIVE. Iteration 3 reported that refitting our AMS reimplementation's (arXiv:2608.05578) contrast set on token-disjoint paraphrases lifted Spearman rho with the judged plain-harmful refusal rate from 0.358 to 0.654 on 19 members / 7 lineages, where the exhaustive lineage-permutation floor is 1/5040. This run grew the panel to 52 analysed members over 28 weight lineages and 11 architecture families, added a second independently authored paraphrase set, and reported every correlation at BOTH aggregation units.
+Stress-tests the parent-free abliteration detector W05 (log10 of the minimum per-matrix energy along the smallest-eigenvalue direction of the shared Gram matrix over residual-write matrices; detect iff W05 <= tau = -2.7415117804288127). 13 signed predictions were stamped and sha256-hashed BEFORE any checkpoint was downloaded (results/predictions.json); a second stamp (w* = 0.9533, critical spread 58.17) was hashed once W05_ref was measured. verify.py re-derives every headline number from the raw rows: 20/20 pass. Tier 2, $0.022 OpenRouter, 361 GB streamed.
 
-HEADLINE NUMBERS (member level, lineage-clustered bootstrap, 10k reps). rho: original 0.359 [0.047, 0.592]; refit SET A 0.458 [0.197, 0.646]; refit SET B 0.207 [-0.110, 0.463]. Delta_A = +0.099 CI [-0.027, 0.244] (was +0.296) -> R1 FAILS. Delta_B = -0.152 CI [-0.488, 0.075] -> R3 FAILS: the independently authored wording does not merely fail to replicate the gain, it is WORSE than the unrefit baseline. Permutation p for Delta_A = 0.135 against a floor of 5.0e-6 (Monte Carlo, 200k draws) -> R4 FAILS, and the 1/5040 floor is genuinely retired by the larger panel. Only R2 passes (rho refit A >= 0.40 with CI excluding 0). Verdict-class change rate (descriptive) 12/52 = 0.231 [0.137, 0.361] vs the archived 6/19.
+HEADLINE, AT SCALE: specificity 1.000 (0 false positives on 32 negatives incl. 20 fresh Hub parents) but sensitivity 0.159 on 44 real edited checkpoints from 27 uploaders across 9 recipe classes, while the 5 archived panel members it was calibrated on all still fire (1.000). Five of the 7 detections are ONE uploader's norm-preserving family; a sixth clears tau by 0.09. It does NOT beat the baseline the manifest demanded: a repo-name regex scores 0.727 sensitivity at the same 1.000 specificity on identical rows, and the set W05 catches that the name misses is EMPTY. Misses are not near-misses: mlabonne/Qwen3-0.6B-abliterated reads -0.9637 vs its parent -0.9641.
 
-THE DECISIVE DIAGNOSTIC. The archived 19-member block reproduces Delta_A = +0.2963 (gap 2.6e-04 to iteration 3's +0.296), while the 33 NEW members give -0.016 [-0.144, 0.130]. Per block: rho 0.358 -> 0.654 archived, 0.402 -> 0.386 new. The entire effect lives in the original small panel; this is a small-panel artifact, not a property of token-disjointness. Leave-one-lineage-out (28 folds) and leave-one-family-out (11 folds) never flip the sign of the shrunken Delta_A (ranges [0.068, 0.122] and [0.060, 0.137]), so the null is not driven by one outlier.
+MECHANISM (Arm B: host Qwen3-1.7B and direction r held fixed, kernel is the only variable, 25 kernels x 2 storage precisions). Uniformity is the WRONG predicate. Detection needs DISCOVERY (|cos(v1,r)| -> 1) AND COMPLETION (min_m e_r <= tau); that post-hoc rule reproduces 19/19 applicable kernels. Every Gaussian spread annihilates the peak layer completely (log10 min_m e_r = -4.53 at ALL spreads) yet detection switches on only between spread 8 and 16, bracketing the controlling min-depth-weight in [0.0796, 0.5311] — nowhere near the stamped w*. The mid-50% band edits half the stack completely and is still missed, because untouched matrices keep r from becoming the Gram's minimal direction.
 
-REUSE PROVEN BEHAVIOURALLY, NOT JUST BY HASH. Every lib/ and lib_iter3/ file is sha256-identical to source (hard failure otherwise). Beyond that: our AMS reimplementation recomputed from scratch matches the iteration-2 archive on 19/19 members (max abs delta 2.4e-06); the SET-A refit matches iteration 3 on 19/19 (delta exactly 0.0); and both cross-pipeline calibration members regenerate byte-identically (100% judge-cache hit, y reproduced exactly, Wilson CIs identical), which is what licenses pooling the archived and newly measured y blocks.
+EVASION: of 10 fluency-passing edits that actually remove refusal (judge <= 0.50 vs host 0.925), only 4 are detected. The two most effective are invisible — ORBA Householder drops refusal to 0.100 while moving W05 by 4.1e-5, LESS than a random-direction Householder control (7.3e-5); Heretic-style drops it to 0.125 and is missed. rank_k4 is detected but barely uncensors (0.65).
 
-PARAPHRASE SET B. Generated by openai/gpt-5.6-luna (never the judge model) at temperature 0.3, verified by the FROZEN iteration-3 check_pair() with zero hand-written repairs: 80/80 strings pass (78 on the first attempt), 16/16 pairs kept, $0.0062. Measured wording independence: content-token Jaccard(SET A, SET B) = 0.201. Its 16 fresh harmful positives are uid-disjoint from both the core-80 and SET A's block.
+REPRODUCIBILITY FINDING: the rebuilt in-house root is BIT-IDENTICAL to the archive (write_matrix_sha256 matches) and W02/W03/W05 reproduce to 1.3e-5, yet W01/W04 differ by 3.1e-2. With byte-identical weights that cannot be the model: both are log ratios against lam[0], at the float32 Gram-accumulation floor. Float64 recomputation moves W01 by exactly the archive gap (4.7894e-2 vs 4.7894e-2). W01/W04 are irreproducible below ~0.05 on abliterated checkpoints; W05 is not, and nothing here depends on W01/W04. Fast safetensors path == Runner path EXACTLY (0.0). Storage precision caps the scar: the same complete projection reads W05 = -4.59 in bf16, -12.70 in float32.
 
-DUAL-AGGREGATION (H-U repair). The SIGN of rho survives the choice of unit on all three scores, but the CI's exclusion of 0 does NOT: at the member level orig and refit A exclude 0, at the lineage-aggregated unit none of the three does (rho 0.162 / 0.224 / 0.013). Any claim resting on CI exclusion is unit-dependent here.
+VERDICTS: P1 P2 P3 P6 P7 P9 P11 CONFIRMED; P8 confirmed at the measured noise floor; P10 shape-confirmed / critical-spread refuted (3.6x); P12 PARTIAL (7/7 Arm B classes, 4/6 Arm A); P4 P5 P13 REFUTED. Two falsifiers fired and are reported as the headline.
 
-AMS TABLE-I GATE (our reimplementation vs published): Llama-3.2-1B-Instruct 4.274 vs 4.55 (-6%), gemma-2-2b-it 5.845 vs 4.80 (+22%), Llama-3.2-3B-Instruct 5.010 vs 8.37 (-40%). The label 'our AMS reimplementation' is kept regardless.
-
-DELIVERABLES: method.py (single driver), build_para_b.py, summarise.py, prereg_iter4.json (sha256-stamped before any correlation, plus a timestamp-free content sha stable across reruns), para_set_b.json, method_out.json (+ full/mini/preview, schema-valid), RESULTS.md (every number read from the JSON, never retyped), README.md, 54 per-member JSONs, 35 generation files, panel_selection.json (every rejection with a machine-readable reason), gt_calibration.json, t0_unit_tests.json (10/10), and results/t4_archive_only_method_out.json (the dry run reproducing iteration 3 exactly).
-
-CAVEATS FOR DOWNSTREAM USE. (1) y_refusal's REFUSAL one-vs-rest annotator kappa is 0.3907 (< 0.60); disattenuated rho is reported alongside raw, never instead of it. (2) Two enrolled checkpoints are unrecoverable upstream incompatibilities, recorded with their exception strings, costing one lineage: UnfilteredAI/NSFW-flash (StableLM attention shape mismatch under transformers 5.15) and cognitivecomputations/TinyDolphin-2.8-1.1b (SentencePiece tokenizer.model misparsed as tiktoken; installing tiktoken does not fix it). (3) The pre-registered lineage-collapse rule fired 0 times because the manifest's lineage_evidence is empty on the TinyLlama rows; that one collapse is inherited from the frozen iteration-2/3 labelling and is flagged as such. (4) Total spend $0.1334 against a $3.00 cap. (5) The frozen statsx.auc_binary splits y at its MEDIAN, not 0.5; both splits are reported and neither enters the decision rule.
+SHIPS: method_out.json (110 examples, predict_our_method_W05 vs predict_baseline_E1 vs predict_baseline_repo_name_regex side by side), results/{predictions,predictions_derived,gate_iter4,unit_tests,arm_a,arm_b,arm_b_behaviour,layer_profiles,analysis,cards}.*, verify.py, and byte-identical vendored iteration-3 libraries with sha256 recorded.
 
 ## Dependencies
 
-- `art_CKWQh2cOQLLQ` — dataset
-- `art_0UsKSgsMHome` — baseline spec
-- `art_PeyWw78NIx9d` — positioning
+- `art_8OlSrcw-hzgO` — dataset
+- `art_sHF0cggp2IvT` — recipe spec
+- `art_CKWQh2cOQLLQ` — prompts
+- `art_lMTPOpnFwKnw` — prior art
 
 ## Output Files
 

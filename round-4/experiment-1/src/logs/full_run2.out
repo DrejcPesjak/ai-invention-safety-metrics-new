@@ -1,83 +1,0 @@
-/ai-inventor/aii_data/runs/run_CbJDs3opF7E_/3_invention_loop/iter_4/gen_art/gen_art_experiment_1/.venv/lib/python3.12/site-packages/huggingface_hub/constants.py:310: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.
-  warnings.warn(
-00:30:45|INFO   |=== iteration-4 replication run, tier=full ===
-00:30:45|INFO   |host: 48 cpu, 270 GB RAM, cuda=True, free disk 35 GB
-00:30:46|INFO   |reuse manifest: 63 rows, byte-identity PASS
-00:31:29|INFO   |T0 unit tests: 10/10 PASS
-00:31:29|INFO   |corpus assertions PASS: 2113 rows, 8 blocks
-00:31:29|INFO   |panel: 54 members over 29 lineage labels (22 new), waves {'0': 19, '1': 22, '2': 8, '3': 5}
-00:31:29|INFO   |paraphrase sets: A n_pairs=16, B n_pairs=16
-00:31:29|INFO   |prereg_iter4.json written, sha256=bffc63199e508b03a3747e2171b91d24f9755f49b4077f3565d6b8733af753f4, content_sha256=fce2136becf518af5a1ff097491cd9e83625e26a9364e358d4098e96a251d2d7
-00:31:29|INFO   |judge cache loaded: 7958 entries
-00:31:29|INFO   |[1/54] l1_instruct: cached, skipped
-00:31:29|INFO   |[2/54] l1_abliterated: cached, skipped
-00:31:29|INFO   |[3/54] l1_base: cached, skipped
-00:31:29|INFO   |[4/54] l6_instruct: cached, skipped
-00:31:29|INFO   |[5/54] l6_base: cached, skipped
-00:31:29|INFO   |[6/54] l3_instruct: cached, skipped
-00:31:29|INFO   |[7/54] l3_abliterated: cached, skipped
-00:31:29|INFO   |[8/54] l3_base: cached, skipped
-00:31:29|INFO   |[9/54] l4_instruct: cached, skipped
-00:31:29|INFO   |[10/54] l4_abliterated: cached, skipped
-00:31:29|INFO   |[11/54] l4_base: cached, skipped
-00:31:29|INFO   |[12/54] l2_instruct: cached, skipped
-00:31:29|INFO   |[13/54] l2_abliterated: cached, skipped
-00:31:29|INFO   |[14/54] l2_uncensored: cached, skipped
-00:31:29|INFO   |[15/54] l2_base: cached, skipped
-00:31:29|INFO   |[16/54] l5_instruct: cached, skipped
-00:31:29|INFO   |[17/54] l5_base: cached, skipped
-00:31:29|INFO   |[18/54] l7_instruct: cached, skipped
-00:31:30|INFO   |[19/54] l7_base: cached, skipped
-00:31:30|INFO   |[20/54] n_huggingfacetb_smollm2_135m_instruct: cached, skipped
-00:31:30|INFO   |[21/54] n_unfilteredai_mia_001: cached, skipped
-00:31:30|INFO   |[22/54] n_eleutherai_pythia_160m: cached, skipped
-00:31:30|INFO   |[23/54] n_qwen_qwen2_5_0_5b_instruct: cached, skipped
-00:31:30|INFO   |[24/54] n_h2oai_h2o_danube3_500m_chat: cached, skipped
-00:31:30|INFO   |[25/54] n_eleutherai_pythia_410m: cached, skipped
-00:31:30|INFO   |[26/54] n_unfilteredai_unfilteredai_1b: cached, skipped
-00:31:30|INFO   |[27/54] n_unfilteredai_badmistral_1_5b: cached, skipped
-00:31:30|INFO   |[28/54] n_tiiuae_falcon3_1b_instruct: cached, skipped
-00:31:30|INFO   |[29/54] n_unfilteredai_helvete_nano: cached, skipped
-00:31:30|INFO   |[30/54] n_eleutherai_pythia_1b: cached, skipped
-00:31:30|INFO   |[31/54] n_unfilteredai_promt_generator: cached, skipped
-00:31:30|INFO   |[32/54] n_unfilteredai_nsfw_flash (UnfilteredAI/NSFW-flash, wave 1, 2.24B) need_gt=True
-00:31:30|INFO   |loading UnfilteredAI/NSFW-flash in torch.float32
-Loading weights:   0%|          | 0/279 [00:00<?, ?it/s]Loading weights:   1%|          | 2/279 [00:00<00:39,  6.99it/s]Loading weights:  18%|█▊        | 49/279 [00:00<00:01, 159.47it/s]Loading weights:  28%|██▊       | 77/279 [00:00<00:01, 190.86it/s]Loading weights:  37%|███▋      | 104/279 [00:00<00:01, 169.34it/s]Loading weights:  45%|████▌     | 126/279 [00:00<00:00, 181.91it/s]Loading weights:  53%|█████▎    | 148/279 [00:00<00:00, 186.83it/s]Loading weights:  61%|██████    | 170/279 [00:01<00:00, 193.80it/s]Loading weights:  69%|██████▉   | 192/279 [00:01<00:00, 163.49it/s]Loading weights:  77%|███████▋  | 214/279 [00:01<00:00, 174.85it/s]Loading weights:  85%|████████▍ | 236/279 [00:01<00:00, 185.20it/s]Loading weights:  92%|█████████▏| 258/279 [00:01<00:00, 189.82it/s]Loading weights: 100%|██████████| 279/279 [00:01<00:00, 174.53it/s]
-00:31:51|ERROR  |n_unfilteredai_nsfw_flash: member FAILED: RuntimeError: The size of tensor a (20) must match the size of tensor b (64) at non-singleton dimension 3
-00:31:51|INFO   |  n_unfilteredai_nsfw_flash: status=FAILED sigma_orig=None y=None 0s
-00:31:51|INFO   |  cumulative judge cost $0.0000 (0 calls, 0 hits)
-00:31:51|INFO   |purged HF snapshot for UnfilteredAI/NSFW-flash
-00:31:51|INFO   |[33/54] n_allenai_olmo_1b_hf: cached, skipped
-00:31:51|INFO   |[34/54] n_ibm_granite_granite_3_1_2b_instruct: cached, skipped
-00:31:51|INFO   |[35/54] n_google_gemma_2_2b_it: cached, skipped
-00:31:51|INFO   |[36/54] n_eleutherai_pythia_1_4b: cached, skipped
-00:31:51|INFO   |[37/54] n_meta_llama_llama_3_2_3b_instruct: cached, skipped
-00:31:51|INFO   |[38/54] n_goekdeniz_guelmez_josiefied_qwen2_5_3b_instruct_abliterated_v1: cached, skipped
-00:31:51|INFO   |[39/54] n_reallexi_lexi_coder_v4_3: cached, skipped
-00:31:51|INFO   |[40/54] n_qwen_qwen3_4b: cached, skipped
-00:31:51|INFO   |[41/54] n_goekdeniz_guelmez_josiefied_qwen3_4b_instruct_2507_gabliterated_v2: cached, skipped
-00:31:51|INFO   |[42/54] n_huggingfacetb_smollm2_135m: cached, skipped
-00:31:51|INFO   |[43/54] n_qwen_qwen2_5_0_5b: cached, skipped
-00:31:51|INFO   |[44/54] n_h2oai_h2o_danube3_500m_base: cached, skipped
-00:31:51|INFO   |[45/54] n_tiiuae_falcon3_1b_base: cached, skipped
-00:31:51|INFO   |[46/54] n_ibm_granite_granite_3_1_2b_base: cached, skipped
-00:31:51|INFO   |[47/54] n_huihui_ai_llama_3_2_3b_instruct_abliterated: cached, skipped
-00:31:51|INFO   |[48/54] n_reallexi_lexi_coder_v4_1: cached, skipped
-00:31:52|INFO   |[49/54] n_qwen_qwen3_4b_base: cached, skipped
-00:31:52|INFO   |[50/54] n_reallexi_lexi_rm_agent: cached, skipped
-00:31:52|INFO   |[51/54] n_huihui_ai_qwen2_5_0_5b_instruct_abliterated: cached, skipped
-00:31:52|INFO   |[52/54] n_reallexi_lexi_resume_v6: cached, skipped
-00:31:52|INFO   |[53/54] n_huihui_ai_huihui_qwen3_0_6b_abliterated_v2: cached, skipped
-00:31:52|INFO   |[54/54] n_cognitivecomputations_tinydolphin_2_8_1_1b (cognitivecomputations/TinyDolphin-2.8-1.1b, wave 3, 1.10B) need_gt=True
-00:31:52|INFO   |loading cognitivecomputations/TinyDolphin-2.8-1.1b in torch.float32
-[transformers] Could not extract SentencePiece model from /root/hf_cache/hub/models--cognitivecomputations--TinyDolphin-2.8-1.1b/snapshots/96e08f4279163862ff360ca9a45b33999d9b77b2/tokenizer.model using sentencepiece library due to 
-SentencePieceExtractor requires the SentencePiece library but it was not found in your environment. Check out the instructions on the
-installation page of its repo: https://github.com/google/sentencepiece#installation and follow the ones
-that match your environment. Please note that you may need to restart your runtime after installation.
-. Falling back to TikToken extractor.
-00:31:56|ERROR  |n_cognitivecomputations_tinydolphin_2_8_1_1b: load failed for cognitivecomputations/TinyDolphin-2.8-1.1b: ValueError: Error parsing line b'\x0e' in /root/hf_cache/hub/models--cognitivecomputations--TinyDolphin-2.8-1.1b/snapshots/96e08f4279163862ff360ca9a45b33999d9b77b2/tokenizer.model
-00:31:56|INFO   |  n_cognitivecomputations_tinydolphin_2_8_1_1b: status=DROPPED_UNREACHABLE sigma_orig=None y=None 5s
-00:31:56|INFO   |  cumulative judge cost $0.0000 (0 calls, 0 hits)
-00:31:56|INFO   |purged HF snapshot for cognitivecomputations/TinyDolphin-2.8-1.1b
-00:31:56|INFO   |calibration: archived and new y treated as COMMENSURABLE; pooled analysis is the headline
-00:31:56|INFO   |analysis table: 52 members, 2 dropped

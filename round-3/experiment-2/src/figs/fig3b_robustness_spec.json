@@ -1,0 +1,28 @@
+{
+ "type": "bar",
+ "width_in": 7.0,
+ "aspect": "4:3",
+ "title": "Fraction of non-broken ladder stages still flagged",
+ "xlabel": "Weight statistic",
+ "ylabel": "Survival fraction",
+ "categories": [
+  "W01",
+  "W02",
+  "W03",
+  "W04",
+  "W05",
+  "W05q10"
+ ],
+ "series": [
+  {
+   "values": [
+    0.5882352941176471,
+    0.6470588235294118,
+    0.5882352941176471,
+    0.5,
+    0.5588235294117647,
+    0.5588235294117647
+   ]
+  }
+ ]
+}

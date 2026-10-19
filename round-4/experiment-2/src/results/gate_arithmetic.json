@@ -1,0 +1,33 @@
+{
+ "n": 216,
+ "max_abs_delta_W05": 0.0072769502724812085,
+ "mean_abs_delta_W05": 0.0002882203306529018,
+ "by_source": {
+  "scan": {
+   "n": 180,
+   "max_abs_delta": 8.881784197001252e-16,
+   "median_abs_delta": 0.0
+  },
+  "root.json": {
+   "n": 2,
+   "max_abs_delta": 0.006648802729625203,
+   "median_abs_delta": 0.003324899978210838
+  },
+  "ladder": {
+   "n": 34,
+   "max_abs_delta": 0.0072769502724812085,
+   "median_abs_delta": 0.00023940872985983574
+  }
+ },
+ "primary_source": "scan",
+ "tolerance": 1e-06,
+ "max_abs_delta_W05_scan": 8.881784197001252e-16,
+ "PASS": true,
+ "note": "pure arithmetic: W05 = log10(min(e_v1)) recomputed from the per-matrix energies the archive stored; zero downloads, zero re-decoding, so any delta on the PRIMARY source (scan.jsonl, full precision) is a bookkeeping error, not dtype drift.",
+ "ladder_root_caveat": "ladder.jsonl and root.json store e_v1 ROUNDED TO TWO SIGNIFICANT FIGURES (values such as 2.7e-05), so their deltas are a storage-precision artefact and are reported separately rather than folded into the gate.",
+ "n_by_source": {
+  "scan": 180,
+  "root.json": 2,
+  "ladder": 34
+ }
+}

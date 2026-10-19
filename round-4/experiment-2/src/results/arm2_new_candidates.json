@@ -1,0 +1,932 @@
+{
+ "n_candidates_prefiltered": 1403,
+ "n_config_checked": 240,
+ "n_eligible": 178,
+ "n_excluded": 62,
+ "excluded_sample": [
+  {
+   "repo_id": "LongSafari/hyenadna-tiny-1k-seqlen-hf",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1",
+    "E5"
+   ],
+   "undecidable": [],
+   "n_layers": 2,
+   "hidden_size": 128,
+   "params_index": 450712.0,
+   "params_from_bytes": 904596.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 1809192,
+   "model_type": "hyenadna",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1247
+  },
+  {
+   "repo_id": "h2oai/llama2-0b-unit-test",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1",
+    "E2",
+    "E5"
+   ],
+   "undecidable": [],
+   "n_layers": 2,
+   "hidden_size": 12,
+   "params_index": 770940.0,
+   "params_from_bytes": 1542976.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 3085952,
+   "model_type": "llama",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1326
+  },
+  {
+   "repo_id": "Oxpose/Soma-1M",
+   "eligible": false,
+   "primary_reason": null,
+   "all_reasons": [],
+   "undecidable": [
+    "E1"
+   ],
+   "n_layers": null,
+   "hidden_size": 256,
+   "params_index": 903936.0,
+   "params_from_bytes": 1809368.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 3618736,
+   "model_type": "gemma3",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1528
+  },
+  {
+   "repo_id": "SimpleStories/SimpleStories-1.25M",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 4,
+   "hidden_size": 128,
+   "params_index": 1245824.0,
+   "params_from_bytes": 2493672.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 4987344,
+   "model_type": "llama",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1264
+  },
+  {
+   "repo_id": "np-cr/testing-qwen3",
+   "eligible": false,
+   "primary_reason": "E2",
+   "all_reasons": [
+    "E2"
+   ],
+   "undecidable": [],
+   "n_layers": 28,
+   "hidden_size": 16,
+   "params_index": 2496624.0,
+   "params_from_bytes": 2513032.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 5026064,
+   "model_type": "qwen3",
+   "stratum": "non_declaring_chat",
+   "scan_rank": 588
+  },
+  {
+   "repo_id": "cosmo3769/tiny-mistral-test",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1",
+    "E2",
+    "E5"
+   ],
+   "undecidable": [],
+   "n_layers": 1,
+   "hidden_size": 32,
+   "params_index": 2055264.0,
+   "params_from_bytes": 4111152.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 8222304,
+   "model_type": "mistral",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1380
+  },
+  {
+   "repo_id": "np-cr/testing-qwen3-moe",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1",
+    "E2",
+    "E5"
+   ],
+   "undecidable": [],
+   "n_layers": 2,
+   "hidden_size": 16,
+   "params_index": 5158624.0,
+   "params_from_bytes": 5161108.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 10322216,
+   "model_type": "qwen3_moe",
+   "stratum": "non_declaring_chat",
+   "scan_rank": 185
+  },
+  {
+   "repo_id": "rgeada/tiny-untrained-granite",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1",
+    "E2",
+    "E5"
+   ],
+   "undecidable": [],
+   "n_layers": 1,
+   "hidden_size": 64,
+   "params_index": 6309952.0,
+   "params_from_bytes": 6310584.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 12621168,
+   "model_type": "granite",
+   "stratum": "non_declaring_chat",
+   "scan_rank": 705
+  },
+  {
+   "repo_id": "np-cr/testing-gpt-oss",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1",
+    "E2",
+    "E5"
+   ],
+   "undecidable": [],
+   "n_layers": 2,
+   "hidden_size": 16,
+   "params_index": 6443200.0,
+   "params_from_bytes": 6445164.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 12890328,
+   "model_type": "gpt_oss",
+   "stratum": "non_declaring_chat",
+   "scan_rank": 235
+  },
+  {
+   "repo_id": "explosion-testing/llama2-kv-sharing",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 5,
+   "hidden_size": 256,
+   "params_index": 3312544.0,
+   "params_from_bytes": 6627924.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 13255848,
+   "model_type": "llama",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1240
+  },
+  {
+   "repo_id": "LongSafari/hyenadna-small-32k-seqlen-hf",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 4,
+   "hidden_size": 256,
+   "params_index": 4069168.0,
+   "params_from_bytes": 8144608.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 16289216,
+   "model_type": "hyenadna",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1259
+  },
+  {
+   "repo_id": "Jiqing/tiny_random_falcon",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1",
+    "E2",
+    "E5"
+   ],
+   "undecidable": [],
+   "n_layers": 2,
+   "hidden_size": 64,
+   "params_index": 4252032.0,
+   "params_from_bytes": 8504856.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 17009712,
+   "model_type": "falcon",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1547
+  },
+  {
+   "repo_id": "bigscience/bigscience-small-testing",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1",
+    "E2",
+    "E5"
+   ],
+   "undecidable": [],
+   "n_layers": 2,
+   "hidden_size": 64,
+   "params_index": 16156544.0,
+   "params_from_bytes": 16157918.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 32315836,
+   "model_type": "bloom",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1265
+  },
+  {
+   "repo_id": "EleutherAI/pythia-14m-deduped",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 128,
+   "params_index": 39233560.0,
+   "params_from_bytes": 26655886.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 53311772,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1257
+  },
+  {
+   "repo_id": "Xenova/llama2.c-stories15M",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 288,
+   "params_index": 15191712.0,
+   "params_from_bytes": 30386484.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 60772968,
+   "model_type": "llama",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1237
+  },
+  {
+   "repo_id": "EleutherAI/pythia-31m",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 256,
+   "params_index": 30494720.0,
+   "params_from_bytes": 30498980.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 60997960,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1244
+  },
+  {
+   "repo_id": "EleutherAI/pythia-31m-deduped",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 256,
+   "params_index": 55660568.0,
+   "params_from_bytes": 43082906.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 86165812,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1378
+  },
+  {
+   "repo_id": "afmck/testing-llama-tiny",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 5,
+   "hidden_size": 512,
+   "params_index": 22001152.0,
+   "params_from_bytes": 44004904.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 88009808,
+   "model_type": "llama",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1302
+  },
+  {
+   "repo_id": "ollieturnbull/p-IgGen",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 4,
+   "hidden_size": 768,
+   "params_index": 22097408.0,
+   "params_from_bytes": 44197708.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 88395416,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1328
+  },
+  {
+   "repo_id": "ollieturnbull/p-IgGen-developable",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 4,
+   "hidden_size": 768,
+   "params_index": 22097408.0,
+   "params_from_bytes": 44197708.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 88395416,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1668
+  },
+  {
+   "repo_id": "nm-testing/llama2.c-stories15M",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 288,
+   "params_index": 24407712.0,
+   "params_from_bytes": 48818512.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 97637024,
+   "model_type": "llama",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1280
+  },
+  {
+   "repo_id": "kaushik-harsh-99/SmolLM-135M-Maths-SFT",
+   "eligible": false,
+   "primary_reason": "E6",
+   "all_reasons": [
+    "E6"
+   ],
+   "undecidable": [],
+   "n_layers": 30,
+   "hidden_size": 576,
+   "params_index": 134515584.0,
+   "params_from_bytes": 55940458.5,
+   "widest_dtype_bytes": 2,
+   "bytes": 111880917,
+   "model_type": "llama",
+   "stratum": "non_declaring_chat",
+   "scan_rank": 877
+  },
+  {
+   "repo_id": "Felladrin/Pythia-31M-Chat-v1",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 256,
+   "params_index": 30494720.0,
+   "params_from_bytes": 60993772.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 121987544,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_chat",
+   "scan_rank": 776
+  },
+  {
+   "repo_id": "pszemraj/pythia-31m-goodwiki-deduped-2048-scratch",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 256,
+   "params_index": 30494744.0,
+   "params_from_bytes": 60994164.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 121988328,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1709
+  },
+  {
+   "repo_id": "pszemraj/pythia-31m-simplepile-lite-2048-scratch-2e",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 256,
+   "params_index": 30494744.0,
+   "params_from_bytes": 60994164.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 121988328,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1715
+  },
+  {
+   "repo_id": "pszemraj/pythia-31m-simplewiki-2048",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 256,
+   "params_index": 30494744.0,
+   "params_from_bytes": 60994164.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 121988328,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1724
+  },
+  {
+   "repo_id": "pszemraj/pythia-31m-KI_v1-2048-scratch",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 256,
+   "params_index": 30494744.0,
+   "params_from_bytes": 60994164.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 121988328,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1725
+  },
+  {
+   "repo_id": "lomahony/pythia-70m-helpful-sft",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 512,
+   "params_index": 70426672.0,
+   "params_from_bytes": 70431396.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 140862792,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_chat",
+   "scan_rank": 538
+  },
+  {
+   "repo_id": "google/gemma-4-E2B-it-assistant",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 4,
+   "hidden_size": 256,
+   "params_index": 77993476.0,
+   "params_from_bytes": 78782672.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 157565344,
+   "model_type": "gemma4_text",
+   "stratum": "non_declaring_chat",
+   "scan_rank": 256
+  },
+  {
+   "repo_id": "google/gemma-4-E4B-it-assistant",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 4,
+   "hidden_size": 256,
+   "params_index": 78779908.0,
+   "params_from_bytes": 79569104.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 159138208,
+   "model_type": "gemma4_text",
+   "stratum": "non_declaring_chat",
+   "scan_rank": 114
+  },
+  {
+   "repo_id": "Goekdeniz-Guelmez/Dots1-Dev",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 4,
+   "hidden_size": 128,
+   "params_index": 40701068.0,
+   "params_from_bytes": 81407216.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 162814432,
+   "model_type": "dots1",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1565
+  },
+  {
+   "repo_id": "concedo/Pythia-70M-ChatSalad",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 512,
+   "params_index": 95565872.0,
+   "params_from_bytes": 82988300.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 165976600,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_chat",
+   "scan_rank": 970
+  },
+  {
+   "repo_id": "EleutherAI/pythia-70m-v0",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 512,
+   "params_index": 95592496.0,
+   "params_from_bytes": 83014923.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 166029846,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1400
+  },
+  {
+   "repo_id": "EleutherAI/pythia-70m-deduped-v0",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 512,
+   "params_index": 95592496.0,
+   "params_from_bytes": 83014926.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 166029852,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1388
+  },
+  {
+   "repo_id": "marin-dna/marin-dna-scaling-v0.5-h640-p46M",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 7,
+   "hidden_size": 640,
+   "params_index": 45895552.0,
+   "params_from_bytes": 91795460.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 183590920,
+   "model_type": "qwen3",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1365
+  },
+  {
+   "repo_id": "double7/vicuna-68m",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1",
+    "E5"
+   ],
+   "undecidable": [],
+   "n_layers": 2,
+   "hidden_size": 768,
+   "params_index": 68030208.0,
+   "params_from_bytes": 136061572.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 272123144,
+   "model_type": "llama",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1282
+  },
+  {
+   "repo_id": "mlabonne/chesspythia-70m",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 512,
+   "params_index": 70426624.0,
+   "params_from_bytes": 140857588.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 281715176,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1433
+  },
+  {
+   "repo_id": "mia-llm/pythia-70m-AGnews-roya",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 512,
+   "params_index": 70426624.0,
+   "params_from_bytes": 140857588.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 281715176,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1673
+  },
+  {
+   "repo_id": "InoWouw/Baby-LM-GPT-2B",
+   "eligible": false,
+   "primary_reason": null,
+   "all_reasons": [],
+   "undecidable": [
+    "E1",
+    "E2"
+   ],
+   "n_layers": null,
+   "hidden_size": null,
+   "params_index": 70426624.0,
+   "params_from_bytes": 140857588.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 281715176,
+   "model_type": null,
+   "stratum": "non_declaring_base",
+   "scan_rank": 1676
+  },
+  {
+   "repo_id": "lamini/lamini_docs_finetuned",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 512,
+   "params_index": 70426672.0,
+   "params_from_bytes": 140858028.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 281716056,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1415
+  },
+  {
+   "repo_id": "HWERI/pythia-70m-deduped-cleansharegpt",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 512,
+   "params_index": 70426672.0,
+   "params_from_bytes": 140858028.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 281716056,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1694
+  },
+  {
+   "repo_id": "BreadAi/StoryPy",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 512,
+   "params_index": 95592496.0,
+   "params_from_bytes": 153441604.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 306883208,
+   "model_type": "gpt_neox",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1714
+  },
+  {
+   "repo_id": "prithivMLmods/Deepfake-Quality-Classifier2-SigLIP2",
+   "eligible": false,
+   "primary_reason": null,
+   "all_reasons": [],
+   "undecidable": [
+    "E1",
+    "E2"
+   ],
+   "n_layers": null,
+   "hidden_size": null,
+   "params_index": 92885762.0,
+   "params_from_bytes": 185783996.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 371567992,
+   "model_type": "siglip_text_model",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1462
+  },
+  {
+   "repo_id": "prithivMLmods/Deepfake-Quality-Classifier-SigLIP2",
+   "eligible": false,
+   "primary_reason": null,
+   "all_reasons": [],
+   "undecidable": [
+    "E1",
+    "E2"
+   ],
+   "n_layers": null,
+   "hidden_size": null,
+   "params_index": 92885762.0,
+   "params_from_bytes": 185783996.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 371567992,
+   "model_type": "siglip_text_model",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1486
+  },
+  {
+   "repo_id": "prithivMLmods/Deepfake-Real-Class-Siglip2",
+   "eligible": false,
+   "primary_reason": null,
+   "all_reasons": [],
+   "undecidable": [
+    "E1",
+    "E2"
+   ],
+   "n_layers": null,
+   "hidden_size": null,
+   "params_index": 92885762.0,
+   "params_from_bytes": 185783996.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 371567992,
+   "model_type": "siglip_text_model",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1575
+  },
+  {
+   "repo_id": "prithivMLmods/Deepfake-Quality-Assess-Siglip2",
+   "eligible": false,
+   "primary_reason": null,
+   "all_reasons": [],
+   "undecidable": [
+    "E1",
+    "E2"
+   ],
+   "n_layers": null,
+   "hidden_size": null,
+   "params_index": 92885762.0,
+   "params_from_bytes": 185783996.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 371567992,
+   "model_type": "siglip_text_model",
+   "stratum": "non_declaring_base",
+   "scan_rank": 1587
+  },
+  {
+   "repo_id": "alpindale/Qwen2.5-0.2B",
+   "eligible": false,
+   "primary_reason": "E1",
+   "all_reasons": [
+    "E1"
+   ],
+   "undecidable": [],
+   "n_layers": 6,
+   "hidden_size": 896,
+   "params_index": 225609856.0,
+   "params_from_bytes": 225613956.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 451227912,
+   "model_type": "qwen2",
+   "stratum": "non_declaring_chat",
+   "scan_rank": 513
+  },
+  {
+   "repo_id": "google/gemma-3-270m-it",
+   "eligible": false,
+   "primary_reason": null,
+   "all_reasons": [],
+   "undecidable": [
+    "E1",
+    "E2"
+   ],
+   "n_layers": null,
+   "hidden_size": null,
+   "params_index": 268098176.0,
+   "params_from_bytes": 268111528.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 536223056,
+   "model_type": null,
+   "stratum": "non_declaring_chat",
+   "scan_rank": 83
+  },
+  {
+   "repo_id": "google/functiongemma-270m-it",
+   "eligible": false,
+   "primary_reason": null,
+   "all_reasons": [],
+   "undecidable": [
+    "E1",
+    "E2"
+   ],
+   "n_layers": null,
+   "hidden_size": null,
+   "params_index": 268098176.0,
+   "params_from_bytes": 268111528.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 536223056,
+   "model_type": null,
+   "stratum": "non_declaring_chat",
+   "scan_rank": 147
+  },
+  {
+   "repo_id": "google/gemma-3-270m-it-qat-q4_0-unquantized",
+   "eligible": false,
+   "primary_reason": null,
+   "all_reasons": [],
+   "undecidable": [
+    "E1",
+    "E2"
+   ],
+   "n_layers": null,
+   "hidden_size": null,
+   "params_index": 268098176.0,
+   "params_from_bytes": 268111528.0,
+   "widest_dtype_bytes": 2,
+   "bytes": 536223056,
+   "model_type": null,
+   "stratum": "non_declaring_chat",
+   "scan_rank": 741
+  }
+ ]
+}

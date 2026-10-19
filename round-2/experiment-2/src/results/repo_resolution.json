@@ -1,0 +1,86 @@
+{
+ "Qwen/Qwen3-0.6B-Base": {
+  "ok": true,
+  "sha": "da87bfb608c14b7cf20ba1ce41287e8de496c0cd",
+  "gated": false,
+  "manifest_rev": "da87bfb608c14b7cf20ba1ce41287e8de496c0cd"
+ },
+ "Qwen/Qwen3-0.6B": {
+  "ok": true,
+  "sha": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "gated": false,
+  "manifest_rev": "c1899de289a04d12100db370d81485cdf75e47ca"
+ },
+ "huihui-ai/Huihui-Qwen3-0.6B-abliterated-v2": {
+  "ok": true,
+  "sha": "0b07fe64bac9f656135b4f79d9cc6a19ef9d98f9",
+  "gated": false,
+  "manifest_rev": "0b07fe64bac9f656135b4f79d9cc6a19ef9d98f9"
+ },
+ "unsloth/Llama-3.2-1B": {
+  "ok": true,
+  "sha": "9535bd9b1d1dea6acafbdc4813b728796aeb28da",
+  "gated": false,
+  "manifest_rev": "9535bd9b1d1dea6acafbdc4813b728796aeb28da"
+ },
+ "unsloth/Llama-3.2-1B-Instruct": {
+  "ok": true,
+  "sha": "5a8abab4a5d6f164389b1079fb721cfab8d7126c",
+  "gated": false,
+  "manifest_rev": "5a8abab4a5d6f164389b1079fb721cfab8d7126c"
+ },
+ "huihui-ai/Llama-3.2-1B-Instruct-abliterated": {
+  "ok": true,
+  "sha": "4825c61c1de52baf477aae63c7651ff40fbfcf0c",
+  "gated": false,
+  "manifest_rev": "4825c61c1de52baf477aae63c7651ff40fbfcf0c"
+ },
+ "Qwen/Qwen3-1.7B-Base": {
+  "ok": true,
+  "sha": "ea980cb0a6c2ae4b936e82123acc929f1cec04c1",
+  "gated": false,
+  "manifest_rev": "ea980cb0a6c2ae4b936e82123acc929f1cec04c1"
+ },
+ "Qwen/Qwen3-1.7B": {
+  "ok": true,
+  "sha": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "gated": false,
+  "manifest_rev": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e"
+ },
+ "huihui-ai/Huihui-Qwen3-1.7B-abliterated-v2": {
+  "ok": true,
+  "sha": "4462327af009cd482a6b308b67ec9b3a6eeb006a",
+  "gated": false,
+  "manifest_rev": "4462327af009cd482a6b308b67ec9b3a6eeb006a"
+ },
+ "UnfilteredAI/DAN-Qwen3-1.7B": {
+  "ok": true,
+  "sha": "1c158077ff02ff70cb4837898c15cadd47d4f158",
+  "gated": false,
+  "manifest_rev": "1c158077ff02ff70cb4837898c15cadd47d4f158"
+ },
+ "Qwen/Qwen3-4B-Base": {
+  "ok": true,
+  "sha": "906bfd4b4dc7f14ee4320094d8b41684abff8539",
+  "gated": false,
+  "manifest_rev": "906bfd4b4dc7f14ee4320094d8b41684abff8539"
+ },
+ "Qwen/Qwen3-4B": {
+  "ok": true,
+  "sha": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "gated": false,
+  "manifest_rev": "1cfa9a7208912126459214e8b04321603b3df60c"
+ },
+ "Qwen/Qwen3-4B-SafeRL": {
+  "ok": true,
+  "sha": "1b95ccb88cabaf284ffb6968719c40ae6cd4085b",
+  "gated": false,
+  "manifest_rev": null
+ },
+ "Goekdeniz-Guelmez/Josiefied-Qwen3-4B-Instruct-2507-gabliterated-v2": {
+  "ok": true,
+  "sha": "c7baaa8a4351e1dedd1a016dcc4a269b5522602e",
+  "gated": false,
+  "manifest_rev": "c7baaa8a4351e1dedd1a016dcc4a269b5522602e"
+ }
+}

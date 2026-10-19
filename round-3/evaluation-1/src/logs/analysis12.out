@@ -1,9 +1,0 @@
-22:32:15|INFO   |analysis 1 over ['instruct_0p6', 'base_0p6', 'abliterated_0p6', 'instruct_1p7', 'base_1p7', 'abliterated_1p7']
-22:32:26|INFO   |[instruct_0p6] powered=True nR=382 nC=1010 AUROC A=0.662 B=0.510 dAB=+0.152
-22:32:35|INFO   |[base_0p6] powered=True nR=138 nC=887 AUROC A=0.612 B=0.538 dAB=+0.074
-22:32:45|INFO   |[abliterated_0p6] powered=True nR=125 nC=1228 AUROC A=0.495 B=0.557 dAB=-0.062
-22:32:53|INFO   |[instruct_1p7] powered=True nR=308 nC=842 AUROC A=0.790 B=0.386 dAB=+0.404
-22:33:00|INFO   |[base_1p7] powered=True nR=132 nC=924 AUROC A=0.623 B=0.602 dAB=+0.021
-22:33:07|INFO   |[abliterated_1p7] powered=True nR=70 nC=1119 AUROC A=0.486 B=0.492 dAB=-0.006
-22:33:07|INFO   |verdict: MIXED :: 2/6 powered checkpoints have upper CI(A-B) <= 0.1; 2/6 have A-B > 0.1 with CI excluding 0; 4/6 have both null axes at chance
-22:33:50|INFO   |matched-contrast verdict: NORM_MISMATCH_DOES_NOT_EXPLAIN

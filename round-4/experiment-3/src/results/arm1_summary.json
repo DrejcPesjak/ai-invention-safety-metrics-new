@@ -1,0 +1,40 @@
+{
+  "framing": {
+    "question": "was the archived int4 W05 = -1.946 computed on PACKED 4-bit blobs or on already-DEQUANTIZED tensors?",
+    "answer": "ALREADY DEQUANTIZED",
+    "evidence": [
+      "archive lib_ablate.quant_sd is a FAKE-QUANT: it computes Q = round(W/s)*s and writes `o[a:b] = Q.to(v.dtype)`, i.e. the rounded values are stored back in the model's own bf16 dtype; no packed tensor ever exists",
+      "the archived pipeline then calls lib_score.abl_weights on that plain bf16 state_dict via the live nn.Linear modules -- there is no dequantization step left to perform",
+      "consequently the archived c_int4 row already IS the dequantized measurement"
+    ],
+    "consequence": "plain dequantization cannot restore the scar, because it recovers the ROUNDED values and not the original ones. The proposed remedy is therefore VOID AS STATED, and ARM 1 runs the substantive version: bit-width sweep, per-layer energy profile, eigenvector rotation, and the noise-floor-relative statistic W05rel.",
+    "archived_int4_W05": -1.9461383325253676,
+    "archived_root_W05": -4.591675454758807,
+    "TAU": -2.7415117804288127
+  },
+  "verdict_arm1": "SCAR_STAYS_GONE",
+  "verdict_meaning": {
+    "SCAR_RETURNS": "W05 back below TAU after dequantization -- dequantization would be a PREPROCESSING REQUIREMENT, not a limitation",
+    "SCAR_PARTIALLY_RETURNS": "the ABSOLUTE statistic stays dead but the noise-floor-relative statistic W05rel still separates quantized-abliterated from quantized-clean -- the limitation shrinks to 'score the ratio, not the absolute'",
+    "SCAR_STAYS_GONE": "4-bit rounding genuinely destroys the null direction; neither the absolute nor the relative statistic recovers it"
+  },
+  "bnb_crosscheck": {
+    "nf4": {
+      "W01_abl_suppression_depth": 2.063154745553202,
+      "W02_abl_direction_consistency": 1.0,
+      "W03_abl_gap_vs_random": 2.047002569298914,
+      "W04_abl_isolation": 1.3877682005875516,
+      "W05_abl_min_layer_energy": -2.126187786030245,
+      "W05q10_abl_p10_layer_energy": -2.111830555089815
+    },
+    "fp4": {
+      "W01_abl_suppression_depth": 1.8052628079271966,
+      "W02_abl_direction_consistency": 1.0,
+      "W03_abl_gap_vs_random": 1.7893868379351843,
+      "W04_abl_isolation": 1.1354086340500604,
+      "W05_abl_min_layer_energy": -1.894803454989284,
+      "W05q10_abl_p10_layer_energy": -1.855144406853901
+    }
+  },
+  "elapsed_s": 144.52057147026062
+}

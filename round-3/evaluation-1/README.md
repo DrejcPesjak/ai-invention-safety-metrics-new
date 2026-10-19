@@ -1,37 +1,32 @@
-# Re-checking whether a refusal direction really reads refusal
+# Recomputing every number the paper quotes
 
 `demo/` — Self-contained demo (Colab-ready notebook or markdown). Run without setup.  
 `src/` — Full source code, data, and outputs from the experiment execution.
 
 **Type:** evaluation  
-**ID:** `art_SVp6BHC9m27h`
+**ID:** `art_0T8jhUa0zxmu`
 
 ## Layman Summary
 
-Re-tests the paper's key claim by scoring its refusal directions on text the models actually wrote, instead of on eight hand-written sentences that every direction got a perfect score on.
+Re-derives every statistic the paper reports straight from the archived data in one reproducible script, then checks each one against what the draft actually says and lists every disagreement.
 
 ## Full Summary
 
-EVALUATION of the iteration-2 lexicality verdict, run as pure re-analysis of archived artifacts plus a forward-pass-only re-encode of already-logged text (no sampling, no new steered generation, no training). Six Qwen3 checkpoints (0.6B/1.7B x base/instruct/abliterated), pinned to the archived revision SHAs, bf16, one RTX A4500. OpenRouter spend $0.19 of a $1.50 cap. Pre-registration stamped BEFORE any AUROC (results/prereg_eval.json, 3 amendments each with when_decided).
+PURE RE-ANALYSIS of the archived iteration-2 trees. No weights loaded, no forward passes, no text generated; the only outbound compute is cached LLM re-labelling of already-archived generations ($0.1703 of the $0.90 cap, 2,865/2,866 items, rerun costs $0). `uv run eval.py` -> analysis.py (2,230 lines) in 547 s on 48 cores; numbers.json is BYTE-IDENTICAL across two runs (timings stripped); eval_out.json + full/mini/preview all pass exp_eval_sol_out.
 
-CRITICAL PRE-FLIGHT: axis vectors are not stored on disk, so all axes (A canned / B token-disjoint paraphrase / C norm-matched stylistic / D random / E prompt-contrast) were re-derived by re-running the archived fit code. V2 gate = STRICT_FAIL_SUBSTANTIVE_PASS: worst deviation from the archived summary statistics is 5.3e-3 relative (pre-registered gate 1e-3), while re-derivation is bit-exact WITHIN this run (self-delta 0.0), so the residual is a cross-run device difference (archive: RTX 4000 Ada; here: A4500), and the re-derived canned axis has cosine 0.9992 with an independently fitted float32 axis from the breadth panel. Random axes reproduce exactly from their stored seeds.
+HEADLINE FINDING. Four values the draft presents as CORRELATIONS -- A01 -0.161 [-0.501,+0.208], A02 +0.036 [-0.225,+0.303], W01 -0.373 [-0.731,-0.039], alpha_50 -0.453 -- are in fact PAIRED DIFFERENCES |rho_X|-|rho_B09| computed on a 26-member `renderer=='chatml'` subset, NOT the 28-member `member_class != 'base'` subset the draft states. Identified because B09's quoted +0.766 reproduces to 1e-4 on that subset and on none of 16 other (subset, target, unit) conventions; all four quoted |rho| (0.802/0.819 vs 0.766/0.852) reproduce there to <4e-4. Read as correlations they are wrong by up to 0.67 and one has the wrong sign; read correctly, A01/A02/W01 match to four decimals (alpha_50 does not, n=7). The arithmetic was never wrong -- the LABELS were, and no artifact recorded either the quantity or the subset. The falsifier is re-run on the draft's own subset: verdict UNCHANGED on both.
 
-HEADLINE, NOT ANTICIPATED BY THE BINARY RULE: the archived 'held-out AUROC 1.000' certificate over-stated axis A as well as axis B. On 7,241 re-encoded, AB-blind, model-generated items (stratum-centred projections, first-generated-token position, prompt-clustered bootstrap, n=2000), the canned axis A reaches only AUROC 0.486-0.790 -- CI excludes chance on 4 of 6 checkpoints, clears the whole [0.40,0.60] band on 1 (instruct_1p7), and sits AT CHANCE on both abliterated members. Axis B spans 0.386-0.602. Pre-registered lexicality verdict = MIXED (2/6 have upper CI(A-B) <= 0.10; 2/6 have A-B > 0.10 with CI excluding 0). Holm-adjusted p: instruct_0p6 and instruct_1p7 0.003, rest >= 0.10. Weak-estimate hypothesis directly falsified: R^2(s_B on s_A) <= 0.036 and the residual AUROC stays near chance, so B is not a scaled noisy copy of A. The stylistic control is not merely at chance -- on 4 checkpoints its CI lies entirely BELOW 0.5 (refusals score LOW on formal register) while it still induces 0.00 refusal when steered.
+TWO MORE CORRECTIONS. (1) B09 is NOT the best black-box metric: B08_first_token_entropy_asymmetry |rho| 0.782 beats it at lineage level, B01 0.708 at member level; B09 is the in-resample argmax in only 11.2%/14.4% of resamples; selection optimism +0.182. (2) W05's 'AUROC 1.000' is the ORIENTED value -- raw AUROC is 0.000 because abliterated members sit LOW -- and W01/W03/W04 give 0.9861, W02 0.9497 with 21 tied pairs. Separating margin 0.0763 log10 (allenai/OLMo-1B-hf -2.665 vs huihui Qwen2.5-0.5B -2.742); OLMo is a ONE-MEMBER family. The draft's 'abliterated minimum -2.742' is the abliterated MAXIMUM (true min -4.820).
 
-MATCHED-CONTRAST (the reviewer's decisive quantity): steering convention extracted from the archived hook (h_L += alpha*NORM_L*x_hat), so c = alpha*NORM_L/raw_norm_X. A crosses 50% refusal at 0.91-1.57 contrast units; B is driven to 14.2-16.3 contrast units and tops out at 0.07-0.30. At MATCHED contrast units A stays above B by +0.36 to +0.61 with CIs excluding 0 on 6/6 -> NORM_MISMATCH_DOES_NOT_EXPLAIN. Every axis shows an inverted U; B's ceiling is not explained by fluency collapse on 5/6.
+ARMS. POWER: minimum detectable |drho| = 0.32 at n=19 lineages (2,000 sims x B=2,000); ~150 lineages needed at delta 0.20, 50 at 0.30, unreachable at 0.10; falsifier_could_have_failed=True. RELIABILITY: split-half Spearman-Brown r_xx = 0.968, so attenuation correction is a factor of 1.016 -- the negative is NOT an attenuation artefact (and a common factor cannot reorder anything, stated rather than sold as survival). Independent adjudicator 6/6 on the hand-labelled set, kappa 0.403 vs the regex screen (regex refusal share 0.19 vs judge 0.43), checkpoint-level Spearman 0.927 vs the archived llama-3.3-70b rates; item-level judge-vs-judge kappa is UNRECOMPUTABLE (E1 kept rates only). DEPTH: PARTIAL -- only auroc_profile and margin_profile are archived per depth; nothing beats B09 at any reachable depth. PRE-REGISTRATION: 4 SUPPORTED / 2 PLAN-ONLY / 6 UNSUPPORTED (metric_spec.py sha 544ff994 stamps 53 metrics and NOTHING else -- no falsifier, exclusion rule, bootstrap spec, candidate list or B09 baseline; rubric B was written after rubric A failed; the blanket-refuser and split-seed rules belong to the DATASET artifact and ARE pre-specified). DISAGREEMENTS: 54 checked -> 32 MATCH, 20 RECOMPUTE_DIFFERS_METHOD, 2 TRANSCRIPTION_ERROR.
 
-SEMANTIC SCORING: re-scored with the repaired four-class judge, B crosses 0.5 on every checkpoint (PARTIAL_REVERSAL_UNDER_SEMANTIC_SCORING) -- but the clean controls (C, D), which induce 0.00 refusal under the regex, themselves draw judge REFUSAL rates up to 0.80, and a five-class rubric with an explicit non-canonical-refusal class puts most of B's high-alpha text in DEGENERATE (mean 0.711 vs 0.285 refusal of any wording; A: 0.667 refusal / 0.333 degenerate). Adjudicated verdict: REVERSAL_CONFOUNDED_BY_DEGENERACY. Judge sensitivity 0.688 / specificity 0.804 for REFUSAL against the blind-adjudicated audit truth; attenuation-corrected column ships alongside.
-
-GATES: V1 leakage 0 overlapping items on all six; V3 re-encoded refusal-logit margin reproduces the archived r_t_first at Pearson >= 0.9975 (fixed by concatenating token IDS rather than strings -- string concatenation let BPE merge across the prompt/completion boundary on up to 450/1028 plain-rendered base items); V4 all six powered (>= 40/class); V5 Holm; V7 accounting: 33,135 scanned -> 27,758 kept -> 7,241 re-encoded; V8 provenance map of 71 numbers with an EXECUTED assertion that no number in the deliverable prose is untraceable.
-
-SHIPPED: eval.py (7-stage orchestrator) + eval_lib/gpu_stage/analysis12/judge_stage/analysis34/assemble/figures, eval_out.json (exp_eval_sol_out validated; 330 examples over four datasets), results/{prereg_eval,provenance,analysis1-4,encode_*,axes/,proj/}, results/lexicality_subsection.md (drop-in paper subsection), results/b_axis_examples.md (40 verbatim boundary examples), 5 regenerated figures, pinned pyproject.toml.
+ALSO CORRECTED: W03 uses 256 random directions (lib_metrics.py:105), not 64; the behaviour arm is 28 members over 19 lineages, not 18; renderer values are 'chatml'/'plain' (26/18) and that partition DISAGREES with member_class on 2 members; battery.jsonl matches method_out.json long_table row-for-row (61 nulls differ only in encoding); 9-of-23 singleton lineages CONFIRMED. numbers.json ships the full class-wise [n, median, min, max] for every member_class x metric (the overlaps the abliterated-only column hides), the boundary families, the positive-control disambiguation (instruct 0.6239 vs base 0.6281), and a note that THREE unrelated quantities round to 4.82.
 
 ## Dependencies
 
-- `art_r3PqOtpvcIsK` — reanalysis
-- `art_sabuvuJ8P3Wy` — reanalysis
-- `art_gYmQllaTCGT5` — scorer
-- `art_CKWQh2cOQLLQ` — dataset
+- `art_xyUlckdGtbjc` — reanalyzes
+- `art_CbL-EUQlwgfw` — reanalyzes
+- `art_BCxIq6GX4WIw` — reference
 
 ## Output Files
 

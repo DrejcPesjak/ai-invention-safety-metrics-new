@@ -1,0 +1,357 @@
+{
+  "A": {
+    "host": "Qwen/Qwen3-1.7B",
+    "kind": "uniform_all_layer",
+    "source": "rebuilt from the archived iteration-3 recipe",
+    "l_star": 18,
+    "gate": {
+      "GATE_PASS_WEIGHTS": true,
+      "GATE_PASS_LADDER": false,
+      "GATE_PASS_BEHAVIOUR": true
+    }
+  },
+  "B": {
+    "host": "Qwen/Qwen3-1.7B",
+    "kind": "depth_weighted_gaussian",
+    "selection": {
+      "l_peak_rel": 0.5,
+      "sigma_rel": 0.15,
+      "scale": 1.0,
+      "dev10_regex_refusal": 0.0,
+      "dev10_distinct3": 1.0,
+      "fluency_ok": true,
+      "kernel_weight_sum": 10.518297133243022,
+      "kernel_effective_layers": 19
+    },
+    "kernel": [
+      0.0038659201394728076,
+      0.008310384238421129,
+      0.01687988414878991,
+      0.03239648935097407,
+      0.05874982408963055,
+      0.10066889977289781,
+      0.16299121800184546,
+      0.24935220877729622,
+      0.360447788597821,
+      0.4923247200732052,
+      0.6353909887688034,
+      0.7748374288832494,
+      0.8928125015622331,
+      0.9720532702866082,
+      1.0,
+      0.9720532702866082,
+      0.8928125015622331,
+      0.7748374288832494,
+      0.6353909887688034,
+      0.4923247200732052,
+      0.360447788597821,
+      0.24935220877729622,
+      0.16299121800184546,
+      0.10066889977289781,
+      0.05874982408963055,
+      0.03239648935097407,
+      0.01687988414878991,
+      0.008310384238421129
+    ],
+    "sweep": [
+      {
+        "l_peak_rel": 0.5,
+        "sigma_rel": 0.15,
+        "scale": 1.0,
+        "dev10_regex_refusal": 0.0,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "kernel_weight_sum": 10.518297133243022,
+        "kernel_effective_layers": 19
+      },
+      {
+        "l_peak_rel": 0.5,
+        "sigma_rel": 0.15,
+        "scale": 1.3,
+        "dev10_regex_refusal": 0.0,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "kernel_weight_sum": 12.510557951312496,
+        "kernel_effective_layers": 19
+      },
+      {
+        "l_peak_rel": 0.5,
+        "sigma_rel": 0.25,
+        "scale": 1.0,
+        "dev10_regex_refusal": 0.0,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "kernel_weight_sum": 16.741589850848506,
+        "kernel_effective_layers": 28
+      },
+      {
+        "l_peak_rel": 0.5,
+        "sigma_rel": 0.25,
+        "scale": 1.3,
+        "dev10_regex_refusal": 0.0,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "kernel_weight_sum": 19.79965933204783,
+        "kernel_effective_layers": 28
+      },
+      {
+        "l_peak_rel": 0.65,
+        "sigma_rel": 0.15,
+        "scale": 1.0,
+        "dev10_regex_refusal": 0.0,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "kernel_weight_sum": 10.388561798019952,
+        "kernel_effective_layers": 18
+      },
+      {
+        "l_peak_rel": 0.65,
+        "sigma_rel": 0.15,
+        "scale": 1.3,
+        "dev10_regex_refusal": 0.0,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "kernel_weight_sum": 12.321729611094517,
+        "kernel_effective_layers": 19
+      },
+      {
+        "l_peak_rel": 0.65,
+        "sigma_rel": 0.25,
+        "scale": 1.0,
+        "dev10_regex_refusal": 0.0,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "kernel_weight_sum": 15.869680664991224,
+        "kernel_effective_layers": 24
+      },
+      {
+        "l_peak_rel": 0.65,
+        "sigma_rel": 0.25,
+        "scale": 1.3,
+        "dev10_regex_refusal": 0.0,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "kernel_weight_sum": 18.657009356640053,
+        "kernel_effective_layers": 25
+      }
+    ],
+    "widened": false,
+    "direction_note": "root B reuses root A's direction r verbatim so the KERNEL is the only manipulated variable",
+    "parent_dev10_distinct3": 1.0
+  },
+  "C": {
+    "host": "meta-llama/Llama-3.2-1B-Instruct",
+    "kind": "uniform_all_layer",
+    "substituted": false,
+    "repo": "meta-llama/Llama-3.2-1B-Instruct",
+    "load_errors": {},
+    "direction": {
+      "l_star_behavioural": 14,
+      "l_star_auroc_argmax": 8,
+      "selection_rule": "argmin dev10 regex-refusal among layers whose dev10 distinct-3 >= 0.5x the parent's; ties broken on held-out AUROC. AUROC is a TIE-BREAK and a sensitivity row only, because it saturates.",
+      "auroc_profile": [
+        0.5,
+        0.8512145748987854,
+        0.9993927125506072,
+        0.9995951417004049,
+        0.9995951417004049,
+        0.9991902834008097,
+        0.9987854251012146,
+        0.9995951417004049,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9993927125506072,
+        0.9993927125506072,
+        0.9983805668016195,
+        0.9967611336032388,
+        0.9993927125506072
+      ],
+      "dprime_profile": [
+        0.0,
+        1.4555389881134033,
+        5.0704216957092285,
+        5.303520202636719,
+        4.965387344360352,
+        4.648819923400879,
+        4.998517036437988,
+        4.741815090179443,
+        4.736799716949463,
+        4.864466667175293,
+        4.795259475708008,
+        4.761892795562744,
+        4.566312789916992,
+        4.4072723388671875,
+        3.8441567420959473,
+        3.7827377319335938,
+        4.41755485534668
+      ],
+      "n_fit": 115,
+      "n_hold": 141,
+      "auroc_saturation": {
+        "max_auroc": 1.0,
+        "n_layers_auroc_ge_0.997": 14,
+        "n_layers_tied_at_max": 4,
+        "n_candidate_layers": 17,
+        "saturates": true
+      },
+      "parent_dev10_distinct3": 1.0
+    },
+    "direction_sweep_rows": [
+      {
+        "layer": 0,
+        "rel_depth": 0.0,
+        "dev10_regex_refusal": 0.0,
+        "dev10_distinct3": 0.0,
+        "fluency_ok": false,
+        "heldout_auroc": 0.5,
+        "heldout_dprime": 0.0
+      },
+      {
+        "layer": 1,
+        "rel_depth": 0.0625,
+        "dev10_regex_refusal": 0.6,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "heldout_auroc": 0.8512145748987854,
+        "heldout_dprime": 1.4555389881134033
+      },
+      {
+        "layer": 2,
+        "rel_depth": 0.125,
+        "dev10_regex_refusal": 0.6,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "heldout_auroc": 0.9993927125506072,
+        "heldout_dprime": 5.0704216957092285
+      },
+      {
+        "layer": 3,
+        "rel_depth": 0.1875,
+        "dev10_regex_refusal": 1.0,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "heldout_auroc": 0.9995951417004049,
+        "heldout_dprime": 5.303520202636719
+      },
+      {
+        "layer": 4,
+        "rel_depth": 0.25,
+        "dev10_regex_refusal": 0.9,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "heldout_auroc": 0.9995951417004049,
+        "heldout_dprime": 4.965387344360352
+      },
+      {
+        "layer": 5,
+        "rel_depth": 0.3125,
+        "dev10_regex_refusal": 0.4,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "heldout_auroc": 0.9991902834008097,
+        "heldout_dprime": 4.648819923400879
+      },
+      {
+        "layer": 6,
+        "rel_depth": 0.375,
+        "dev10_regex_refusal": 0.3,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "heldout_auroc": 0.9987854251012146,
+        "heldout_dprime": 4.998517036437988
+      },
+      {
+        "layer": 7,
+        "rel_depth": 0.4375,
+        "dev10_regex_refusal": 0.8,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "heldout_auroc": 0.9995951417004049,
+        "heldout_dprime": 4.741815090179443
+      },
+      {
+        "layer": 8,
+        "rel_depth": 0.5,
+        "dev10_regex_refusal": 0.8,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "heldout_auroc": 1.0,
+        "heldout_dprime": 4.736799716949463
+      },
+      {
+        "layer": 9,
+        "rel_depth": 0.5625,
+        "dev10_regex_refusal": 0.7,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "heldout_auroc": 1.0,
+        "heldout_dprime": 4.864466667175293
+      },
+      {
+        "layer": 10,
+        "rel_depth": 0.625,
+        "dev10_regex_refusal": 0.6,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "heldout_auroc": 1.0,
+        "heldout_dprime": 4.795259475708008
+      },
+      {
+        "layer": 11,
+        "rel_depth": 0.6875,
+        "dev10_regex_refusal": 0.6,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "heldout_auroc": 1.0,
+        "heldout_dprime": 4.761892795562744
+      },
+      {
+        "layer": 12,
+        "rel_depth": 0.75,
+        "dev10_regex_refusal": 0.9,
+        "dev10_distinct3": 0.9794117647058822,
+        "fluency_ok": true,
+        "heldout_auroc": 0.9993927125506072,
+        "heldout_dprime": 4.566312789916992
+      },
+      {
+        "layer": 13,
+        "rel_depth": 0.8125,
+        "dev10_regex_refusal": 0.5,
+        "dev10_distinct3": 0.9845967741935484,
+        "fluency_ok": true,
+        "heldout_auroc": 0.9993927125506072,
+        "heldout_dprime": 4.4072723388671875
+      },
+      {
+        "layer": 14,
+        "rel_depth": 0.875,
+        "dev10_regex_refusal": 0.0,
+        "dev10_distinct3": 0.94131152993066,
+        "fluency_ok": true,
+        "heldout_auroc": 0.9983805668016195,
+        "heldout_dprime": 3.8441567420959473
+      },
+      {
+        "layer": 15,
+        "rel_depth": 0.9375,
+        "dev10_regex_refusal": 0.4,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "heldout_auroc": 0.9967611336032388,
+        "heldout_dprime": 3.7827377319335938
+      },
+      {
+        "layer": 16,
+        "rel_depth": 1.0,
+        "dev10_regex_refusal": 0.7,
+        "dev10_distinct3": 1.0,
+        "fluency_ok": true,
+        "heldout_auroc": 0.9993927125506072,
+        "heldout_dprime": 4.41755485534668
+      }
+    ]
+  }
+}

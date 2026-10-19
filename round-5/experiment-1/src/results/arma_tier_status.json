@@ -1,0 +1,19 @@
+{
+ "tier_completed": "TIER T1 COMPLETE (n=16); TIER T2 COMPLETE (n=32); TIER T3 COMPLETE (n=30)",
+ "tier_counts": {
+  "T1": 16,
+  "T2": 32,
+  "T3": 30
+ },
+ "tier_total": {
+  "T1": 16,
+  "T2": 32,
+  "T3": 30
+ },
+ "n_rows": 78,
+ "n_ok": 71,
+ "n_unresolved": 7,
+ "gb_downloaded_this_invocation": 0.0,
+ "scoring_minutes_total_over_all_chunks": 78.75711793502172,
+ "minutes_this_invocation": 0.00046366453170776367
+}

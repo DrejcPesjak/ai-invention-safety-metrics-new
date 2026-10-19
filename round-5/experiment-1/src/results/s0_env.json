@@ -1,0 +1,53 @@
+{
+ "cpus_detected": 4,
+ "ram_total_bytes": 32000000000,
+ "ram_budget_bytes": 22400000000,
+ "free_disk_gb": 825144.42289152,
+ "python": "3.12.13",
+ "platform": "Linux-6.17.0-35-generic-x86_64-with-glibc2.36",
+ "torch": "2.6.0+cpu",
+ "numpy": "2.2.6",
+ "scipy": "1.15.2",
+ "gpu": false,
+ "openrouter_spend_usd": 0.0,
+ "n_llm_calls": 0,
+ "n_forward_passes": 0,
+ "sha256": {
+  "wstats.py": "06df86c7aab4e3271e4da58921b3be977305785e06b118ac994e63d7625297d5",
+  "kernels.py": "06db698a8bb9091b973fc6661b8e9b551234d814e1f533de74481c8e65aae64c",
+  "eligibility.py": "0f8be4f6ca6817abc5db3e23f50d10ae3ff8092285bfa24a64ef393462460292",
+  "hubio.py": "3ab1f87ecf1e943e051f0c0111dbf7433c70c0054d73dd66a6e68117ec727e52",
+  "statsx.py": "cfdaf51711c43ead76d341cb7e3b36e15769e871eb16706fa09d97821c8c1b23",
+  "wwin.py": "3a2649445db97f63845c2c52aa5024aa17c1cfaea3aafa100fc8291f343729df",
+  "method.py": "c5933fa41adbdf84f8289e68d3f00748c2f03645c128c3e546d69367e9a7e68b",
+  "archive/root_recipe.json": "d74fcccde611368596176d518735354e1d6a8a80a3721faae8b4190ea1960726",
+  "archive/arm_a.jsonl": "4d54d288ee8831574dbb0bfdf6e85a3bbd4b3757c4cbc4e674bb388ca3b979ac",
+  "archive/arm_b.jsonl": "97b9aff86bfde8b098d07fd50e988b6bfffb87a2be8cad9e981991b1371c1775",
+  "archive/s4a_host.json": "ac17f7272584d240ecf1467bb3eab8eff740805394a1ac259476f4406c12e896",
+  "archive/directions.json": "f52fdeb65f522e1484e091feb7dd1451cc04d20e383d9053546139ac8522bfa4",
+  "archive/arm2_scan_new.jsonl": "eff115fbfdf6095506df8262c6bd94d1b245523bc810d7f069a7ed497ce63289",
+  "archive/arm2_rates.json": "74515372f6dee68b87d01df6b88418f9f2e9991dd0fa59df1af7d6b6e674dd9f",
+  "archive/arm2_archive_eligibility.jsonl": "eb2d9432ddbd3fc44905022c41ce283d53d0fc660c195016cd0cc7c76d91d289",
+  "archive/predictions.json": "5180689360b331f6a94c54c60b6c5ac0045e37cdb48029e90ce19805a844692e"
+ },
+ "eligibility_sha256_matches_archive": true,
+ "baseline_terms": [
+  "abliterat",
+  "gabliterat",
+  "obliterat",
+  "uncensor",
+  "decensor",
+  "orthogonal",
+  "norm[-_]preserv",
+  "refusal[-_]?(free|removed)",
+  "heretic",
+  "lorablated",
+  "josiefied"
+ ],
+ "baseline_n_terms": 11,
+ "null_ensemble": {
+  "n": 512,
+  "seed": 1234,
+  "deviation_from_plan": "the plan seeded a fresh random-direction draw per (model, k, window); this run draws ONE ensemble of 512 unit directions per model with a fixed seed and reuses it for every window.  e(u, W_m) does not depend on the window, so the per-window null is the min of the SAME columns over that window's matrices.  The draw is therefore paired across windows and across models, which is strictly stronger, and it costs one matrix pass instead of one per window."
+ }
+}

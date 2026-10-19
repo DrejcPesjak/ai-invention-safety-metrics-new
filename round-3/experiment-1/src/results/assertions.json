@@ -1,0 +1,16 @@
+{
+  "n_checks_failed": 0,
+  "failures": [],
+  "contract": {
+    "seed": 20260813,
+    "bootstrap_B": 10000,
+    "n_permutations": 10000,
+    "resampling_unit": "lineage_id",
+    "with_replacement": true,
+    "singleton_lineage_handling": "resampled with replacement like any other",
+    "tie_method": "average",
+    "ci": "percentile 2.5/97.5",
+    "degenerate_replicate_policy": "discarded and counted",
+    "permutation_p": "(1 + #{perm >= obs}) / (1 + n_perm)"
+  }
+}

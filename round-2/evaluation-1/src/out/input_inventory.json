@@ -1,0 +1,1203 @@
+{
+  "experiments": {
+    "E1": {
+      "workspace": "/ai-inventor/aii_data/runs/run_CbJDs3opF7E_/3_invention_loop/iter_1/gen_art/gen_art_experiment_1",
+      "files": {
+        "out/tier0_raw.json": {
+          "top_level_keys": [
+            "aggregate_by_model",
+            "asymmetry_index_by_model",
+            "controls",
+            "epsilon_sweep",
+            "grid_actually_run",
+            "ground_truth",
+            "hardware",
+            "indicators",
+            "lambda",
+            "layer_choice",
+            "limitations",
+            "min_series_length_rule",
+            "mode",
+            "model_revisions",
+            "observable_degenerate_by_model",
+            "observable_token_ids_by_model",
+            "ordering_tests",
+            "panel_validity",
+            "peak_vram_gb",
+            "per_model_meta",
+            "prompts",
+            "provisional_spi",
+            "series_length_sweep_note",
+            "status",
+            "synthetic_ar1_table",
+            "synthetic_meta",
+            "tokens_per_sec_by_model",
+            "verdict",
+            "wall_clock_by_stage"
+          ],
+          "n_lambda_rows": 640,
+          "n_indicator_rows": 80,
+          "lambda_row_keys": [
+            "T",
+            "direction",
+            "eps_abs",
+            "eps_c",
+            "final",
+            "fit_len",
+            "identifiable",
+            "identifiable_reason",
+            "layerL",
+            "lineage",
+            "median_first_divergence_after_p",
+            "member",
+            "model",
+            "n_roll",
+            "p",
+            "prompt_id",
+            "teacher_forced"
+          ],
+          "lambda_readout_keys": [
+            "decay_ratio_16",
+            "delta_at_p1",
+            "delta_at_p1_signed",
+            "delta_residual_sd_of_mean",
+            "delta_residual_sd_per_rollout",
+            "delta_snr_at_p1",
+            "delta_snr_at_p1_vs_fit_noise",
+            "estimates",
+            "mean_abs_delta_curve",
+            "mean_delta_curve",
+            "monotone_decay_frac",
+            "per_rollout_delta_at_p1",
+            "per_rollout_lambda",
+            "steps_above_noise_floor"
+          ],
+          "lambda_estimate_keys": [
+            "abs_statistic_secondary",
+            "auc_substitute",
+            "delta_floor",
+            "est1_nls",
+            "est2_loglin",
+            "est3_ar1",
+            "estimator_agreement_ratio",
+            "estimator_spread",
+            "fit_len",
+            "noise_floor_sd",
+            "statistic"
+          ],
+          "indicator_row_keys": [
+            "control_pos_probe",
+            "control_random_axis",
+            "descriptive_diff_means",
+            "final_layer_readout",
+            "frac_rollouts_hit_eos",
+            "layer",
+            "lineage",
+            "median_eos_step",
+            "median_resid_norm",
+            "member",
+            "model",
+            "noise_sd_detrended",
+            "primary",
+            "prompt_id",
+            "r_lens_vs_final_corr",
+            "register",
+            "sample_completion",
+            "series_length_sweep",
+            "tokens_per_sec"
+          ],
+          "models": [
+            "qwen3-0.6b/abliterated",
+            "qwen3-0.6b/base",
+            "qwen3-0.6b/instruct",
+            "smollm2/base"
+          ],
+          "directions": [
+            "random_direction",
+            "toward_comply",
+            "toward_refuse"
+          ],
+          "grid_actually_run": {
+            "n_prompts": 20,
+            "n_roll": 20,
+            "T": 192,
+            "sweep_prompts": 5,
+            "eps_sweep": [
+              0.02,
+              0.05,
+              0.1,
+              0.2,
+              0.4,
+              0.8
+            ],
+            "p_sweep": [
+              4,
+              16,
+              64,
+              128
+            ],
+            "syn_reps": 500,
+            "gt_harm": 40,
+            "gt_xs": 30,
+            "do_pos": true,
+            "do_tf": true,
+            "base_eps_c": 0.1,
+            "base_p": 16,
+            "fit_len": 64,
+            "burn_in": 8,
+            "series_lengths": [
+              16,
+              32,
+              48,
+              64,
+              96,
+              128,
+              192
+            ],
+            "sampling": {
+              "temperature": 0.7,
+              "top_p": 1.0,
+              "top_k": 0,
+              "note": "pure temperature sampling; truncation would distort the tail dynamics being measured"
+            }
+          },
+          "per_model_meta_keys": [
+            "L",
+            "banned_token_ids",
+            "diff_means",
+            "eps_reference_norm",
+            "mean_frac_rollouts_hit_eos",
+            "observable_sanity",
+            "pairing",
+            "peak_vram_gb",
+            "pos_probe"
+          ],
+          "observable_sanity_keys": [
+            "auroc",
+            "expected_positive_margin",
+            "margin",
+            "r0_benign_mean",
+            "r0_finite",
+            "r0_harmful_mean",
+            "r0_non_constant"
+          ],
+          "n_lambda_identifiable_true": 0,
+          "verdict": "LAMBDA_NOT_IDENTIFIABLE_FLUCTUATION_ARM_ONLY",
+          "structure": {
+            "status": "str",
+            "mode": "str",
+            "grid_actually_run": {
+              "n_prompts": "...",
+              "n_roll": "...",
+              "T": "...",
+              "sweep_prompts": "...",
+              "eps_sweep": "...",
+              "p_sweep": "...",
+              "syn_reps": "...",
+              "gt_harm": "...",
+              "gt_xs": "...",
+              "do_pos": "...",
+              "do_tf": "...",
+              "base_eps_c": "...",
+              "base_p": "...",
+              "fit_len": "...",
+              "burn_in": "...",
+              "series_lengths": "...",
+              "sampling": "..."
+            },
+            "hardware": {
+              "device": "...",
+              "gpu": "..."
+            },
+            "tokens_per_sec_by_model": {
+              "qwen3-0.6b/base": "...",
+              "qwen3-0.6b/instruct": "...",
+              "qwen3-0.6b/abliterated": "...",
+              "smollm2/base": "..."
+            },
+            "peak_vram_gb": "float",
+            "wall_clock_by_stage": {
+              "B_prompts": "...",
+              "T5_estimator_unit_tests": "...",
+              "D_layer_selection": "...",
+              "EFGI_models": "...",
+              "H_synthetic": "...",
+              "J_analysis": "...",
+              "total": "..."
+            },
+            "model_revisions": {
+              "qwen3-0.6b/base": "...",
+              "qwen3-0.6b/instruct": "...",
+              "qwen3-0.6b/abliterated": "...",
+              "smollm2/base": "..."
+            },
+            "layer_choice": {
+              "reference_model": "...",
+              "reference_revision": "...",
+              "n_layers_ref": "...",
+              "per_layer_curve": "...",
+              "L_ref": "...",
+              "rel_depth": "...",
+              "best_auroc": "...",
+              "best_separation": "...",
+              "timestamp": "...",
+              "peak_in_middle_third": "...",
+              "L_by_model": "..."
+            },
+            "observable_token_ids_by_model": {
+              "qwen3-0.6b/base": "...",
+              "qwen3-0.6b/instruct": "...",
+              "qwen3-0.6b/abliterated": "...",
+              "smollm2/base": "..."
+            },
+            "per_model_meta": {
+              "qwen3-0.6b/base": "...",
+              "qwen3-0.6b/instruct": "...",
+              "qwen3-0.6b/abliterated": "...",
+              "smollm2/base": "..."
+            },
+            "prompts": {
+              "benign": "...",
+              "benign_screen": "...",
+              "n_contrast_harmful": "...",
+              "n_contrast_benign": "...",
+              "n_gt_harmful": "...",
+              "n_gt_xstest": "...",
+              "sources": "..."
+            },
+            "indicators": {
+              "__list__": 80,
+              "__item0__": "..."
+            },
+            "lambda": {
+              "__list__": 640,
+              "__item0__": "..."
+            },
+            "aggregate_by_model": {
+              "qwen3-0.6b/abliterated": "...",
+              "qwen3-0.6b/base": "...",
+              "qwen3-0.6b/instruct": "...",
+              "smollm2/base": "..."
+            },
+            "asymmetry_index_by_model": {
+              "qwen3-0.6b/abliterated": "...",
+              "qwen3-0.6b/base": "...",
+              "qwen3-0.6b/instruct": "...",
+              "smollm2/base": "..."
+            },
+            "epsilon_sweep": {
+              "rows": "...",
+              "linearity": "..."
+            },
+            "series_length_sweep_note": "str",
+            "synthetic_ar1_table": {
+              "__list__": 96,
+              "__item0__": "..."
+            },
+            "min_series_length_rule": {
+              "any_cell_passes": "...",
+              "min_T_fit": "...",
+              "min_n_roll": "...",
+              "n_passing_cells": "...",
+              "per_lambda_at_largest_geometry": "...",
+              "largest_geometry": "...",
+              "note": "..."
+            },
+            "synthetic_meta": {
+              "rule": "...",
+              "n_reps": "...",
+              "noise_sd": "...",
+              "amp": "...",
+              "bias_tol": "...",
+              "sd_tol": "...",
+              "estimator_unit_tests": "...",
+              "noise_source": "...",
+              "clean_series_sd_for_reference": "...",
+              "snr_at_p1": "..."
+            },
+            "controls": {
+              "pos_probe_reproduces_ordering": "...",
+              "random_direction_reproduces_ordering": "...",
+              "lambda_identifiable_at_achieved_geometry": "...",
+              "epsilon_linear_regime_exists": "...",
+              "primary_ordering_lambda_refuse": "...",
+              "primary_ordering_var_star": "...",
+              "primary_ordering_ac1": "...",
+              "primary_ordering_flicker": "...",
+              "random_axis_reproduces_ordering": "..."
+            },
+            "ground_truth": {
+              "qwen3-0.6b/base": "...",
+              "qwen3-0.6b/instruct": "...",
+              "qwen3-0.6b/abliterated": "...",
+              "smollm2/base": "..."
+            },
+            "panel_validity": {
+              "instruct_harmful_refusal": "...",
+              "abliterated_harmful_refusal": "...",
+              "base_harmful_refusal": "...",
+              "instruct_minus_abliterated": "...",
+              "panel_valid": "...",
+              "criterion": "..."
+            },
+            "provisional_spi": {
+              "PROVISIONAL_NOT_FROZEN": "...",
+              "n_models": "...",
+              "terms_used": "...",
+              "terms_available": "...",
+              "raw_terms": "...",
+              "z_terms": "...",
+              "spi_by_model": "...",
+              "caveat": "..."
+            },
+            "ordering_tests": {
+              "prereg_direction": "...",
+              "qwen3-0.6b/instruct_minus_smollm2/base": "...",
+              "qwen3-0.6b/instruct_minus_qwen3-0.6b/abliterated": "...",
+              "qwen3-0.6b/instruct_minus_qwen3-0.6b/base": "..."
+            },
+            "verdict": {
+              "code": "...",
+              "justification": "...",
+              "inputs": "..."
+            },
+            "observable_degenerate_by_model": {
+              "qwen3-0.6b/abliterated": "...",
+              "qwen3-0.6b/base": "...",
+              "qwen3-0.6b/instruct": "...",
+              "smollm2/base": "..."
+            },
+            "limitations": {
+              "__list__": 8,
+              "__item0__": "..."
+            }
+          }
+        },
+        "out/refit_certified.json": {
+          "top_level_keys": [
+            "T",
+            "aggregate_by_model",
+            "all_rows_identifiable",
+            "eps_c",
+            "fit_len",
+            "identical_to_main_run",
+            "n_roll",
+            "p",
+            "prereg_ordering_tests_lambda_refuse",
+            "purpose",
+            "rows",
+            "rule_at_refit_noise",
+            "synthetic_meta",
+            "synthetic_table",
+            "teacher_forced",
+            "wall_clock_min"
+          ],
+          "geometry": {
+            "fit_len": 128,
+            "n_roll": 20,
+            "T": 192,
+            "p": 16,
+            "eps_c": 0.1,
+            "teacher_forced": true
+          },
+          "all_rows_identifiable": false,
+          "rule_at_refit_noise": {
+            "any_cell_passes": true,
+            "min_T_fit": 64,
+            "min_n_roll": 40,
+            "n_passing_cells": 3,
+            "per_lambda_at_largest_geometry": {
+              "0.02": true,
+              "0.05": true,
+              "0.1": true,
+              "0.2": true,
+              "0.5": true,
+              "1.0": true
+            },
+            "largest_geometry": {
+              "T_fit": 128,
+              "n_roll": 40
+            },
+            "note": "lambda is reported as identifiable only at T_fit >= 64 and n_roll >= 40 (pre-registered rule)."
+          },
+          "n_rows": 240,
+          "row_keys": [
+            "T",
+            "direction",
+            "eps_c",
+            "final",
+            "fit_len",
+            "identifiable",
+            "layer",
+            "layerL",
+            "lineage",
+            "member",
+            "model",
+            "n_roll",
+            "p",
+            "prompt_id",
+            "teacher_forced"
+          ],
+          "readout_keys": [
+            "decay_ratio_16",
+            "decay_ratio_64",
+            "delta_at_p1_signed",
+            "delta_residual_sd_per_rollout",
+            "estimates",
+            "mean_delta_curve",
+            "per_rollout_lambda"
+          ],
+          "mean_delta_curve_len": 128,
+          "prereg_ordering_tests_lambda_refuse": {
+            "qwen3-0.6b/instruct_minus_qwen3-0.6b/abliterated": {
+              "diff": -0.22557335261247005,
+              "ci_lo": -0.567150579365137,
+              "ci_hi": 0.07267449605460181,
+              "n_pairs": 20,
+              "ci_excludes_zero": false
+            },
+            "qwen3-0.6b/instruct_minus_qwen3-0.6b/base": {
+              "diff": -0.5467597946420415,
+              "ci_lo": -0.8735208116992378,
+              "ci_hi": -0.23724656476390224,
+              "n_pairs": 20,
+              "ci_excludes_zero": true
+            },
+            "qwen3-0.6b/instruct_minus_smollm2/base": {
+              "diff": -0.5601549895787533,
+              "ci_lo": -0.921788178381694,
+              "ci_hi": -0.2022206353448423,
+              "n_pairs": 20,
+              "ci_excludes_zero": true
+            }
+          }
+        },
+        "out/layer_choice.json": {
+          "keys": [
+            "L_by_model",
+            "L_ref",
+            "best_auroc",
+            "best_separation",
+            "n_layers_ref",
+            "peak_in_middle_third",
+            "per_layer_curve",
+            "reference_model",
+            "reference_revision",
+            "rel_depth",
+            "timestamp"
+          ]
+        },
+        "method_out.json": {
+          "keys": [
+            "datasets",
+            "metadata"
+          ],
+          "datasets": [
+            "spi_model_level_prediction",
+            "spi_prompt_level_cells",
+            "synthetic_lambda_identifiability",
+            "ground_truth_refusal_screen",
+            "lambda_at_certified_geometry"
+          ],
+          "metadata_keys": [
+            "aggregate_by_model",
+            "baseline",
+            "controls",
+            "cost_usd",
+            "decay_ratio_ordering",
+            "description",
+            "detrending_note",
+            "epsilon_linearity",
+            "epsilon_linearity_prompt_averaged",
+            "fit_quality",
+            "grid_actually_run",
+            "hardware",
+            "lambda_at_certified_geometry",
+            "layer_choice",
+            "limitations",
+            "method_name",
+            "min_series_length_rule",
+            "model_revisions",
+            "observable_degenerate_by_model",
+            "observable_token_ids_by_model",
+            "ordering_tests",
+            "our_method",
+            "panel_validity",
+            "peak_vram_gb",
+            "per_model_meta",
+            "prompts",
+            "provisional_spi",
+            "rank_agreement",
+            "raw_results_file",
+            "readout_channel_check",
+            "synthetic_meta",
+            "tokens_per_sec_by_model",
+            "verdict",
+            "wall_clock_by_stage"
+          ]
+        }
+      },
+      "prereg_archived": false
+    },
+    "E2": {
+      "workspace": "/ai-inventor/aii_data/runs/run_CbJDs3opF7E_/3_invention_loop/iter_1/gen_art/gen_art_experiment_2",
+      "files": {
+        "prereg.json": {
+          "keys": [
+            "H1_confirm",
+            "H1b_confirm",
+            "advance_expectation",
+            "alpha_grid",
+            "alpha_grid_as_originally_preregistered",
+            "alpha_units",
+            "amendments",
+            "compliance_resumption_criterion",
+            "compliance_resumption_run",
+            "decoding",
+            "device",
+            "disconfirm",
+            "dtype",
+            "fluency_screen",
+            "layer_rule",
+            "max_ramp_steps",
+            "models",
+            "n_prompts",
+            "n_seeds_per_prompt",
+            "primary_statistic",
+            "refusal_markers",
+            "refusal_onset_criterion",
+            "refusal_openers",
+            "reset_probe_tokens",
+            "scope",
+            "secondary_statistics",
+            "third_outcome"
+          ],
+          "n_amendments": 8,
+          "amendment_ids": [
+            "AMENDMENT-1",
+            "AMENDMENT-2",
+            "AMENDMENT-3",
+            "AMENDMENT-4",
+            "AMENDMENT-5",
+            "AMENDMENT-6",
+            "AMENDMENT-7",
+            "AMENDMENT-8"
+          ],
+          "amendment_keys": [
+            "change",
+            "id",
+            "reason",
+            "timestamp",
+            "when"
+          ],
+          "primary_statistic": "residual = alpha_down - alpha_down_forced_A",
+          "alpha_grid": {
+            "delta": 0.05,
+            "alpha_max": 2.0,
+            "alpha_min": -1.5
+          },
+          "alpha_grid_as_originally_preregistered": {
+            "delta": 0.25,
+            "alpha_max": 8.0,
+            "alpha_min": -2.0
+          }
+        },
+        "results/model_base.json": {
+          "keys": [
+            "agg",
+            "auroc_profile",
+            "continuation_extra_ids",
+            "continuation_extra_ids_source",
+            "diff_norm_at_L",
+            "direction",
+            "direction_full",
+            "dprime_profile",
+            "gate_T0",
+            "heldout_auroc_at_L",
+            "heldout_dprime_at_L",
+            "kappa_between_criteria",
+            "layer",
+            "layer_selection_rule",
+            "model_id",
+            "model_key",
+            "n_continuation_ids",
+            "n_layers",
+            "n_refusal_ids",
+            "norm_L",
+            "norm_profile",
+            "position",
+            "relative_depth",
+            "response_axis_auroc",
+            "response_axis_dprime",
+            "rows",
+            "site",
+            "site_family",
+            "steering_response_curve",
+            "summary",
+            "tag",
+            "tau_calibration",
+            "used_transplanted_direction"
+          ],
+          "n_rows": 90,
+          "row_keys": [
+            "alpha_down",
+            "alpha_down_forced_a",
+            "alpha_down_forced_b",
+            "alpha_up",
+            "alpha_up_reset_T0",
+            "alpha_up_reset_T07",
+            "censored",
+            "entry_alpha_search_start",
+            "fluency_ok",
+            "gen_entry",
+            "model",
+            "prompt",
+            "prompt_id",
+            "residual",
+            "residual_check",
+            "seed",
+            "tag",
+            "up_fail",
+            "upramp_alpha",
+            "upramp_fail",
+            "upramp_text",
+            "width_naive",
+            "width_reset_T0",
+            "width_reset_T07"
+          ],
+          "n_per_prompt": 5,
+          "per_prompt_keys": [
+            "alpha_down",
+            "alpha_down_forced_a",
+            "alpha_down_forced_b",
+            "alpha_up",
+            "censored",
+            "excess_width",
+            "n_seeds_used",
+            "prompt",
+            "prompt_id",
+            "residual",
+            "residual_check",
+            "residual_rt",
+            "width_naive",
+            "width_reset_T0",
+            "width_reset_T07"
+          ],
+          "summary_keys": [
+            "alpha_down",
+            "alpha_down_forced_a",
+            "alpha_up",
+            "censoring",
+            "entry_fail_rate",
+            "excess_width",
+            "excess_width_ci_excludes_0",
+            "excess_width_exceeds_noise_floor",
+            "n_excluded_fluency",
+            "n_prompts_used",
+            "n_up_fail",
+            "noise_floor_p95",
+            "residual",
+            "residual_check_forced_B",
+            "residual_rt",
+            "spearman_alphaup_excess_width",
+            "upramp_fail_rate",
+            "upramp_n",
+            "width_naive",
+            "width_reset_T07"
+          ],
+          "steering_response_curve_keys": [
+            "fitted",
+            "random"
+          ],
+          "layer": 7,
+          "norm_L": 18.58297348022461
+        },
+        "results/model_instruct.json": {
+          "keys": [
+            "agg",
+            "auroc_profile",
+            "continuation_extra_ids",
+            "continuation_extra_ids_source",
+            "diff_norm_at_L",
+            "direction",
+            "direction_full",
+            "dprime_profile",
+            "gate_T0",
+            "heldout_auroc_at_L",
+            "heldout_dprime_at_L",
+            "kappa_between_criteria",
+            "layer",
+            "layer_selection_rule",
+            "model_id",
+            "model_key",
+            "n_continuation_ids",
+            "n_layers",
+            "n_refusal_ids",
+            "norm_L",
+            "norm_profile",
+            "position",
+            "relative_depth",
+            "response_axis_auroc",
+            "response_axis_dprime",
+            "rows",
+            "site",
+            "site_family",
+            "steering_response_curve",
+            "summary",
+            "tag",
+            "tau_calibration",
+            "used_transplanted_direction"
+          ],
+          "n_rows": 90,
+          "row_keys": [
+            "alpha_down",
+            "alpha_down_forced_a",
+            "alpha_down_forced_a_rt",
+            "alpha_down_forced_b",
+            "alpha_down_rt",
+            "alpha_up",
+            "alpha_up_reset_T0",
+            "alpha_up_reset_T07",
+            "alpha_up_rt",
+            "censored",
+            "distinct3_down",
+            "distinct3_up",
+            "entry_alpha_search_start",
+            "fluency_ok",
+            "gen_down_forced_a",
+            "gen_down_forced_b",
+            "gen_down_retained",
+            "gen_entry",
+            "model",
+            "prompt",
+            "prompt_id",
+            "residual",
+            "residual_check",
+            "residual_rt",
+            "seed",
+            "tag",
+            "up_fail",
+            "upramp_alpha",
+            "upramp_fail",
+            "upramp_text",
+            "width_naive",
+            "width_reset_T0",
+            "width_reset_T07"
+          ],
+          "n_per_prompt": 30,
+          "per_prompt_keys": [
+            "alpha_down",
+            "alpha_down_forced_a",
+            "alpha_down_forced_b",
+            "alpha_up",
+            "censored",
+            "excess_width",
+            "n_seeds_used",
+            "prompt",
+            "prompt_id",
+            "residual",
+            "residual_check",
+            "residual_rt",
+            "width_naive",
+            "width_reset_T0",
+            "width_reset_T07"
+          ],
+          "summary_keys": [
+            "alpha_down",
+            "alpha_down_forced_a",
+            "alpha_up",
+            "censoring",
+            "entry_fail_rate",
+            "excess_width",
+            "excess_width_ci_excludes_0",
+            "excess_width_exceeds_noise_floor",
+            "n_excluded_fluency",
+            "n_prompts_used",
+            "n_up_fail",
+            "noise_floor_p95",
+            "residual",
+            "residual_check_forced_B",
+            "residual_rt",
+            "spearman_alphaup_excess_width",
+            "upramp_fail_rate",
+            "upramp_n",
+            "width_naive",
+            "width_reset_T07"
+          ],
+          "steering_response_curve_keys": [
+            "fitted",
+            "random"
+          ],
+          "layer": 7,
+          "norm_L": 21.20993423461914
+        },
+        "results/model_abliterated.json": {
+          "keys": [
+            "agg",
+            "auroc_profile",
+            "continuation_extra_ids",
+            "continuation_extra_ids_source",
+            "diff_norm_at_L",
+            "direction",
+            "direction_full",
+            "dprime_profile",
+            "gate_T0",
+            "heldout_auroc_at_L",
+            "heldout_dprime_at_L",
+            "kappa_between_criteria",
+            "layer",
+            "layer_selection_rule",
+            "model_id",
+            "model_key",
+            "n_continuation_ids",
+            "n_layers",
+            "n_refusal_ids",
+            "norm_L",
+            "norm_profile",
+            "position",
+            "relative_depth",
+            "response_axis_auroc",
+            "response_axis_dprime",
+            "rows",
+            "site",
+            "site_family",
+            "steering_response_curve",
+            "summary",
+            "tag",
+            "tau_calibration",
+            "used_transplanted_direction"
+          ],
+          "n_rows": 90,
+          "row_keys": [
+            "alpha_down",
+            "alpha_down_forced_a",
+            "alpha_down_forced_a_rt",
+            "alpha_down_forced_b",
+            "alpha_down_rt",
+            "alpha_up",
+            "alpha_up_reset_T0",
+            "alpha_up_reset_T07",
+            "alpha_up_rt",
+            "censored",
+            "distinct3_down",
+            "distinct3_up",
+            "entry_alpha_search_start",
+            "fluency_ok",
+            "gen_down_forced_a",
+            "gen_down_forced_b",
+            "gen_down_retained",
+            "gen_entry",
+            "model",
+            "prompt",
+            "prompt_id",
+            "residual",
+            "residual_check",
+            "residual_rt",
+            "seed",
+            "tag",
+            "up_fail",
+            "upramp_alpha",
+            "upramp_fail",
+            "upramp_text",
+            "width_naive",
+            "width_reset_T0",
+            "width_reset_T07"
+          ],
+          "n_per_prompt": 30,
+          "per_prompt_keys": [
+            "alpha_down",
+            "alpha_down_forced_a",
+            "alpha_down_forced_b",
+            "alpha_up",
+            "censored",
+            "excess_width",
+            "n_seeds_used",
+            "prompt",
+            "prompt_id",
+            "residual",
+            "residual_check",
+            "residual_rt",
+            "width_naive",
+            "width_reset_T0",
+            "width_reset_T07"
+          ],
+          "summary_keys": [
+            "alpha_down",
+            "alpha_down_forced_a",
+            "alpha_up",
+            "censoring",
+            "entry_fail_rate",
+            "excess_width",
+            "excess_width_ci_excludes_0",
+            "excess_width_exceeds_noise_floor",
+            "n_excluded_fluency",
+            "n_prompts_used",
+            "n_up_fail",
+            "noise_floor_p95",
+            "residual",
+            "residual_check_forced_B",
+            "residual_rt",
+            "spearman_alphaup_excess_width",
+            "upramp_fail_rate",
+            "upramp_n",
+            "width_naive",
+            "width_reset_T07"
+          ],
+          "steering_response_curve_keys": [
+            "fitted",
+            "random"
+          ],
+          "layer": 7,
+          "norm_L": 21.280038833618164
+        }
+      },
+      "narrow_floor_dir_exists": true,
+      "narrow_floor_substitute": [
+        "secondary_compliance_run_narrowfloor.json"
+      ]
+    },
+    "E3": {
+      "workspace": "/ai-inventor/aii_data/runs/run_CbJDs3opF7E_/3_invention_loop/iter_1/gen_art/gen_art_experiment_3",
+      "files": {
+        "generations.jsonl": {
+          "n": 3365,
+          "keys": [
+            "attack",
+            "block",
+            "completion",
+            "item_id",
+            "member",
+            "prefill",
+            "prompt",
+            "template_used",
+            "wall_ms"
+          ]
+        },
+        "scored.jsonl": {
+          "n": 3365,
+          "keys": [
+            "attack",
+            "block",
+            "completion",
+            "item_id",
+            "judge_gold_label",
+            "judge_label",
+            "judge_repaired_label",
+            "member",
+            "prefill",
+            "prompt",
+            "screen_refusal",
+            "template_used",
+            "wall_ms"
+          ],
+          "members": [
+            "abl_c0.25",
+            "abl_c0.50",
+            "abl_c0.75",
+            "abl_c1.00",
+            "llama32_base",
+            "llama32_instruct",
+            "pythia_410m",
+            "qwen3_abliterated",
+            "qwen3_base",
+            "qwen3_base_generictmpl",
+            "qwen3_instruct",
+            "smollm2_base",
+            "smollm2_instruct",
+            "tv_t0.25",
+            "tv_t0.50",
+            "tv_t0.75"
+          ],
+          "blocks": [
+            "A_plain_harmful",
+            "B_jailbreak",
+            "C_xstest_safe",
+            "C_xstest_unsafe"
+          ],
+          "n_with_gold": 373,
+          "frozen_label_counts": {
+            "COMPLIANCE": 515,
+            "DEGENERATE": 559,
+            "PARTIAL": 66,
+            "REFUSAL": 2225
+          },
+          "repaired_label_counts": {
+            "COMPLIANCE": 1439,
+            "DEGENERATE": 543,
+            "PARTIAL": 120,
+            "REFUSAL": 1263
+          },
+          "gold_label_counts": {
+            "COMPLIANCE": 109,
+            "DEGENERATE": 133,
+            "PARTIAL": 14,
+            "REFUSAL": 117,
+            "__null__": 2992
+          }
+        },
+        "results/judge_probe_items.json": {
+          "n": 21,
+          "keys": [
+            "completion",
+            "item_id",
+            "member",
+            "prompt",
+            "truth"
+          ],
+          "truth_counts": {
+            "COMPLIANCE": 7,
+            "DEGENERATE": 7,
+            "REFUSAL": 7
+          }
+        },
+        "results/judge_probe_results.json": {
+          "keys": [
+            "evaluator_system_prompt",
+            "probe_composition",
+            "purpose",
+            "results",
+            "rubric"
+          ],
+          "n_results": 9,
+          "result_keys": [
+            "accuracy",
+            "clean_parse_rate",
+            "evaluator_system_prompt",
+            "labels",
+            "max_tokens",
+            "model",
+            "n",
+            "n_correct",
+            "note",
+            "per_class_correct",
+            "usd_for_probe",
+            "usd_per_1000_items"
+          ]
+        },
+        "results/analysis.json": {
+          "keys": [
+            "cost",
+            "executing_agent_spot_read_verdict",
+            "generation_timings",
+            "ground_truth",
+            "ground_truth_repaired_scorer",
+            "incapacity_floor_by_scorer",
+            "ladder",
+            "limitations",
+            "models_manifest",
+            "prereg",
+            "prereg_amendment_post_hoc",
+            "prompts_used_counts",
+            "sanity_gate",
+            "sanity_gate_by_scorer",
+            "scorer_comparison",
+            "scoring_reliability",
+            "spot_read_20_rows",
+            "template_robustness"
+          ]
+        },
+        "prereg.json": {
+          "keys": [
+            "attack_prefill_string",
+            "attack_templates",
+            "block_sizes",
+            "budget_usd_hard_abort",
+            "budget_usd_projection_limit",
+            "decoding",
+            "degenerate_rate_unreliable_threshold",
+            "fluency_decoding",
+            "fluency_thresholds",
+            "generic_wrapper",
+            "item_selection_rule",
+            "judge_labels",
+            "judge_model",
+            "judge_rubric",
+            "ladder_verdict_rule",
+            "neutral_fluency_prompts",
+            "rate_definitions",
+            "refusal_string_screen_prefixes",
+            "sanity_gate",
+            "second_judge_model",
+            "template_policy",
+            "title",
+            "written_at_unix"
+          ]
+        },
+        "prereg_amendment.json": {
+          "keys": [
+            "headline",
+            "measured_probe_table",
+            "reporting_rules",
+            "selection_procedure",
+            "status",
+            "what_was_added",
+            "why"
+          ]
+        },
+        "adjudication_labels.json": {
+          "n": 147
+        },
+        "judge2_cache.jsonl": {
+          "n": 760,
+          "keys": [
+            "clean_parse",
+            "cost",
+            "key",
+            "label",
+            "raw",
+            "tokens_in",
+            "tokens_out"
+          ]
+        },
+        "judge3_cache.jsonl": {
+          "n": 3365,
+          "keys": [
+            "clean_parse",
+            "cost",
+            "key",
+            "label",
+            "raw",
+            "tokens_in",
+            "tokens_out"
+          ]
+        },
+        "judge4_cache.jsonl": {
+          "n": 442,
+          "keys": [
+            "clean_parse",
+            "cost",
+            "key",
+            "label",
+            "raw",
+            "tokens_in",
+            "tokens_out"
+          ]
+        },
+        "judge_cache.jsonl": {
+          "n": 3362,
+          "keys": [
+            "clean_parse",
+            "cost",
+            "key",
+            "label",
+            "raw",
+            "tokens_in",
+            "tokens_out"
+          ]
+        },
+        "results/ladder_models_manifest.json": {
+          "keys": [
+            "bytes_per_model_safetensors",
+            "construction",
+            "note_on_results",
+            "regeneration",
+            "sha256_model_safetensors",
+            "what_this_is",
+            "why_deleted"
+          ]
+        }
+      },
+      "refusal_direction_pt_bytes": 5326
+    }
+  }
+}

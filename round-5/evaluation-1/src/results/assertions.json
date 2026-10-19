@@ -1,0 +1,1050 @@
+{
+  "counts": {
+    "MATCH": 102,
+    "MISMATCH": 2,
+    "TOTAL": 104,
+    "UNAVAILABLE": 0
+  },
+  "rows": [
+    {
+      "archived": 67,
+      "delta": 0.0,
+      "key": "pools.n_positives",
+      "note": null,
+      "recomputed": 67,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json",
+      "status": "MATCH",
+      "tolerance": 0
+    },
+    {
+      "archived": 32,
+      "delta": 0.0,
+      "key": "pools.n_negatives",
+      "note": null,
+      "recomputed": 32,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json",
+      "status": "MATCH",
+      "tolerance": 0
+    },
+    {
+      "archived": -2.7415117804288127,
+      "delta": 0.0,
+      "key": "fixed_threshold.tau",
+      "note": null,
+      "recomputed": -2.7415117804288127,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json",
+      "status": "MATCH",
+      "tolerance": 0
+    },
+    {
+      "archived": "REPRODUCES",
+      "delta": null,
+      "key": "lorco.pooling_assumption",
+      "note": "Arm A (44 real Hub edits) + Arm B (23 in-house kernels) = 67 positives",
+      "recomputed": "REPRODUCES",
+      "source": "rebuilt from arm_a.jsonl + arm_b.jsonl",
+      "status": "MATCH",
+      "tolerance": 0
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_GAUSSIAN_DEPTH__DEPTH_WEIGHTED_ABOVE_W_STAR].heldout_sensitivity",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_GAUSSIAN_DEPTH__DEPTH_WEIGHTED_ABOVE_W_STAR",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_GAUSSIAN_DEPTH__DEPTH_WEIGHTED_ABOVE_W_STAR].auroc_raw",
+      "note": null,
+      "recomputed": 0.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_GAUSSIAN_DEPTH__DEPTH_WEIGHTED_ABOVE_W_STAR",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_GAUSSIAN_DEPTH__DEPTH_WEIGHTED_ABOVE_W_STAR].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_GAUSSIAN_DEPTH__DEPTH_WEIGHTED_ABOVE_W_STAR",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_GAUSSIAN_DEPTH__DEPTH_WEIGHTED_ABOVE_W_STAR].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_GAUSSIAN_DEPTH__DEPTH_WEIGHTED_ABOVE_W_STAR",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.2857142857142857,
+      "delta": 0.0,
+      "key": "lorco[ARMB_GAUSSIAN_DEPTH__NONUNIFORM].heldout_sensitivity",
+      "note": null,
+      "recomputed": 0.2857142857142857,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_GAUSSIAN_DEPTH__NONUNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.41964285714285715,
+      "delta": 0.0,
+      "key": "lorco[ARMB_GAUSSIAN_DEPTH__NONUNIFORM].auroc_raw",
+      "note": null,
+      "recomputed": 0.41964285714285715,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_GAUSSIAN_DEPTH__NONUNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.5803571428571428,
+      "delta": 1.1102230246251565e-16,
+      "key": "lorco[ARMB_GAUSSIAN_DEPTH__NONUNIFORM].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 0.5803571428571429,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_GAUSSIAN_DEPTH__NONUNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_GAUSSIAN_DEPTH__NONUNIFORM].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_GAUSSIAN_DEPTH__NONUNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_HERETIC__NONUNIFORM].heldout_sensitivity",
+      "note": null,
+      "recomputed": 0.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_HERETIC__NONUNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_HERETIC__NONUNIFORM].auroc_raw",
+      "note": null,
+      "recomputed": 0.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_HERETIC__NONUNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_HERETIC__NONUNIFORM].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_HERETIC__NONUNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_HERETIC__NONUNIFORM].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_HERETIC__NONUNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_HERETIC__UNIFORM].heldout_sensitivity",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_HERETIC__UNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_HERETIC__UNIFORM].auroc_raw",
+      "note": null,
+      "recomputed": 0.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_HERETIC__UNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_HERETIC__UNIFORM].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_HERETIC__UNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_HERETIC__UNIFORM].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_HERETIC__UNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.3333333333333333,
+      "delta": 0.0,
+      "key": "lorco[ARMB_HOUSEHOLDER__UNIFORM_BUT_ORTHOGONAL].heldout_sensitivity",
+      "note": null,
+      "recomputed": 0.3333333333333333,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_HOUSEHOLDER__UNIFORM_BUT_ORTHOGONAL",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.4895833333333333,
+      "delta": 0.0,
+      "key": "lorco[ARMB_HOUSEHOLDER__UNIFORM_BUT_ORTHOGONAL].auroc_raw",
+      "note": null,
+      "recomputed": 0.4895833333333333,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_HOUSEHOLDER__UNIFORM_BUT_ORTHOGONAL",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.5104166666666667,
+      "delta": -1.1102230246251565e-16,
+      "key": "lorco[ARMB_HOUSEHOLDER__UNIFORM_BUT_ORTHOGONAL].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 0.5104166666666666,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_HOUSEHOLDER__UNIFORM_BUT_ORTHOGONAL",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_HOUSEHOLDER__UNIFORM_BUT_ORTHOGONAL].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_HOUSEHOLDER__UNIFORM_BUT_ORTHOGONAL",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_LAYER_BAND__NONUNIFORM].heldout_sensitivity",
+      "note": null,
+      "recomputed": 0.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_LAYER_BAND__NONUNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.5625,
+      "delta": 0.0,
+      "key": "lorco[ARMB_LAYER_BAND__NONUNIFORM].auroc_raw",
+      "note": null,
+      "recomputed": 0.5625,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_LAYER_BAND__NONUNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.4375,
+      "delta": 0.0,
+      "key": "lorco[ARMB_LAYER_BAND__NONUNIFORM].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 0.4375,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_LAYER_BAND__NONUNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_LAYER_BAND__NONUNIFORM].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_LAYER_BAND__NONUNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_NORM_PRESERVING__UNIFORM].heldout_sensitivity",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_NORM_PRESERVING__UNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_NORM_PRESERVING__UNIFORM].auroc_raw",
+      "note": null,
+      "recomputed": 0.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_NORM_PRESERVING__UNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_NORM_PRESERVING__UNIFORM].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_NORM_PRESERVING__UNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_NORM_PRESERVING__UNIFORM].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_NORM_PRESERVING__UNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_RANK_K__UNIFORM].heldout_sensitivity",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_RANK_K__UNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_RANK_K__UNIFORM].auroc_raw",
+      "note": null,
+      "recomputed": 0.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_RANK_K__UNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_RANK_K__UNIFORM].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_RANK_K__UNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_RANK_K__UNIFORM].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_RANK_K__UNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_UNIFORM_SUBUNIT__UNIFORM].heldout_sensitivity",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_UNIFORM_SUBUNIT__UNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_UNIFORM_SUBUNIT__UNIFORM].auroc_raw",
+      "note": null,
+      "recomputed": 0.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_UNIFORM_SUBUNIT__UNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_UNIFORM_SUBUNIT__UNIFORM].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_UNIFORM_SUBUNIT__UNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_UNIFORM_SUBUNIT__UNIFORM].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_UNIFORM_SUBUNIT__UNIFORM",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.3333333333333333,
+      "delta": 0.0,
+      "key": "lorco[ARMB_UNIFORM_SUBUNIT__UNIFORM_BUT_INCOMPLETE].heldout_sensitivity",
+      "note": null,
+      "recomputed": 0.3333333333333333,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_UNIFORM_SUBUNIT__UNIFORM_BUT_INCOMPLETE",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.375,
+      "delta": 0.0,
+      "key": "lorco[ARMB_UNIFORM_SUBUNIT__UNIFORM_BUT_INCOMPLETE].auroc_raw",
+      "note": null,
+      "recomputed": 0.375,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_UNIFORM_SUBUNIT__UNIFORM_BUT_INCOMPLETE",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.625,
+      "delta": 0.0,
+      "key": "lorco[ARMB_UNIFORM_SUBUNIT__UNIFORM_BUT_INCOMPLETE].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 0.625,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_UNIFORM_SUBUNIT__UNIFORM_BUT_INCOMPLETE",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[ARMB_UNIFORM_SUBUNIT__UNIFORM_BUT_INCOMPLETE].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.ARMB_UNIFORM_SUBUNIT__UNIFORM_BUT_INCOMPLETE",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.0,
+      "delta": 0.0,
+      "key": "lorco[R_GAUSSIAN_DEPTH].heldout_sensitivity",
+      "note": null,
+      "recomputed": 0.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_GAUSSIAN_DEPTH",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.8854166666666666,
+      "delta": 0.0,
+      "key": "lorco[R_GAUSSIAN_DEPTH].auroc_raw",
+      "note": null,
+      "recomputed": 0.8854166666666666,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_GAUSSIAN_DEPTH",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.11458333333333337,
+      "delta": -4.163336342344337e-17,
+      "key": "lorco[R_GAUSSIAN_DEPTH].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 0.11458333333333333,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_GAUSSIAN_DEPTH",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[R_GAUSSIAN_DEPTH].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_GAUSSIAN_DEPTH",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.3333333333333333,
+      "delta": 0.0,
+      "key": "lorco[R_GLOBAL_RANK1].heldout_sensitivity",
+      "note": null,
+      "recomputed": 0.3333333333333333,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_GLOBAL_RANK1",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.6197916666666666,
+      "delta": 0.0,
+      "key": "lorco[R_GLOBAL_RANK1].auroc_raw",
+      "note": null,
+      "recomputed": 0.6197916666666666,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_GLOBAL_RANK1",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.38020833333333337,
+      "delta": -5.551115123125783e-17,
+      "key": "lorco[R_GLOBAL_RANK1].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 0.3802083333333333,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_GLOBAL_RANK1",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[R_GLOBAL_RANK1].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_GLOBAL_RANK1",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.0,
+      "delta": 0.0,
+      "key": "lorco[R_HERETIC].heldout_sensitivity",
+      "note": null,
+      "recomputed": 0.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_HERETIC",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.7723214285714286,
+      "delta": 0.0,
+      "key": "lorco[R_HERETIC].auroc_raw",
+      "note": null,
+      "recomputed": 0.7723214285714286,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_HERETIC",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.2276785714285714,
+      "delta": 2.7755575615628914e-17,
+      "key": "lorco[R_HERETIC].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 0.22767857142857142,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_HERETIC",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[R_HERETIC].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_HERETIC",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.0,
+      "delta": 0.0,
+      "key": "lorco[R_MERGE].heldout_sensitivity",
+      "note": null,
+      "recomputed": 0.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_MERGE",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.515625,
+      "delta": 0.0,
+      "key": "lorco[R_MERGE].auroc_raw",
+      "note": null,
+      "recomputed": 0.515625,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_MERGE",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.484375,
+      "delta": 0.0,
+      "key": "lorco[R_MERGE].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 0.484375,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_MERGE",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[R_MERGE].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_MERGE",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.0,
+      "delta": 0.0,
+      "key": "lorco[R_MULTIDIR_SVD].heldout_sensitivity",
+      "note": null,
+      "recomputed": 0.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_MULTIDIR_SVD",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.84375,
+      "delta": 0.0,
+      "key": "lorco[R_MULTIDIR_SVD].auroc_raw",
+      "note": null,
+      "recomputed": 0.84375,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_MULTIDIR_SVD",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.15625,
+      "delta": 0.0,
+      "key": "lorco[R_MULTIDIR_SVD].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 0.15625,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_MULTIDIR_SVD",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[R_MULTIDIR_SVD].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_MULTIDIR_SVD",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[R_NORM_PRESERVING].heldout_sensitivity",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_NORM_PRESERVING",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.0,
+      "delta": 0.0,
+      "key": "lorco[R_NORM_PRESERVING].auroc_raw",
+      "note": null,
+      "recomputed": 0.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_NORM_PRESERVING",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[R_NORM_PRESERVING].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_NORM_PRESERVING",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[R_NORM_PRESERVING].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_NORM_PRESERVING",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.0,
+      "delta": 0.0,
+      "key": "lorco[R_PARTIAL_LAYER].heldout_sensitivity",
+      "note": null,
+      "recomputed": 0.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_PARTIAL_LAYER",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.6640625,
+      "delta": 0.0,
+      "key": "lorco[R_PARTIAL_LAYER].auroc_raw",
+      "note": null,
+      "recomputed": 0.6640625,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_PARTIAL_LAYER",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.3359375,
+      "delta": 0.0,
+      "key": "lorco[R_PARTIAL_LAYER].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 0.3359375,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_PARTIAL_LAYER",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[R_PARTIAL_LAYER].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_PARTIAL_LAYER",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.0,
+      "delta": 0.0,
+      "key": "lorco[R_SFT_UNCENSORED].heldout_sensitivity",
+      "note": null,
+      "recomputed": 0.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_SFT_UNCENSORED",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.81875,
+      "delta": 0.0,
+      "key": "lorco[R_SFT_UNCENSORED].auroc_raw",
+      "note": null,
+      "recomputed": 0.81875,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_SFT_UNCENSORED",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.18125000000000002,
+      "delta": -2.7755575615628914e-17,
+      "key": "lorco[R_SFT_UNCENSORED].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 0.18125,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_SFT_UNCENSORED",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[R_SFT_UNCENSORED].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_SFT_UNCENSORED",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.4,
+      "delta": 0.0,
+      "key": "lorco[R_UNKNOWN].heldout_sensitivity",
+      "note": null,
+      "recomputed": 0.4,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_UNKNOWN",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.19375,
+      "delta": 0.0,
+      "key": "lorco[R_UNKNOWN].auroc_raw",
+      "note": null,
+      "recomputed": 0.19375,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_UNKNOWN",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.80625,
+      "delta": 0.0,
+      "key": "lorco[R_UNKNOWN].auroc_oriented_is_1_minus_raw",
+      "note": "under the FIXED lower-is-positive orientation the oriented AUROC must be exactly 1 - raw",
+      "recomputed": 0.80625,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_UNKNOWN",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 1.0,
+      "delta": 0.0,
+      "key": "lorco[R_UNKNOWN].specificity_on_negatives",
+      "note": null,
+      "recomputed": 1.0,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json::lorco.R_UNKNOWN",
+      "status": "MATCH",
+      "tolerance": 1e-12
+    },
+    {
+      "archived": 0.16666666666666666,
+      "delta": 0.0,
+      "key": "cells_that_change_materially[R_GLOBAL_RANK1].fixed",
+      "note": "plan expectation; the ARCHIVE wins on conflict",
+      "recomputed": 0.16666666666666666,
+      "source": "recomputed from rows",
+      "status": "MATCH",
+      "tolerance": 1e-09
+    },
+    {
+      "archived": 0.3333333333333333,
+      "delta": 0.0,
+      "key": "cells_that_change_materially[R_GLOBAL_RANK1].refit",
+      "note": "plan expectation; the ARCHIVE wins on conflict",
+      "recomputed": 0.3333333333333333,
+      "source": "recomputed from rows",
+      "status": "MATCH",
+      "tolerance": 1e-09
+    },
+    {
+      "archived": 0.2,
+      "delta": 0.0,
+      "key": "cells_that_change_materially[R_UNKNOWN].fixed",
+      "note": "plan expectation; the ARCHIVE wins on conflict",
+      "recomputed": 0.2,
+      "source": "recomputed from rows",
+      "status": "MATCH",
+      "tolerance": 1e-09
+    },
+    {
+      "archived": 0.4,
+      "delta": 0.0,
+      "key": "cells_that_change_materially[R_UNKNOWN].refit",
+      "note": "plan expectation; the ARCHIVE wins on conflict",
+      "recomputed": 0.4,
+      "source": "recomputed from rows",
+      "status": "MATCH",
+      "tolerance": 1e-09
+    },
+    {
+      "archived": 122,
+      "delta": 17.0,
+      "key": "fp_rate_filtered_primary.n",
+      "note": "the archived summary was written mid-scan; the row recount supersedes it -- see corrections C22",
+      "recomputed": 139,
+      "source": "iter_4/gen_art/gen_art_experiment_2/results/arm2_rates.json",
+      "status": "MISMATCH",
+      "tolerance": 0
+    },
+    {
+      "archived": 0,
+      "delta": 0.0,
+      "key": "fp_rate_filtered_primary.k",
+      "note": null,
+      "recomputed": 0,
+      "source": "iter_4/gen_art/gen_art_experiment_2/results/arm2_rates.json",
+      "status": "MATCH",
+      "tolerance": 0
+    },
+    {
+      "archived": 160,
+      "delta": 0.0,
+      "key": "fp_rate_secondary.n",
+      "note": null,
+      "recomputed": 160,
+      "source": "iter_4/gen_art/gen_art_experiment_2/results/arm2_rates.json",
+      "status": "MATCH",
+      "tolerance": 0
+    },
+    {
+      "archived": -1.1535,
+      "delta": 0.0,
+      "key": "anchor[uniform_w0.7].W05_to_4dp",
+      "note": null,
+      "recomputed": -1.1535,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/arm_b.jsonl",
+      "status": "MATCH",
+      "tolerance": 5e-05
+    },
+    {
+      "archived": -1.1245,
+      "delta": 0.0,
+      "key": "anchor[uniform_w0.7].log10_min_e_r_to_4dp",
+      "note": null,
+      "recomputed": -1.1245,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/arm_b.jsonl",
+      "status": "MATCH",
+      "tolerance": 5e-05
+    },
+    {
+      "archived": -1.7488,
+      "delta": 0.0,
+      "key": "anchor[uniform_w0.85].W05_to_4dp",
+      "note": null,
+      "recomputed": -1.7488,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/arm_b.jsonl",
+      "status": "MATCH",
+      "tolerance": 5e-05
+    },
+    {
+      "archived": -1.7248,
+      "delta": 0.0,
+      "key": "anchor[uniform_w0.85].log10_min_e_r_to_4dp",
+      "note": null,
+      "recomputed": -1.7248,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/arm_b.jsonl",
+      "status": "MATCH",
+      "tolerance": 5e-05
+    },
+    {
+      "archived": -4.5917,
+      "delta": 0.0,
+      "key": "anchor[uniform_w1.0].W05_to_4dp",
+      "note": null,
+      "recomputed": -4.5917,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/arm_b.jsonl",
+      "status": "MATCH",
+      "tolerance": 5e-05
+    },
+    {
+      "archived": -4.5828,
+      "delta": 0.0,
+      "key": "anchor[uniform_w1.0].log10_min_e_r_to_4dp",
+      "note": null,
+      "recomputed": -4.5828,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/arm_b.jsonl",
+      "status": "MATCH",
+      "tolerance": 5e-05
+    },
+    {
+      "archived": 0.0796,
+      "delta": -4.049128177231742e-05,
+      "key": "gaussian.bracket_lo",
+      "note": null,
+      "recomputed": 0.07955950871822769,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json",
+      "status": "MATCH",
+      "tolerance": 5e-05
+    },
+    {
+      "archived": 0.5311,
+      "delta": -4.008964654800273e-06,
+      "key": "gaussian.bracket_hi",
+      "note": null,
+      "recomputed": 0.5310959910353452,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json",
+      "status": "MATCH",
+      "tolerance": 5e-05
+    },
+    {
+      "archived": 3.6,
+      "delta": 0.03587690305705804,
+      "key": "gaussian.stamp_ratio",
+      "note": null,
+      "recomputed": 3.635876903057058,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/analysis.json",
+      "status": "MATCH",
+      "tolerance": 0.06
+    },
+    {
+      "archived": 13,
+      "delta": -1.0,
+      "key": "undefinedness.count_vs_draft",
+      "note": "draft asserts 13; computed from rows",
+      "recomputed": 12,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/arm_a.jsonl",
+      "status": "MISMATCH",
+      "tolerance": 0
+    },
+    {
+      "archived": 4.1e-05,
+      "delta": -1.9068986971467486e-07,
+      "key": "proposition1.orba_dW05",
+      "note": null,
+      "recomputed": 4.0809310130285326e-05,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/arm_b.jsonl",
+      "status": "MATCH",
+      "tolerance": 5e-06
+    },
+    {
+      "archived": 7.3e-05,
+      "delta": -3.865790814230782e-07,
+      "key": "proposition1.control_dW05",
+      "note": null,
+      "recomputed": 7.261342091857692e-05,
+      "source": "iter_4/gen_art/gen_art_experiment_1/results/arm_b.jsonl",
+      "status": "MATCH",
+      "tolerance": 5e-06
+    },
+    {
+      "archived": 81,
+      "delta": 0.0,
+      "key": "corrections.n_unresolved_non_control",
+      "note": null,
+      "recomputed": 81,
+      "source": "iter_4/gen_art/gen_art_experiment_2/results/arm2_archive_counts.json",
+      "status": "MATCH",
+      "tolerance": 0
+    },
+    {
+      "archived": 8,
+      "delta": 0.0,
+      "key": "corrections.n_skipped_non_control",
+      "note": null,
+      "recomputed": 8,
+      "source": "iter_4/gen_art/gen_art_experiment_2/results/arm2_archive_counts.json",
+      "status": "MATCH",
+      "tolerance": 0
+    },
+    {
+      "archived": true,
+      "delta": 0.0,
+      "key": "corrections.row_arithmetic_closes",
+      "note": null,
+      "recomputed": true,
+      "source": "iter_4/gen_art/gen_art_experiment_2/results/arm2_archive_counts.json",
+      "status": "MATCH",
+      "tolerance": 0
+    },
+    {
+      "archived": 0.29,
+      "delta": 0.0039000000000000146,
+      "key": "corrections.mde_at_n40_p020",
+      "note": "the quoted 0.29 is the DIFFERENCE, not the alternative rate",
+      "recomputed": 0.2939,
+      "source": "recomputed two-proportion power calculation",
+      "status": "MATCH",
+      "tolerance": 0.011
+    },
+    {
+      "archived": -2.7415117804288127,
+      "delta": 2.8812507935072063e-11,
+      "key": "W05_abliterated_max_equals_tau",
+      "note": "the panel operating point IS the abliterated maximum; the iteration-3 numbers file stores it ROUNDED to 10 decimal places, so full precision must come from the raw rows -- see corrections C23",
+      "recomputed": -2.7415117804,
+      "source": "iter_3/gen_art/gen_art_evaluation_1/numbers.json",
+      "status": "MATCH",
+      "tolerance": 1e-09
+    }
+  ]
+}

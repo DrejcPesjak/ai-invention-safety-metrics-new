@@ -1,0 +1,16 @@
+[
+  {
+    "analysis": "A2",
+    "planned_field": "per-item r_0 values for the harmful and benign contrast sets",
+    "used_instead": "archived per-model observable_sanity {auroc, margin, r0_harmful_mean, r0_benign_mean} only",
+    "reason": "E1/out/tier0_raw.json archives the harmful/benign r_0 SUMMARIES, not the per-item scores, so a 2000-rep bootstrap CI on the AUROC cannot be computed from the archived tree",
+    "impact_on_conclusion": "the gate itself is unaffected (it keys off the archived AUROC point estimate); only the CI on that AUROC is unavailable and is reported as null"
+  },
+  {
+    "analysis": "A2",
+    "planned_field": "observable_sanity at the FINAL-LAYER readout",
+    "used_instead": "layer-L observable_sanity applied as the gate at both readouts",
+    "reason": "E1 archives observable_sanity once, computed on the layer-L lens; no final-layer r_0 harmful-vs-benign sanity block exists in the tree",
+    "impact_on_conclusion": "the final-layer indicator comparison is gated on layer-L discrimination; recorded as a limitation, and it does not change n_passing because the same member set passes"
+  }
+]

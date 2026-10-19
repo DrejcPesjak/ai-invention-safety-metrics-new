@@ -1,0 +1,106 @@
+{
+  "revision_stability": {
+    "rows": [
+      {
+        "repo": "Qwen/Qwen3-0.6B",
+        "revision_archived": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "revision_main": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "same_commit": true,
+        "W_archived_rev": {
+          "W01": 0.6238864971669735,
+          "W02": 0.0,
+          "W03": 0.6108290975062102,
+          "W04": 0.14016338653363425,
+          "W05": -0.9641475448501782
+        },
+        "W_main_rev": {
+          "W01": 0.6238864971669735,
+          "W02": 0.0,
+          "W03": 0.6108290975062102,
+          "W04": 0.14016338653363425,
+          "W05": -0.9641475448501782
+        },
+        "delta": {
+          "W01": 0.0,
+          "W02": 0.0,
+          "W03": 0.0,
+          "W04": 0.0,
+          "W05": 0.0
+        },
+        "max_abs_delta": 0.0
+      },
+      {
+        "repo": "huihui-ai/Qwen2.5-0.5B-Instruct-abliterated",
+        "revision_archived": "a435cb8ac2f32255f5a57e612ed34faf96c50b9b",
+        "revision_main": "a435cb8ac2f32255f5a57e612ed34faf96c50b9b",
+        "same_commit": true,
+        "W_archived_rev": {
+          "W01": 1.4379010996922543,
+          "W02": 0.9583333333333334,
+          "W03": 1.4292955513247838,
+          "W04": 0.850933394616522,
+          "W05": -2.741511857445461
+        },
+        "W_main_rev": {
+          "W01": 1.4379010996922543,
+          "W02": 0.9583333333333334,
+          "W03": 1.4292955513247838,
+          "W04": 0.850933394616522,
+          "W05": -2.741511857445461
+        },
+        "delta": {
+          "W01": 0.0,
+          "W02": 0.0,
+          "W03": 0.0,
+          "W04": 0.0,
+          "W05": 0.0
+        },
+        "max_abs_delta": 0.0
+      }
+    ],
+    "max_abs_delta_overall": 0.0,
+    "verdict": "STABLE",
+    "note": "if two revisions of the same repo disagree, revision pinning rather than the recipe is the confound"
+  },
+  "random_direction_control": {
+    "rows": [
+      {
+        "repo": "huihui-ai/Qwen2.5-0.5B-Instruct-abliterated",
+        "member_class": "abliterated",
+        "true_v1_W05": -2.741511857445461,
+        "true_v1_W02": 0.9583333333333334,
+        "random_dir_W05_mean": -0.08546252362098254,
+        "random_dir_W05_min": -0.1127402220813715,
+        "random_dir_W02_max": 0.0,
+        "n_random_draws": 5,
+        "gap_true_minus_random": -2.656049333824478
+      },
+      {
+        "repo": "Qwen/Qwen2.5-0.5B-Instruct",
+        "member_class": "instruct",
+        "true_v1_W05": -1.4128988977781296,
+        "true_v1_W02": 0.2708333333333333,
+        "random_dir_W05_mean": -0.0652083063333558,
+        "random_dir_W05_min": -0.10495684484372694,
+        "random_dir_W02_max": 0.0,
+        "n_random_draws": 5,
+        "gap_true_minus_random": -1.3476905914447739
+      },
+      {
+        "repo": "allenai/OLMo-1B-hf",
+        "member_class": "base",
+        "true_v1_W05": -2.665195321128662,
+        "true_v1_W02": 0.96875,
+        "random_dir_W05_mean": -0.033420812487739454,
+        "random_dir_W05_min": -0.05469277347258663,
+        "random_dir_W02_max": 0.0,
+        "n_random_draws": 5,
+        "gap_true_minus_random": -2.6317745086409228
+      }
+    ],
+    "detection_threshold_W05": -2.7033532394669777,
+    "n_random_below_threshold": 0,
+    "verdict": "PASS",
+    "note": "W05 is a MINIMUM over matrices; this rules out the statistic being an artefact of minimising over a large set. A random unit direction must never look like a scar, including on the abliterated member where the true minimum eigenvector does."
+  }
+}

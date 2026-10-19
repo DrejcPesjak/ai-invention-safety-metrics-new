@@ -1,0 +1,58 @@
+[
+  {
+    "stage": "A_parent",
+    "batch": 8,
+    "n": 40,
+    "hit": 22,
+    "hit_rate": 0.55
+  },
+  {
+    "stage": "A_parent",
+    "batch": 16,
+    "n": 40,
+    "hit": 26,
+    "hit_rate": 0.65
+  },
+  {
+    "stage": "A_parent",
+    "batch": 32,
+    "n": 40,
+    "hit": 26,
+    "hit_rate": 0.65
+  },
+  {
+    "stage": "A_parent",
+    "batch": 40,
+    "n": 40,
+    "hit": 24,
+    "hit_rate": 0.6
+  },
+  {
+    "stage": "A_root",
+    "batch": 8,
+    "n": 40,
+    "hit": 25,
+    "hit_rate": 0.625
+  },
+  {
+    "stage": "A_root",
+    "batch": 16,
+    "n": 40,
+    "hit": 23,
+    "hit_rate": 0.575
+  },
+  {
+    "stage": "A_root",
+    "batch": 32,
+    "n": 40,
+    "hit": 26,
+    "hit_rate": 0.65
+  },
+  {
+    "stage": "A_root",
+    "batch": 40,
+    "n": 40,
+    "hit": 25,
+    "hit_rate": 0.625
+  }
+]

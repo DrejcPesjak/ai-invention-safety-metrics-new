@@ -1,0 +1,315 @@
+{
+ "tests": [
+  {
+   "id": "T0.1",
+   "name": "windows_for exact tuple lists",
+   "PASS": true,
+   "observed": {
+    "2": [
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      6
+     ],
+     [
+      5,
+      7
+     ],
+     [
+      6,
+      8
+     ],
+     [
+      7,
+      9
+     ],
+     [
+      8,
+      10
+     ],
+     [
+      9,
+      11
+     ],
+     [
+      10,
+      12
+     ]
+    ],
+    "4": [
+     [
+      0,
+      4
+     ],
+     [
+      2,
+      6
+     ],
+     [
+      4,
+      8
+     ],
+     [
+      6,
+      10
+     ],
+     [
+      8,
+      12
+     ]
+    ],
+    "6": [
+     [
+      0,
+      6
+     ],
+     [
+      3,
+      9
+     ],
+     [
+      6,
+      12
+     ]
+    ],
+    "8": [
+     [
+      0,
+      8
+     ],
+     [
+      4,
+      12
+     ]
+    ],
+    "12": [
+     [
+      0,
+      12
+     ]
+    ]
+   },
+   "expected": {
+    "2": [
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      6
+     ],
+     [
+      5,
+      7
+     ],
+     [
+      6,
+      8
+     ],
+     [
+      7,
+      9
+     ],
+     [
+      8,
+      10
+     ],
+     [
+      9,
+      11
+     ],
+     [
+      10,
+      12
+     ]
+    ],
+    "4": [
+     [
+      0,
+      4
+     ],
+     [
+      2,
+      6
+     ],
+     [
+      4,
+      8
+     ],
+     [
+      6,
+      10
+     ],
+     [
+      8,
+      12
+     ]
+    ],
+    "6": [
+     [
+      0,
+      6
+     ],
+     [
+      3,
+      9
+     ],
+     [
+      6,
+      12
+     ]
+    ],
+    "8": [
+     [
+      0,
+      8
+     ],
+     [
+      4,
+      12
+     ]
+    ],
+    "12": [
+     [
+      0,
+      12
+     ]
+    ]
+   }
+  },
+  {
+   "id": "T0.2",
+   "name": "complete projection: abscos>0.999 and W05<=-10",
+   "PASS": true,
+   "observed": {
+    "abscos_v1_r": 0.9999999999989964,
+    "W05": -13.551545241314264
+   },
+   "expected": {
+    "abscos_v1_r": "> 0.999",
+    "W05": "<= -10"
+   }
+  },
+  {
+   "id": "T0.3",
+   "name": "W05w(k=L) == W05_f64 on the toy (float64 path)",
+   "PASS": true,
+   "observed": {
+    "delta": 0.0
+   },
+   "expected": {
+    "delta": "<= 1e-12"
+   }
+  },
+  {
+   "id": "T0.4",
+   "name": "band edit: pooled blind, W05w(k=4) drops > 5 logs",
+   "PASS": true,
+   "observed": {
+    "pooled_drop": 0.9065939869637376,
+    "windowed_k4_drop": 12.96023413133116,
+    "parent_W05": -0.28877754599551153,
+    "band_W05": -1.1953715329592491,
+    "parent_W05w_k4": -0.5400863566547666,
+    "band_W05w_k4": -13.500320487985928
+   },
+   "expected": {
+    "windowed_k4_drop": "> 5",
+    "pooled_drop": "< 1"
+   }
+  },
+  {
+   "id": "T0.5",
+   "name": "Householder isometry: lam invariant, |dW05|<1e-6",
+   "PASS": true,
+   "observed": {
+    "rel_dlam_min": 3.1776891626171904e-09,
+    "dW05": 5.03317390543323e-08
+   },
+   "expected": {
+    "rel_dlam_min": "<= 1e-6",
+    "dW05": "< 1e-6"
+   },
+   "tolerance_note": "The invariance A -> HAH is EXACT in exact arithmetic.  The Gram is accumulated in float32 (the archive's dtype), so the achievable relative precision on lam[0] -- which sits ~5 orders below the trace -- is set by that accumulation, not by the algebra.  The tolerance on lam is therefore 1e-6 relative; the tolerance on W05 is the plan's own stated 1e-6 and is unchanged."
+  },
+  {
+   "id": "T0.6",
+   "name": "rank-3 removal: j_star == 3, angles<1deg at j=3",
+   "PASS": true,
+   "observed": {
+    "SD_j2": 0.6666666666666623,
+    "SD_j3": 0.999999999999993,
+    "max_angle_deg_j3": 5.193302344775284e-06,
+    "j_star": 3,
+    "SD_at_dimR": 0.999999999999993
+   },
+   "expected": {
+    "SD_j2": "< 0.9 (a 2-dim V can capture at most 2 of the 3 removed directions, so SD <= 2/3)",
+    "SD_j3": "> 0.999",
+    "max_angle_deg_j3": "< 1",
+    "j_star": 3
+   }
+  },
+  {
+   "id": "T0.7",
+   "name": "analyse2 == vendored wstats.analyse (all W)",
+   "PASS": true,
+   "observed": {
+    "max_delta": 0.0,
+    "deltas": {
+     "W01_abl_suppression_depth": 0.0,
+     "W02_abl_direction_consistency": 0.0,
+     "W03_abl_gap_vs_random": 0.0,
+     "W04_abl_isolation": 0.0,
+     "W05_abl_min_layer_energy": 0.0,
+     "W05q10_abl_p10_layer_energy": 0.0,
+     "W05_f64": 0.0,
+     "W05w[2]": 0.0,
+     "c[2]": 0.0,
+     "W05w[4]": 0.0,
+     "c[4]": 0.0,
+     "W05w[6]": 0.0,
+     "c[6]": 0.0,
+     "W05w[8]": 0.0,
+     "c[8]": 0.0,
+     "W05w[L]": 0.0,
+     "c[L]": 0.0
+    }
+   },
+   "expected": {
+    "max_delta": "<= 1e-12"
+   }
+  }
+ ],
+ "n_pass": 7,
+ "n_total": 7,
+ "ALL_PASS": true
+}

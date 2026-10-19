@@ -1,0 +1,29 @@
+{
+ "P1": {
+  "verdict": "UNRESOLVED",
+  "reason": "band or parent variant not run"
+ },
+ "P2": {
+  "verdict": "UNRESOLVED",
+  "reason": "no depth-weighted variants run"
+ },
+ "P3": {
+  "verdict": "UNRESOLVED",
+  "reason": "ORBA variant not run"
+ },
+ "P4": {
+  "verdict": "SUPPORTED",
+  "specificity_by_k_at_tau0": {
+   "2": 1.0,
+   "4": 1.0,
+   "6": 1.0,
+   "8": 1.0,
+   "L": 1.0
+  },
+  "note": "monotone means specificity is non-decreasing as k grows, i.e. non-increasing as k shrinks"
+ },
+ "P5": {
+  "verdict": "UNRESOLVED",
+  "reason": "sub-unit variants not run"
+ }
+}

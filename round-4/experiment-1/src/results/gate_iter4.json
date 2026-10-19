@@ -1,0 +1,52 @@
+{
+  "n_members_attempted": 10,
+  "n_members_ok": 10,
+  "n_abliterated": 5,
+  "max_delta_per_metric": {
+    "W05_abl_min_layer_energy": 9.908662263136137e-06,
+    "W01_abl_suppression_depth": 0.04789419542908391,
+    "W02_abl_direction_consistency": 0.0
+  },
+  "max_delta_per_metric_by_role": {
+    "abliterated": {
+      "W05_abl_min_layer_energy": 9.908662263136137e-06,
+      "W01_abl_suppression_depth": 0.04789419542908391,
+      "W02_abl_direction_consistency": 0.0
+    },
+    "non_abliterated": {
+      "W05_abl_min_layer_energy": 1.0197504047848582e-06
+    }
+  },
+  "max_delta_overall": 0.04789419542908391,
+  "tolerance": 0.0001,
+  "PASS": false,
+  "PASS_HEADLINE_W05_W02": true,
+  "max_delta_headline": 9.908662263136137e-06,
+  "float32_to_float64_shift": {
+    "W01_abl_suppression_depth": {
+      "max": 0.04789419541291373,
+      "median": 8.547431909977643e-06
+    },
+    "W04_abl_isolation": {
+      "max": 0.04789338457537884,
+      "median": 7.906817799455124e-06
+    },
+    "W05_abl_min_layer_energy": {
+      "max": 1.0596209860658234e-05,
+      "median": 4.178506979868324e-07
+    },
+    "lam_min_rel": {
+      "max": 0.10441864307707756,
+      "median": 2.1980199028981216e-05
+    }
+  },
+  "conditioning_finding": "W05 and W02 -- the statistic this artifact actually uses and the one TAU thresholds -- reproduce the archived values to ~1e-5 on all 10 members. W01 and W04 do NOT: they drift by up to ~0.05, and ONLY on the abliterated members. Both are log10 ratios whose denominator is lam[0], which on an abliterated checkpoint sits ~5 orders of magnitude below the trace and is therefore at the float32 Gram-accumulation floor, where the reduction ORDER (GPU vs CPU, shard order) changes it by several percent. The float32 -> float64 recomputation isolates exactly that: it moves lam[0] and hence W01/W04, and leaves W05 alone. This is a reproducibility limit of the archived battery, reported as a finding rather than tuned away; no downstream number in this artifact depends on W01 or W04.",
+  "fast_path_agreement": {
+    "tolerance": 1e-06,
+    "max_delta": 0.0,
+    "n_agree": 10,
+    "n": 10,
+    "PASS": true
+  },
+  "note": "the archive stores W01/W02/W05 for edited members and W05 for parents; the gate compares every archived value that exists. The Runner-path comparator is vendored_lib_score.abl_weights, which is the W01-W05 subset of vendored_lib_metrics.compute_weights sharing its _stats_from core; compute_weights itself additionally needs the refusal-token lexicon for W12-W16, which W01-W05 do not touch."
+}

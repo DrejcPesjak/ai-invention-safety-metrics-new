@@ -1,2 +1,0 @@
-{"utc": "2026-08-13T03:51:04Z", "stage": "stage2_five_class", "model": "meta-llama/llama-3.3-70b-instruct", "n_items": 660, "n_calls": 513, "n_cache_hits": 147, "cost_usd": 0.027716, "cumulative_usd": 0.027716, "hard_cap_usd": 2.0, "stop_at_usd": 1.9, "aborted_on_budget": false}
-{"utc": "2026-08-13T03:53:22Z", "stage": "stage2_five_class", "model": "meta-llama/llama-3.3-70b-instruct", "n_items": 660, "n_calls": 0, "n_cache_hits": 660, "cost_usd": 0.0, "cumulative_usd": 0.0, "hard_cap_usd": 2.0, "stop_at_usd": 1.9, "aborted_on_budget": false}

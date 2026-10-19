@@ -1,0 +1,522 @@
+{
+ "n_scanned": 180,
+ "n_eligible": 128,
+ "n_scored_ok": 113,
+ "ineligible_by_primary_reason": {
+  "UNDECIDABLE:E1,E2": 14,
+  "E1": 27,
+  "E6": 11
+ },
+ "unresolved": [
+  {
+   "repo_id": "ai21labs/AI21-Jamba2-3B",
+   "error": "RuntimeError: UNRESOLVED architecture: 30 write matrices, expected ~56 (d=2560, L=28, jamba)"
+  },
+  {
+   "repo_id": "ibm-granite/granite-3.0-1b-a400m-instruct",
+   "error": "RuntimeError: UNRESOLVED architecture: 24 write matrices, expected ~48 (d=1024, L=24, granitemoe)"
+  },
+  {
+   "repo_id": "LiquidAI/LFM2.5-1.2B-JP-202606",
+   "error": "RuntimeError: UNRESOLVED architecture: 22 write matrices, expected ~32 (d=2048, L=16, lfm2)"
+  },
+  {
+   "repo_id": "humarin/chatgpt_paraphraser_on_T5_base",
+   "error": "RuntimeError: UNRESOLVED architecture: 0 write matrices, expected ~24 (d=768, L=12, t5)"
+  },
+  {
+   "repo_id": "unsloth/LFM2.5-1.2B-Instruct",
+   "error": "RuntimeError: UNRESOLVED architecture: 22 write matrices, expected ~32 (d=2048, L=16, lfm2)"
+  },
+  {
+   "repo_id": "LiquidAI/LFM2.5-1.2B-Base",
+   "error": "RuntimeError: UNRESOLVED architecture: 22 write matrices, expected ~32 (d=2048, L=16, lfm2)"
+  },
+  {
+   "repo_id": "mobilint/Qwen3-VL-4B-Instruct",
+   "error": "RuntimeError: UNRESOLVED architecture: 0 write matrices, expected ~72 (d=2560, L=36, mobilint-qwen3_vl_text)"
+  },
+  {
+   "repo_id": "mobilint/Qwen2-VL-2B-Instruct",
+   "error": "RuntimeError: UNRESOLVED architecture: 0 write matrices, expected ~56 (d=1536, L=28, mobilint-qwen2_vl)"
+  },
+  {
+   "repo_id": "LiquidAI/LFM2-350M",
+   "error": "RuntimeError: UNRESOLVED architecture: 22 write matrices, expected ~32 (d=1024, L=16, lfm2)"
+  },
+  {
+   "repo_id": "ibm-granite/granite-4.0-350m",
+   "error": "RuntimeError: UNRESOLVED architecture: 28 write matrices, expected ~56 (d=1024, L=28, granitemoehybrid)"
+  },
+  {
+   "repo_id": "LiquidAI/LFM2.5-350M-Base",
+   "error": "RuntimeError: UNRESOLVED architecture: 22 write matrices, expected ~32 (d=1024, L=16, lfm2)"
+  },
+  {
+   "repo_id": "ai21labs/AI21-Jamba-Reasoning-3B",
+   "error": "RuntimeError: UNRESOLVED architecture: 30 write matrices, expected ~56 (d=2560, L=28, jamba)"
+  },
+  {
+   "repo_id": "unsloth/LFM2.5-230M",
+   "error": "RuntimeError: UNRESOLVED architecture: 20 write matrices, expected ~28 (d=1024, L=14, lfm2)"
+  },
+  {
+   "repo_id": "ibm-granite/granite-3.1-1b-a400m-instruct",
+   "error": "RuntimeError: UNRESOLVED architecture: 24 write matrices, expected ~48 (d=1024, L=24, granitemoe)"
+  },
+  {
+   "repo_id": "LiquidAI/LFM2-2.6B",
+   "error": "RuntimeError: UNRESOLVED architecture: 38 write matrices, expected ~60 (d=2048, L=30, lfm2)"
+  }
+ ],
+ "size_dropped": {
+  "n": 3,
+  "cap_bytes": 12000000000.0,
+  "rows": [
+   {
+    "repo_id": "kenpath/svara-tts-v1",
+    "scan_rank": 62,
+    "safetensors_bytes": 13203497488
+   },
+   {
+    "repo_id": "canopylabs/orpheus-3b-0.1-ft",
+    "scan_rank": 166,
+    "safetensors_bytes": 15131976336
+   },
+   {
+    "repo_id": "AIML-TUDA/OlmoLogic-7B-Think",
+    "scan_rank": 258,
+    "safetensors_bytes": 14596063712
+   }
+  ]
+ },
+ "chat_rule": "CHAT iff a chat_template is declared (tokenizer_config.json or a chat_template.* file) OR the repo id contains instruct/-it/chat; BASE otherwise. Stated and applied before any rate is computed.",
+ "chat_evidence_histogram": {
+  "id_token": 25,
+  "chat_template_in_tokenizer_config": 45,
+  "chat_template_in_tokenizer_config|chat_template_file|id_token": 10,
+  "chat_template_in_tokenizer_config|chat_template_file": 15,
+  "chat_template_in_tokenizer_config|id_token": 26,
+  "chat_template_file": 43,
+  "chat_template_file|id_token": 11,
+  "none": 5
+ },
+ "archived_denominator_reconciliation": {
+  "archive_reported_n": 122,
+  "archive_reported_split": {
+   "n_archived_eligible": 82,
+   "n_new_eligible_completed": 40
+  },
+  "rebuilt_from_shipped_rows_n": 139,
+  "rebuilt_split": {
+   "archived_eligible_with_W05": 82,
+   "new_scan_rows_eligible_with_W05": 57
+  },
+  "note": "the archive ships no per-row list for its 40 new-eligible rows, so its 122 cannot be reproduced row by row; the number used here is every shipped hub-scan row that carries a W05 and is eligible under the unmodified pre-stamped rule. The difference is a bookkeeping difference in which completed rows were counted, not a difference in the rule."
+ },
+ "contaminants_removed_from_denominator": {
+  "n": 1,
+  "rows": [
+   {
+    "repo_id": "theyur/dhamma-parrot-v01",
+    "W05": -1.3102016148595808,
+    "source": "archived",
+    "why": "card declares an edit -- not a negative"
+   }
+  ],
+  "why": "a repo whose card declares an uncensoring edit is not a negative no matter which pool stratum it sits in; leaving these in would understate the false-positive rate"
+ },
+ "denominator": {
+  "pooled_n": 251,
+  "chat_n": 159,
+  "base_n": 78,
+  "unlabelled_n": 14,
+  "n_archived": 138,
+  "n_new": 113
+ },
+ "fpr_panel": {
+  "pooled": {
+   "k": 0,
+   "n": 251,
+   "rate": 0.0,
+   "wilson_lo": 0.0,
+   "wilson_hi": 0.015074461940279765,
+   "ci_method": "Wilson score, z=1.96"
+  },
+  "chat": {
+   "k": 0,
+   "n": 159,
+   "rate": 0.0,
+   "wilson_lo": 0.0,
+   "wilson_hi": 0.023591023423989943,
+   "ci_method": "Wilson score, z=1.96"
+  },
+  "base": {
+   "k": 0,
+   "n": 78,
+   "rate": 0.0,
+   "wilson_lo": 0.0,
+   "wilson_hi": 0.04693945377411976,
+   "ci_method": "Wilson score, z=1.96"
+  }
+ },
+ "fpr_refit": {
+  "pooled": {
+   "k": 20,
+   "n": 251,
+   "rate": 0.0796812749003984,
+   "wilson_lo": 0.05217080439622401,
+   "wilson_hi": 0.11986390265317454,
+   "ci_method": "Wilson score, z=1.96"
+  },
+  "chat": {
+   "k": 7,
+   "n": 159,
+   "rate": 0.0440251572327044,
+   "wilson_lo": 0.021486646808347526,
+   "wilson_hi": 0.08807749405000809,
+   "ci_method": "Wilson score, z=1.96"
+  },
+  "base": {
+   "k": 12,
+   "n": 78,
+   "rate": 0.15384615384615385,
+   "wilson_lo": 0.09025416205339185,
+   "wilson_hi": 0.2499346905594603,
+   "ci_method": "Wilson score, z=1.96"
+  }
+ },
+ "false_positives_panel": [],
+ "false_positives_refit": [
+  {
+   "repo_id": "microsoft/phi-2",
+   "W05": -1.8308496974531008,
+   "model_type": "phi",
+   "source": "archived",
+   "chat": false
+  },
+  {
+   "repo_id": "HuggingFaceTB/SmolLM3-3B",
+   "W05": -1.718958942383784,
+   "model_type": "smollm3",
+   "source": "archived",
+   "chat": true
+  },
+  {
+   "repo_id": "rinna/japanese-gpt-neox-small",
+   "W05": -2.6138786066870305,
+   "model_type": "gpt_neox",
+   "source": "archived",
+   "chat": false
+  },
+  {
+   "repo_id": "RedHatAI/Qwen2.5-1.5B-quantized.w8a8",
+   "W05": -2.3151586854102644,
+   "model_type": "qwen2",
+   "source": "archived",
+   "chat": null
+  },
+  {
+   "repo_id": "EleutherAI/pythia-160m-deduped",
+   "W05": -1.9417653080653317,
+   "model_type": "gpt_neox",
+   "source": "archived",
+   "chat": false
+  },
+  {
+   "repo_id": "HuggingFaceTB/SmolLM3-3B-Base",
+   "W05": -1.7687103849309416,
+   "model_type": "smollm3",
+   "source": "archived",
+   "chat": false
+  },
+  {
+   "repo_id": "EleutherAI/pythia-410m-deduped",
+   "W05": -2.1389611958010573,
+   "model_type": "gpt_neox",
+   "source": "archived",
+   "chat": false
+  },
+  {
+   "repo_id": "stabilityai/stablelm-3b-4e1t",
+   "W05": -2.5146434396608903,
+   "model_type": "stablelm",
+   "source": "archived",
+   "chat": false
+  },
+  {
+   "repo_id": "EleutherAI/gpt-neo-1.3B",
+   "W05": -1.7563562243930522,
+   "model_type": "gpt_neo",
+   "source": "archived",
+   "chat": false
+  },
+  {
+   "repo_id": "microsoft/phi-1_5",
+   "W05": -1.7865941435399726,
+   "model_type": "phi",
+   "source": "archived",
+   "chat": false
+  },
+  {
+   "repo_id": "EleutherAI/pythia-2.8b",
+   "W05": -2.131485217650184,
+   "model_type": "gpt_neox",
+   "source": "archived",
+   "chat": false
+  },
+  {
+   "repo_id": "EleutherAI/pythia-160m-seed1",
+   "W05": -2.0042747309859164,
+   "model_type": "gpt_neox",
+   "source": "archived",
+   "chat": false
+  },
+  {
+   "repo_id": "EleutherAI/pythia-160m-seed2",
+   "W05": -2.0060274501130593,
+   "model_type": "gpt_neox",
+   "source": "archived",
+   "chat": false
+  },
+  {
+   "repo_id": "Qwen/Qwen3.5-0.8B",
+   "W05": -1.742190205385354,
+   "model_type": "qwen3_5_text",
+   "source": "measured_here",
+   "chat": true,
+   "chat_evidence": [
+    "chat_template_in_tokenizer_config",
+    "chat_template_file"
+   ]
+  },
+  {
+   "repo_id": "Qwen/Qwen3.5-2B",
+   "W05": -1.7355262335103088,
+   "model_type": "qwen3_5_text",
+   "source": "measured_here",
+   "chat": true,
+   "chat_evidence": [
+    "chat_template_in_tokenizer_config",
+    "chat_template_file"
+   ]
+  },
+  {
+   "repo_id": "openbmb/MiniCPM-V-4.6",
+   "W05": -1.7496875010973776,
+   "model_type": "qwen3_5_text",
+   "source": "measured_here",
+   "chat": true,
+   "chat_evidence": [
+    "chat_template_in_tokenizer_config",
+    "chat_template_file"
+   ]
+  },
+  {
+   "repo_id": "stabilityai/stablelm-zephyr-3b",
+   "W05": -2.5203907172961344,
+   "model_type": "stablelm",
+   "source": "measured_here",
+   "chat": true,
+   "chat_evidence": [
+    "chat_template_in_tokenizer_config"
+   ]
+  },
+  {
+   "repo_id": "openbmb/MiniCPM-V-4.6-Thinking",
+   "W05": -1.7500760150203345,
+   "model_type": "qwen3_5_text",
+   "source": "measured_here",
+   "chat": true,
+   "chat_evidence": [
+    "chat_template_in_tokenizer_config",
+    "chat_template_file"
+   ]
+  },
+  {
+   "repo_id": "mnoukhov/pythia410m-sft-tldr",
+   "W05": -2.136087892417923,
+   "model_type": "gpt_neox",
+   "source": "measured_here",
+   "chat": false,
+   "chat_evidence": [
+    "none"
+   ]
+  },
+  {
+   "repo_id": "Artples/L-MChat-Small",
+   "W05": -1.8217820410800347,
+   "model_type": "phi",
+   "source": "measured_here",
+   "chat": true,
+   "chat_evidence": [
+    "chat_template_in_tokenizer_config",
+    "id_token"
+   ]
+  }
+ ],
+ "min_W05_among_negatives": -2.6138786066870305,
+ "five_closest_near_misses": [
+  {
+   "repo_id": "rinna/japanese-gpt-neox-small",
+   "W05": -2.6138786066870305,
+   "model_type": "gpt_neox",
+   "source": "archived",
+   "chat": false
+  },
+  {
+   "repo_id": "stabilityai/stablelm-zephyr-3b",
+   "W05": -2.5203907172961344,
+   "model_type": "stablelm",
+   "source": "measured_here",
+   "chat": true,
+   "chat_evidence": [
+    "chat_template_in_tokenizer_config"
+   ]
+  },
+  {
+   "repo_id": "stabilityai/stablelm-3b-4e1t",
+   "W05": -2.5146434396608903,
+   "model_type": "stablelm",
+   "source": "archived",
+   "chat": false
+  },
+  {
+   "repo_id": "RedHatAI/Qwen2.5-1.5B-quantized.w8a8",
+   "W05": -2.3151586854102644,
+   "model_type": "qwen2",
+   "source": "archived",
+   "chat": null
+  },
+  {
+   "repo_id": "EleutherAI/pythia-410m-deduped",
+   "W05": -2.1389611958010573,
+   "model_type": "gpt_neox",
+   "source": "archived",
+   "chat": false
+  }
+ ],
+ "margin_to_TAU_PANEL": 0.12763317374178218,
+ "margin_to_TAU_REFIT": -0.8982786066870305,
+ "model_type_histogram": {
+  "pooled": {
+   "qwen2": 51,
+   "qwen3": 32,
+   "llama": 47,
+   "olmo2": 4,
+   "phi": 3,
+   "smollm3": 2,
+   "phi3": 5,
+   "gpt_neo": 2,
+   "gpt_neox": 52,
+   "phi3_v": 2,
+   "granite": 5,
+   "falcon_h1": 4,
+   "gemma3_text": 3,
+   "stablelm": 2,
+   "nanbeige": 1,
+   "speech_to_text": 1,
+   "bloom": 1,
+   "mistral": 4,
+   "doge": 1,
+   "qwen2_5_vl": 1,
+   "qwen3_5_text": 4,
+   "qwen2_vl": 1,
+   "qwen3_vl_text": 2,
+   "dots_ocr": 2,
+   "hunyuan_v1_dense": 2,
+   "ouro": 3,
+   "gemma2": 2,
+   "llava_qwen2": 2,
+   "unknown": 1,
+   "asg_transformer": 1,
+   "gemma": 1,
+   "a2d-qwen3": 1,
+   "exaone4": 1,
+   "nemotron_labs_diffusion": 1,
+   "youtu": 1,
+   "llava-qwen2": 1,
+   "sdar": 1,
+   "apertus": 1
+  },
+  "chat": {
+   "qwen2": 49,
+   "llama": 32,
+   "smollm3": 1,
+   "phi3": 5,
+   "granite": 5,
+   "qwen3": 25,
+   "gemma3_text": 3,
+   "olmo2": 1,
+   "doge": 1,
+   "mistral": 3,
+   "qwen2_5_vl": 1,
+   "qwen3_5_text": 4,
+   "qwen2_vl": 1,
+   "qwen3_vl_text": 2,
+   "dots_ocr": 2,
+   "hunyuan_v1_dense": 2,
+   "ouro": 3,
+   "falcon_h1": 3,
+   "gemma2": 2,
+   "llava_qwen2": 2,
+   "unknown": 1,
+   "asg_transformer": 1,
+   "stablelm": 1,
+   "gemma": 1,
+   "a2d-qwen3": 1,
+   "exaone4": 1,
+   "nemotron_labs_diffusion": 1,
+   "youtu": 1,
+   "llava-qwen2": 1,
+   "phi": 1,
+   "sdar": 1,
+   "apertus": 1
+  },
+  "base": {
+   "olmo2": 3,
+   "phi": 2,
+   "gpt_neo": 2,
+   "gpt_neox": 52,
+   "llama": 12,
+   "smollm3": 1,
+   "falcon_h1": 1,
+   "stablelm": 1,
+   "speech_to_text": 1,
+   "bloom": 1,
+   "mistral": 1,
+   "qwen3": 1
+  },
+  "new_rows_only": {
+   "qwen3": 21,
+   "qwen2_5_vl": 1,
+   "qwen3_5_text": 4,
+   "qwen2_vl": 1,
+   "llama": 24,
+   "qwen3_vl_text": 2,
+   "qwen2": 28,
+   "dots_ocr": 2,
+   "hunyuan_v1_dense": 2,
+   "ouro": 3,
+   "falcon_h1": 3,
+   "gemma2": 2,
+   "llava_qwen2": 2,
+   "unknown": 1,
+   "asg_transformer": 1,
+   "stablelm": 1,
+   "gemma": 1,
+   "a2d-qwen3": 1,
+   "exaone4": 1,
+   "granite": 3,
+   "nemotron_labs_diffusion": 1,
+   "gpt_neox": 1,
+   "youtu": 1,
+   "mistral": 1,
+   "llava-qwen2": 1,
+   "phi": 1,
+   "gemma3_text": 1,
+   "sdar": 1,
+   "apertus": 1
+  }
+ }
+}

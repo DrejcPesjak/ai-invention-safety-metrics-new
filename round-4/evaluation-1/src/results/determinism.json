@@ -1,0 +1,18 @@
+{
+ "differences": [],
+ "identical_after_stripping_volatile_fields": true,
+ "n_differences": 0,
+ "note": "Both runs use the same fixed seed. Every bootstrap and permutation draws from a np.random.Generator seeded at 20260814, so all intervals are reproducible.",
+ "raw_bytes_identical": false,
+ "sha256_run_a_canonical": "e3c1512dbec6de766e87567d18faba55855c1bf0aa927d9453d4f871a7072626",
+ "sha256_run_a_raw": "410a91025ce5579c1ace599278e2f46aba87eaf3871c42c093e4c0e7c7c5fac0",
+ "sha256_run_b_canonical": "e3c1512dbec6de766e87567d18faba55855c1bf0aa927d9453d4f871a7072626",
+ "sha256_run_b_raw": "0b51343d5ccb44100d78194b55c7255c14a40e32aae75feefdb41821b4562db7",
+ "status": "BYTE_IDENTICAL_APART_FROM_TIMING",
+ "volatile_fields_stripped": [
+  "seconds",
+  "total_s",
+  "wall_clock_s",
+  "weight_stats_wall_clock_s"
+ ]
+}

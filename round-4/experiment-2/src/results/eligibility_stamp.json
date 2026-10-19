@@ -1,0 +1,7 @@
+{
+ "sha256_eligibility_py": "0f8be4f6ca6817abc5db3e23f50d10ae3ff8092285bfa24a64ef393462460292",
+ "stamped_at_utc": "2026-08-14T00:30:46.861984+00:00",
+ "n_bytes": 4739,
+ "rule": "E1 n_layers>=8; E2 hidden_size>=128; E3 params<=4.2e9 enforced twice (index AND on-disk bytes / widest dtype); E4 not a unit-test fixture; E5 not a speculator/draft head; E6 not a quantized re-upload",
+ "unchanged_since_stamp": true
+}

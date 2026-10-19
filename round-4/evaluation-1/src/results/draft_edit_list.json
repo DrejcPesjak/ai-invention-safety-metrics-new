@@ -1,0 +1,84 @@
+[
+ {
+  "n": 1,
+  "new_sentence": "The detector keys on the UNIFORMITY of the edit, not on who uploaded it: it fires on uniform all-layer projections and misses per-component-optimised and depth-weighted kernels, which is a recipe property stated in advance and confirmed by a synthetic layer-fraction sweep with f* = 1.00.",
+  "old_framing_paraphrase": "the detector generalises across uploaders; the four new-uploader checkpoints are framed as an UPLOADER generalisation test",
+  "section": "Introduction",
+  "supporting_numbers": [
+   "f*=1.00",
+   "new-uploader AUROC 0.382",
+   "2/4 misses carry a verbatim non-uniform kernel string"
+  ]
+ },
+ {
+  "n": 2,
+  "new_sentence": "We characterise the detector's scope as RECIPE-CLASS BOUNDED: uniform global projection is detected at AUROC 1.000; per-component-optimised (Heretic) kernels are not.",
+  "old_framing_paraphrase": "contribution claimed as uploader-independent detection",
+  "section": "Contributions",
+  "supporting_numbers": [
+   "AUROC 1.000 on the calibration uploaders",
+   "leave-one-recipe-class-out sensitivity for per_component_optimised = 0.0"
+  ]
+ },
+ {
+  "n": 3,
+  "new_sentence": "2 of the 4 misses carry a verbatim non-uniform kernel string, so at least 2/4 of the 0.382 new-uploader AUROC is a RECIPE effect; the residual (2) is unattributed and reported as such.",
+  "old_framing_paraphrase": "0.382 AUROC reported as a failure to generalise to new uploaders",
+  "section": "Results 5.1",
+  "supporting_numbers": [
+   "0.382",
+   "0/4 at the fitted threshold -2.7415117804288127"
+  ]
+ },
+ {
+  "n": 4,
+  "new_sentence": "W05 requires a uniform, complete annihilation in every layer; any depth-weighted or sub-unit-weight kernel escapes it, exactly as a band-limited edit does.",
+  "old_framing_paraphrase": "the miss is attributed to uploader-specific implementation drift",
+  "section": "Discussion",
+  "supporting_numbers": [
+   "harmful refusal 0.45 -> 0.00 at delta_W05 = 0.0010",
+   "1.4% of the 0.0763 margin",
+   "W02 = 0 at 4/12 matrices"
+  ]
+ },
+ {
+  "n": 5,
+  "new_sentence": "Broader uploader coverage would not fix the gap; broader RECIPE coverage is what the scope statement requires, and the sub-4.2B MPOA / Heretic / OBLITERATUS checkpoints make that test runnable today.",
+  "old_framing_paraphrase": "concludes that broader uploader coverage would fix the gap",
+  "section": "Conclusion",
+  "supporting_numbers": [
+   "4,022,468,096 params on the panel's own Qwen3-4B family"
+  ]
+ },
+ {
+  "n": 6,
+  "new_sentence": "DELETE. Mechanically different recipes DO exist below the ceiling.",
+  "old_framing_paraphrase": "no mechanically different recipe exists below the 4.2B ceiling",
+  "recommendation": "DELETE",
+  "refutation": {
+   "already_measured_without_recognition": [
+    "prithivMLmods/VibeThinker-3B-heretic_decensored",
+    "MagicalAlchemist/Qwen3-1.7B-Magic_decensored"
+   ],
+   "limitation3_status": "REFUTED",
+   "note": "Three of the four 'missing' recipes have public sub-4.2B checkpoints at 4,022,468,096 params on the panel's OWN Qwen3-4B family, and the experiment already measured two Heretic checkpoints without recognising them as a distinct recipe class. Only ORBA is genuinely empty at this scale (7 repos, all 12.187B).",
+   "param_count_of_sub_4_2B_records": 4022468096,
+   "provenance": {
+    "file": "A6/research_report.md",
+    "line_or_key": "section C, PLAN WAS WRONG on availability",
+    "raw_value": 4022468096
+   },
+   "records": [
+    "YanLabs/Qwen3-4B-Instruct-2507-MPOA (MPOA, 4,022,468,096 params)",
+    "heretic-org/Qwen3-4B-Instruct-2507-heretic (Heretic v1.2.0, 4,022,468,096 params)",
+    "p-e-w/Qwen3-4B-Instruct-2507-heretic (Heretic v1.0.0, 4,022,468,096 params)",
+    "OBLITERATUS/Qwen3-4B-OBLITERATED (OBLITERATUS, 4,022,468,096 params)",
+    "0xA50C1A1/Qwen3-4B-Instruct-2507-SOM-MPOA (norm-preserving + multi-direction)"
+   ]
+  },
+  "section": "Limitation 3",
+  "supporting_numbers": [
+   "4,022,468,096"
+  ]
+ }
+]

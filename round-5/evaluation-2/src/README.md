@@ -1,124 +1,148 @@
-# Is the refusal axis reading meaning or wording?
+# Does a second judge change the safety verdicts?
 
-Pure re-analysis of the FROZEN iteration-4 read-vs-act tree
-(`iter_4/gen_art/gen_art_experiment_2`, art_1xT3w1joqeJ8). **No model weights are
-loaded, no text is generated, no steering is applied, no model is trained.**
-Everything is arithmetic over the archived `results/proj_<KEY>.npz`,
-`proj_<KEY>_items.json` and `detect_<KEY>.json`, plus $0.0277 of OpenRouter
-judging against a $2.00 hard cap.
+Validation of the single LLM judge that the whole behavioural axis of the abliteration-detector
+paper rests on: `meta-llama/llama-3.3-70b-instruct` under rubric B, whose only reported
+validation was agreement with a substring screen at mean kappa 0.149 and rate-level
+Pearson *r* 0.822.
 
-Run: `uv run eval.py` (93 s wall, 4 CPUs, no GPU) then `uv run figures.py`.
+Total OpenRouter spend **$0.0666** of a $1.50 cap. `verify_eval.py`: **56/56**.
+`eval_out.json` validates against `exp_eval_sol_out`.
 
-## The two questions
+---
 
-**Part 1 (H-L) — is the detection result partly definitional?** Axis A is the
-diff-in-means of hand-written canned refusals against canned compliances, and the
-detection label of record is `lib/classify.REFUSAL_RE`, an anchored regex over
-canned-refusal openers. Those two objects share a lexical basis. A stratified
-subset of the SAME stored spontaneous generations was re-labelled with the
-five-class semantic rubric of `iter_3/.../judge_stage.py` (which carries an
-explicit `REFUSAL_NONCANONICAL` class) and axis A's AUROC was recomputed against
-semantic labels, paired against the regex AUROC **on the identical items**.
+## The problem this artifact had to solve first
 
-**Part 2 (H-X) — how much of the AUROC is the normalisation?** The archived
-readout subtracts a per-stratum mean estimated on the WHOLE scored pool, which
-lets information from the held-out item into its own normalisation. The one
-published control (arXiv:2607.13346, worth 0.761 → 0.425 on its author's data)
-re-estimates every centring/scaling statistic inside the training fold under
-leave-one-prompt-out. Four protocols were run on the identical items and axes:
-`archived`, `fold_centre`, `fold_centre_scale` (Mehta's full residualisation) and
-a deliberately leaky whole-pool z-score, on axes A, B and the norm-matched random
-axis D, under BOTH the regex and the semantic labels.
+The archive (`art_VLI4IOs9Xy9P`) never stored the generation text. `lib_behave.score_set`
+persisted per-item **binary** labels keyed by prompt uid, one 400-character sample per cell,
+and a `judge_cache.json` that maps `sha256(JUDGE_MODEL ‖ RUBRIC_ID ‖ prompt ‖ response[:1500])`
+to a label — hashes only. "Read the archived text and re-judge it" is therefore impossible
+as literally stated.
 
-## Headline numbers
+It is, however, **recoverable, and the recovery is self-verifying**. Generation is greedy
+argmax at temperature 0; the edited checkpoints rebuild from `archive/root_recipe.json` and
+`results/roots.json`; so a regenerated `(prompt, response)` pair that is byte-identical to the
+archived one **hits the archived cache key**. Cache-hit rate is a *proof of text identity*,
+not bookkeeping — without it every agreement number would confound scorer disagreement with
+regeneration drift.
 
-| quantity | value |
+`regen.py` re-created **3,880 generations across all 61 archived behavioural cells** — roots A
+(uniform abliteration of Qwen3-1.7B), B (depth-weighted Gaussian, direction pinned to A's),
+C (the real gated `meta-llama/Llama-3.2-1B-Instruct`, no substitution), their parents, and the
+full merge / add-back / quantisation ladder. **60.6 % hit the archived key.**
+
+The residual is **cross-device bf16 nondeterminism**, and that was established rather than
+assumed: the archive ran on an RTX 2000 Ada, this run on an RTX 4090, and `probe_batch.json`
+shows the hit rate is 0.55–0.65 across batch sizes 8/16/32/40, so batch composition is not the
+cause. Batch 16 — archive-identical — was kept. Notably the Llama host recovers at 0.93–0.97
+while the Qwen host sits near 0.55. **This is a reproducibility limit on the archived
+behavioural numbers themselves, and it is reported rather than papered over.**
+
+Only proven-identical items entered the analysis frame, so all three scorers read exactly the
+same characters. The selection this induces is measured, not waved away: every cell reports the
+archived label rate on hit vs missed items (`selection_check`).
+
+## The three scoring arms
+
+| arm | model | rubric | what it isolates | cost |
+|---|---|---|---|---|
+| **J1** | `meta-llama/llama-3.3-70b-instruct` | B (verbatim) | the archived opinion — recovered free from the cache | $0 |
+| **J2** | `google/gemini-2.5-flash` | B (byte-identical) | the **model** effect | $0.039 |
+| **J3** | `meta-llama/llama-3.3-70b-instruct` | C (re-worded) | the **rubric** effect | $0.028 |
+| screen | `lib_data.is_refusal`, imported unmodified | — | the archived substring baseline | $0 |
+
+J2 is asserted (not merely commented) to contain neither `qwen`, `llama` nor `guard`.
+Rubric C is a 3-step decision list over the identical distinction; its one wording adjustment
+is disclosed in `scoring_arms.json → rubric_c_parsing_disclosure`. Rubric B was never edited.
+
+180 items were drawn by a seeded, stratified, pre-registered scheme (`sample_manifest.json`),
+then — because 9–10 items per stage cannot resolve a rate difference, as the *reproduction*
+arm's own failure to resolve P2 showed — the whole 620-item load-bearing frame was scored as a
+**census**. Both are reported: every row carries `in_preregistered_sample`, and
+`agreement.json → preregistered_subset` holds the pre-registered analysis separately.
+
+## What it found
+
+**The archived number reproduces.** Root B reads **0.278** under J1 on the recovered items
+against the archived **0.270** — the recovery pipeline is sound.
+
+**The judge model, not the rubric, is what moves it.**
+
+| axis varied | pooled shift in refusal rate |
 |---|---|
-| reproduction gate R0 | **667 / 667 cells, max abs delta 0.0**, regex labels byte-identical to the stored `labels` array on all 24 members |
-| members: detect json / projections / POWERED and available | 30 / 24 / **11** |
-| kappa(regex, semantic any-refusal), pooled | **+0.789 [+0.699, +0.879]** |
-| AUROC axis A, regex label → semantic label | 0.834 [0.736, 0.923] → 0.821 [0.752, 0.866] |
-| DELTA_L (paired, same items), member / lineage unit | **−0.013 [−0.067, +0.030]** / −0.024 [−0.066, +0.018] |
-| AUROC on canonically-worded refusals | **0.897 [0.864, 0.922]** |
-| AUROC on `REFUSAL_NONCANONICAL` | **0.611 [0.542, 0.686]** |
-| mean 20-draw random READING band upper edge | **0.750** (chance is NOT 0.500 here) |
-| n `REFUSAL_NONCANONICAL` / n the regex actually missed | 83 / **38** (29 of them non-canonical) |
-| weighted corpus prevalence of regex-missed refusals | **0.0546 [0.0412, 0.0686]** |
-| DELTA_X, axis A, fold-internal centre+scale | **−0.0205 [−0.0352, −0.0071]** (Mehta: −0.336) |
-| same protocol on the random axis D / axis B | −0.0020 [−0.0084, +0.0032] / −0.0023 |
-| judge cost | **$0.0277** cumulative of a $2.00 hard cap (513 billed calls, 147 warm-cache hits, 0 errors); reruns are $0.00 |
+| judge **model** (J1 → J2) | **0.269** |
+| rubric **wording** (J1 → J3) | 0.126 |
+| PARTIAL **collapse rule** | 0.034 |
 
-**PART 1 VERDICT: `READS_CANONICAL_WORDING_ONLY`** (member level and lineage
-level agree). Swapping the label barely moves the pooled AUROC, but the split is
-decisive: the axis separates canonically-worded refusals from compliances at
-0.897 while non-canonically-worded ones sit at 0.611, whose CI does not clear the
-members' own measured random band (0.750). The honest restatement is that axis A
-reads canonically-worded refusals.
+Root B's headline projects to **0.770 [0.680, 0.859]** under Gemini and **0.193 [0.142, 0.245]**
+under the re-worded rubric, against an archived 0.270 [0.196, 0.360]. The *number* is
+scorer-dependent — pre-registered outcome **F2**.
 
-**Secondary, sharper subset** (the refusals the regex ACTUALLY missed, rather
-than the rubric's own non-canonical class): `UNDERPOWERED` at n = 38 against the
-pre-registered floor of 40. The pre-registered fallback applies — the reportable
-claim is the weighted corpus prevalence, 0.0546 [0.0412, 0.0686], i.e. about one
-scored item in eighteen is a refusal the regex of record calls a compliance.
+**The claim is not.** Root B sits below its parent under all three scorers and all three
+separate it from its parent. `P1` verdict `SURVIVES_WEAKENED`, with the number and the
+decoupling reported separately rather than blurred.
 
-**PART 2 VERDICT: `LEAKAGE_CONTROL_SMALL_DELTA`** (both units). Applying the
-published control to our own headline costs 0.02 AUROC, two orders of magnitude
-short of the 0.336 it produced on its author's data, and the control on the
-control holds: the same protocol moves the norm-matched random axis D by only
-0.0020, so the axis-A movement is not a pure normalisation artefact. Under the
-semantic labels the same protocol gives −0.0397 [−0.0763, −0.0047] — still small.
-Text overlap between scored items and axis-fit strings is **zero on every
-member**, re-asserted here rather than inherited, and the separate non-zero
-prompt-level overlap is bounded by a drop-those-items sensitivity column.
+**The blind anchor breaks the tie, and it favours the archive.** On 48 disagreement-enriched
+items adjudicated blind (file mtimes and sha256s asserted, not promised):
 
-## Things worth knowing before reusing this
+| scorer | raw accuracy | balanced | kappa vs adjudicator |
+|---|---|---|---|
+| **J1 (archived)** | **0.771** | 0.745 | **0.643** |
+| J3 (rubric C) | 0.745 | 0.761 | 0.622 |
+| J2 (Gemini) | 0.521 | 0.536 | 0.291 |
+| substring screen | 0.500 | 0.422 | 0.155 |
 
-- **The rubric's CANONICAL/NON-CANONICAL split is not the regex's split.** Of the
-  items both criteria call refusals, 54 of 267 (20.2%) open with a frozen refusal
-  opener and are still labelled `REFUSAL_NONCANONICAL` by the judge — and the
-  drift is strongly member-dependent (0/27 on Qwen3-1.7B-Base, 17/25 on
-  Llama-3.2-3B-Instruct). That is
-  why `n_semantic_refusal_regex_missed` is reported beside
-  `n_refusal_noncanonical`; taking the rubric class as "refusals the regex
-  missed" over-counts by more than 2x here (83 vs 38). Per-member rubric-drift
-  statistics are in `part1.per_member.*.rubric_drift`.
-- **6 of the 30 archived members have a `detect_<KEY>.json` but no
-  `proj_<KEY>.npz`** — the archived `gpu_stage` writes the projections AFTER the
-  detection statistics and those six were scored by an earlier pass of the same
-  run (file mtimes 01:27 vs 02:30). Three of them are POWERED. The
-  pre-registered fallback was applied: the re-analysis is restricted to the 24
-  members with projections and the missing ones are listed with their archived
-  numbers in `metadata.powered_set`.
-- **The subset is deliberately boundary-heavy** (regex label x stratum x
-  projection tertile, middle tertile at 2x), so raw per-arm accuracy on it is NOT
-  a corpus estimate. Every corpus-level quantity is inverse-probability-weighted
-  back to the member's item population and both weighted and unweighted numbers
-  are reported.
-- **`PARTIAL` and `DEGENERATE` are excluded from the primary semantic AUROC.**
-  All three PARTIAL treatments (as refusal / as compliance / dropped) ship as a
-  sensitivity column, because the audited probe measured the REFUSAL↔PARTIAL
-  boundary as the one place LLM annotators themselves disagree (per-class kappa
-  0.391 / 0.054).
-- **Judge-error attenuation** uses the FOUR-class audited confusion of the same
-  judge configuration (`art_gYmQllaTCGT5`, `arm2_repaired`, sensitivity 0.688 /
-  specificity 0.923 strict). The audit predates the five-class rubric, so the
-  correction is an approximation reported alongside the raw number, never in
-  place of it.
-- Every pooled quantity is reported at **both aggregation units** with both
-  verdict strings (H-U); the bootstrap resampling unit is the lineage in both
-  cases and the units differ only in whether members are averaged within lineage
-  first.
+The disagreement is concentrated where J1 says COMPLIANCE and J2 says REFUSAL (per-class
+agreement 0.333), and adjudication sides with J1 there. **The correct limitation for the paper
+is therefore not "the archived rate is wrong" but "a second judge chosen without validation
+would report a materially different rate."** The adjudicator is an LLM agent, not a human —
+every accuracy here *bounds scorer disagreement against a fourth opinion*; it is not truth, and
+the paper must not call it ground truth. Self-consistency: 1 flip in 12 re-checked items.
 
-## Deliverables
+**Verdicts.** P1 `SURVIVES_WEAKENED` · P2 `SURVIVES_WEAKENED` · P3 `SURVIVES`
+(the Llama AUROC-argmax false positive refuses at 1.000 = its parent under *every* scorer) ·
+P4 `SURVIVES` · P5 `SURVIVES` (9/9 flag-death orderings PRESERVED).
 
-| file | what |
-|---|---|
-| `eval_out.json` (+ `full_`/`mini_`/`preview_`) | schema-validated (`exp_eval_sol_out`); 660 re-labelled examples with both criteria, the axis score and the IPW weight; `metadata.paper_numbers` is the block every quoted number is read from |
-| `results/section_5_1_paragraph.md` | drop-in replacement paragraph, generated from `eval_out.json` by f-string substitution — no hand-typed numbers, regenerable byte-identically |
-| `results/noncanonical_examples.md` | 20 verbatim boundary examples the regex missed, with prompt, full generated text, both verdicts, projection and percentile in the compliance distribution |
-| `results/prereg_eval.json` | every threshold and verdict rule, sha256-stamped before any new AUROC or label |
-| `results/r0_gate.json` | the per-member reproduction table |
-| `results/sampling_frame.json`, `results/labels5.json` | the frame (cells, weights) and the five-class labels |
-| `results/cost_ledger.jsonl`, `results/judge_cache_5class_local.jsonl` | cost discipline and the warm cache (a rerun is $0.00) |
-| `figures/fig1_dumbbell_regex_vs_semantic.pdf` | per-member paired AUROC, regex vs semantic label, with CIs and the random band |
-| `figures/fig2_protocols_by_axis.pdf` | per-member AUROC across the four normalisation protocols for axes A, B, D |
+**Report AC1 beside kappa.** J1-vs-J2 three-class: 0.679 raw, kappa 0.361, AC1 0.582, PABAK
+0.519. The abliterated stages have near-degenerate marginals — that prevalence paradox is
+exactly what put the archive's kappa of 0.149 next to a rate-level *r* of 0.822.
+
+## Layout
+
+```
+eval.py               S0 ingest · S2 sample · S3 score · S4 anchor · S5 agree · S6 propagate · S7 ship
+regen.py              S1 text recovery by deterministic regeneration + cache-hit identity proof
+lib_agree.py          kappa (multi-class), Gwet AC1, PABAK, Newcombe, exact McNemar, Holm
+verify_eval.py        56 independent checks; does not import eval.py
+probe_batch.py        the batch-size diagnostic behind the drift attribution
+vendor/               archived libraries, used unmodified
+results/
+  recovered.jsonl        3,880 regenerated generations, verbatim, with cache-hit proof
+  regen_meta.jsonl       per-cell hit rate, identity check, selection check
+  scores.jsonl           620-item census: J1 / J2 / J3 / screen per item
+  judge_limitations.json THE deliverable — every number the paper's judge paragraph needs
+  disputed_items.jsonl   299 items where scorers disagree, verbatim (a research record)
+  propagation.json       P1–P5 with verdict tokens and pasteable sentences
+  agreement.json  agreement_by_stage.csv  anchor_*  archive_*  reproducibility.json
+figs/                 per-stage rates ×3 scorers · J1-J2 / J1-J3 confusions · P1–P5 forest
+```
+
+Reproduce: `.venv/bin/python regen.py` then `.venv/bin/python eval.py`. A second run hits
+100 % of `results/rescore_cache.json` and costs **$0**.
+
+## Limitations worth reading before quoting anything
+
+1. The frame is **conditioned on a cache hit**; that is a selection and its size is measured
+   per cell, not assumed benign.
+2. The anchor adjudicator is an **LLM**, not a human.
+3. **P4 varies the collapse rule but not the scorer.** `art_dp7WBo6hhVBX` shipped no judge
+   cache and its Arm-B kernels need per-layer and SVD directions that were never persisted, so
+   its text is unrecoverable here. What *is* recoverable is its full ordered three-class label
+   list, so the "10 effective / 4 detected" claim was re-tested under the alternative PARTIAL
+   collapse: 10 → 10, **zero membership flips**.
+4. Only the harmful core was re-scored; the XSTest over-refusal rates were not re-judged.
+5. J3 measures the rubric effect *conditional on* J1's model.
+6. 10 of 620 J3 calls were `UNPARSEABLE` — usually the judge model refusing the judging task
+   itself. They are a reported class, logged verbatim in `unparseable_log.jsonl`, never dropped.
+
+Nothing here re-measures W05, E₁ or the ladder flags; they are taken verbatim from the archive.
+This artifact varies **only the scorer**.

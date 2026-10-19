@@ -1,0 +1,890 @@
+[
+ {
+  "scope": "panel",
+  "key": "ALL",
+  "stat": "n_checkpoints_le_4p2b",
+  "value": 66,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "panel",
+  "key": "ALL",
+  "stat": "n_lineages_le_4p2b",
+  "value": 34,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "panel",
+  "key": "ALL",
+  "stat": "n_external_score_rows_attached_to_panel",
+  "value": 524,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "panel",
+  "key": "ALL",
+  "stat": "n_checkpoints_with_ge1_CAPABILITY",
+  "value": 32,
+  "denominator": 66,
+  "note": ""
+ },
+ {
+  "scope": "panel",
+  "key": "ALL",
+  "stat": "n_lineages_with_ge1_CAPABILITY",
+  "value": 19,
+  "denominator": 34,
+  "note": ""
+ },
+ {
+  "scope": "panel",
+  "key": "ALL",
+  "stat": "n_checkpoints_with_ge1_SAFETY_HARM",
+  "value": 3,
+  "denominator": 66,
+  "note": ""
+ },
+ {
+  "scope": "panel",
+  "key": "ALL",
+  "stat": "n_lineages_with_ge1_SAFETY_HARM",
+  "value": 2,
+  "denominator": 34,
+  "note": ""
+ },
+ {
+  "scope": "panel",
+  "key": "ALL",
+  "stat": "n_checkpoints_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 1,
+  "denominator": 66,
+  "note": ""
+ },
+ {
+  "scope": "panel",
+  "key": "ALL",
+  "stat": "n_lineages_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 1,
+  "denominator": 34,
+  "note": ""
+ },
+ {
+  "scope": "panel",
+  "key": "ALL",
+  "stat": "n_checkpoints_with_ge1_SAFETY_OTHER",
+  "value": 2,
+  "denominator": 66,
+  "note": ""
+ },
+ {
+  "scope": "panel",
+  "key": "ALL",
+  "stat": "n_lineages_with_ge1_SAFETY_OTHER",
+  "value": 1,
+  "denominator": 34,
+  "note": ""
+ },
+ {
+  "scope": "panel",
+  "key": "ALL",
+  "stat": "n_checkpoints_with_ge1_ANY_SAFETY",
+  "value": 3,
+  "denominator": 66,
+  "note": ""
+ },
+ {
+  "scope": "panel",
+  "key": "ALL",
+  "stat": "n_lineages_with_ge1_ANY_SAFETY",
+  "value": 2,
+  "denominator": 34,
+  "note": ""
+ },
+ {
+  "scope": "rows",
+  "key": "EXACT",
+  "stat": "n_rows_by_revision_match",
+  "value": 125,
+  "denominator": 524,
+  "note": ""
+ },
+ {
+  "scope": "rows",
+  "key": "FAMILY_ONLY",
+  "stat": "n_rows_by_revision_match",
+  "value": 9,
+  "denominator": 524,
+  "note": ""
+ },
+ {
+  "scope": "rows",
+  "key": "SAME_REPO_UNKNOWN_SHA",
+  "stat": "n_rows_by_revision_match",
+  "value": 43,
+  "denominator": 524,
+  "note": ""
+ },
+ {
+  "scope": "rows",
+  "key": "SIBLING",
+  "stat": "n_rows_by_revision_match",
+  "value": 347,
+  "denominator": 524,
+  "note": ""
+ },
+ {
+  "scope": "rows",
+  "key": "LEADERBOARD_SNAPSHOT",
+  "stat": "n_rows_by_source_type",
+  "value": 472,
+  "denominator": 524,
+  "note": ""
+ },
+ {
+  "scope": "rows",
+  "key": "OFFICIAL_MODEL_CARD",
+  "stat": "n_rows_by_source_type",
+  "value": 32,
+  "denominator": 524,
+  "note": ""
+ },
+ {
+  "scope": "rows",
+  "key": "THIRD_PARTY_REPO",
+  "stat": "n_rows_by_source_type",
+  "value": 20,
+  "denominator": 524,
+  "note": ""
+ },
+ {
+  "scope": "rows",
+  "key": "CAPABILITY",
+  "stat": "n_rows_by_axis",
+  "value": 500,
+  "denominator": 524,
+  "note": ""
+ },
+ {
+  "scope": "rows",
+  "key": "SAFETY_HARM",
+  "stat": "n_rows_by_axis",
+  "value": 8,
+  "denominator": 524,
+  "note": ""
+ },
+ {
+  "scope": "rows",
+  "key": "SAFETY_OTHER",
+  "stat": "n_rows_by_axis",
+  "value": 14,
+  "denominator": 524,
+  "note": ""
+ },
+ {
+  "scope": "rows",
+  "key": "SAFETY_OVERREFUSAL",
+  "stat": "n_rows_by_axis",
+  "value": 2,
+  "denominator": 524,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "bloom",
+  "stat": "n_checkpoints",
+  "value": 1,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "bloom",
+  "stat": "n_with_ge1_CAPABILITY",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "bloom",
+  "stat": "n_with_ge1_ANY_SAFETY",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "bloom",
+  "stat": "n_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "gemma2",
+  "stat": "n_checkpoints",
+  "value": 3,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "gemma2",
+  "stat": "n_with_ge1_CAPABILITY",
+  "value": 2,
+  "denominator": 3,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "gemma2",
+  "stat": "n_with_ge1_ANY_SAFETY",
+  "value": 2,
+  "denominator": 3,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "gemma2",
+  "stat": "n_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 0,
+  "denominator": 3,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "gpt_neox",
+  "stat": "n_checkpoints",
+  "value": 4,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "gpt_neox",
+  "stat": "n_with_ge1_CAPABILITY",
+  "value": 4,
+  "denominator": 4,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "gpt_neox",
+  "stat": "n_with_ge1_ANY_SAFETY",
+  "value": 0,
+  "denominator": 4,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "gpt_neox",
+  "stat": "n_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 0,
+  "denominator": 4,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "granite",
+  "stat": "n_checkpoints",
+  "value": 2,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "granite",
+  "stat": "n_with_ge1_CAPABILITY",
+  "value": 2,
+  "denominator": 2,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "granite",
+  "stat": "n_with_ge1_ANY_SAFETY",
+  "value": 0,
+  "denominator": 2,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "granite",
+  "stat": "n_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 0,
+  "denominator": 2,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "llama",
+  "stat": "n_checkpoints",
+  "value": 25,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "llama",
+  "stat": "n_with_ge1_CAPABILITY",
+  "value": 18,
+  "denominator": 25,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "llama",
+  "stat": "n_with_ge1_ANY_SAFETY",
+  "value": 0,
+  "denominator": 25,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "llama",
+  "stat": "n_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 0,
+  "denominator": 25,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "mistral",
+  "stat": "n_checkpoints",
+  "value": 1,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "mistral",
+  "stat": "n_with_ge1_CAPABILITY",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "mistral",
+  "stat": "n_with_ge1_ANY_SAFETY",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "mistral",
+  "stat": "n_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "mistral3",
+  "stat": "n_checkpoints",
+  "value": 1,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "mistral3",
+  "stat": "n_with_ge1_CAPABILITY",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "mistral3",
+  "stat": "n_with_ge1_ANY_SAFETY",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "mistral3",
+  "stat": "n_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "olmo",
+  "stat": "n_checkpoints",
+  "value": 1,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "olmo",
+  "stat": "n_with_ge1_CAPABILITY",
+  "value": 1,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "olmo",
+  "stat": "n_with_ge1_ANY_SAFETY",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "olmo",
+  "stat": "n_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "phi-msft",
+  "stat": "n_checkpoints",
+  "value": 1,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "phi-msft",
+  "stat": "n_with_ge1_CAPABILITY",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "phi-msft",
+  "stat": "n_with_ge1_ANY_SAFETY",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "phi-msft",
+  "stat": "n_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "phi3",
+  "stat": "n_checkpoints",
+  "value": 2,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "phi3",
+  "stat": "n_with_ge1_CAPABILITY",
+  "value": 0,
+  "denominator": 2,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "phi3",
+  "stat": "n_with_ge1_ANY_SAFETY",
+  "value": 0,
+  "denominator": 2,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "phi3",
+  "stat": "n_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 0,
+  "denominator": 2,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "qwen2",
+  "stat": "n_checkpoints",
+  "value": 9,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "qwen2",
+  "stat": "n_with_ge1_CAPABILITY",
+  "value": 4,
+  "denominator": 9,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "qwen2",
+  "stat": "n_with_ge1_ANY_SAFETY",
+  "value": 0,
+  "denominator": 9,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "qwen2",
+  "stat": "n_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 0,
+  "denominator": 9,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "qwen3",
+  "stat": "n_checkpoints",
+  "value": 13,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "qwen3",
+  "stat": "n_with_ge1_CAPABILITY",
+  "value": 1,
+  "denominator": 13,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "qwen3",
+  "stat": "n_with_ge1_ANY_SAFETY",
+  "value": 1,
+  "denominator": 13,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "qwen3",
+  "stat": "n_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 1,
+  "denominator": 13,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "qwen3_5_text",
+  "stat": "n_checkpoints",
+  "value": 1,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "qwen3_5_text",
+  "stat": "n_with_ge1_CAPABILITY",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "qwen3_5_text",
+  "stat": "n_with_ge1_ANY_SAFETY",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "qwen3_5_text",
+  "stat": "n_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "stablelm",
+  "stat": "n_checkpoints",
+  "value": 1,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "stablelm",
+  "stat": "n_with_ge1_CAPABILITY",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "stablelm",
+  "stat": "n_with_ge1_ANY_SAFETY",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "stablelm",
+  "stat": "n_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "unknown:openbmb",
+  "stat": "n_checkpoints",
+  "value": 1,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "unknown:openbmb",
+  "stat": "n_with_ge1_CAPABILITY",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "unknown:openbmb",
+  "stat": "n_with_ge1_ANY_SAFETY",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "architecture_family",
+  "key": "unknown:openbmb",
+  "stat": "n_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 0,
+  "denominator": 1,
+  "note": ""
+ },
+ {
+  "scope": "size_bucket",
+  "key": "1-2B",
+  "stat": "n_checkpoints",
+  "value": 27,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "size_bucket",
+  "key": "1-2B",
+  "stat": "n_with_ge1_CAPABILITY",
+  "value": 16,
+  "denominator": 27,
+  "note": ""
+ },
+ {
+  "scope": "size_bucket",
+  "key": "1-2B",
+  "stat": "n_with_ge1_ANY_SAFETY",
+  "value": 0,
+  "denominator": 27,
+  "note": ""
+ },
+ {
+  "scope": "size_bucket",
+  "key": "1-2B",
+  "stat": "n_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 0,
+  "denominator": 27,
+  "note": ""
+ },
+ {
+  "scope": "size_bucket",
+  "key": "2-4.2B",
+  "stat": "n_checkpoints",
+  "value": 19,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "size_bucket",
+  "key": "2-4.2B",
+  "stat": "n_with_ge1_CAPABILITY",
+  "value": 7,
+  "denominator": 19,
+  "note": ""
+ },
+ {
+  "scope": "size_bucket",
+  "key": "2-4.2B",
+  "stat": "n_with_ge1_ANY_SAFETY",
+  "value": 3,
+  "denominator": 19,
+  "note": ""
+ },
+ {
+  "scope": "size_bucket",
+  "key": "2-4.2B",
+  "stat": "n_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 1,
+  "denominator": 19,
+  "note": ""
+ },
+ {
+  "scope": "size_bucket",
+  "key": "<1B",
+  "stat": "n_checkpoints",
+  "value": 20,
+  "denominator": null,
+  "note": ""
+ },
+ {
+  "scope": "size_bucket",
+  "key": "<1B",
+  "stat": "n_with_ge1_CAPABILITY",
+  "value": 9,
+  "denominator": 20,
+  "note": ""
+ },
+ {
+  "scope": "size_bucket",
+  "key": "<1B",
+  "stat": "n_with_ge1_ANY_SAFETY",
+  "value": 0,
+  "denominator": 20,
+  "note": ""
+ },
+ {
+  "scope": "size_bucket",
+  "key": "<1B",
+  "stat": "n_with_ge1_SAFETY_OVERREFUSAL",
+  "value": 0,
+  "denominator": 20,
+  "note": ""
+ },
+ {
+  "scope": "source_overlap",
+  "key": "open-llm-leaderboard/contents",
+  "stat": "n_panel_checkpoints_present",
+  "value": 28,
+  "denominator": 66,
+  "note": "source evaluates 4495 models in total"
+ },
+ {
+  "scope": "source_overlap",
+  "key": "open-llm-leaderboard-old/contents",
+  "stat": "n_panel_checkpoints_present",
+  "value": 6,
+  "denominator": 66,
+  "note": "source evaluates 6881 models in total"
+ },
+ {
+  "scope": "source_overlap",
+  "key": "HELM Safety v1.0.0",
+  "stat": "n_panel_checkpoints_present",
+  "value": 0,
+  "denominator": 66,
+  "note": "source evaluates 27 models in total"
+ },
+ {
+  "scope": "source_overlap",
+  "key": "HELM AIR-Bench 2024 v1.1.0",
+  "stat": "n_panel_checkpoints_present",
+  "value": 0,
+  "denominator": 66,
+  "note": "source evaluates 22 models in total"
+ },
+ {
+  "scope": "source_overlap",
+  "key": "SORRY-Bench (ICLR 2025)",
+  "stat": "n_panel_checkpoints_named_in_document",
+  "value": 0,
+  "denominator": 66,
+  "note": "full text scanned (150872 chars); metric would have been: fulfillment rate on unsafe instructions (LOWER_IS_SAFER)"
+ },
+ {
+  "scope": "source_overlap",
+  "key": "OR-Bench (ICML 2025)",
+  "stat": "n_panel_checkpoints_named_in_document",
+  "value": 0,
+  "denominator": 66,
+  "note": "full text scanned (109131 chars); metric would have been: over-refusal rejection rate on safe prompts (LOWER_IS_SAFER) + toxic-prompt rejection rate (HIGHER_IS_SAFER)"
+ },
+ {
+  "scope": "source_overlap",
+  "key": "XSTest (NAACL 2024)",
+  "stat": "n_panel_checkpoints_named_in_document",
+  "value": 0,
+  "denominator": 66,
+  "note": "full text scanned (97003 chars); metric would have been: full / partial refusal rate on 250 SAFE prompts (LOWER_IS_SAFER)"
+ },
+ {
+  "scope": "source_overlap",
+  "key": "TrustLLM (ICML 2024)",
+  "stat": "n_panel_checkpoints_named_in_document",
+  "value": 0,
+  "denominator": 66,
+  "note": "full text scanned (456392 chars); metric would have been: per-dimension trustworthiness scores (mixed polarity, stated per dimension)"
+ },
+ {
+  "scope": "source_overlap",
+  "key": "SALAD-Bench (ACL Findings 2024)",
+  "stat": "n_panel_checkpoints_named_in_document",
+  "value": 0,
+  "denominator": 66,
+  "note": "full text scanned (114701 chars); metric would have been: attack success rate / safety rate per domain (ASR is LOWER_IS_SAFER)"
+ },
+ {
+  "scope": "source_overlap",
+  "key": "DecodingTrust (NeurIPS 2023)",
+  "stat": "n_panel_checkpoints_named_in_document",
+  "value": 0,
+  "denominator": 66,
+  "note": "full text scanned (366811 chars); metric would have been: per-perspective trustworthiness scores (mixed polarity)"
+ },
+ {
+  "scope": "source_overlap",
+  "key": "JailbreakBench (NeurIPS D&B 2024)",
+  "stat": "n_panel_checkpoints_named_in_document",
+  "value": 0,
+  "denominator": 66,
+  "note": "full text scanned (80002 chars); metric would have been: attack success rate per attack/defence (LOWER_IS_SAFER)"
+ },
+ {
+  "scope": "source_overlap",
+  "key": "HarmBench (ICML 2024)",
+  "stat": "n_panel_checkpoints_named_in_document",
+  "value": 0,
+  "denominator": 66,
+  "note": "full text scanned (159099 chars); metric would have been: attack success rate (LOWER_IS_SAFER)"
+ },
+ {
+  "scope": "source_overlap",
+  "key": "AIR-Bench 2024 (paper)",
+  "stat": "n_panel_checkpoints_named_in_document",
+  "value": 0,
+  "denominator": 66,
+  "note": "full text scanned (118617 chars); metric would have been: AIR-Bench safety score per risk category (HIGHER_IS_SAFER)"
+ },
+ {
+  "scope": "source_overlap",
+  "key": "The Refusal-Compliance Tradeoff: a large-scale safety behaviour audit",
+  "stat": "n_panel_checkpoints_named_in_document",
+  "value": 0,
+  "denominator": 66,
+  "note": "full text scanned (60594 chars); metric would have been: over-refusal rate ORR (LOWER_IS_SAFER) and harmful compliance rate HCR (LOWER_IS_SAFER)"
+ },
+ {
+  "scope": "panel",
+  "key": "ALL",
+  "stat": "n_checkpoints_requiring_in_house_safety_measurement",
+  "value": 65,
+  "denominator": 66,
+  "note": ""
+ }
+]

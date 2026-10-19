@@ -1,0 +1,864 @@
+[
+ {
+  "repo_id": "Heartsync/NSFW-Uncensored",
+  "params": 2567463684,
+  "base_model": null,
+  "tags": [],
+  "downloads": 10041,
+  "term": "uncensored",
+  "created": "2025-05-05T08:29:52.000Z",
+  "pipeline": "text-to-image"
+ },
+ {
+  "repo_id": "reaperdoesntknow/DistilQwen3-1.7B-uncensored",
+  "params": 2031739904,
+  "base_model": [
+   "reaperdoesntknow/Qwen3-1.7B-Distilled-30B-A3B"
+  ],
+  "tags": [],
+  "downloads": 1739,
+  "term": "uncensored",
+  "created": "2026-03-25T18:47:43.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "mlx-community/Josiefied-Qwen2.5-3B-Instruct-abliterated-v1-4-bit",
+  "params": 482381824,
+  "base_model": "Goekdeniz-Guelmez/Josiefied-Qwen2.5-3B-Instruct-abliterated-v1",
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 691,
+  "term": "Josiefied",
+  "created": "2024-12-20T09:36:03.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "ArRENCEAI/DeepSeek-R1-Distill-Qwen-1.5B-OBLITERATED",
+  "params": 1777088000,
+  "base_model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+  "tags": [
+   "gguf"
+  ],
+  "downloads": 682,
+  "term": "obliterated",
+  "created": "2026-08-10T21:08:21.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-Qwen3-4B-Instruct-2507-gabliterated-v2",
+  "params": 4022468096,
+  "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 440,
+  "term": "Josiefied",
+  "created": "2025-08-09T16:41:38.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "lemuralabs/Gemma-2B-Uncensored",
+  "params": 2506172416,
+  "base_model": null,
+  "tags": [],
+  "downloads": 439,
+  "term": "uncensored",
+  "created": "2024-08-02T13:56:38.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "avatar-0854378016/unsloth_qwen3.5_uncensored",
+  "params": 873438784,
+  "base_model": null,
+  "tags": [
+   "gguf"
+  ],
+  "downloads": 355,
+  "term": "uncensored",
+  "created": "2026-08-06T12:37:07.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-Qwen2.5-3B-Instruct-abliterated-v1",
+  "params": 3397103616,
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "tags": [],
+  "downloads": 271,
+  "term": "Josiefied",
+  "created": "2024-12-17T11:03:32.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "NovaCorp/Novaciano.OBLITERATED-1B",
+  "params": 1498482688,
+  "base_model": [
+   "juiceb0xc0de/bella-bartender-heretic-1b",
+   "sillykiwi/Nano-Imp-1B-OBLITERATED",
+   "NovaCorp/Novaciano-3.2-1B"
+  ],
+  "tags": [],
+  "downloads": 246,
+  "term": "obliterated",
+  "created": "2026-07-22T19:16:19.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "OBLITERATUS/Qwen3-4B-OBLITERATED",
+  "params": 4022468096,
+  "base_model": "Qwen/Qwen3-4B",
+  "tags": [],
+  "downloads": 231,
+  "term": "obliterated",
+  "created": "2026-03-20T16:49:26.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "AtBeginDocument/gemma-4-E4B-it-OBLITERATED-oQ4",
+  "params": 1689179466,
+  "base_model": null,
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 206,
+  "term": "obliterated",
+  "created": "2026-06-29T19:56:18.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "reaperdoesntknow/DiStil-Qwen3-1.7B-uncensored",
+  "params": 2031739904,
+  "base_model": [
+   "reaperdoesntknow/TopologicalQwen"
+  ],
+  "tags": [],
+  "downloads": 170,
+  "term": "uncensored",
+  "created": "2026-03-28T13:39:33.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "ArRENCEAI/Qwen2.5-1.5B-OBLITERATED",
+  "params": 1543714304,
+  "base_model": "Qwen/Qwen2.5-1.5B",
+  "tags": [
+   "gguf"
+  ],
+  "downloads": 161,
+  "term": "obliterated",
+  "created": "2026-08-10T12:44:55.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-Qwen3.5-0.8B-gabliterated-v1",
+  "params": 852985920,
+  "base_model": "Qwen/Qwen3.5-0.8B",
+  "tags": [],
+  "downloads": 153,
+  "term": "Josiefied",
+  "created": "2026-03-09T14:43:05.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-Qwen3-4B-abliterated-v1",
+  "params": 4022468096,
+  "base_model": "Qwen/Qwen3-4B",
+  "tags": [],
+  "downloads": 149,
+  "term": "Josiefied",
+  "created": "2025-04-29T17:43:25.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "mlx-community/Josiefied-Qwen2.5-7B-Instruct-abliterated-v2-4-bit",
+  "params": 1190221312,
+  "base_model": "Goekdeniz-Guelmez/Josiefied-Qwen2.5-7B-Instruct-abliterated-v2",
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 146,
+  "term": "Josiefied",
+  "created": "2024-09-29T14:19:29.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-Qwen3-4B-Instruct-2507-gabliterated-v4",
+  "params": 4022468096,
+  "base_model": "Goekdeniz-Guelmez/Qwen3-4B-Instruct-2507-gabliterated",
+  "tags": [],
+  "downloads": 121,
+  "term": "Josiefied",
+  "created": "2026-03-13T21:20:25.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-LFM2.5-1.2B-Instruct-abliterated",
+  "params": 1170340608,
+  "base_model": "LiquidAI/LFM2.5-1.2B-Instruct",
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 116,
+  "term": "Josiefied",
+  "created": "2026-01-26T12:09:39.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "mlx-community/Josiefied-Qwen2.5-14B-Instruct-abliterated-v4-8-bit",
+  "params": 4154676224,
+  "base_model": "Goekdeniz-Guelmez/Josiefied-Qwen2.5-14B-Instruct-abliterated-v4",
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 113,
+  "term": "Josiefied",
+  "created": "2024-12-09T19:22:23.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-Qwen2.5-0.5B-Instruct-abliterated-v1",
+  "params": 630167424,
+  "base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "tags": [],
+  "downloads": 102,
+  "term": "Josiefied",
+  "created": "2024-11-17T19:36:45.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "ArRENCEAI/granite-3.1-2b-instruct-OBLITERATED",
+  "params": 2533531648,
+  "base_model": "ibm-granite/granite-3.1-2b-instruct",
+  "tags": [
+   "gguf"
+  ],
+  "downloads": 80,
+  "term": "obliterated",
+  "created": "2026-08-10T19:05:42.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "ArRENCEAI/TinyLlama-1.1B-Chat-v1.0-OBLITERATED",
+  "params": 1100048384,
+  "base_model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+  "tags": [
+   "gguf"
+  ],
+  "downloads": 75,
+  "term": "obliterated",
+  "created": "2026-08-09T15:54:58.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "ArRENCEAI/pythia-2.8b-OBLITERATED",
+  "params": 2775208960,
+  "base_model": "EleutherAI/pythia-2.8b",
+  "tags": [
+   "gguf"
+  ],
+  "downloads": 65,
+  "term": "obliterated",
+  "created": "2026-08-11T01:00:51.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-Qwen2.5-1.5B-Instruct-abliterated-v2",
+  "params": 1543714304,
+  "base_model": "Goekdeniz-Guelmez/Josiefied-Qwen2.5-1.5B-Instruct-abliterated-v1",
+  "tags": [],
+  "downloads": 55,
+  "term": "Josiefied",
+  "created": "2024-09-28T05:02:39.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "Zmu/Qwen3.5-0.8B-nuclear-obliterated-base",
+  "params": 752393024,
+  "base_model": "Qwen/Qwen3.5-0.8B",
+  "tags": [],
+  "downloads": 51,
+  "term": "obliterated",
+  "created": "2026-08-07T20:16:34.000Z",
+  "pipeline": "image-text-to-text"
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-Qwen2.5-1.5B-Instruct-abliterated-v1",
+  "params": 1777088000,
+  "base_model": "Qwen/Qwen2.5-1.5B",
+  "tags": [],
+  "downloads": 50,
+  "term": "Josiefied",
+  "created": "2024-09-20T20:52:44.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-Qwen3-1.7B-abliterated-v1",
+  "params": 1720574976,
+  "base_model": "Qwen/Qwen3-1.7B",
+  "tags": [],
+  "downloads": 50,
+  "term": "Josiefied",
+  "created": "2025-04-29T10:48:01.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-Qwen3-4B-abliterated-v2",
+  "params": 4022468096,
+  "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+  "tags": [],
+  "downloads": 49,
+  "term": "Josiefied",
+  "created": "2025-05-17T18:33:04.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "beaupi/gemma-4-E4B-it-OBLITERATED-oQ8",
+  "params": 2282780970,
+  "base_model": "google/gemma-4-E4B-it",
+  "tags": [
+   "gguf"
+  ],
+  "downloads": 49,
+  "term": "obliterated",
+  "created": "2026-04-29T20:54:34.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "mlx-community/Josiefied-Qwen2.5-14B-Instruct-abliterated-v4-4-bit",
+  "params": 2308527104,
+  "base_model": "Goekdeniz-Guelmez/Josiefied-Qwen2.5-14B-Instruct-abliterated-v4",
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 48,
+  "term": "Josiefied",
+  "created": "2024-12-11T10:29:36.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "mlx-community/Josiefied-Qwen2.5-14B-Instruct-abliterated-v4-2-bit",
+  "params": 1385452544,
+  "base_model": "Goekdeniz-Guelmez/Josiefied-Qwen2.5-14B-Instruct-abliterated-v4",
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 43,
+  "term": "Josiefied",
+  "created": "2024-12-09T19:23:09.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "mlx-community/Josiefied-Qwen2.5-0.5B-Instruct-abliterated-v1-float32",
+  "params": 494032768,
+  "base_model": "Goekdeniz-Guelmez/Josiefied-Qwen2.5-0.5B-Instruct-abliterated-v1",
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 42,
+  "term": "Josiefied",
+  "created": "2024-11-17T20:01:00.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "mlx-community/Josiefied-Qwen2.5-3B-Instruct-abliterated-v1-8-bit",
+  "params": 868093952,
+  "base_model": "Goekdeniz-Guelmez/Josiefied-Qwen2.5-3B-Instruct-abliterated-v1",
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 42,
+  "term": "Josiefied",
+  "created": "2024-12-20T08:25:42.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "OpenIntelligenceNet/Heretic-SLM-Uncensored",
+  "params": 1390141460,
+  "base_model": "huihui-ai/Huihui-LFM2-2.6B-Exp-abliterated",
+  "tags": [],
+  "downloads": 39,
+  "term": "uncensored",
+  "created": "2026-08-05T19:06:47.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-Qwen3-0.6B-abliterated-v2",
+  "params": 596049920,
+  "base_model": "Qwen/Qwen3-0.6B",
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 36,
+  "term": "Josiefied",
+  "created": "2026-01-11T18:18:05.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "mlx-community/Josiefied-Hermes-3-Llama-3.2-3B-v1-bf16",
+  "params": 3212749824,
+  "base_model": "Goekdeniz-Guelmez/Josiefied-Hermes-3-Llama-3.2-3B-v1",
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 32,
+  "term": "Josiefied",
+  "created": "2025-10-28T16:34:35.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "OBLITERATUS/qwen3-4b-structured-output-merged-stage-a-OBLITERATED",
+  "params": 4022468096,
+  "base_model": "cyumizou/qwen3-4b-structured-output-merged-stage-a",
+  "tags": [],
+  "downloads": 31,
+  "term": "obliterated",
+  "created": "2026-08-07T03:11:05.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "beaupi/gemma-4-E4B-it-OBLITERATED-oQ4",
+  "params": 1390790954,
+  "base_model": "google/gemma-4-E4B-it",
+  "tags": [
+   "gguf"
+  ],
+  "downloads": 30,
+  "term": "obliterated",
+  "created": "2026-04-29T20:52:37.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "mlx-community/Josiefied-Qwen3.5-0.8B-gabliterated-v1-bfloat16",
+  "params": 752393024,
+  "base_model": "Goekdeniz-Guelmez/Josiefied-Qwen3.5-0.8B-gabliterated-v1",
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 27,
+  "term": "Josiefied",
+  "created": "2026-03-13T11:01:30.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "OzTianlu/Qwen3.5-2B-OBLITERATED",
+  "params": 1881825088,
+  "base_model": "Qwen/Qwen3.5-2B",
+  "tags": [],
+  "downloads": 27,
+  "term": "obliterated",
+  "created": "2026-06-21T09:47:30.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-Qwen3-0.6B-abliterated-v1",
+  "params": 596049920,
+  "base_model": "Qwen/Qwen3-0.6B",
+  "tags": [],
+  "downloads": 26,
+  "term": "Josiefied",
+  "created": "2025-04-29T10:17:31.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "OBLITERATUS/gpt2-xl-OBLITERATED",
+  "params": 1557611200,
+  "base_model": "openai-community/gpt2-xl",
+  "tags": [],
+  "downloads": 25,
+  "term": "obliterated",
+  "created": "2026-05-17T21:47:51.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "beaupi/gemma-4-E4B-it-OBLITERATED-oQ3.5",
+  "params": 1227712810,
+  "base_model": "google/gemma-4-E4B-it",
+  "tags": [
+   "gguf"
+  ],
+  "downloads": 23,
+  "term": "obliterated",
+  "created": "2026-04-29T20:51:58.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "mlx-community/Josiefied-Qwen3-4B-Instruct-2507-gabliterated-v3-bfloat16",
+  "params": 4022468096,
+  "base_model": "Goekdeniz-Guelmez/Josiefied-Qwen3-4B-Instruct-2507-gabliterated-v3",
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 22,
+  "term": "Josiefied",
+  "created": "2026-03-13T18:40:38.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "Roman1237474/Qwen3-4B-OBLITERATED",
+  "params": 4022468096,
+  "base_model": "Qwen/Qwen3-4B",
+  "tags": [],
+  "downloads": 22,
+  "term": "obliterated",
+  "created": "2026-04-14T18:07:19.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "beaupi/gemma-4-E4B-it-OBLITERATED-oQ6",
+  "params": 1854757162,
+  "base_model": "google/gemma-4-E4B-it",
+  "tags": [
+   "gguf"
+  ],
+  "downloads": 21,
+  "term": "obliterated",
+  "created": "2026-04-29T20:53:58.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "beaupi/gemma-4-E4B-it-OBLITERATED-oQ5",
+  "params": 1625774378,
+  "base_model": "google/gemma-4-E4B-it",
+  "tags": [
+   "gguf"
+  ],
+  "downloads": 21,
+  "term": "obliterated",
+  "created": "2026-04-29T20:53:12.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-Qwen3-4B-Instruct-2507-abliterated-v1",
+  "params": 4022468096,
+  "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+  "tags": [],
+  "downloads": 20,
+  "term": "Josiefied",
+  "created": "2025-08-12T14:19:49.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "michaelshapkin/Qwen3-4B-OBLITERATED",
+  "params": 4022468096,
+  "base_model": "Qwen/Qwen3-4B",
+  "tags": [],
+  "downloads": 19,
+  "term": "obliterated",
+  "created": "2026-07-26T18:27:57.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "dummy9996/Uncensored-Ministral-3-3B-bf16",
+  "params": 3849090048,
+  "base_model": [
+   "Felldude/Ministral-3-3B-Uncensored-FP8"
+  ],
+  "tags": [],
+  "downloads": 18,
+  "term": "uncensored",
+  "created": "2026-05-12T14:47:00.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "ArRENCEAI/Qwen2.5-3B-Instruct-OBLITERATED",
+  "params": 3085938688,
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "tags": [],
+  "downloads": 18,
+  "term": "obliterated",
+  "created": "2026-08-09T11:50:39.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "TiGa-RCE/SmolLM2-360M-OBLITERATED",
+  "params": 361821120,
+  "base_model": "HuggingFaceTB/SmolLM2-360M",
+  "tags": [],
+  "downloads": 18,
+  "term": "obliterated",
+  "created": "2026-08-06T08:04:45.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "Ngixdev/NEXUS-Coder-OBLITERATED",
+  "params": 1543714304,
+  "base_model": "fableforge-ai/NEXUS-Coder",
+  "tags": [],
+  "downloads": 18,
+  "term": "obliterated",
+  "created": "2026-07-10T09:25:59.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-Qwen3-0.6B-gabliterated-v1",
+  "params": 596049920,
+  "base_model": "Goekdeniz-Guelmez/Qwen3-0.6B-gabliterated",
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 17,
+  "term": "Josiefied",
+  "created": "2026-01-26T13:16:28.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-Hermes-3-Llama-3.2-3B-v1",
+  "params": 3212749824,
+  "base_model": "NousResearch/Hermes-3-Llama-3.2-3B",
+  "tags": [],
+  "downloads": 16,
+  "term": "Josiefied",
+  "created": "2025-10-28T15:34:23.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-Qwen3-4B-Instruct-2507-abliterated-v2",
+  "params": 4022468096,
+  "base_model": "heretic-org/Qwen3-4B-Instruct-2507-heretic",
+  "tags": [],
+  "downloads": 15,
+  "term": "Josiefied",
+  "created": "2026-03-13T22:22:12.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "mlx-community/Josiefied-Qwen3-4B-Instruct-2507-gabliterated-v4-bfloat16",
+  "params": 4022468096,
+  "base_model": "Goekdeniz-Guelmez/Josiefied-Qwen3-4B-Instruct-2507-gabliterated-v4",
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 14,
+  "term": "Josiefied",
+  "created": "2026-03-13T21:46:31.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "mlx-community/Josiefied-LFM2.5-1.2B-Instruct-abliterated-bfloat16",
+  "params": 1170340608,
+  "base_model": "Goekdeniz-Guelmez/Josiefied-LFM2.5-1.2B-Instruct-abliterated",
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 14,
+  "term": "Josiefied",
+  "created": "2026-01-26T15:03:29.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "TiGa-RCE/Qwen2.5-0.5B-Instruct-OBLITERATED",
+  "params": 494032768,
+  "base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "tags": [],
+  "downloads": 14,
+  "term": "obliterated",
+  "created": "2026-08-06T07:42:17.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-Qwen3.5-2B-gabliterated-v1",
+  "params": 2274069824,
+  "base_model": "Qwen/Qwen3.5-2B",
+  "tags": [],
+  "downloads": 12,
+  "term": "Josiefied",
+  "created": "2026-03-09T15:10:11.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "mlx-community/Josiefied-Qwen3-0.6B-abliterated-v2-bfloat16",
+  "params": 596049920,
+  "base_model": "Goekdeniz-Guelmez/Josiefied-Qwen3-0.6B-abliterated-v2",
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 11,
+  "term": "Josiefied",
+  "created": "2026-01-11T18:42:17.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "Goekdeniz-Guelmez/Josiefied-granite-4.0-micro-abliterated-v1",
+  "params": 3402836480,
+  "base_model": "ibm-granite/granite-4.0-micro",
+  "tags": [],
+  "downloads": 11,
+  "term": "Josiefied",
+  "created": "2025-11-12T10:00:59.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "jrush0990/gpt2-xl-OBLITERATED",
+  "params": 1557611200,
+  "base_model": "openai-community/gpt2-xl",
+  "tags": [],
+  "downloads": 11,
+  "term": "obliterated",
+  "created": "2026-08-05T05:37:43.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "sillykiwi/Nano-Imp-1B-OBLITERATED",
+  "params": 1498482688,
+  "base_model": "SicariusSicariiStuff/Nano_Imp_1B",
+  "tags": [],
+  "downloads": 10,
+  "term": "obliterated",
+  "created": "2026-06-30T18:45:49.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "sillykiwi/VibeThinker-3B-OBLITERATED",
+  "params": 3085938688,
+  "base_model": null,
+  "tags": [],
+  "downloads": 10,
+  "term": "obliterated",
+  "created": "2026-06-29T19:50:26.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "mlx-community/Josiefied-Qwen3-0.6B-gabliterated-bfloat16",
+  "params": 596049920,
+  "base_model": "Goekdeniz-Guelmez/Josiefied-Qwen3-0.6B-gabliterated",
+  "tags": [
+   "mlx"
+  ],
+  "downloads": 7,
+  "term": "Josiefied",
+  "created": "2026-01-26T15:24:59.000Z",
+  "pipeline": "text-generation"
+ },
+ {
+  "repo_id": "usermma/Supra-50M-Reasoning-OBLITERATED",
+  "params": 51786240,
+  "base_model": "SupraLabs/Supra-50M-Reasoning",
+  "tags": [],
+  "downloads": 7,
+  "term": "obliterated",
+  "created": "2026-06-05T12:31:36.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "tw0/Qwen2.5-3B-Instruct-OBLITERATED",
+  "params": 3085938688,
+  "base_model": null,
+  "tags": [],
+  "downloads": 7,
+  "term": "obliterated",
+  "created": "2026-05-23T23:45:13.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "usermma/Atomight-V2.2-UltraThink-0.5B-OBLITERATED",
+  "params": 494032768,
+  "base_model": "NovatasticRoScript/Atomight-V2.2-UltraThink-0.5B",
+  "tags": [],
+  "downloads": 6,
+  "term": "obliterated",
+  "created": "2026-06-28T22:53:26.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "usermma/Mythos-nano-OBLITERATED",
+  "params": 3085938688,
+  "base_model": "squ11z1/Mythos-nano",
+  "tags": [],
+  "downloads": 6,
+  "term": "obliterated",
+  "created": "2026-06-28T22:21:49.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "usermma/LFM2.5-230M-ECE-OBLITERATED",
+  "params": 229693184,
+  "base_model": "usermma/LFM2.5-230M-ECE",
+  "tags": [],
+  "downloads": 6,
+  "term": "obliterated",
+  "created": "2026-06-28T22:07:12.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "tw0/phi-2-OBLITERATED",
+  "params": 2779683840,
+  "base_model": [
+   "microsoft/phi-2"
+  ],
+  "tags": [],
+  "downloads": 6,
+  "term": "obliterated",
+  "created": "2026-05-24T00:41:43.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "jcdael/DeepSeek-R1-Distill-Qwen-1.5B-OBLITERATED",
+  "params": 1777088000,
+  "base_model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+  "tags": [],
+  "downloads": 6,
+  "term": "obliterated",
+  "created": "2026-05-12T20:32:08.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "FenderThe3rd/Qwen3-4B-OBLITERATED",
+  "params": 4022468096,
+  "base_model": "Qwen/Qwen3-4B",
+  "tags": [],
+  "downloads": 5,
+  "term": "obliterated",
+  "created": "2026-07-10T01:40:12.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "lefoolio/Qwen2.5-0.5B-OBLITERATED",
+  "params": 494032768,
+  "base_model": "Qwen/Qwen2.5-0.5B",
+  "tags": [],
+  "downloads": 5,
+  "term": "obliterated",
+  "created": "2026-06-09T23:26:16.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "gumoraes/NSFW-Uncensored",
+  "params": 2567463684,
+  "base_model": null,
+  "tags": [],
+  "downloads": 4,
+  "term": "uncensored",
+  "created": "2026-06-29T23:56:49.000Z",
+  "pipeline": "text-to-image"
+ },
+ {
+  "repo_id": "hoekashinov/Qwen3-4B-OBLITERATED",
+  "params": 4022468096,
+  "base_model": "Qwen/Qwen3-4B",
+  "tags": [],
+  "downloads": 4,
+  "term": "obliterated",
+  "created": "2026-06-24T00:39:13.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "TESTINGONLYPLZ/Qwen3-4B-OBLITERATED",
+  "params": 4022468096,
+  "base_model": "Qwen/Qwen3-4B",
+  "tags": [],
+  "downloads": 3,
+  "term": "obliterated",
+  "created": "2026-06-10T01:39:42.000Z",
+  "pipeline": null
+ },
+ {
+  "repo_id": "BananaAdmin/Ben1.1-Uncensored",
+  "params": 1543714304,
+  "base_model": "unsloth/qwen2.5-coder-1.5b-instruct-bnb-4bit",
+  "tags": [],
+  "downloads": 0,
+  "term": "uncensored",
+  "created": "2026-08-12T15:47:13.000Z",
+  "pipeline": "text-generation"
+ }
+]

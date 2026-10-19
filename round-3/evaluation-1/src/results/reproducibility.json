@@ -1,0 +1,15 @@
+{
+  "byte_identical_ignoring_wall_clock": true,
+  "volatile_keys_stripped_before_comparison": [
+    "runtime.wall_clock_s"
+  ],
+  "raw_sha256_run1": "b64e77a8132b7e506f7fc9f411f66dcebdc4e77e46808aefc02618dbc1d9ed9b",
+  "raw_sha256_run2": "baa474dcc47e953c28dce25443060f25714ccb4f9f71758c75725b4ef8187428",
+  "canonical_sha256_run1": "f208c8ba45e547a825dcf86d2d97658c3e3059b67edf727007e508132dc0646c",
+  "canonical_sha256_run2": "f208c8ba45e547a825dcf86d2d97658c3e3059b67edf727007e508132dc0646c",
+  "llm_spend_run2_usd": 0.170304,
+  "n_new_llm_calls_run2": 0,
+  "second_run_cost_zero": true,
+  "wall_clock_run1_s": 554.9,
+  "wall_clock_run2_s": 579.0
+}

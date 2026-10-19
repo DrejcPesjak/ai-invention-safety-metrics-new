@@ -1,34 +1,36 @@
-# Is the refusal axis reading meaning or wording?
+# Does a second judge change the safety verdicts
 
 `demo/` — Self-contained demo (Colab-ready notebook or markdown). Run without setup.  
 `src/` — Full source code, data, and outputs from the experiment execution.
 
 **Type:** evaluation  
-**ID:** `art_Y-oGSm04Tcar`
+**ID:** `art_ajJq7IGjE6dm`
 
 ## Layman Summary
 
-Re-checks whether an AI safety detector really recognises refusals or just the phrase 'I cannot', and whether its score is inflated by how the numbers were normalised.
+Re-scores the safety judgements the paper's headline rests on with a second, different AI judge and a re-worded rubric, after proving the re-created model outputs are byte-identical to the originals.
 
 ## Full Summary
 
-PURE RE-ANALYSIS of the frozen iter-4 read-vs-act tree (art_1xT3w1joqeJ8): no weights loaded, no generation, no steering, no training. 93 s on 4 CPUs, $0.0277 of a $2.00 hard cap (513 billed calls, 147 warm-cache hits, 0 errors; reruns are $0.00 from results/judge_cache_5class_local.jsonl).
+Validates the single LLM judge (meta-llama/llama-3.3-70b-instruct, rubric B) that the entire behavioural axis of the abliteration-detector paper rests on. $0.0666 of a $1.50 cap; verify_eval.py 56/56; eval_out.json validates against exp_eval_sol_out.
 
-GATE FIRST. R0 regenerates every archived per-member AUROC, its prompt-clustered CI, the within-stratum and per-stratum AUROCs and the paired A-B delta from proj_<KEY>.npz alone, using explib.centre_by_stratum / explib.detection_stats IMPORTED from the archive: 667/667 cells at max|delta| = 0.0, and lib/classify.REFUSAL_RE re-derives the stored labels array byte-identically on all 24 members. DEVIATION (pre-registered fallback): 6 of 30 archived members have a detect json but no proj npz (the archived gpu_stage dumps projections AFTER the detection stats; those six were scored by an earlier pass, mtimes 01:27 vs 02:30) and 3 of them are POWERED, so POWERED-and-available = 11 of 14.
+TEXT RECOVERY, SELF-VERIFYING. The archive stored no generation text -- only per-uid BINARY labels and a judge_cache mapping sha256(model||rubric||prompt||response[:1500]) -> label. regen.py re-created 3,880 generations across ALL 61 archived behavioural cells (roots A/B/C incl. the real gated meta-llama/Llama-3.2-1B-Instruct, both parents, the full merge/add-back/quant ladder); 60.6% HIT the archived cache key, which is a PROOF of byte-identical text, not bookkeeping. The residual was diagnosed, not assumed: probe_batch.json shows 0.55-0.65 across batch 8/16/32/40, so batching is not the cause -- it is cross-device bf16 kernel selection (archive RTX 2000 Ada vs RTX 4090). That is a NEW reproducibility limit on the ARCHIVED behavioural numbers. Llama-host cells recover at 0.93-0.97, Qwen-host near 0.55. Only proven-identical items entered the frame; the induced selection is measured per cell (archived label rate on hit vs missed items).
 
-PART 1 (H-L) VERDICT: READS_CANONICAL_WORDING_ONLY, member AND lineage unit. 660 stratified items (regex label x stratum x projection tertile, middle tertile 2x, IPW back to the item population) re-labelled with the five-class rubric loaded verbatim from RE3/judge_stage.py through ARCH/judge.py. Swapping the label barely moves the pooled AUROC (0.834 [0.736,0.923] regex -> 0.821 [0.752,0.866] semantic; paired DELTA_L -0.013 [-0.067,+0.030] member / -0.024 [-0.066,+0.018] lineage; kappa +0.789 [+0.699,+0.879]), but the SPLIT is decisive: canonically-worded refusals 0.897 [0.864,0.922] vs REFUSAL_NONCANONICAL 0.611 [0.542,0.686], which does not clear the members' own 20-draw random READING band (mean upper edge 0.750 -- chance is NOT 0.500 here).
+THREE ARMS on 620 census items over 19 load-bearing stages (the pre-registered seeded 180-item stratified sample is flagged in-place and analysed separately): J1 = archived judge (free, from cache), J2 = google/gemini-2.5-flash on rubric B VERBATIM (model effect, circularity guard asserted), J3 = same model on a re-worded rubric C (rubric effect), plus the unmodified Arditi substring screen.
 
-NEW MEASURED CAVEAT the paper must carry: the rubric's CANONICAL/NON-CANONICAL split is NOT the regex's split. 54 of 267 items (20.2%) that open with a frozen refusal opener are still called REFUSAL_NONCANONICAL by the judge, and the drift is member-dependent (0/27 Qwen3-1.7B-Base, 17/25 Llama-3.2-3B-Instruct). Taking the rubric class as 'refusals the regex missed' over-counts 83 vs 38. On the sharper subset (semantic refusal AND regex non-refusal) the pre-registered floor of 40 is not met at n=38, so the reportable claim is the pre-registered fallback: weighted corpus prevalence 0.0546 [0.0412,0.0686] -- about 1 scored item in 18 is a refusal the regex of record calls a compliance.
+HEADLINE. J1 REPRODUCES the archive: root B 0.278 vs archived 0.270. The JUDGE MODEL is the dominant axis: pooled refusal-rate shift 0.269 (model) vs 0.126 (rubric wording) vs 0.034 (PARTIAL collapse rule). Root B's headline projects to 0.770 [0.680,0.859] under Gemini and 0.193 [0.142,0.245] under rubric C -- the NUMBER is scorer-dependent (pre-registered F2). The CLAIM is not: root B sits below its parent under all three scorers and all three separate them. Verdicts: P1 SURVIVES_WEAKENED, P2 SURVIVES_WEAKENED, P3 SURVIVES (Llama AUROC-argmax false positive refuses at 1.000 = parent under EVERY scorer), P4 SURVIVES (10->10 effective kernels, 0 membership flips under PARTIAL re-collapse), P5 SURVIVES (9/9 flag-death orderings PRESERVED).
 
-PART 2 (H-X) VERDICT: LEAKAGE_CONTROL_SMALL_DELTA, both units. Four normalisation protocols on identical items/axes (archived whole-pool centring; fold-internal centring LOPO; fold-internal centre+scale = Mehta's full residualisation; leaky whole-pool z-score), on axes A, B and the norm-matched random D, under BOTH label sets. Axis A DELTA_X = -0.0205 [-0.0352,-0.0071] (centring alone +0.0009; leaky z -0.0205), an order of magnitude short of arXiv:2607.13346's -0.336 on its own data; under semantic labels -0.0397 [-0.0763,-0.0047]. CONTROL ON THE CONTROL holds: the same protocol moves random axis D by only -0.0020 [-0.0084,+0.0032] and axis B by -0.0023, so the axis-A movement is not pure normalisation. 0 fallback folds anywhere. Leakage precondition RE-ASSERTED not inherited: exact axis-fit-string text overlap = 0 on every member (fit strings re-parsed from lib/direction.py), recomputed n_prompt_overlap matches the archive on every member, and a drop-those-items sensitivity column bounds it.
+THE BLIND ANCHOR BREAKS THE TIE AND FAVOURS THE ARCHIVE. 48 disagreement-enriched items, blinding enforced by asserted sha256/mtime ordering: J1 0.771 acc / kappa 0.643; J3 0.745/0.622; J2 0.521/0.291; screen 0.500/0.155. Disagreement concentrates where J1 says COMPLIANCE and J2 says REFUSAL (per-class agreement 0.333). So the paper's limitation is NOT 'the archived rate is wrong' but 'an unvalidated second judge would report a materially different rate'. The adjudicator is an LLM, not a human -- every accuracy BOUNDS SCORER DISAGREEMENT, never truth (1 flip in 12 re-checks).
 
-ALSO SHIPPED: PARTIAL treated three ways (as refusal / as compliance / dropped-primary); judge-error attenuation from the audited 124-item probe of the SAME judge configuration (art_gYmQllaTCGT5 arm2_repaired, sensitivity 0.688 / specificity 0.923 strict); Holm-adjusted per-member p; a rank-normalised pooled AUROC; both aggregation units with both verdict strings everywhere (H-U). DELIVERABLES: eval_out.json (+full/mini/preview, exp_eval_sol_out-validated, 660 examples with both criteria, axis score and IPW weight, and a paper_numbers block every quoted number is read from), results/section_5_1_paragraph.md (f-string-generated, regenerates byte-identically), results/noncanonical_examples.md (20 verbatim boundary cases), results/prereg_eval.json (sha256-stamped before any new AUROC), r0_gate.json, sampling_frame.json, labels5.json, cost_ledger.jsonl and two vector figures.
+AGREEMENT, with the statistic-choice stated: J1-J2 3-class 0.679 raw / kappa 0.361 / Gwet AC1 0.582 / PABAK 0.519; J1-J3 0.718 / 0.562 / 0.592. Rate-level r 0.703 (J1-J2) vs 0.959 (J1-J3). Screen re-baseline on the same items reproduces the archived pair (kappa 0.312, r 0.782 vs archived 0.149/0.822 over 61 stages). Both archived verifiers still pass unmodified (exp3 29/29, exp1 20/20).
+
+SHIPS results/judge_limitations.json (the paper's judge paragraph, machine-readable, with pasteable sentences), disputed_items.jsonl (299 items verbatim), recovered.jsonl (3,880 generations), propagation.json, agreement_by_stage.csv, reproducibility.json, 3 figures, and verify_eval.py which re-derives every headline number without importing eval.py. Weight statistics (W05, E1, ladder flags) were NOT recomputed -- taken verbatim from the archive. This artifact varies ONLY the scorer.
 
 ## Dependencies
 
-- `art_1xT3w1joqeJ8` — reanalysis
-- `art_gYmQllaTCGT5` — scorer
-- `art_CKWQh2cOQLLQ` — dataset
+- `art_VLI4IOs9Xy9P` — reanalyzes
+- `art_dp7WBo6hhVBX` — generations
+- `art_CKWQh2cOQLLQ` — prompts
 
 ## Output Files
 

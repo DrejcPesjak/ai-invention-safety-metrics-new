@@ -1,0 +1,11 @@
+{
+ "eligibility_sha256": "0f8be4f6ca6817abc5db3e23f50d10ae3ff8092285bfa24a64ef393462460292",
+ "eligibility_sha256_archive": "0f8be4f6ca6817abc5db3e23f50d10ae3ff8092285bfa24a64ef393462460292",
+ "byte_identical_to_archive": true,
+ "stamped_utc": "2026-08-14T04:22:22.636883+00:00",
+ "rate_files_present_at_stamp_time": [
+  "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_5/gen_art/gen_art_experiment_2/results/arm3_rates.json",
+  "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_5/gen_art/gen_art_experiment_2/results/arm1_analysis.json"
+ ],
+ "discipline": "the rule is applied UNMODIFIED; the stamp is written before any false-positive rate exists, and a rate file that predates the stamp voids the claim"
+}

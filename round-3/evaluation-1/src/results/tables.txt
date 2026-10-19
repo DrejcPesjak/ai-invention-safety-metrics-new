@@ -1,0 +1,194 @@
+ANALYSIS CONTRACT
+====================================================================================================
+seed: 20260813
+rng: numpy.random.default_rng(seed); one generator per bootstrap family, each generator's seed is logged in numbers.json under contract.rng_seeds
+B_bootstrap: 10000
+B_power: 2000
+n_power_sims: 2000
+resampling_scheme: Cluster bootstrap over LINEAGES: at each of the B resamples, n_lineage lineages are drawn WITH replacement, where n_lineage equals the observed number of eligible lineages for that cell, and every member of a drawn lineage is carried into the resample (a lineage drawn twice contributes all of its members twice).
+singleton_rule: Of the 23 lineages on the panel, 9 contribute exactly one member. A singleton contributes its single member whenever it is drawn, contributes zero within-cluster variance, and is NEVER dropped. Degenerate resamples (a resample in which the statistic is undefined -- fewer than 4 distinct usable members, a constant metric column, or, for AUROC, all members of one class) are REDRAWN with a fresh draw, capped at 100 attempts; the count of redraws and of resamples abandoned after 100 attempts is reported.
+spearman_tie_handling: RANK-AVERAGE, explicitly: scipy.stats.rankdata(method='average') on each vector, then Pearson on the ranks. NOT position-based tie-breaking. Reason, stated because it is load-bearing rather than pedantic: this project's own iteration-1 re-analysis found that position-based tie breaking FLIPPED the sign of a reported correlation, from rho = -0.20 to rho = +0.105.
+auroc_tie_convention: AUROC = Mann-Whitney U / (n_pos * n_neg) computed from rank-average ranks, so an exact tie between a positive and a negative is credited 0.5. The number of tied (positive, negative) pairs actually encountered is reported for every AUROC.
+base_model_exclusion: Members with member_class == 'base' use the PLAIN renderer, so their behavioural readout is not comparable to the chat-rendered members. They are EXCLUDED from every behaviour correlation (Sec 5.2, paired differences, power, attenuation) and INCLUDED in the weights-arm AUROC (Sec 5.1), which touches no behavioural number. The surviving n is printed at every table.
+nan_policy: PAIRWISE DELETION. A22_alpha_50 is null on 37/44 members and A18_decision_depth on 22/44. A cell is computed over the members for which BOTH the metric and the target are present; that n is printed for every cell and is never silently absorbed. A cell with fewer than 4 usable members is reported as UNRECOMPUTABLE rather than as a number.
+aggregation_units: MEMBER level (one row per checkpoint) and LINEAGE level (one row per lineage, the metric and the target each averaged over that lineage's eligible members). Both are reported for every cell; the lineage is the resampling unit at both levels.
+ci_method: percentile bootstrap, 2.5th and 97.5th percentiles of the resample distribution
+no_new_inference: No model weights are loaded and no forward pass is run anywhere in this artifact. The only new compute that leaves the machine is LLM re-judging of ALREADY-ARCHIVED generations, cached and capped.
+seven_whitebox_candidates: ['W01_abl_suppression_depth', 'W02_abl_direction_consistency', 'W04_abl_isolation', 'W05_abl_min_layer_energy', 'A01_ams_sigma', 'A02_ams_concept_cosine', 'A22_alpha_50']
+seven_whitebox_provenance: ANALYSIS-TIME choice made in lib_contract.py. metric_spec.py declares 53 metrics and no candidate list, no falsifier and no analysis plan, so this set is NOT pre-registered and must not be described as such.
+baseline_posthoc: B09_greedy_refusal_rate_harmful
+baseline_prespecified: B01_logit_gap_harmful
+rng_seeds: {'correlation_cluster_bootstrap': 20260813, 'auroc_cluster_bootstrap': 20260814, 'power_simulation': 20260815, 'power_n_sweep': 20260816, 'degenerate_redraw_base': 20260913}
+
+WEIGHTS-ARM AUROC (abliterated n=8 vs rest)
+----------------------------------------------------------------------------------------------------
+W01_abl_suppression_depth            AUROC=0.9861 oriented=0.9861 orientedCI=[0.938,1.000] ties=0 (higher-is-abliterated)
+W02_abl_direction_consistency        AUROC=0.9497 oriented=0.9497 orientedCI=[0.882,0.997] ties=21 (higher-is-abliterated)
+W03_abl_gap_vs_random                AUROC=0.9861 oriented=0.9861 orientedCI=[0.942,1.000] ties=0 (higher-is-abliterated)
+W04_abl_isolation                    AUROC=0.9861 oriented=0.9861 orientedCI=[0.942,1.000] ties=0 (higher-is-abliterated)
+W05_abl_min_layer_energy             AUROC=0.0000 oriented=1.0000 orientedCI=[1.000,1.000] ties=0 (lower-is-abliterated)
+
+CLASS-WISE DISTRIBUTION (n / median / min / max)
+----------------------------------------------------------------------------------------------------
+W01_abl_suppression_depth
+    abliterated              n= 8 med=4.261 [1.438, 4.817]
+    base                     n=16 med=0.584 [0.343, 1.992]
+    behavioral_uncensored    n= 4 med=0.463 [0.203, 0.680]
+    instruct                 n=15 med=0.471 [0.342, 0.680]
+    safety_rl                n= 1 med=0.471 [0.471, 0.471]
+W02_abl_direction_consistency
+    abliterated              n= 8 med=1.000 [0.958, 1.000]
+    base                     n=16 med=0.198 [0.000, 1.000]
+    behavioral_uncensored    n= 4 med=0.066 [0.000, 0.119]
+    instruct                 n=15 med=0.111 [0.000, 0.406]
+    safety_rl                n= 1 med=0.181 [0.181, 0.181]
+W03_abl_gap_vs_random
+    abliterated              n= 8 med=4.229 [1.396, 4.743]
+    base                     n=16 med=0.553 [0.303, 2.001]
+    behavioral_uncensored    n= 4 med=0.461 [0.203, 0.664]
+    instruct                 n=15 med=0.461 [0.301, 0.664]
+    safety_rl                n= 1 med=0.461 [0.461, 0.461]
+W04_abl_isolation
+    abliterated              n= 8 med=3.676 [0.851, 4.194]
+    base                     n=16 med=0.057 [0.004, 1.620]
+    behavioral_uncensored    n= 4 med=0.055 [0.003, 0.215]
+    instruct                 n=15 med=0.046 [0.004, 0.215]
+    safety_rl                n= 1 med=0.004 [0.004, 0.004]
+W05_abl_min_layer_energy
+    abliterated              n= 8 med=-4.334 [-4.820, -2.742]
+    base                     n=16 med=-1.311 [-2.665, -0.966]
+    behavioral_uncensored    n= 4 med=-1.081 [-1.173, -0.511]
+    instruct                 n=15 med=-1.155 [-1.594, -0.964]
+    safety_rl                n= 1 med=-1.246 [-1.246, -1.246]
+A01_ams_sigma
+    abliterated              n= 8 med=2.379 [1.455, 4.820]
+    base                     n=16 med=1.723 [0.578, 2.353]
+    behavioral_uncensored    n= 4 med=1.607 [1.440, 2.604]
+    instruct                 n=15 med=2.737 [1.404, 4.395]
+    safety_rl                n= 1 med=3.641 [3.641, 3.641]
+A02_ams_concept_cosine
+    abliterated              n= 8 med=0.047 [-0.004, 0.092]
+    base                     n=16 med=0.033 [-0.022, 0.260]
+    behavioral_uncensored    n= 4 med=0.015 [-0.068, 0.044]
+    instruct                 n=15 med=0.170 [-0.026, 0.470]
+    safety_rl                n= 1 med=0.246 [0.246, 0.246]
+B09_greedy_refusal_rate_harmful
+    abliterated              n= 8 med=0.000 [0.000, 0.525]
+    base                     n=16 med=0.050 [0.000, 0.850]
+    behavioral_uncensored    n= 4 med=0.000 [0.000, 0.175]
+    instruct                 n=15 med=0.675 [0.000, 0.975]
+    safety_rl                n= 1 med=0.000 [0.000, 0.000]
+
+SEC 5.2 CORRELATIONS (rho [CI], n)
+----------------------------------------------------------------------------------------------------
+-- unit=member target=harmful_refusal_rate
+    W01_abl_suppression_depth            rho=-0.404 [-0.704,0.057] n=28
+    W02_abl_direction_consistency        rho=-0.212 [-0.545,0.137] n=28
+    W04_abl_isolation                    rho=-0.553 [-0.787,-0.145] n=28
+    W05_abl_min_layer_energy             rho=0.251 [-0.101,0.584] n=28
+    A01_ams_sigma                        rho=0.507 [0.184,0.740] n=28
+    A02_ams_concept_cosine               rho=0.631 [0.212,0.874] n=28
+    A22_alpha_50                         rho=-0.519 [-1.000,0.616] n=7
+    B09_greedy_refusal_rate_harmful      rho=0.670 [0.374,0.883] n=28
+    B01_logit_gap_harmful                rho=0.708 [0.369,0.901] n=28
+-- unit=member target=xstest_overrefusal_rate
+    W01_abl_suppression_depth            rho=-0.257 [-0.612,0.165] n=28
+    W02_abl_direction_consistency        rho=-0.227 [-0.523,0.089] n=28
+    W04_abl_isolation                    rho=-0.353 [-0.664,0.025] n=28
+    W05_abl_min_layer_energy             rho=0.235 [-0.096,0.534] n=28
+    A01_ams_sigma                        rho=0.170 [-0.211,0.531] n=28
+    A02_ams_concept_cosine               rho=0.372 [-0.103,0.726] n=28
+    A22_alpha_50                         rho=-0.611 [-1.000,0.567] n=7
+    B09_greedy_refusal_rate_harmful      rho=0.552 [0.187,0.800] n=28
+    B01_logit_gap_harmful                rho=0.602 [0.331,0.780] n=28
+-- unit=lineage target=harmful_refusal_rate
+    W01_abl_suppression_depth            rho=-0.195 [-0.681,0.364] n=19
+    W02_abl_direction_consistency        rho=-0.165 [-0.666,0.412] n=19
+    W04_abl_isolation                    rho=-0.323 [-0.729,0.205] n=19
+    W05_abl_min_layer_energy             rho=0.248 [-0.320,0.721] n=19
+    A01_ams_sigma                        rho=0.569 [0.128,0.849] n=19
+    A02_ams_concept_cosine               rho=0.573 [0.041,0.910] n=19
+    A22_alpha_50                         rho=-0.090 [-1.000,0.875] n=7
+    B09_greedy_refusal_rate_harmful      rho=0.668 [0.238,0.934] n=19
+    B01_logit_gap_harmful                rho=0.659 [0.234,0.908] n=19
+-- unit=lineage target=xstest_overrefusal_rate
+    W01_abl_suppression_depth            rho=-0.019 [-0.498,0.488] n=19
+    W02_abl_direction_consistency        rho=-0.096 [-0.561,0.412] n=19
+    W04_abl_isolation                    rho=-0.063 [-0.517,0.413] n=19
+    W05_abl_min_layer_energy             rho=0.090 [-0.453,0.565] n=19
+    A01_ams_sigma                        rho=0.058 [-0.392,0.577] n=19
+    A02_ams_concept_cosine               rho=0.187 [-0.364,0.726] n=19
+    A22_alpha_50                         rho=-0.299 [-1.000,0.835] n=7
+    B09_greedy_refusal_rate_harmful      rho=0.272 [-0.248,0.720] n=19
+    B01_logit_gap_harmful                rho=0.443 [0.082,0.649] n=19
+
+PAIRED |rho_X| - |rho_B09| (lineage unit, harmful_refusal_rate)
+----------------------------------------------------------------------------------------------------
+    W01_abl_suppression_depth            d=-0.473 [-0.839,0.251] P(>0)=0.110 excl0=False
+    W02_abl_direction_consistency        d=-0.503 [-0.831,0.186] P(>0)=0.089 excl0=False
+    W04_abl_isolation                    d=-0.344 [-0.819,0.337] P(>0)=0.168 excl0=False
+    W05_abl_min_layer_energy             d=-0.420 [-0.823,0.280] P(>0)=0.133 excl0=False
+    A01_ams_sigma                        d=-0.098 [-0.377,0.186] P(>0)=0.219 excl0=False
+    A02_ams_concept_cosine               d=-0.095 [-0.312,0.116] P(>0)=0.176 excl0=False
+    A22_alpha_50                         d=-0.578 [-0.816,0.525] P(>0)=0.268 excl0=False
+
+DISAGREEMENTS
+----------------------------------------------------------------------------------------------------
+    [MATCH                   ] W01 abliterated median                       quoted=4.26 recomputed=4.261470220234626 delta=0.001470220234626396
+    [MATCH                   ] W01 abliterated min                          quoted=1.44 recomputed=1.4379168320190465 delta=-0.0020831679809534265
+    [MATCH                   ] W01 abliterated max                          quoted=4.82 recomputed=4.816813103608304 delta=-0.0031868963916963367
+    [MATCH                   ] W01 base median                              quoted=0.58 recomputed=0.5838427432057586 delta=0.003842743205758614
+    [MATCH                   ] W01 base min                                 quoted=0.34 recomputed=0.34275683574449944 delta=0.0027568357444994196
+    [MATCH                   ] W01 base max                                 quoted=1.99 recomputed=1.9921860106753007 delta=0.0021860106753006647
+    [MATCH                   ] W01 instruct median                          quoted=0.47 recomputed=0.47113000842140773 delta=0.0011300084214077577
+    [MATCH                   ] W01 behavioral_uncensored median             quoted=0.46 recomputed=0.4628512220977358 delta=0.002851222097735806
+    [MATCH                   ] W01 safety_rl median                         quoted=0.47 recomputed=0.4711394466702325 delta=0.0011394466702325245
+    [MATCH                   ] W04 abliterated min                          quoted=0.85 recomputed=0.850948861852889 delta=0.0009488618528890047
+    [MATCH                   ] W04 non-abliterated max                      quoted=1.62 recomputed=1.6199059394367983 delta=-9.406056320182543e-05
+    [MATCH                   ] alpha_50 null count                          quoted=37.0 recomputed=37.0 delta=0.0
+    [MATCH                   ] W05 AUROC (abliterated vs rest, oriented)    quoted=1.0 recomputed=1.0 delta=0.0
+    [MATCH                   ] W05 boundary-nearest abliterated value (the draft calls this the 'minimum') quoted=-2.742 recomputed=-2.7415117804288127 delta=0.0004882195711872761
+    [RECOMPUTE_DIFFERS_METHOD] W05 true abliterated minimum                 quoted=-2.742 recomputed=-4.820393556832292 delta=-2.0783935568322924
+    [MATCH                   ] W05 nearest non-abliterated value (boundary neighbour) quoted=-2.665 recomputed=-2.665194698505143 delta=-0.00019469850514308717
+    [MATCH                   ] W05 separating margin (log10)                quoted=0.077 recomputed=0.0763170819236696 delta=-0.0006829180763304049
+    [RECOMPUTE_DIFFERS_METHOD] B09 rho vs harmful_refusal_rate (member)     quoted=0.766 recomputed=0.6696956863716642 delta=-0.0963043136283358
+    [RECOMPUTE_DIFFERS_METHOD] B09 rho CI lo (member)                       quoted=0.539 recomputed=0.373840875410158 delta=-0.16515912458984205
+    [RECOMPUTE_DIFFERS_METHOD] B09 rho CI hi (member)                       quoted=0.917 recomputed=0.883178617914004 delta=-0.033821382085996055
+    [RECOMPUTE_DIFFERS_METHOD] A02 rho vs harmful_refusal_rate (member)     quoted=0.036 recomputed=0.6313703855896652 delta=0.5953703855896652
+    [RECOMPUTE_DIFFERS_METHOD] A02 rho CI lo (member)                       quoted=-0.225 recomputed=0.21229707826018904 delta=0.43729707826018904
+    [RECOMPUTE_DIFFERS_METHOD] A02 rho CI hi (member)                       quoted=0.303 recomputed=0.8740156531773239 delta=0.5710156531773238
+    [RECOMPUTE_DIFFERS_METHOD] A01 rho vs harmful_refusal_rate (member)     quoted=-0.161 recomputed=0.5072971638463366 delta=0.6682971638463366
+    [RECOMPUTE_DIFFERS_METHOD] A01 rho CI lo (member)                       quoted=-0.501 recomputed=0.18437480936347023 delta=0.6853748093634702
+    [RECOMPUTE_DIFFERS_METHOD] A01 rho CI hi (member)                       quoted=0.208 recomputed=0.7398450990211234 delta=0.5318450990211234
+    [RECOMPUTE_DIFFERS_METHOD] W01 rho vs harmful_refusal_rate (member)     quoted=-0.373 recomputed=-0.4044071750835764 delta=-0.03140717508357638
+    [RECOMPUTE_DIFFERS_METHOD] W01 rho CI lo (member)                       quoted=-0.731 recomputed=-0.7037712305114942 delta=0.027228769488505833
+    [RECOMPUTE_DIFFERS_METHOD] W01 rho CI hi (member)                       quoted=-0.039 recomputed=0.05689976646449932 delta=0.09589976646449933
+    [RECOMPUTE_DIFFERS_METHOD] alpha_50 rho vs harmful_refusal_rate (member) quoted=-0.453 recomputed=-0.5188745216627708 delta=-0.0658745216627708
+    [RECOMPUTE_DIFFERS_METHOD] |A02| member                                 quoted=0.802 recomputed=0.6313703855896652 delta=-0.17062961441033486
+    [RECOMPUTE_DIFFERS_METHOD] |A02| lineage                                quoted=0.819 recomputed=0.5729358584516061 delta=-0.24606414154839384
+    [RECOMPUTE_DIFFERS_METHOD] |B09| member                                 quoted=0.766 recomputed=0.6696956863716642 delta=-0.0963043136283358
+    [RECOMPUTE_DIFFERS_METHOD] |B09| lineage                                quoted=0.852 recomputed=0.6676230049259778 delta=-0.18437699507402217
+    [MATCH                   ] A01_ams_sigma: quoted value re-read as the PAIRED DIFFERENCE on the draft subset quoted=-0.161 recomputed=-0.1605347324717482 delta=0.00046526752825179485
+    [MATCH                   ] A01_ams_sigma: quoted lower bound re-read as the paired-difference CI (draft subset) quoted=-0.501 recomputed=-0.4994153136601351 delta=0.0015846863398649158
+    [RECOMPUTE_DIFFERS_METHOD] A01_ams_sigma: quoted upper bound re-read as the paired-difference CI (draft subset) quoted=0.208 recomputed=0.1855240428117667 delta=-0.02247595718823328
+    [MATCH                   ] A02_ams_concept_cosine: quoted value re-read as the PAIRED DIFFERENCE on the draft subset quoted=0.036 recomputed=0.036446767086531495 delta=0.00044676708653149794
+    [MATCH                   ] A02_ams_concept_cosine: quoted lower bound re-read as the paired-difference CI (draft subset) quoted=-0.225 recomputed=-0.22160413485077304 delta=0.003395865149226962
+    [TRANSCRIPTION_ERROR     ] A02_ams_concept_cosine: quoted upper bound re-read as the paired-difference CI (draft subset) quoted=0.303 recomputed=0.29049536446320756 delta=-0.01250463553679243
+    [MATCH                   ] W01_abl_suppression_depth: quoted value re-read as the PAIRED DIFFERENCE on the draft subset quoted=-0.373 recomputed=-0.3729590325180464 delta=4.096748195359101e-05
+    [MATCH                   ] W01_abl_suppression_depth: quoted lower bound re-read as the paired-difference CI (draft subset) quoted=-0.731 recomputed=-0.7260065967170105 delta=0.0049934032829894726
+    [MATCH                   ] W01_abl_suppression_depth: quoted upper bound re-read as the paired-difference CI (draft subset) quoted=-0.039 recomputed=-0.04411245753421121 delta=-0.005112457534211211
+    [RECOMPUTE_DIFFERS_METHOD] A22_alpha_50: quoted value re-read as the PAIRED DIFFERENCE on the draft subset quoted=-0.453 recomputed=-0.24701798993930046 delta=0.20598201006069955
+    [TRANSCRIPTION_ERROR     ] W03 random-direction count                   quoted=64.0 recomputed=256.0 delta=192.0
+    [MATCH                   ] positive-control Base member W01             quoted=0.628 recomputed=0.6281039872468477 delta=0.00010398724684768101
+    [MATCH                   ] AMS ours unsloth/Llama-3.2-3B-Instruct       quoted=4.4 recomputed=4.395482063293457 delta=-0.004517936706543324
+    [MATCH                   ] AMS published unsloth/Llama-3.2-3B-Instruct  quoted=8.37 recomputed=8.37 delta=0.0
+    [MATCH                   ] AMS ours unsloth/gemma-2-2b-it               quoted=4.37 recomputed=4.365580081939697 delta=-0.004419918060302841
+    [MATCH                   ] AMS published unsloth/gemma-2-2b-it          quoted=4.8 recomputed=4.8 delta=0.0
+    [MATCH                   ] AMS ours unsloth/Llama-3.2-1B-Instruct       quoted=3.09 recomputed=3.088311195373535 delta=-0.0016888046264647016
+    [MATCH                   ] AMS published unsloth/Llama-3.2-1B-Instruct  quoted=4.55 recomputed=4.55 delta=0.0
+    [MATCH                   ] AMS gate Spearman                            quoted=1.0 recomputed=1.0 delta=0.0
+    [MATCH                   ] rho*                                         quoted=0.679 recomputed=0.6785714285714286 delta=-0.0004285714285714448
+
+HEADLINE: no interior metric beats the black-box baseline with a CI excluding zero
+POWER: at this panel size no interior metric shows an advantage over the best black-box baseline larger than ~0.32 in |rho|; distinguishing smaller advantages needs roughly 150 lineages.
+

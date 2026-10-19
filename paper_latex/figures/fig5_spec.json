@@ -1,81 +1,107 @@
 {
-  "type": "bar_with_reference_bands",
-  "renderer": "fig5_render.py",
-  "note": "Hand-written renderer: the catalogue's `bar` type draws one colour per SERIES (not per category), takes symmetric errors only, and has no reference-line or gap-annotation keys. All four are load-bearing here, so this spec is rendered by fig5_render.py, which imports the house style and its layout/legibility passes from the aii-data-fig-gen skill.",
-  "title": "The axis reads canned refusals, not all refusals",
-  "caption": "Axis-A detection AUROC under regex versus semantic labels, and split by refusal wording. Swapping the label barely moves the pooled value ($-0.013$ paired), but the axis separates canonically-worded refusals at 0.897 and the genuine refusals the regex misses at only 0.611 -- inside the members' own random-direction reading band, whose upper edge averages 0.750. The verdict is \\texttt{READS_CANONICAL_WORDING_ONLY}.",
-  "xlabel": "labelling rule and refusal wording",
-  "ylabel": "axis-A detection AUROC",
-  "aspect": "4:3",
+  "type": "bar_grouped_asymmetric_ci",
+  "renderer": "render_fig5.py (hand-written; house style imported from chart_style/chart_geometry)",
+  "title": "A refit threshold buys recall and loses specificity",
+  "xlabel": "Checkpoint subgroup (chat-template declaration)",
+  "ylabel": "False-positive rate\n(fraction of eligible undeclared checkpoints)",
+  "aspect": "16:9",
   "width_in": 7.0,
   "ylim": [
-    0.45,
-    1.0
+    0.0,
+    0.3
   ],
-  "bars": [
+  "legend_loc": "outside lower center",
+  "categories": [
+    "pooled (n=251)",
+    "chat-templated (n=159)",
+    "base (n=78)"
+  ],
+  "series": [
     {
-      "category": "pooled,\nregex label",
-      "value": 0.834,
-      "ci": [
-        0.736,
-        0.923
+      "label": "panel threshold tau = -2.7415",
+      "colour_role": "green",
+      "colour": "#029E73",
+      "n": [
+        251,
+        159,
+        78
       ],
-      "color": "#56B4E9",
-      "color_name": "grey-blue"
+      "k": [
+        0,
+        0,
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ci_low": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ci_high": [
+        0.015,
+        0.024,
+        0.047
+      ],
+      "bar_labels": [
+        "0/251",
+        "0/159",
+        "0/78"
+      ]
     },
     {
-      "category": "pooled,\nsemantic label",
-      "value": 0.821,
-      "ci": [
-        0.752,
-        0.866
+      "label": "LORCO refit threshold tau = -1.7156",
+      "colour_role": "red (substituted: house palette amber, see notes)",
+      "colour": "#DE8F05",
+      "n": [
+        251,
+        159,
+        78
       ],
-      "color": "#0173B2",
-      "color_name": "blue"
-    },
-    {
-      "category": "canonically-\nworded refusals",
-      "value": 0.897,
-      "ci": [
-        0.864,
-        0.922
+      "k": [
+        20,
+        7,
+        12
       ],
-      "color": "#029E73",
-      "color_name": "green"
-    },
-    {
-      "category": "REFUSAL_\nNONCANONICAL\n(regex misses)",
-      "value": 0.611,
-      "ci": [
-        0.542,
-        0.686
+      "values": [
+        0.08,
+        0.044,
+        0.154
       ],
-      "color": "#CC3311",
-      "color_name": "red"
+      "ci_low": [
+        0.052,
+        0.021,
+        0.09
+      ],
+      "ci_high": [
+        0.12,
+        0.088,
+        0.25
+      ],
+      "bar_labels": [
+        "20/251",
+        "7/159",
+        "12/78"
+      ]
     }
   ],
-  "reference_lines": [
-    {
-      "value": 0.5,
-      "label": "textbook chance",
-      "linestyle": "--",
-      "color": "#7F7F7F"
-    },
-    {
-      "value": 0.75,
-      "label": "measured random-direction\nreading band, mean upper edge",
-      "linestyle": "-",
-      "color": "#DE8F05"
-    }
-  ],
-  "gap_annotation": {
-    "between": [
-      0,
-      1
-    ],
-    "text": "paired delta -0.013 [-0.067, +0.030]",
-    "y": 0.972
+  "annotation": {
+    "loc": "upper left",
+    "lines": [
+      "threshold shift 1.026 log10 units =",
+      "8.04x the 0.128 shift that yields the",
+      "first false positive",
+      "(rinna/japanese-gpt-neox-small at -2.6139)"
+    ]
   },
-  "error_bar_note": "95% confidence intervals, drawn asymmetrically from the ci bounds above",
-  "value_labels": true
+  "error_bars": "95% Wilson intervals, drawn asymmetrically from ci_low/ci_high",
+  "notes": [
+    "The specification asked for green/red. The house style forbids a red/green series pair (it is the one pair that collapses under protanopia/deuteranopia) and the audited palette contains no red, so the second series uses the palette amber #DE8F05 against green #029E73. Semantics are carried by the legend labels.",
+    "Zero-height green bars are drawn as a hairline baseline marker so the category is visibly measured rather than missing; the plotted value remains 0.000 and only the upper Wilson bound extends.",
+    "Legend requested top-right; at 16:9 with ylim capped at 0.30 the upper-right corner is occupied by the base group's '12/78' count above its 0.250 Wilson bound, and the legibility gate refuses the overprint. The legend is therefore placed below the axes as a two-column figure legend \u2014 the same move the house style makes automatically when an in-axes legend would cover the data."
+  ],
+  "caption": "False-positive rate on eligible undeclared Hub checkpoints at the panel-fitted operating point tau = -2.7415 and at the leave-one-recipe-class-out refit tau = -1.7156, split by whether the checkpoint declares a chat template. The refit shifts the threshold by 1.026 log-units, 8.04 times the 0.128-log-unit shift that already produces a first false positive, and costs specificity disproportionately on base models. Error bars are 95% Wilson intervals."
 }

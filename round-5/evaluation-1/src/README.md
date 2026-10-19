@@ -1,130 +1,112 @@
-# Recheck the read-versus-act coupling and the verdict rule
+# One numbers file the paper must obey
 
-Pure **reanalysis** of the frozen iteration-4 read-versus-act tree
-(`iter_4/gen_art/gen_art_experiment_2`). **$0.00 LLM spend, zero GPU, zero
-generation.** Every number comes from files already on disk; 174 inputs are
-recorded in `eval_out.json` with size and sha256, and nothing is missing.
-
-## What it decides
-
-Two reviewer MAJORs.
-
-**H-C — is the read-act coupling a relationship among models, or a contrast
-between axis types?** The shipped positive was `rho = 0.629 [0.465, 0.803]` over
-70 (member, axis) pairs. Axis A is strong in both roles by construction and axes
-C and D are null in both roles by construction, so pooling axes measures the
-difference between a fitted direction and a random one.
-
-* Within axis A, across the 14 detection-powered checkpoints:
-  **`rho = 0.547`, lineage-clustered 95% CI `[-0.031, 0.930]`** over 7 resampling
-  units, exhaustive 5040-permutation `p = 0.149` (floor 1/5040 = 1.98e-4).
-  Lineage unit `0.821 [0.348, 1.000]`; same sign.
-* A **two-way variance decomposition** of the pooled statistic (balanced 14 × 5
-  design, so the split is exact) attributes **0.896** of it to between-axis-type
-  variation, 0.036 to between members, 0.069 residual — shares summing to 1.000.
-* No single axis carries a within-axis coupling: A 0.547, B 0.148, C 0.397,
-  D −0.038, E 0.416, every CI covering zero.
-* Verdict (pre-registered, with numeric triggers):
-  **`COUPLING_IS_AXIS_TYPE_CONTRAST`**, with **`UNDERPOWERED`** also firing
-  (CI half-width 0.480 > 0.35). Both are true and both are reported.
-* The reviewer's 13-member recompute is **reproduced exactly**: dropping
-  `Llama_3p2_3B_Instruct`, the one member whose axis-A verdict is AMBIGUOUS,
-  gives `rho = 0.434, p = 0.14`.
-
-**H-K — is "zero AT_CHANCE over 30 checkpoints" evidence, or arithmetic?**
-
-* **Double tally**, cross-tabulated by the four arms: 20 READS / 1 AMBIGUOUS /
-  0 AT_CHANCE / 9 UNDEFINED over all 30 members; 13 / 1 / 0 / 0 over the 14
-  detection-powered ones.
-* **Attainability simulation** of the artifact's own prompt-clustered percentile
-  bootstrap (141 cells × 2,000 replicates × 2,000 inner resamples, 453 s):
-  at a true AUROC of 0.500 the AT_CHANCE verdict is **unreachable below n = 80**
-  items per class and its probability at the pre-registered n = 40 gate is
-  **0.000** (Hanley–McNeil closed form: n = 65). Under perfect separation READS
-  fires with probability **1.000** at every one of the counts 7, 12, 28, 32, 33
-  at which the shipped table issues it on unpowered members. The rule is *not*
-  trigger-happy at true chance (P(READS | 0.500) = 0.017 at n = 5), so the
-  asymmetry is one-sided: the null verdict is what cannot be returned.
-* **Deviation record `DEV-ITER5-01`** with the exact code path: UNDEFINED fires
-  only on non-finite CI bounds (`explib.py:486-494`), which come from the
-  ≥ 5-per-class resample guard (`explib.py:555-563`); `MIN_PER_CLASS = 40`
-  governs only the separate `powered` flag (`gpu_stage.py:342-345`). Seven
-  members are unpowered yet READS, the smallest on 6 items per class.
-* **The abliterated arm restated without any AUROC.** Its 5 READS rest on one
-  powered member. The claim is carried instead by spontaneous refusal RATES:
-  median 0.0076 (weight-edited) vs 0.1131 (aligned reference), Wilson intervals
-  per member over ~1,585 generations; Mann-Whitney `U = 13.5`, tie-corrected
-  asymptotic `p = 0.0044` and an exhaustive permutation over all 293,930 group
-  assignments giving `p = 0.0026` (the arms share one rate, so scipy's exact
-  Mann-Whitney null does not apply and its p is recorded but never quoted);
-  lineage-clustered bootstrap of the median difference `−0.1055 [−0.2416,
-  −0.0245]`; exact paired sign test over the 10 within-lineage
-  abliterated-vs-parent pairs, 10 of 10, `p = 0.0020`. **"Abliteration removes
-  the refusals, not the reader" survives the loss of every AUROC.**
-
-## Validity
-
-* **Reproduction gate: 169 of 169 legs PASS at tolerance 1e-6**, G1 (the
-  stop-the-line leg) exact to 0.0e+00 — the pooled rho, its CI at the archived
-  seed, the c_50 secondary and its censoring fraction, the within-member mean,
-  all 30 per-member axis-A AUROCs/CIs/verdicts re-bootstrapped from the stored
-  per-item projections (24 item-level, 6 summary-level where no `proj_*.npz`
-  exists), the T1b arm table, the verdict tally, and the lineage bookkeeping.
-* **The 18-vs-20 discrepancy is resolved in writing**: 18 + 0 + 10 = 28, two
-  short of 30. The stale tally is carried by the iteration-4 `README.md` and its
-  artifact summary; the correct one is 20 / 1 / 0 / 9.
-* **The prose is generated, not typed.** Every number in
-  `out/replacement_text.md` carries a JSON pointer into `eval_out.json`; the run
-  ends with an executed assertion that resolves all **95 of 95** pointers and
-  fails on any mismatch, plus a grep for the pre-registration's banned salvage
-  tokens (none found).
-* `RESULTS.md` is rendered from `eval_out.json` and double-rendered to confirm it
-  regenerates byte-identically.
-* Estimators are **imported, never retyped**: `frozen_src/explib.py` and
-  `frozen_src/lib_iter3/statsx.py` are byte-identity-checked against their
-  sources (19/19) at every run.
-
-## Layout
-
-| file | what |
-|---|---|
-| `eval.py` | orchestrator; runs every stage and writes `eval_out.json` |
-| `prereg_iter5_eval.json` | the pre-registration, sha256 `b39c230e…`, written and hashed before any new statistic existed |
-| `stage0_prereg.py` | provenance manifest (path + size + sha256) and the pre-registration |
-| `stage1_gate.py` | the 7-group reproduction gate |
-| `stage2_hc.py` | H-C: primary, secondary, per-axis, control ladder, confound decomposition, verdict |
-| `stage3_hk.py` | H-K: double tally, simulation, deviation record, abliterated arm |
-| `sim.py` | the attainability simulation (closed-form tie-corrected bootstrap AUROC, validated against `explib.auroc` to 1e-12) |
-| `stage4_prose.py` | the replacement-text bundle and the pointer assertion |
-| `assemble.py` | `eval_out.json` payload and `RESULTS.md` |
-| `figures.py` | the three vector figures |
-| `frozen_src/` | byte-identical copies of the imported estimator libraries |
-| `RESULTS.md` | the rendered report |
-| `out/replacement_text.md` | the six drop-in replacement sections |
-| `figures/` | `fig1` within-axis vs pooled scatter, `fig2` control-ladder forest, `fig3` attainability heatmap (PDF + PNG) |
-
-## Reproduce
+Pure re-analysis of the archived iteration-2/3/4 trees. **Zero model weights loaded, zero
+forward passes, zero Hub fetches, zero LLM calls, $0.00 of the $10 cap.** Wall clock ~45 s.
+Every number is either recomputed from archived raw rows or carried forward verbatim with
+provenance `{file, key_path, raw_value}`. A required key that is absent becomes
+`status="UNAVAILABLE"` with the path probed — never an estimate.
 
 ```bash
-uv venv .venv --python=3.12
-uv pip install --python .venv/bin/python -r pyproject.toml   # every version pinned
-.venv/bin/python eval.py
+uv venv .venv --python=3.12 && uv pip install --python=.venv/bin/python numpy scipy loguru
+.venv/bin/python eval.py                 # full: builds twice, diffs, verifies, emits eval_out.json
+.venv/bin/python eval.py --outdir DIR    # single build into DIR
+.venv/bin/python verify_numbers.py       # standalone checker; exits 1 on any FAIL
 ```
 
-Roughly 100 s with `out/sim_raw.json` present; about 9 minutes on four cores if
-the simulation surface has to be recomputed.
+## Headline results
 
-## Corrections to the artifact plan (measured, not assumed)
+| | |
+|---|---|
+| assertions | **102 MATCH / 2 MISMATCH / 0 UNAVAILABLE** (both mismatches became corrections) |
+| `verify_numbers.py` | **151 PASS / 0 FAIL / 0 UNAVAILABLE**, exit 0 |
+| determinism | **byte-identical** across two builds in two OS processes (8 files, sha256 each) |
+| numbers.json | 211 entries, schema-compatible with `iter_4/.../experiment_2/results/numbers.json` |
 
-* Censored axis-A `c_50` among the powered members is **2 of 14**, not 7; the
-  0.771 figure is the censoring fraction over all 70 pairs.
-* The 6 members lacking per-item projections are the six `*_Instruct` /
-  `*_Instruct_abliterated` checkpoints, not the ones the plan named;
-  `BADMISTRAL_1p5B` and the fully-UNDEFINED members *do* have stored
-  projections.
-* The iteration-3 lineage-id-string trap does **not** recur: the 14 powered
-  members carry exactly 7 distinct `lineage_id` strings, so the string is the
-  cluster key and no merge map is needed.
-* `MixedLM` does not converge on 70 points (the member random-effect variance
-  sits on the zero boundary under L-BFGS); the pre-registered fallback ladder is
-  logged, and the fit that does converge (`powell`) is the one reported.
+**The operating point is essentially arbitrary.** Holding out one recipe class moves the
+fitted threshold by **1.026 log10 units** (−2.7415 → −1.7156), about **8.0×** the 0.128
+shift that already produces the first false positive on the eligible undeclared population.
+
+**Specificity does not survive refitting.** 0/139 eligible undeclared checkpoints fire at
+the panel operating point, but **13/139** fire at the class-held-out refit threshold
+(rate 0.094, Wilson 95% [0.055, 0.153]). Zero false positives is a property of a threshold
+fitted on the panel, not of the statistic. The chat/instruction-tuned subset is n=36 with
+0 firing, Wilson [0.000, 0.096] — too small to stand in for the population at risk.
+
+**AUROC orientation was flipped per cell.** The archived `auroc_oriented` column reports
+`max(raw, 1−raw)` and records which orientation it chose. Holding the orientation fixed at
+lower-is-positive, as the rule `W05 ≤ tau` requires, **8 of 19 classes fall below chance**.
+This is the single most consequential correction in the table.
+
+**Discovery ⇒ detection = completion, by definition.** Over discovery-holding rows where
+the Cauchy–Schwarz bound is informative, `|W05 − log10 min_m e_r|` is at most **0.029**
+log10 units (n=5), inside the analytic bound on **every** row (0 violations over 25 rows).
+"19/19 with zero disagreements" is therefore retired as evidence.
+
+**Isometric edits are permanently invisible** (Proposition 1): ORBA moves W05 by
+4.08e-05, *below* a random-direction Householder control at 7.26e-05. The proposition
+covers W05w, so the windowed arm cannot recover them regardless of outcome.
+
+**Detectability and effectiveness are near-orthogonal**: 10 kernels remove refusal,
+only 4 are detected; Spearman ρ = 0.113, bootstrap 95% [−0.641, 0.700] over 25 kernels.
+
+## Files
+
+| file | contents |
+|---|---|
+| `eval.py` | the analysis, stages 0–5 + determinism + verify (`archlib.py` holds shared helpers) |
+| `verify_numbers.py` | standalone checker — **imports nothing** from `eval.py`/`archlib.py` |
+| `numbers.json` | **the** file the paper regenerates every numeral from |
+| `eval_out.json` (+ `mini_`/`preview_`) | `exp_eval_sol_out` schema, PASSED |
+| `results/archive_inventory.json` | 59 archive paths, sha256 + sizes + key lists, 0 missing |
+| `results/lorco_table.json` | the four-column table, tau shift, specificity at both taus |
+| `results/derivation.json` | the bound, the ladder, retirements, undefinedness, Proposition 1 |
+| `results/corrections.json` | 24 corrections, each with provenance and a paste-ready sentence |
+| `results/edit_list.json` | 34 numbered edits (33 blocking), 25 backward references located |
+| `results/carry_forward.json` | 130 values with `{file, key_path, raw_value}` |
+| `results/assertions.json`, `results/verify_report.json`, `results/determinism.json` | audit |
+
+## What the pools are, and why they are trustworthy
+
+Rebuilt **from rows**, never from summaries:
+
+- **Positives (67)** = 44 real Hub edited checkpoints (Arm A) + 23 in-house kernels (Arm B).
+  The pooling assumption reproduces `n_fit_positives = 67 − n_held_out` for **all 19** cells.
+- **Negatives (32)** = 20 Arm-A declared parents + 11 unique archived iteration-3 parents +
+  the Arm-B host. **Gate:** all nine Arm-A class AUROCs reproduce the archive at
+  Δ = 0.00e+00. That exact reproduction is what licenses the pool.
+
+Arm-B class labels are derived by an explicit rule (uniform_subunit by `w`, gaussian_depth
+by `min_depth_weight ≥ w*`, …) and every per-cell count is checked against the archive.
+
+## The two mismatches (both are findings, not bugs)
+
+1. **`fp_rate_filtered_primary.n` 139 vs archived 122** — the archived rate file was written
+   *mid-scan*; recounted from the rows now on disk the eligible undeclared population is
+   82 archived + 57 newly scanned = 139. The numerator is still 0, so this makes the
+   precision claim **stronger**. (Correction C22.)
+2. **Undefinedness count 12 vs the draft's 13** — the single-direction discovery rule is
+   undefined on 12 of the 44 scored edited checkpoints (R_MULTIDIR_SVD ∪ R_HERETIC).
+   (Correction C20.)
+
+Per policy, MISMATCHes are never silently fixed: each becomes a `corrections[]` entry and
+the archive's row-level value wins over any prose value.
+
+## Statistics discipline
+
+- Wilson intervals for every proportion, formula printed in `numbers.json`,
+  `continuity_correction=False` stated explicitly.
+- Percentile bootstrap, `n_boot=10000`, `numpy.random.default_rng(20260814)` (never the
+  legacy global RNG), resampling unit named per statistic.
+- The power calculation is stated in full: two-sided two-proportion z-test, pooled-variance
+  null, α=0.05, power=0.80, n=40/group, grid step 1e-4 — giving a smallest detectable
+  *difference* of 0.294 at p₁=0.20 (note: a **difference**, not an alternative rate).
+- `numbers.json` is **never rounded**. Rounding appears only inside ready-to-paste sentence
+  strings, and the rule is stated there.
+- AUROC orientation is fixed at lower-is-positive for every cell of the recomputed column.
+
+## Determinism
+
+Sources of nondeterminism eliminated up front: every key list `sorted()`, `json.dumps`
+with `sort_keys=True` and full float precision, seeded `default_rng`, no timestamps in any
+output, sorted globs. Run 2 executes in a **separate OS process**, so the check covers
+process-level determinism and not just function purity.

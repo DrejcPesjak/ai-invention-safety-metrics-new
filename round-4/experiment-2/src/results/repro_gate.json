@@ -1,0 +1,125 @@
+{
+ "archive_schema_ok": true,
+ "arithmetic": {
+  "n": 216,
+  "max_abs_delta_W05": 0.0072769502724812085,
+  "mean_abs_delta_W05": 0.0002882203306529018,
+  "by_source": {
+   "scan": {
+    "n": 180,
+    "max_abs_delta": 8.881784197001252e-16,
+    "median_abs_delta": 0.0
+   },
+   "root.json": {
+    "n": 2,
+    "max_abs_delta": 0.006648802729625203,
+    "median_abs_delta": 0.003324899978210838
+   },
+   "ladder": {
+    "n": 34,
+    "max_abs_delta": 0.0072769502724812085,
+    "median_abs_delta": 0.00023940872985983574
+   }
+  },
+  "primary_source": "scan",
+  "tolerance": 1e-06,
+  "max_abs_delta_W05_scan": 8.881784197001252e-16,
+  "PASS": true,
+  "note": "pure arithmetic: W05 = log10(min(e_v1)) recomputed from the per-matrix energies the archive stored; zero downloads, zero re-decoding, so any delta on the PRIMARY source (scan.jsonl, full precision) is a bookkeeping error, not dtype drift.",
+  "ladder_root_caveat": "ladder.jsonl and root.json store e_v1 ROUNDED TO TWO SIGNIFICANT FIGURES (values such as 2.7e-05), so their deltas are a storage-precision artefact and are reported separately rather than folded into the gate.",
+  "n_by_source": {
+   "scan": 180,
+   "root.json": 2,
+   "ladder": 34
+  }
+ },
+ "numerics": {
+  "kL_equals_W05": {
+   "clean": 0.0,
+   "full": 0.0,
+   "partial": 0.0,
+   "tolerance": 1e-09,
+   "compared_against": "W05_f64 (the pooled minimum energy evaluated in float64 along the same eigenvector)",
+   "f32_vs_f64_pooled_gap": {
+    "clean": 2.5724221419665128e-08,
+    "full": 0.2457090196554539,
+    "partial": -2.3317208164286285e-09
+   },
+   "f32_note": "on an EXACT synthetic rank-one annihilation the residual energy is ~1e-13, i.e. pure float32 cancellation noise, so the vendored float32 pooled value and the float64 value differ by ~1e-2 in log10 there; on real checkpoints e_v1 ~ 1e-5 and the gap collapses (reported per model)."
+  },
+  "full_injection": {
+   "W02": 1.0,
+   "W05": -13.476395151455838,
+   "cos_v1_to_u": 1.0,
+   "passes_W02_ge_0.99": true,
+   "passes_cos_gt_0.99": true
+  },
+  "four_of_twelve_injection": {
+   "W02": 0.0,
+   "W05_pooled": -0.8377750488499125,
+   "cos_v1_to_u": 0.8570982813835144,
+   "reproduces_archived_blind_spot": true,
+   "blind_spot_criterion": "W02 < 0.05, i.e. the pooled direction-consistency statistic does not fire -- this is the archived finding being reproduced",
+   "cos_note": "the archive describes v1 as 'no longer the injected direction at all'; measured here the pooled minimum eigenvector retains PARTIAL alignment with the injected direction, so the correct statement is that the pooled statistic stops firing while the direction is still partly visible, not that it vanishes",
+   "W05w_by_k": {
+    "2": -13.43246296609307,
+    "4": -1.484498140313647,
+    "6": -1.448235360417657,
+    "8": -1.1990630896175627,
+    "L": -0.8377750465181917
+   },
+   "windowing_recovers": true
+  },
+  "clean_reference": {
+   "W02": 0.0,
+   "W05": -0.28877754599551153,
+   "W05w_by_k": {
+    "2": -0.8288761211321667,
+    "4": -0.5400863566547665,
+    "6": -0.3793958369090812,
+    "8": -0.4136465477795135,
+    "L": -0.28877757171973295
+   }
+  },
+  "rank_check": {
+   "2": {
+    "min_rank": 64,
+    "d": 64,
+    "all_full_rank": true,
+    "n_windows": 11,
+    "min_eig_gap_log10": 0.015620644425595619
+   },
+   "4": {
+    "min_rank": 64,
+    "d": 64,
+    "all_full_rank": true,
+    "n_windows": 5,
+    "min_eig_gap_log10": 0.011926415502151603
+   },
+   "6": {
+    "min_rank": 64,
+    "d": 64,
+    "all_full_rank": true,
+    "n_windows": 3,
+    "min_eig_gap_log10": 0.00400320224060835
+   },
+   "8": {
+    "min_rank": 64,
+    "d": 64,
+    "all_full_rank": true,
+    "n_windows": 2,
+    "min_eig_gap_log10": 0.0047750689504447216
+   },
+   "L": {
+    "min_rank": 64,
+    "d": 64,
+    "all_full_rank": true,
+    "n_windows": 1,
+    "min_eig_gap_log10": 0.003658581526784261
+   }
+  },
+  "naive_double_loop_gram_max_abs_delta": 2.8196269943880914e-08,
+  "PASS": true
+ },
+ "seconds": 4.621052026748657
+}

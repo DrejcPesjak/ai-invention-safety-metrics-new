@@ -17,221 +17,158 @@
 \citation{Chao2024}
 \citation{Mazeika2024}
 \citation{Zheng2023}
-\citation{Arditi2024}
 \citation{Messenger2026}
 \citation{Huang2026}
 \citation{Peng2024}
-\citation{Borah2025}
 \citation{Hurtado2026}
+\citation{Zhong2025}
+\citation{Paul2026}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
-\citation{LiLiu2025}
+\citation{Arditi2024,Labonne2024}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The mechanism and the remedy. Left: a depth-localised abliteration edits a contiguous band of residual-write matrices, but the shared Gram matrix sums over all $L$ layers, so the untouched layers dominate and the removed direction $r$ never becomes the Gram's minimal eigenvector $v_1$; the pooled statistic $W05$ then returns the unedited parent's value. Right: computing a minimum eigenvector inside each sliding window of $k$ consecutive layers and scoring the checkpoint by the extremum over windows surfaces the edit. At $k=L$ a single window covers the stack and the construction reduces exactly to $W05$. Two boundaries remain by construction: a sub-unit uniform kernel fails completion at every $k$, and an isometric (Householder) edit leaves the Gram spectrum invariant and is invisible to every member of the family.}}{3}{figure.1}\protected@file@percent }
+\newlabel{fig:fig1}{{1}{3}{The mechanism and the remedy. Left: a depth-localised abliteration edits a contiguous band of residual-write matrices, but the shared Gram matrix sums over all $L$ layers, so the untouched layers dominate and the removed direction $r$ never becomes the Gram's minimal eigenvector $v_1$; the pooled statistic $W05$ then returns the unedited parent's value. Right: computing a minimum eigenvector inside each sliding window of $k$ consecutive layers and scoring the checkpoint by the extremum over windows surfaces the edit. At $k=L$ a single window covers the stack and the construction reduces exactly to $W05$. Two boundaries remain by construction: a sub-unit uniform kernel fails completion at every $k$, and an isometric (Householder) edit leaves the Gram spectrum invariant and is invisible to every member of the family}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Summary of Contributions}{4}{subsection.1.1}\protected@file@percent }
+\citation{Zhong2025}
 \citation{Hurtado2026}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The audit this paper validates, against the audit it replaces. The benchmark path (top) requires holding harmful prompts, generating from them, and paying a judge, per checkpoint. The forward-pass path (bottom) reads the refusal-versus-affirmation logit margin at the first decoding step over a frozen 80-item harmful core: 80 forward passes, no generation, no judge, no benchmark run and no reference model. Validation is where the contribution lies: the resampling unit is the weight lineage, not the checkpoint.}}{3}{figure.1}\protected@file@percent }
-\newlabel{fig:fig1}{{1}{3}{The audit this paper validates, against the audit it replaces. The benchmark path (top) requires holding harmful prompts, generating from them, and paying a judge, per checkpoint. The forward-pass path (bottom) reads the refusal-versus-affirmation logit margin at the first decoding step over a frozen 80-item harmful core: 80 forward passes, no generation, no judge, no benchmark run and no reference model. Validation is where the contribution lies: the resampling unit is the weight lineage, not the checkpoint}{figure.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Summary of Contributions}{3}{subsection.1.1}\protected@file@percent }
-\citation{Mehta2026}
-\citation{Kapoor2023}
-\citation{Robinson1950}
-\citation{Schonbrodt2013,Schonbrodt2018}
-\citation{Messenger2026}
-\citation{Huang2026}
-\citation{Peng2024}
-\citation{Borah2025}
-\citation{LiLiu2025}
-\citation{Hurtado2026}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{4}{section.2}\protected@file@percent }
-\newlabel{sec:related}{{2}{4}{Related Work}{section.2}{}}
-\@writefile{toc}{\contentsline {paragraph}{Static, benchmark-free safety metrics, and how they are validated.}{4}{section*.1}\protected@file@percent }
-\citation{LiLiu2025}
-\citation{Xu2026}
+\citation{Paul2026}
+\citation{BackdooredLoRA2026}
+\citation{Sapwell2026}
+\citation{Staats2024}
+\citation{Ettori2025}
+\citation{Zhang2026}
+\citation{Xie2026}
+\citation{ReverseAbliterate}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work and Positioning}{5}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Parent-requiring weight audits.}{5}{section*.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Community weight forensics is further along than an academic reading suggests, and it supports our mechanism.}{5}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Parent-free spectral statistics that are not edit detectors.}{5}{section*.3}\protected@file@percent }
+\citation{Weidmann2026}
+\citation{Obliteratus2026}
+\citation{Siu2025}
+\citation{Lai2026}
+\citation{Labonne2024}
+\citation{Lai2025}
+\citation{Guelmez2026}
+\citation{Cristofano2026}
+\citation{Young2025}
+\citation{Jain2024}
+\citation{Wei2024}
+\citation{Agnihotri2025,Fafula2026}
+\citation{Shairah2025}
 \citation{Galeone2026}
-\citation{Mehta2026}
-\citation{Nadaf2026}
-\citation{Hurtado2026}
-\citation{Llorente2026}
-\@writefile{toc}{\contentsline {paragraph}{The scalar we validate is not ours.}{5}{section*.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Detection versus intervention.}{5}{section*.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Activation scores on abliterated checkpoints.}{5}{section*.4}\protected@file@percent }
-\citation{Venkatesh2026}
-\citation{Braun2026}
-\citation{LiSteer2026}
-\citation{Billa2026}
-\citation{Joad2026}
-\citation{Alagharu2026}
-\citation{Petrov2026}
-\citation{Wu2026}
-\citation{Wang2026}
-\citation{Weng2026}
-\citation{Adebayo2018}
-\citation{Kapoor2023}
-\citation{Robinson1950}
-\citation{Openshaw1984}
-\citation{Schonbrodt2013,Schonbrodt2018}
-\citation{Simpson1951}
-\citation{Arditi2024}
-\citation{ZouRepE2023}
-\citation{Turner2023}
-\citation{Rimsky2024}
-\citation{Qi2025}
-\citation{Yin2025}
-\citation{Korznikov2025}
-\citation{Zou2023}
-\citation{Chao2024}
-\citation{Rottger2024}
-\citation{Zheng2023}
-\citation{Hasan2026}
-\citation{Scheffer2009,Scheffer2012,Dakos2012,Bury2023}
-\@writefile{toc}{\contentsline {paragraph}{Steering-vector reliability.}{6}{section*.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Auditing a safety measurement, and the pathologies we name.}{6}{section*.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Refusal geometry and dynamics.}{6}{section*.7}\protected@file@percent }
-\citation{Yang2025}
-\citation{Messenger2026}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Preliminaries}{7}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Panels and the resampling unit.}{7}{section*.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Aggregation unit.}{7}{section*.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Prompt sets.}{7}{section*.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{The four scores.}{7}{section*.11}\protected@file@percent }
-\citation{Petrov2026}
-\@writefile{toc}{\contentsline {paragraph}{Steering axes.}{8}{section*.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Axis-contrast units.}{8}{section*.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{The refusal criterion.}{8}{section*.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{A tokenisation hazard worth stating.}{8}{section*.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Method}{8}{section.4}\protected@file@percent }
-\newlabel{sec:method}{{4}{8}{Method}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Instrument 1: the scale-panel test of the score that won}{9}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Instrument 2: the paraphrase refit at scale}{9}{subsection.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Instrument 3: the read-versus-act re-analysis}{9}{subsection.4.3}\protected@file@percent }
-\citation{Mehta2026}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Instrument 4: breaking the label--axis lexical circularity, and the leakage control}{10}{subsection.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Instrument 5: the aggregation-unit repair, the threshold surface, and the claim ledger}{10}{subsection.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Results}{11}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}A cheap score that survives a fourfold increase in panel size}{11}{subsection.5.1}\protected@file@percent }
-\newlabel{sec:scale}{{5.1}{11}{A cheap score that survives a fourfold increase in panel size}{subsection.5.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Spearman correlation of four benchmark-free scores with the judged plain-harmful refusal rate on the 52-member / 28-lineage / 11-family scale panel, at both aggregation units. Bars are 95\% lineage-clustered bootstrap intervals over 10,000 replicates. Only the logit-gap harmful margin clears zero at both units; the benign-prompt variant of the same statistic does not clear zero at either.}}{11}{figure.2}\protected@file@percent }
-\newlabel{fig:fig2}{{2}{11}{Spearman correlation of four benchmark-free scores with the judged plain-harmful refusal rate on the 52-member / 28-lineage / 11-family scale panel, at both aggregation units. Bars are 95\% lineage-clustered bootstrap intervals over 10,000 replicates. Only the logit-gap harmful margin clears zero at both units; the benign-prompt variant of the same statistic does not clear zero at either}{figure.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The scale-panel result: four benchmark-free scores against the judged plain-harmful refusal rate on 52 members / 28 lineages / 11 families, at both aggregation units. All $\rho $ are oriented (higher = safer) using the orientation map extracted from the iteration-3 driver. LOLO = leave-one-lineage-out (28 folds); LOFO = leave-one-family-out (11 folds); both are sign-stable in every fold for every score.}}{12}{table.1}\protected@file@percent }
-\newlabel{tab:scale}{{1}{12}{The scale-panel result: four benchmark-free scores against the judged plain-harmful refusal rate on 52 members / 28 lineages / 11 families, at both aggregation units. All $\rho $ are oriented (higher = safer) using the orientation map extracted from the iteration-3 driver. LOLO = leave-one-lineage-out (28 folds); LOFO = leave-one-family-out (11 folds); both are sign-stable in every fold for every score}{table.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The provenance block split, the diagnostic that separates a transferable score from a small-panel artifact. The logit-gap harmful margin gives 0.667 on the 19 archived members and 0.668 on the 33 newly measured ones, a difference of $-0.0004$. The AMS paraphrase refit's advantage, by contrast, is entirely inside the block that produced it: $+0.2963$ archived against $-0.016$ new.}}{12}{figure.3}\protected@file@percent }
-\newlabel{fig:fig3}{{3}{12}{The provenance block split, the diagnostic that separates a transferable score from a small-panel artifact. The logit-gap harmful margin gives 0.667 on the 19 archived members and 0.668 on the 33 newly measured ones, a difference of $-0.0004$. The AMS paraphrase refit's advantage, by contrast, is entirely inside the block that produced it: $+0.2963$ archived against $-0.016$ new}{figure.3}{}}
-\citation{LiLiu2025}
-\citation{Llorente2026}
-\citation{Hurtado2026}
-\@writefile{toc}{\contentsline {paragraph}{The harmful regime is load-bearing, which is why the product claim is narrowed rather than advertised.}{13}{section*.16}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{What we do and do not claim.}{13}{section*.17}\protected@file@percent }
-\citation{Wang2026}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}The companion negative: the paraphrase refit does not survive the same panel}{14}{subsection.5.2}\protected@file@percent }
-\newlabel{sec:refit}{{5.2}{14}{The companion negative: the paraphrase refit does not survive the same panel}{subsection.5.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces The provenance block split, the diagnostic that separates a transferable score from a small-panel artifact. Two scores of nearly identical cost, one panel, opposite outcomes. The refit's entire advantage lives in the 19 members that produced it; the logit-gap margin's does not.}}{14}{table.2}\protected@file@percent }
-\newlabel{tab:block}{{2}{14}{The provenance block split, the diagnostic that separates a transferable score from a small-panel artifact. Two scores of nearly identical cost, one panel, opposite outcomes. The refit's entire advantage lives in the 19 members that produced it; the logit-gap margin's does not}{table.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Reading versus steering: the coupling re-estimated, the verdict rule audited, the label broken}{14}{subsection.5.3}\protected@file@percent }
-\newlabel{sec:coupling}{{5.3}{14}{Reading versus steering: the coupling re-estimated, the verdict rule audited, the label broken}{subsection.5.3}{}}
-\@writefile{toc}{\contentsline {paragraph}{The primary statistic is now the within-axis, across-member one, and it does not resolve.}{15}{section*.18}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{The confound is measured, not conceded.}{15}{section*.19}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{The verdict rule is $n$-asymmetric, and the Method previously misdescribed the gate.}{15}{section*.20}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The read-versus-act coupling under seven estimators of the same relationship. The pooled 70-pair coefficient our previous draft led with (top) mixes between-axis and between-model variance; an exact two-way decomposition on the balanced 14$\times $5 design attributes 0.896 of it to between-axis-type variation, 0.036 to between-member variation and 0.069 to residual. The primary estimand --- within the canonical axis, across the 14 detection-powered members --- has an interval covering zero at the member unit.}}{16}{figure.4}\protected@file@percent }
-\newlabel{fig:fig4}{{4}{16}{The read-versus-act coupling under seven estimators of the same relationship. The pooled 70-pair coefficient our previous draft led with (top) mixes between-axis and between-model variance; an exact two-way decomposition on the balanced 14$\times $5 design attributes 0.896 of it to between-axis-type variation, 0.036 to between-member variation and 0.069 to residual. The primary estimand --- within the canonical axis, across the 14 detection-powered members --- has an interval covering zero at the member unit}{figure.4}{}}
-\@writefile{toc}{\contentsline {paragraph}{The abliterated arm no longer rests on underpowered AUROCs.}{17}{section*.21}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Twelve of the thirty per-member detection rows, chosen to show the whole operating range; the full 30-row table with norm-controlled readouts ships with the artifact. The two columns the previous draft omitted --- refusal/compliance counts and the \texttt  {powered} flag --- are what let a reader see that \texttt  {TinyLlama-1.1B-Chat-v1.0} reads at AUROC $1.000$ on seven items and that the entire weight-edited arm has one powered member. Panel totals: 14 powered of 30; 20 READS, 1 AMBIGUOUS, 0 AT\_CHANCE, 9 UNDEFINED.}}{17}{table.3}\protected@file@percent }
-\newlabel{tab:detection}{{3}{17}{Twelve of the thirty per-member detection rows, chosen to show the whole operating range; the full 30-row table with norm-controlled readouts ships with the artifact. The two columns the previous draft omitted --- refusal/compliance counts and the \texttt {powered} flag --- are what let a reader see that \texttt {TinyLlama-1.1B-Chat-v1.0} reads at AUROC $1.000$ on seven items and that the entire weight-edited arm has one powered member. Panel totals: 14 powered of 30; 20 READS, 1 AMBIGUOUS, 0 AT\_CHANCE, 9 UNDEFINED}{table.3}{}}
-\citation{Mehta2026}
-\@writefile{toc}{\contentsline {paragraph}{The label and the axis share a lexical basis, and the AUROC mostly survives it.}{18}{section*.22}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{The one published leakage control, run on our own headline.}{18}{section*.23}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}The canonical axis beats its paraphrase on semantics, not only on lexicon}{18}{subsection.5.4}\protected@file@percent }
-\newlabel{sec:degeneracy}{{5.4}{18}{The canonical axis beats its paraphrase on semantics, not only on lexicon}{subsection.5.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Axis-A detection AUROC under regex versus semantic labels, and split by refusal wording. Swapping the label barely moves the pooled value ($-0.013$ paired), but the axis separates canonically-worded refusals at 0.897 and the genuine refusals the regex misses at only 0.611 --- inside the members' own random-direction reading band, whose upper edge averages 0.750. The verdict is \texttt  {READS\_CANONICAL\_WORDING\_ONLY}.}}{19}{figure.5}\protected@file@percent }
-\newlabel{fig:fig5}{{5}{19}{Axis-A detection AUROC under regex versus semantic labels, and split by refusal wording. Swapping the label barely moves the pooled value ($-0.013$ paired), but the axis separates canonically-worded refusals at 0.897 and the genuine refusals the regex misses at only 0.611 --- inside the members' own random-direction reading band, whose upper edge averages 0.750. The verdict is \texttt {READS\_CANONICAL\_WORDING\_ONLY}}{figure.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Five-class any-refusal rate on fluency-screened text at matched axis-contrast units, with the random-direction false-positive floor drawn as a reference line. The token-disjoint paraphrase axis B induces 0.028 against the canonical axis A's 0.747 and sits 0.118 [0.082, 0.157] BELOW what a meaningless direction induces on the same filtered population, so the canonical axis's advantage is semantic rather than a wording artifact. The inset shows the one pre-registered level at which B does clear its floor --- its own peak coefficient, 4.3$\times $ the dose A requires.}}{20}{figure.6}\protected@file@percent }
-\newlabel{fig:fig6}{{6}{20}{Five-class any-refusal rate on fluency-screened text at matched axis-contrast units, with the random-direction false-positive floor drawn as a reference line. The token-disjoint paraphrase axis B induces 0.028 against the canonical axis A's 0.747 and sits 0.118 [0.082, 0.157] BELOW what a meaningless direction induces on the same filtered population, so the canonical axis's advantage is semantic rather than a wording artifact. The inset shows the one pre-registered level at which B does clear its floor --- its own peak coefficient, 4.3$\times $ the dose A requires}{figure.6}{}}
-\citation{Petrov2026}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Refusal rates on fluency-screened text at matched axis-contrast units, three scoring criteria side by side, pooled over the six depth-panel checkpoints. The random control's four-class rate of $0.374$ against its five-class degenerate rate of $0.590$ is the false-positive floor any semantic steering claim has to clear. Criterion agreement is poor where it matters: Cohen's $\kappa $ between the regex and the five-class rubric is $0.424$ on A, $0.108$ on B and $0.020$ on D.}}{21}{table.4}\protected@file@percent }
-\newlabel{tab:degeneracy}{{4}{21}{Refusal rates on fluency-screened text at matched axis-contrast units, three scoring criteria side by side, pooled over the six depth-panel checkpoints. The random control's four-class rate of $0.374$ against its five-class degenerate rate of $0.590$ is the false-positive floor any semantic steering claim has to clear. Criterion agreement is poor where it matters: Cohen's $\kappa $ between the regex and the five-class rubric is $0.424$ on A, $0.108$ on B and $0.020$ on D}{table.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}The aggregation unit, and a negative that is robust to its own thresholds}{21}{subsection.5.5}\protected@file@percent }
-\newlabel{sec:unit}{{5.5}{21}{The aggregation unit, and a negative that is robust to its own thresholds}{subsection.5.5}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Every score against the judged plain-harmful refusal rate at \textbf  {both} aggregation units. Rows 1--5 are the 19-member / 7-lineage panel with the exhaustive $7!$ permutation null in both units; rows 6--10 are the 52-member / 28-lineage scale panel with a Monte-Carlo null over 200,000 draws. The logit-gap harmful margin is the only score that excludes zero at both units on both panels.}}{22}{table.5}\protected@file@percent }
-\newlabel{tab:units}{{5}{22}{Every score against the judged plain-harmful refusal rate at \textbf {both} aggregation units. Rows 1--5 are the 19-member / 7-lineage panel with the exhaustive $7!$ permutation null in both units; rows 6--10 are the 52-member / 28-lineage scale panel with a Monte-Carlo null over 200,000 draws. The logit-gap harmful margin is the only score that excludes zero at both units on both panels}{table.5}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces The discrimination matrix: four cheap benchmark-free safety scores $\times $ five falsification checks (C1 lexical, C2 monotone, C3 depth, C4 jackknife, C5 scorer; P = PASS, F = FAIL), on the frozen 19-member / 7-lineage panel, all correlations at the \textbf  {member level} with the lineage as the resampling and permutation unit (exhaustive $7! = 5040$; achievable floor $1.98\times 10^{-4}$). Verdict: \texttt  {PROTOCOL\_DOES\_NOT\_DISCRIMINATE}. Check 5 is a property of the shared scorer (REFUSAL $\kappa = 0.391$ against a $0.60$ threshold), so it fails identically in every row and caps every row at 4/5.}}{22}{table.6}\protected@file@percent }
-\newlabel{tab:matrix}{{6}{22}{The discrimination matrix: four cheap benchmark-free safety scores $\times $ five falsification checks (C1 lexical, C2 monotone, C3 depth, C4 jackknife, C5 scorer; P = PASS, F = FAIL), on the frozen 19-member / 7-lineage panel, all correlations at the \textbf {member level} with the lineage as the resampling and permutation unit (exhaustive $7! = 5040$; achievable floor $1.98\times 10^{-4}$). Verdict: \texttt {PROTOCOL\_DOES\_NOT\_DISCRIMINATE}. Check 5 is a property of the shared scorer (REFUSAL $\kappa = 0.391$ against a $0.60$ threshold), so it fails identically in every row and caps every row at 4/5}{table.6}{}}
-\citation{Korznikov2025}
-\citation{Hurtado2026}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Two empirical nulls that steering studies should adopt}{23}{subsection.5.6}\protected@file@percent }
-\newlabel{sec:nulls}{{5.6}{23}{Two empirical nulls that steering studies should adopt}{subsection.5.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{23}{section.6}\protected@file@percent }
-\newlabel{sec:discussion}{{6}{23}{Discussion}{section.6}{}}
-\@writefile{toc}{\contentsline {paragraph}{What a platform could do with this.}{23}{section*.24}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Three named pathologies, and the instances we claim.}{23}{section*.25}\protected@file@percent }
-\citation{Kapoor2023}
-\citation{Mehta2026}
-\citation{Robinson1950}
-\citation{Openshaw1984}
-\citation{Simpson1951}
-\citation{Schonbrodt2013,Schonbrodt2018}
-\citation{LiLiu2025}
-\citation{Mishra2026}
-\@writefile{toc}{\contentsline {paragraph}{Why a validity battery can be right and useless at once.}{24}{section*.26}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Limitations.}{24}{section*.27}\protected@file@percent }
-\citation{Llorente2026}
-\citation{Hurtado2026}
-\@writefile{toc}{\contentsline {paragraph}{What we would do next.}{25}{section*.28}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{25}{section.7}\protected@file@percent }
+\citation{Qi2024}
 \citation{Basu2026}
-\citation{Llorente2026}
-\citation{Rahimi2026}
-\citation{Kwon2026}
-\citation{Taimeskhanov2026}
-\citation{BenAllal2025}
+\@writefile{toc}{\contentsline {paragraph}{The recipe family, read from source.}{6}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Why a scar is expected, and why detection is not control.}{6}{section*.5}\protected@file@percent }
+\citation{Rttger2023}
+\citation{Arditi2024}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Panel, Statistic and the Analysis Contract}{7}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}The statistic and its windowed generalisation}{7}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Panels}{7}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Arm A selection is name-blind.}{7}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{The eligibility rule is stamped before any rate.}{7}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Behavioural ground truth and its measured limits}{8}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}The analysis contract}{8}{subsection.3.4}\protected@file@percent }
+\newlabel{sec:contract}{{3.4}{8}{The analysis contract}{subsection.3.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Discovery and Completion: A Consequence of the Definition}{8}{section.4}\protected@file@percent }
+\newlabel{sec:theory}{{4}{8}{Discovery and Completion: A Consequence of the Definition}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}The derivation}{8}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}What the sweep actually measures, and the discovery threshold}{9}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Two boundaries, one analytic}{9}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:boundaries}{{4.3}{9}{Two boundaries, one analytic}{subsection.4.3}{}}
+\newlabel{prop:iso}{{1}{9}{Isometric edits are permanently invisible}{proposition.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Completion failures are a second boundary, and windowing does not touch them.}{9}{section*.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The controlled Gaussian depth sweep with the host (Qwen3-1.7B) and the removed direction $r$ held fixed. Completion never varies: the peak layer is annihilated to $\log _{10}\min _W e_W(r) = -4.53$ at every spread. What varies is discovery. Between spread 8 and 16 the kernel's minimum depth weight rises from 0.0796 to 0.5311, $|\cos (v_1,r)|$ jumps from 0.126 to 0.9992, and $W05$ falls from the parent's $-1.0098$ to $-2.888$, crossing the operating threshold. Below that transition the pooled statistic returns the parent's value to four decimals however complete the edit.}}{10}{figure.2}\protected@file@percent }
+\newlabel{fig:fig4}{{2}{10}{The controlled Gaussian depth sweep with the host (Qwen3-1.7B) and the removed direction $r$ held fixed. Completion never varies: the peak layer is annihilated to $\log _{10}\min _W e_W(r) = -4.53$ at every spread. What varies is discovery. Between spread 8 and 16 the kernel's minimum depth weight rises from 0.0796 to 0.5311, $|\cos (v_1,r)|$ jumps from 0.126 to 0.9992, and $W05$ falls from the parent's $-1.0098$ to $-2.888$, crossing the operating threshold. Below that transition the pooled statistic returns the parent's value to four decimals however complete the edit}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}The generalisation to multi-direction edits}{11}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}The Windowed Statistic}{11}{section.5}\protected@file@percent }
+\newlabel{sec:windowed}{{5}{11}{The Windowed Statistic}{section.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Sensitivity by window size at specificity 1.000 on 57 eligible undeclared negatives, with each statistic quoted at its own specificity-matched threshold. On 50 real edited Hub checkpoints, $W05w(k{=}2)$ reaches 0.700 [0.562, 0.809] against the pooled special case $W05w(L)\equiv W05$ at 0.300 [0.191, 0.438]; on 42 in-house kernels with known ground truth it reaches 1.000. The windowed statistic ties an 11-term repository-name regex while reading no repository name, and beats that regex's frozen 8-term ancestor. Error bars are 95\% Wilson intervals.}}{11}{figure.3}\protected@file@percent }
+\newlabel{fig:fig2}{{3}{11}{Sensitivity by window size at specificity 1.000 on 57 eligible undeclared negatives, with each statistic quoted at its own specificity-matched threshold. On 50 real edited Hub checkpoints, $W05w(k{=}2)$ reaches 0.700 [0.562, 0.809] against the pooled special case $W05w(L)\equiv W05$ at 0.300 [0.191, 0.438]; on 42 in-house kernels with known ground truth it reaches 1.000. The windowed statistic ties an 11-term repository-name regex while reading no repository name, and beats that regex's frozen 8-term ancestor. Error bars are 95\% Wilson intervals}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Recall at matched specificity}{12}{subsection.5.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Sensitivity by window size, each statistic at its own threshold matched to specificity 1.000 on the same 57 eligible undeclared negatives.}}{12}{table.1}\protected@file@percent }
+\newlabel{tab:windowed}{{1}{12}{Sensitivity by window size, each statistic at its own threshold matched to specificity 1.000 on the same 57 eligible undeclared negatives}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Where it stops, in advance}{12}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{P2 refuted, and the refutation is a design rule.}{12}{section*.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Per-recipe-class catch rate on real edited Hub checkpoints, windowed at $k=2$ against the pooled statistic, both at their specificity-matched thresholds on the same 57 negatives. The classes that dominate the Hub move from invisible to mostly caught: partial-layer and multi-direction from 0.00 to 0.80, merge-of-abliterated from 0.00 to 0.75, per-component (Heretic) from 0.125 to 0.625, uncensoring SFT from 0.00 to 0.625. Two classes resist --- global rank-one and Gaussian-depth --- the latter on three checkpoints only.}}{13}{figure.4}\protected@file@percent }
+\newlabel{fig:fig3}{{4}{13}{Per-recipe-class catch rate on real edited Hub checkpoints, windowed at $k=2$ against the pooled statistic, both at their specificity-matched thresholds on the same 57 negatives. The classes that dominate the Hub move from invisible to mostly caught: partial-layer and multi-direction from 0.00 to 0.80, merge-of-abliterated from 0.00 to 0.75, per-component (Heretic) from 0.125 to 0.625, uncensoring SFT from 0.00 to 0.625. Two classes resist --- global rank-one and Gaussian-depth --- the latter on three checkpoints only}{figure.4}{}}
+\@writefile{toc}{\contentsline {paragraph}{P4 confirmed.}{14}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{P5 refuted on the letter of a rule we did not move.}{14}{section*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}The multiple-window hazard cannot be bounded from inside the model}{14}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}The residual law}{14}{subsection.5.4}\protected@file@percent }
+\citation{Nikoli2025}
+\citation{Jiang2023}
+\@writefile{toc}{\contentsline {section}{\numberline {6}The Name Baseline, De-biased, and What the Statistic Adds}{15}{section.6}\protected@file@percent }
+\newlabel{sec:name}{{6}{15}{The Name Baseline, De-biased, and What the Statistic Adds}{section.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Repository-name regex sensitivity by discovery channel. The gap between the term-swept and name-free strata is the selection effect.}}{15}{table.2}\protected@file@percent }
+\newlabel{tab:name}{{2}{15}{Repository-name regex sensitivity by discovery channel. The gap between the term-swept and name-free strata is the selection effect}{table.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{De-biasing the baseline does not rescue the pooled statistic.}{15}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{This is precisely the cell the windowed statistic is built for, and it is the one measurement this paper does not have.}{15}{section*.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Card labels are themselves an uncertain ground truth.}{16}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}The Operating Point, and Decoupling from Safety}{16}{section.7}\protected@file@percent }
+\newlabel{sec:operating}{{7}{16}{The Operating Point, and Decoupling from Safety}{section.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}The threshold is arbitrary and specificity does not survive refitting}{16}{subsection.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces False-positive rate on eligible undeclared Hub checkpoints at the panel-fitted operating point $\tau = -2.7415$ and at the leave-one-recipe-class-out refit $\tau = -1.7156$, split by whether the checkpoint declares a chat template. The refit shifts the threshold by 1.026 log-units, 8.04 times the 0.128-log-unit shift that already produces a first false positive, and costs specificity disproportionately on base models. Error bars are 95\% Wilson intervals.}}{16}{figure.5}\protected@file@percent }
+\newlabel{fig:fig5}{{5}{16}{False-positive rate on eligible undeclared Hub checkpoints at the panel-fitted operating point $\tau = -2.7415$ and at the leave-one-recipe-class-out refit $\tau = -1.7156$, split by whether the checkpoint declares a chat template. The refit shifts the threshold by 1.026 log-units, 8.04 times the 0.128-log-unit shift that already produces a first false positive, and costs specificity disproportionately on base models. Error bars are 95\% Wilson intervals}{figure.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Leave-one-recipe-class-out, at a fixed orientation (lower is positive), with the threshold both fixed at the panel value and refit on the remaining classes.}}{17}{table.3}\protected@file@percent }
+\newlabel{tab:lorco}{{3}{17}{Leave-one-recipe-class-out, at a fixed orientation (lower is positive), with the threshold both fixed at the panel value and refit on the remaining classes}{table.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}The verdict and the behaviour are dissociable in both directions}{17}{subsection.7.2}\protected@file@percent }
+\newlabel{sec:dissoc}{{7.2}{17}{The verdict and the behaviour are dissociable in both directions}{subsection.7.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Harmful-refusal rate against the weight statistic for five checkpoints built or measured under held-fixed conditions. Root B, a depth-weighted Gaussian abliteration with the removed direction held fixed at root A's, un-censors from 0.950 to 0.270 while reading its parent's $W05$ to four decimals ($\cos (v_1,r)=0.0199$): a false negative. Root C, a uniform edit along the AUROC-argmax direction, fires the full signature at $-4.587$ while refusing at its parent's rate: a false positive. Intervals are 95\% Wilson on the frozen 40-item harmful core.}}{18}{figure.6}\protected@file@percent }
+\newlabel{fig:fig6}{{6}{18}{Harmful-refusal rate against the weight statistic for five checkpoints built or measured under held-fixed conditions. Root B, a depth-weighted Gaussian abliteration with the removed direction held fixed at root A's, un-censors from 0.950 to 0.270 while reading its parent's $W05$ to four decimals ($\cos (v_1,r)=0.0199$): a false negative. Root C, a uniform edit along the AUROC-argmax direction, fires the full signature at $-4.587$ while refusing at its parent's rate: a false positive. Intervals are 95\% Wilson on the frozen 40-item harmful core}{figure.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Built-to-order checkpoints exhibiting dissociation in both directions between the weight verdict and harmful-refusal behaviour.}}{18}{table.4}\protected@file@percent }
+\newlabel{tab:dissoc}{{4}{18}{Built-to-order checkpoints exhibiting dissociation in both directions between the weight verdict and harmful-refusal behaviour}{table.4}{}}
+\citation{Sapwell2026}
+\citation{Hurtado2026,Zhong2025}
+\citation{Staats2024}
+\@writefile{toc}{\contentsline {paragraph}{The judge these numbers rest on was validated independently this iteration.}{19}{section*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Detectability and effectiveness are near-orthogonal}{19}{subsection.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Discussion}{19}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{What is new, stated against what already exists.}{19}{section*.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{What a deployer should do today.}{20}{section*.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Quantization, split into its two claims.}{20}{section*.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Limitations.}{20}{section*.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{What we would do next.}{21}{section*.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Conclusion}{21}{section.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A}Reproduction Audit}{21}{appendix.A}\protected@file@percent }
 \bibstyle{plainnat}
 \bibdata{references}
-\bibcite{Adebayo2018}{{1}{2018}{{Adebayo et~al.}}{{Adebayo, Gilmer, Muelly, Goodfellow, Hardt, and Kim}}}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Corrections of Record}{26}{appendix.A}\protected@file@percent }
-\bibcite{Alagharu2026}{{2}{2026}{{Alagharu et~al.}}{{Alagharu, Singh, Shamsudeen, Wu, and Panda}}}
-\bibcite{BenAllal2025}{{3}{2025}{{Allal et~al.}}{{Allal, Lozhkov, Bakouch, Bl'azquez, Penedo, Tunstall, Marafioti, Kydl'ivcek, Lajar'in, Srivastav, Lochner, Fahlgren, Nguyen, Fourrier, Burtenshaw, Larcher, Zhao, Zakka, Morlon, Raffel, Werra, and Wolf}}}
-\bibcite{Arditi2024}{{4}{2024}{{Arditi et~al.}}{{Arditi, Obeso, Syed, Paleka, Rimsky, Gurnee, and Nanda}}}
-\bibcite{Basu2026}{{5}{2026}{{Basu et~al.}}{{Basu, Patel, Sheth, Muralidharan, Elamaran, Kinra, Morgan, and Batniji}}}
-\bibcite{Billa2026}{{6}{2026}{{Billa}}{{}}}
-\bibcite{Borah2025}{{7}{2025}{{Borah et~al.}}{{Borah, Sharma, Khanna, Bhatt, Singh, Abdullah, Ravi, Jain, Patel, Singh, Sharma, Vats, Raja, Chadha, and Das}}}
-\bibcite{Braun2026}{{8}{2026}{{Braun}}{{}}}
-\bibcite{Bury2023}{{9}{2023}{{Bury}}{{}}}
-\bibcite{Chao2024}{{10}{2024}{{Chao et~al.}}{{Chao, Debenedetti, Robey, Andriushchenko, Croce, Sehwag, Dobriban, Flammarion, Pappas, Tramèr, Hassani, and Wong}}}
-\bibcite{Dakos2012}{{11}{2012}{{Dakos et~al.}}{{Dakos, Carpenter, Brock, Ellison, Guttal, Ives, K\'efi, Livina, Seekell, van Nes, and Scheffer}}}
-\bibcite{Galeone2026}{{12}{2026}{{Galeone et~al.}}{{Galeone, Ettorre, Park, Ettorre, and Ligorio}}}
-\bibcite{Hasan2026}{{13}{2026}{{Hasan and Biswas}}{{}}}
-\bibcite{Huang2026}{{14}{2026}{{Huang et~al.}}{{Huang, Chen, Yu, and Lee}}}
-\bibcite{Hurtado2026}{{15}{2026}{{Hurtado}}{{}}}
-\bibcite{Joad2026}{{16}{2026}{{Joad et~al.}}{{Joad, Hawasly, Boughorbel, Durrani, and Sencar}}}
-\bibcite{Kapoor2023}{{17}{2023}{{Kapoor and Narayanan}}{{}}}
-\bibcite{Korznikov2025}{{18}{2025}{{Korznikov et~al.}}{{Korznikov, Galichin, Dontsov, Rogov, Oseledets, and Tutubalina}}}
-\bibcite{Kwon2026}{{19}{2026}{{Kwon}}{{}}}
-\bibcite{LiLiu2025}{{20}{2025}{{Li and Liu}}{{}}}
-\bibcite{LiSteer2026}{{21}{2026}{{Li et~al.}}{{Li, Fastowski, Zaradoukas, Prenkaj, and Kasneci}}}
-\bibcite{Llorente2026}{{22}{2026}{{Llorente-Saguer}}{{}}}
-\bibcite{Mazeika2024}{{23}{2024}{{Mazeika et~al.}}{{Mazeika, Phan, Yin, Zou, Wang, Mu, Sakhaee, Li, Basart, Li, Forsyth, and Hendrycks}}}
-\bibcite{Mehta2026}{{24}{2026}{{Mehta}}{{}}}
-\bibcite{Messenger2026}{{25}{2026}{{Messenger}}{{}}}
-\bibcite{Mishra2026}{{26}{2026}{{Mishra et~al.}}{{Mishra, Khashabi, and Liu}}}
-\bibcite{Nadaf2026}{{27}{2026}{{Nadaf}}{{}}}
-\bibcite{Openshaw1984}{{28}{1984}{{Openshaw}}{{}}}
-\bibcite{Peng2024}{{29}{2024}{{Peng et~al.}}{{Peng, Chen, Hull, and Chau}}}
-\bibcite{Petrov2026}{{30}{2026}{{Petrov}}{{}}}
-\bibcite{Qi2025}{{31}{2024}{{Qi et~al.}}{{Qi, Panda, Lyu, Ma, Roy, Beirami, Mittal, and Henderson}}}
-\bibcite{Rahimi2026}{{32}{2026}{{Rahimi et~al.}}{{Rahimi, Hirshel, Himelstein, LeVi, Mendelson, and Baskin}}}
-\bibcite{Rimsky2024}{{33}{2023}{{Rimsky et~al.}}{{Rimsky, Gabrieli, Schulz, Tong, Hubinger, and Turner}}}
-\bibcite{Robinson1950}{{34}{1950}{{Robinson}}{{}}}
-\bibcite{Rottger2024}{{35}{2023}{{Röttger et~al.}}{{Röttger, Kirk, Vidgen, Attanasio, Bianchi, and Hovy}}}
-\bibcite{Scheffer2009}{{36}{2009}{{Scheffer et~al.}}{{Scheffer, Bascompte, Brock, Brovkin, Carpenter, Dakos, Held, van Nes, Rietkerk, and Sugihara}}}
-\bibcite{Scheffer2012}{{37}{2012}{{Scheffer et~al.}}{{Scheffer, Carpenter, Lenton, Bascompte, Brock, Dakos, van~de Koppel, van~de Leemput, Levin, van Nes, Pascual, and Vandermeer}}}
-\bibcite{Schonbrodt2013}{{38}{2013}{{Sch\"onbrodt and Perugini}}{{}}}
-\bibcite{Schonbrodt2018}{{39}{2018}{{Sch\"onbrodt and Perugini}}{{}}}
-\bibcite{Simpson1951}{{40}{1951}{{Simpson}}{{}}}
-\bibcite{Taimeskhanov2026}{{41}{2026}{{Taimeskhanov et~al.}}{{Taimeskhanov, Vaiter, and Garreau}}}
-\bibcite{Turner2023}{{42}{2023}{{Turner et~al.}}{{Turner, Thiergart, Leech, Udell, Vazquez, Mini, and MacDiarmid}}}
-\bibcite{Venkatesh2026}{{43}{2026}{{Venkatesh and Kurapath}}{{}}}
-\bibcite{Wang2026}{{44}{2026}{{Wang et~al.}}{{Wang, Han, Shang, Tang, and Liu}}}
-\bibcite{Weng2026}{{45}{2026}{{Weng et~al.}}{{Weng, Feng, and Xie}}}
-\bibcite{Wu2026}{{46}{2026}{{Wu et~al.}}{{Wu, Zhao, and Chen}}}
-\bibcite{Xu2026}{{47}{2026}{{Xu and Sheng}}{{}}}
-\bibcite{Yang2025}{{48}{2025}{{Yang et~al.}}{{Yang, Li, Yang, Zhang, Hui, Zheng, Yu, Gao, Huang, Lv, Zheng, Liu, Zhou, Huang, Hu, Ge, Wei, Lin, Tang, Yang, Tu, Zhang, Yang, Yang, Zhou, Zhou, Lin, Dang, Bao, Yang, Yu, Deng, Li, Xue, Li, Zhang, Wang, Zhu, Men, Gao, Liu, Luo, Li, Tang, Yin, Ren, Wang, Zhang, Ren, Fan, Su, Zhang, Zhang, Wan, Liu, Wang, Cui, Zhang, Zhou, and Qiu}}}
-\bibcite{Yin2025}{{49}{2025}{{Yin et~al.}}{{Yin, Leong, Yang, Huang, Li, Wang, Yoon, YunXing, Xing-yu, and Gu}}}
-\bibcite{Zheng2023}{{50}{2023}{{Zheng et~al.}}{{Zheng, Chiang, Sheng, Zhuang, Wu, Zhuang, Lin, Li, Li, Xing, Zhang, Gonzalez, and Stoica}}}
-\bibcite{ZouRepE2023}{{51}{2023{a}}{{Zou et~al.}}{{Zou, Phan, Chen, Campbell, Guo, Ren, Pan, Yin, Mazeika, Dombrowski, Goel, Li, Byun, Wang, Mallen, Basart, Koyejo, Song, Fredrikson, Kolter, and Hendrycks}}}
-\bibcite{Zou2023}{{52}{2023{b}}{{Zou et~al.}}{{Zou, Wang, Kolter, and Fredrikson}}}
-\gdef \@abspage@last{30}
+\bibcite{Agnihotri2025}{{1}{2025}{{Agnihotri et~al.}}{{Agnihotri, Jakubassa, Dey, Goyal, Schiele, Radhakrishnan, and Keuper}}}
+\bibcite{Arditi2024}{{2}{2024}{{Arditi et~al.}}{{Arditi, Obeso, Syed, Paleka, Rimsky, Gurnee, and Nanda}}}
+\bibcite{Basu2026}{{3}{2026}{{Basu et~al.}}{{Basu, Patel, Sheth, Muralidharan, Elamaran, Kinra, Morgan, and Batniji}}}
+\bibcite{Chao2024}{{4}{2024}{{Chao et~al.}}{{Chao, Debenedetti, Robey, Andriushchenko, Croce, Sehwag, Dobriban, Flammarion, Pappas, Tramèr, Hassani, and Wong}}}
+\bibcite{Cristofano2026}{{5}{2026}{{Cristofano}}{{}}}
+\bibcite{BackdooredLoRA2026}{{6}{}{{Detecting Backdoored LoRAs}}{{}}}
+\bibcite{Obliteratus2026}{{7}{2026}{{elder-plinius et al.}}{{}}}
+\bibcite{Ettori2025}{{8}{2025}{{Ettori et~al.}}{{Ettori, Darabi, Tayebati, Krishnan, Subedar, Tickoo, and Trivedi}}}
+\bibcite{Fafula2026}{{9}{2026}{{Fafula}}{{}}}
+\bibcite{Galeone2026}{{10}{2026}{{Galeone et~al.}}{{}}}
+\bibcite{Guelmez2026}{{11}{2026}{{Guelmez}}{{}}}
+\bibcite{Huang2026}{{12}{2026}{{Huang et~al.}}{{Huang, Chen, Yu, and Lee}}}
+\bibcite{Hurtado2026}{{13}{2026}{{Hurtado}}{{}}}
+\bibcite{Jain2024}{{14}{2024}{{Jain et~al.}}{{Jain, Lubana, Oksuz, Joy, Torr, Sanyal, and Dokania}}}
+\bibcite{Jiang2023}{{15}{2023}{{Jiang et~al.}}{{Jiang, Kim, Cheung, Kim, Thiruvathukal, and Davis}}}
+\bibcite{Labonne2024}{{16}{2024}{{Labonne}}{{}}}
+\bibcite{Lai2025}{{17}{2025}{{Lai}}{{}}}
+\bibcite{Lai2026}{{18}{2026}{{Lai}}{{}}}
+\bibcite{Mazeika2024}{{19}{2024}{{Mazeika et~al.}}{{Mazeika, Phan, Yin, Zou, Wang, Mu, Sakhaee, Li, Basart, Li, Forsyth, and Hendrycks}}}
+\bibcite{Messenger2026}{{20}{2026}{{Messenger}}{{}}}
+\bibcite{Nikoli2025}{{21}{2025}{{Nikolić et~al.}}{{Nikolić, Baluta, and Saxena}}}
+\bibcite{Paul2026}{{22}{2026}{{Paul}}{{}}}
+\bibcite{Peng2024}{{23}{2024}{{Peng et~al.}}{{Peng, Chen, Hull, and Chau}}}
+\bibcite{Qi2024}{{24}{2024}{{Qi et~al.}}{{Qi, Panda, Lyu, Ma, Roy, Beirami, Mittal, and Henderson}}}
+\bibcite{ReverseAbliterate}{{25}{}{{reverse-abliterate}}{{}}}
+\bibcite{Rttger2023}{{26}{2023}{{Röttger et~al.}}{{Röttger, Kirk, Vidgen, Attanasio, Bianchi, and Hovy}}}
+\bibcite{Sapwell2026}{{27}{2026}{{Sapwell}}{{}}}
+\bibcite{Shairah2025}{{28}{2025}{{Shairah et~al.}}{{Shairah, Hammoud, Ghanem, and Turkiyyah}}}
+\bibcite{Siu2025}{{29}{2025}{{Siu et~al.}}{{Siu, Crispino, Yu, Pan, Wang, Liu, Song, and Wang}}}
+\bibcite{Staats2024}{{30}{2024}{{Staats et~al.}}{{Staats, Thamm, and Rosenow}}}
+\bibcite{Wei2024}{{31}{2024}{{Wei et~al.}}{{Wei, Huang, Huang, Xie, Qi, Xia, Mittal, Wang, and Henderson}}}
+\bibcite{Weidmann2026}{{32}{2026}{{Weidmann}}{{}}}
+\bibcite{Xie2026}{{33}{2026}{{Xie}}{{}}}
+\bibcite{Young2025}{{34}{2025}{{Young et~al.}}{{}}}
+\bibcite{Zhang2026}{{35}{2026}{{Zhang et~al.}}{{Zhang, Prasad, Hu, Liu, Luo, Ren, and Yang}}}
+\bibcite{Zheng2023}{{36}{2023}{{Zheng et~al.}}{{Zheng, Chiang, Sheng, Zhuang, Wu, Zhuang, Lin, Li, Li, Xing, Zhang, Gonzalez, and Stoica}}}
+\bibcite{Zhong2025}{{37}{2025}{{Zhong and Raghunathan}}{{}}}
+\bibcite{Zou2023}{{38}{2023}{{Zou et~al.}}{{Zou, Wang, Kolter, and Fredrikson}}}
+\gdef \@abspage@last{24}

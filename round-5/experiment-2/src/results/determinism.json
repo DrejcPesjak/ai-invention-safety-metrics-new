@@ -1,0 +1,29 @@
+{
+ "n": 3,
+ "rows": [
+  {
+   "repo_id": "chrisswanson/gemma-3-270m-it-qat-abliterated",
+   "W05_run1": -0.6583720120019109,
+   "W05_run2": -0.6583720120019109,
+   "delta": 0.0,
+   "bit_identical": true
+  },
+  {
+   "repo_id": "wetr3d/Huihui-gemma-3-270m-it-abliterated",
+   "W05_run1": -0.6591379279554189,
+   "W05_run2": -0.6591379279554189,
+   "delta": 0.0,
+   "bit_identical": true
+  },
+  {
+   "repo_id": "baidu/ERNIE-4.5-0.3B-PT",
+   "W05_run1": -1.2391090710902422,
+   "W05_run2": -1.2391090710902422,
+   "delta": 0.0,
+   "bit_identical": true
+  }
+ ],
+ "all_bit_identical": true,
+ "seed": 0,
+ "n_random": 256
+}

@@ -1,0 +1,4 @@
+(^|/)\.venv/
+(^|/)__pycache__/
+(^|/)\.repl_agent\.ptylog$
+(^|/)hf_home/

@@ -1,0 +1,311 @@
+{
+ "verifier": "verify.py (standalone; imports nothing from the pipeline)",
+ "exit_code": 0,
+ "n_entries": 60,
+ "n_pass": 60,
+ "n_fail": 0,
+ "all_pass": true,
+ "entries": [
+  {
+   "entry": "G1_max_abs_dW05",
+   "status": "PASS",
+   "detail": "results/gates.json"
+  },
+  {
+   "entry": "G1_host_parent_dW01",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "entry": "G2_write_matrix_sha256_match",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "entry": "G2_root_dW05",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "entry": "G3_kL_max_delta_vs_f64",
+   "status": "PASS",
+   "detail": "max over gate_kL.json rows"
+  },
+  {
+   "entry": "G3_kL_max_delta_vs_f32",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "entry": "G3_derived_float32_bound_at_d2048",
+   "status": "PASS",
+   "detail": "recomputed from d=2048 and eps32=2^-24"
+  },
+  {
+   "entry": "G3_",
+   "status": "PASS",
+   "detail": "_at_iter4_declared_1e-9                       PASS"
+  },
+  {
+   "entry": "kL_identity_holds_on_every_armB_row",
+   "status": "PASS",
+   "detail": "47/47 rows satisfy |W05w(L) - W05_f64| <= 1e-9"
+  },
+  {
+   "entry": "kL_identity_holds_on_every_armA_row",
+   "status": "PASS",
+   "detail": "71 rows OK"
+  },
+  {
+   "entry": "armB_pooled_misses_recovered_by_windowing",
+   "status": "PASS",
+   "detail": "8/22 recomputed from armb_w05w.jsonl"
+  },
+  {
+   "entry": "armB_recovery_ci",
+   "status": "PASS",
+   "detail": "Wilson [0.1973,0.5705]"
+  },
+  {
+   "entry": "armB_n_positives",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "entry": "armB_n_kernels_total",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "entry": "sensitivity_armB_k2",
+   "status": "PASS",
+   "detail": "42/42 at threshold -1.561090 (0 models have no width-2 window)"
+  },
+  {
+   "entry": "specificity_armB_k2",
+   "status": "PASS",
+   "detail": "57/57"
+  },
+  {
+   "entry": "sensitivity_armA_k2",
+   "status": "PASS",
+   "detail": "35/50 at threshold -1.561090 (0 models have no width-2 window)"
+  },
+  {
+   "entry": "specificity_armA_k2",
+   "status": "PASS",
+   "detail": "57/57"
+  },
+  {
+   "entry": "sensitivity_armB_k4",
+   "status": "PASS",
+   "detail": "42/42 at threshold -1.459397 (0 models have no width-4 window)"
+  },
+  {
+   "entry": "specificity_armB_k4",
+   "status": "PASS",
+   "detail": "57/57"
+  },
+  {
+   "entry": "sensitivity_armA_k4",
+   "status": "PASS",
+   "detail": "35/50 at threshold -1.459397 (0 models have no width-4 window)"
+  },
+  {
+   "entry": "specificity_armA_k4",
+   "status": "PASS",
+   "detail": "57/57"
+  },
+  {
+   "entry": "sensitivity_armB_k6",
+   "status": "PASS",
+   "detail": "40/42 at threshold -1.345495 (0 models have no width-6 window)"
+  },
+  {
+   "entry": "specificity_armB_k6",
+   "status": "PASS",
+   "detail": "57/57"
+  },
+  {
+   "entry": "sensitivity_armA_k6",
+   "status": "PASS",
+   "detail": "34/49 at threshold -1.345495 (1 models have no width-6 window)"
+  },
+  {
+   "entry": "specificity_armA_k6",
+   "status": "PASS",
+   "detail": "57/57"
+  },
+  {
+   "entry": "sensitivity_armB_k8",
+   "status": "PASS",
+   "detail": "31/42 at threshold -1.345880 (0 models have no width-8 window)"
+  },
+  {
+   "entry": "specificity_armB_k8",
+   "status": "PASS",
+   "detail": "52/52"
+  },
+  {
+   "entry": "sensitivity_armA_k8",
+   "status": "PASS",
+   "detail": "29/48 at threshold -1.345880 (2 models have no width-8 window)"
+  },
+  {
+   "entry": "specificity_armA_k8",
+   "status": "PASS",
+   "detail": "52/52"
+  },
+  {
+   "entry": "sensitivity_armB_kL",
+   "status": "PASS",
+   "detail": "24/42 at threshold -1.310202 (0 models have no width-L window)"
+  },
+  {
+   "entry": "specificity_armB_kL",
+   "status": "PASS",
+   "detail": "57/57"
+  },
+  {
+   "entry": "sensitivity_armA_kL",
+   "status": "PASS",
+   "detail": "15/50 at threshold -1.310202 (0 models have no width-L window)"
+  },
+  {
+   "entry": "specificity_armA_kL",
+   "status": "PASS",
+   "detail": "57/57"
+  },
+  {
+   "entry": "negatives_n_eligible_with_W05w",
+   "status": "PASS",
+   "detail": "archive/arm2_scan_new.jsonl"
+  },
+  {
+   "entry": "frontier_rows_internally_consistent",
+   "status": "PASS",
+   "detail": "117/117 rows reproduce their own Wilson intervals"
+  },
+  {
+   "entry": "arm3_agreement_fraction",
+   "status": "PASS",
+   "detail": "47 applicable rows"
+  },
+  {
+   "entry": "arm3_2x2_table",
+   "status": "PASS",
+   "detail": "rederived {'TP': 20, 'FP': 0, 'FN': 0, 'TN': 27} vs stored {'TP': 20, 'FP': 0, 'FN': 0, 'TN': 27}"
+  },
+  {
+   "entry": "arm3_single_direction_rule_undefined_on",
+   "status": "PASS",
+   "detail": "kernels whose known removed span has dim > 1"
+  },
+  {
+   "entry": "arm3_discovery_completion_rederive",
+   "status": "PASS",
+   "detail": "47/47 rows reproduce discovery+completion"
+  },
+  {
+   "entry": "derivation_identity_recomputed",
+   "status": "PASS",
+   "detail": "47/47 models reproduce e_W(v1) - e_W(r) cos^2(theta) at the argmin matrix"
+  },
+  {
+   "entry": "derivation_max_abs_residual_at_argmin",
+   "status": "PASS",
+   "detail": "max over 47 models, recomputed from the per-matrix energy arrays"
+  },
+  {
+   "entry": "derivation_max_rel_residual_at_argmin",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "entry": "derivation_max_rel_residual_where_discovery_holds",
+   "status": "PASS",
+   "detail": "max over the 22 models with cos^2(theta) >= 0.9"
+  },
+  {
+   "entry": "derivation_residual_over_sin2_theta",
+   "status": "PASS",
+   "detail": "max |residual|/sin^2(theta) over the 22 models where discovery holds"
+  },
+  {
+   "entry": "residual_scaling_law_is_O1",
+   "status": "PASS",
+   "detail": "max |residual|/sin^2(theta) = 1.7264 -- an O(1) constant, confirming the leftover is the energy along the component of v1 orthogonal to r"
+  },
+  {
+   "entry": "subset_null_sidak_recomputed",
+   "status": "PASS",
+   "detail": "47/47 kernels reproduce the per-window Sidak p from their own stored null draws"
+  },
+  {
+   "entry": "subset_null_p_sidak_unedited_parent",
+   "status": "PASS",
+   "detail": "recomputed from the PARENT row's own 32 subset draws"
+  },
+  {
+   "entry": "contiguity_gap_unedited_parent",
+   "status": "PASS",
+   "detail": "mean contiguous-window depth minus mean random-subset depth, recomputed for the unedited parent"
+  },
+  {
+   "entry": "contiguity_gap_is_negative",
+   "status": "PASS",
+   "detail": "gap = -0.2934: contiguous windows are deeper than random subsets on the UNEDITED model, which is the confound"
+  },
+  {
+   "entry": "superseded_subset_p_never_significant",
+   "status": "PASS",
+   "detail": "the naive min-vs-single-subset p has minimum 0.3297 over 47 kernels -- it never reaches alpha = 0.05 even for a complete rank-one projection, and 91% of kernels share one value"
+  },
+  {
+   "entry": "corrected_subset_p_discriminates",
+   "status": "PASS",
+   "detail": "the corrected per-window Sidak p spans [0, 0.909] over 47 kernels"
+  },
+  {
+   "entry": "baseline_repo_name_regex",
+   "status": "PASS",
+   "detail": "35/50 Arm A positives"
+  },
+  {
+   "entry": "baseline_repo_name_regex_frozen8",
+   "status": "PASS",
+   "detail": "29/50 under the frozen 8-term feature"
+  },
+  {
+   "entry": "baseline_json_matches_rows",
+   "status": "PASS",
+   "detail": "baseline.json n_hit=35 n_pos=50 vs rederived 35/50"
+  },
+  {
+   "entry": "predictions_scorecard",
+   "status": "PASS",
+   "detail": "results/predictions_outcome.json"
+  },
+  {
+   "entry": "predictions_stamped_before_scoring",
+   "status": "PASS",
+   "detail": "sha256(predictions_iter5.json) matches the stamped digest"
+  },
+  {
+   "entry": "unresolved_rows_excluded_from_denominators",
+   "status": "PASS",
+   "detail": "7 Arm A rows UNRESOLVED and excluded; 50 positives in the denominator"
+  },
+  {
+   "entry": "tier_completed",
+   "status": "PASS",
+   "detail": "results/arma_tier_status.json"
+  },
+  {
+   "entry": "numbers_entries_carry_provenance",
+   "status": "PASS",
+   "detail": "53/53 entries have source_file + circularity_flag"
+  }
+ ],
+ "stderr_tail": ""
+}

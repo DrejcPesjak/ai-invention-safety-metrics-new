@@ -1,41 +1,53 @@
 {
-  "figure_id": "fig3",
-  "type": "custom_two_panel_bar",
-  "renderer": "fig3_render.py",
-  "note": "No catalogue type fits: panel (a) is a grouped bar, panel (b) is a per-bar-coloured signed bar with a zero reference line, and both carry free-text statistical annotations that no bar renderer accepts. Hand-written with the aii-data-fig-gen house style and all of its layout/legibility gates, per SKILL.md 'Use a generator when one fits'.",
-  "title": "Does the effect live only in the old models?",
-  "caption": "The provenance block split, the diagnostic that separates a transferable score from a small-panel artifact. The logit-gap harmful margin gives 0.667 on the 19 archived members and 0.668 on the 33 newly measured ones, a difference of -0.0004. The AMS paraphrase refit's advantage, by contrast, is entirely inside the block that produced it: +0.2963 archived against -0.016 new.",
+  "type": "barh_grouped_with_gain_arrows",
+  "renderer": "render_fig3.py",
+  "note": "Hand-written renderer: the catalogue's barh draws grouped horizontal bars but cannot draw the per-row gain arrows or the callout this figure needs. House style, layout passes and legibility gates from chart_style/chart_geometry are applied.",
+  "title": "Which abliteration recipes windowing recovers",
+  "caption": "Per-recipe-class catch rate on real edited Hub checkpoints, windowed at k=2 against the pooled statistic, both at their specificity-matched thresholds on the same 57 negatives. The classes that dominate the Hub move from invisible to mostly caught: partial-layer and multi-direction from 0.00 to 0.80, merge-of-abliterated from 0.00 to 0.75, per-component (Heretic) from 0.125 to 0.625, uncensoring SFT from 0.00 to 0.625. Two classes resist - global rank-one and Gaussian-depth - the latter on three checkpoints only.",
+  "xlabel": "Catch rate (fraction of edited checkpoints flagged)",
+  "ylabel": "Abliteration recipe class",
   "aspect": "16:9",
   "width_in": 7.0,
-  "colors": {
-    "archived": "#0173B2",
-    "new": "#57C1A4"
-  },
-  "panels": [
+  "xlim": [0.0, 1.0],
+  "xticks": [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
+  "n_negatives": 57,
+  "legend_loc": "lower right",
+  "categories": [
+    "norm-preserving (n=6)",
+    "unknown recipe (n=5)",
+    "partial layer / per-head (n=5)",
+    "multi-direction SVD (n=5)",
+    "merge of abliterated (n=4)",
+    "Heretic per-component (n=8)",
+    "uncensoring SFT (n=8)",
+    "global rank-one (n=6)",
+    "Gaussian depth (n=3)"
+  ],
+  "series": [
     {
-      "id": "left",
-      "title": "Correlation with judged refusal rate (Spearman rho)",
-      "xlabel": "Candidate safety score",
-      "ylabel": "Spearman rho",
-      "ylim": [0.0, 0.8],
-      "categories": ["logit-gap harmful", "our-AMS sigma"],
-      "series": [
-        {"label": "archived 19 members (7 lineages)", "color_key": "archived", "values": [0.667, 0.358]},
-        {"label": "new 33 members (18-22 lineages)", "color_key": "new", "values": [0.668, 0.402]}
-      ],
-      "annotation": "block difference -0.0004 [-0.308, 0.380]"
+      "label": "W05w (k=2)",
+      "color": "#0173B2",
+      "values": [1.0, 1.0, 0.8, 0.8, 0.75, 0.625, 0.625, 0.333, 0.333]
     },
     {
-      "id": "right",
-      "title": "AMS paraphrase refit: paired advantage Delta_A",
-      "xlabel": "Provenance block",
-      "ylabel": "Delta_A (refit minus original)",
-      "ylim": [-0.10, 0.35],
-      "hline": 0.0,
-      "categories": ["archived 19 members", "new 33 members"],
-      "color_keys": ["archived", "new"],
-      "values": [0.2963, -0.016],
-      "bar_annotations": [null, "CI [-0.144, 0.130]"]
+      "label": "pooled W05",
+      "color": "#C8C8C8",
+      "values": [0.833, 0.2, 0.0, 0.0, 0.0, 0.125, 0.0, 0.167, 0.0]
     }
-  ]
+  ],
+  "gain_arrows": {
+    "from_series": "pooled W05",
+    "to_series": "W05w (k=2)",
+    "description": "thin white arrow on every row running from the grey bar tip (x = pooled value) to the blue bar tip (x = windowed value), drawn inside the blue bar so the arrow is exactly the stretch pooling never caught; a grey hairline drops the grey tip onto the arrow's tail"
+  },
+  "zero_labels": {
+    "series": "pooled W05",
+    "text": "0.00",
+    "reason": "a zero-height bar draws as nothing and would read as 'not measured'"
+  },
+  "annotation": {
+    "target_category": "partial layer / per-head (n=5)",
+    "marker": "†",
+    "text": "largest declared class on the Hub: 235 of 513 = 45.8%"
+  }
 }

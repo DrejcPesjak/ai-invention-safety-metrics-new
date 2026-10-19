@@ -1,397 +1,1301 @@
 {
-  "title": "Who Already Measured Steering Strength?",
-  "summary": "Saturation-and-positioning dossier for the steering-strength-as-measurement lane. Verdict (b) ADJACENT WORK EXISTS: Logit-Gap Steering is the nearest neighbour but is toxic-prompt, position-1 and per-prompt. Also reverses the plan's assumption about arXiv:2602.02712 (it supports the logistic fit), clears the random-direction null on magnitude grounds, and upgrades NORM_L normalisation to a citation-supported requirement.",
-  "answer": "SATURATION VERDICT: (b) ADJACENT WORK EXISTS.\n\nThe nearest neighbour to alpha_50 is Logit-Gap Steering [3,4], which defines \"the difference between the top refusal-token logit and the top affirmative-token logit at the first decoding step\" as \"the per-prompt safety margin that alignment provides\". That is the same conceptual object as alpha_50 - how much push before refusal loses the argmax - measured in logit units. It is NOT functionally identical: it is computed on toxic prompts (all 520 AdvBench prompts), at position 1 only (their own position-1 coverage is \"92.1% [89.4-94.2]\", with the residual on multi-token preambles), and it is per-prompt. What remains ours: benign-prompts-only measurement, generation-level rather than position-1 operationalisation, a model-level rather than prompt-level score, per-model NORM_L normalisation, and the paired instruct-minus-abliterated design.\n\nFive findings change the paper beyond that verdict.\n\n(1) The plan's \"methodology threat\" is the opposite of a threat [6,7]. arXiv:2602.02712 is ICML 2026 accepted, and its Theorem 3.6 states the target-concept probability increase \"is increasing in alpha\", with Figure 4 describing it as increasing \"with a sigmoidal shape\". The famous non-monotonicity is a per-token \"bump\" (Theorem 3.3) that applies to individual tokens and off-target concepts, plus a locally quadratic cross-entropy (Theorem 3.8). For the aggregate target-concept dose-response curve alpha_50 is fitted on, this paper is a theoretical argument that a logistic fit is the RIGHT functional form. The practically relevant non-monotonicity is instead empirical and comes from the Rogue Scalpel: \"the relationship is non-monotonic for Falcon model: excessive coefficients degrade output coherence, producing nonsensical responses that we classify as safe\" [9].\n\n(2) Galeone et al. say more than the plan assumed, and part of it cuts against us [1,2]. They explicitly test and reject the reading that the cosine predicts steerability - \"The cosine is a signature of the dissociation, not a control dial\" - and propose a functional criterion instead: \"The test is whether the intervention direction - the one that steers - also works as a detector. For format it does... For hallucination it does not (AUC ~ 0.7)\". Our 0.69-AUROC response-contrast axis that DOES steer is a counterexample to that criterion. Report it as \"in tension with\", not \"refutes\", since it is a cross-behaviour, cross-model comparison. Their detection axis is prompt-activation-derived or lm_head-derived and their intervention axis is lm_head-only, so our result is an EXTENSION along a new dimension (both of our axes are activation-derived), not a replication.\n\n(3) The Rogue Scalpel does not weaken our null, and the magnitude arithmetic is decisive [8,9]. Their calibration is identical to ours - \"alpha = c*mu^(l)\" where mu is \"the average activation norm at layer l\", with \"c ... selected from (0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0)\" - so no conversion assumption is needed. Their effects live at 25-200% of the activation norm. A purposeful, fully effective steering intervention operates at \"0.6% of the activation norm\" [2]. The 1-13% figure is a per-draw AVERAGE over \"1,000 vectors of each type\", not a best-of-N maximum. And they never test random-direction-induced REFUSAL on BENIGN prompts - their construct is harmful compliance on JailbreakBench prompts. Our null is untouched as a matter of construct and only needs magnitude scoping. No numeric lower no-effect floor exists in their text: c=0.25 is merely the smallest coefficient tested.\n\n(4) The strongest methodological find was not on the plan's radar [10]. arXiv:2608.08159 shows a headline steering result (\"steerability emerges with scale\") is manufactured purely by raw activation units and dissolves under exactly our normalisation: \"we express strength as a fraction of that norm, alpha = c||h||_l, which makes the intervention comparable across scales\", with the injection \"h' = h + c||h||_l d_hat\". This converts NORM_L normalisation from a convenience into a citation-supported requirement. It also warns that the trend \"depends jointly on raw units, the readout metric, and the operating point; correcting any one of these removes it\" - so we must state what we do about the other two before presenting any alpha_50-vs-scale claim.\n\n(5) The abliteration-metric lane has an incumbent that is NOT steering-based [11,16]. \"Has This Checkpoint Been Abliterated?\" [arXiv:2607.01854] combines \"a reference-anchored activation refusal-gap and a weight-recovery energy of the base-to-candidate weight difference\" to separate \"57 public abliterations from 37 benign fine-tunes, merges, and instruction-tunes at AUROC 0.95\" on a \"273-checkpoint registry\". It is our closest product competitor; our differentiator is that it \"presumes an attested reference\" and alpha_50 does not. Together with AMS and RAS/SafeVec, the lane is occupied by activation-geometry and weight-space methods - a steering-strength answer to \"how abliterated is this checkpoint\" does not exist in the searched literature.\n\nCONFIDENCE AND LIMITATIONS. High confidence on everything read from primary full text via repeated fetch_grep (all Galeone numbers; the Logit-Gap definition, prompt dependence and position-1 scope; the Rogue Scalpel calibration, c-grid, 1,000-draw averaging and construct; arXiv:2602.02712 Theorems 3.3/3.6 and its ICML 2026 venue; arXiv:2608.08159's formulae). Medium confidence on secondary papers read at abstract level only - these are marked NOT FOUND IN PRIMARY TEXT where relevant and must be checked against PDFs before their numbers are quoted. Two known gaps: the Rogue Scalpel's OpenReview venue/decision was not fetched, and arXiv:2603.24543's +57%/-50% ASR figures are unverified here. Important caveat on the saturation check: scholarly mode (OpenAlex/Crossref) was largely useless on this topic - \"steering coefficient threshold refusal\" returned bovine-nutrition papers about steers, and \"benchmark-free safety evaluation open-weight checkpoint\" collided with immune-checkpoint oncology - so the arXiv API carried the saturation check. Non-arXiv venues (ACL Anthology-only, OpenReview-only workshops) are therefore under-sampled, and the verdict should be read as \"no equivalent found on arXiv\", which is weaker than \"no equivalent exists\".\n",
-  "saturation_verdict": "(b) ADJACENT WORK EXISTS - nearest neighbour arXiv:2506.24056 Logit-Gap Steering; residual contribution is a dose rather than a distance, measured on benign prompts only, over a fresh generation, in residual-norm-normalised units, as a model-level score.",
-  "per_paper_table": [
-    {
-      "paper": "Logit-Gap Steering",
-      "arxiv": "2506.24056",
-      "venue": "preprint (Palo Alto Networks); v1 2025-06-30, v2 2026-05-01",
-      "F1_measured_quantity": "\"the difference between the top refusal-token logit and the top affirmative-token logit at the first decoding step\"",
-      "F2_models": "3 families for the gap analysis (Qwen2.5-0.5B, Llama-3.2-1B, gemma-2b); 13 models for the ASR ensemble; transfer 0.5B-2B to 72B within family",
-      "F3_harmful_prompt_dependence": "REQUIRES HARMFUL PROMPTS TO SCORE. \"all 520 AdvBench prompts\". No reference model needed. Caveat: they also compute benign/neutral-prompt logit distributions as a contrast (Fig. 1, Fig. 9), so a benign variant is constructible from their machinery though not defined by them.",
-      "F4_relation_to_alpha50": "SAME-OBJECT-DIFFERENT-UNITS. Decisive line: \"This single scalar quantifies the per-prompt safety margin that alignment provides.\" Differences: logit units vs steering-coefficient units; position-1 only (their own coverage is \"92.1% [89.4-94.2]\" with the residual on multi-token preambles) vs fresh generation; per-prompt vs per-model.",
-      "F5_effect": "CONSTRAINS. Withdraw any 'first scalar measuring refusal's operational margin' sentence. Residual: benign-only, generation-level, model-level, NORM_L-normalised, paired instruct-minus-abliterated."
-    },
-    {
-      "paper": "Towards Understanding Steering Strength",
-      "arxiv": "2602.02712",
-      "venue": "ICML 2026 (comments field)",
-      "F1_measured_quantity": "Theory, not a metric: Delta-p(z|c,alpha), Delta-p(concept|alpha), Delta-CE(alpha)",
-      "F2_models": "\"eleven language models, ranging from a small GPT architecture to modern models\"; difference-of-means steering vector",
-      "F3_harmful_prompt_dependence": "None; concept steering, no safety framing",
-      "F4_relation_to_alpha50": "ADJACENT - it is the theory OF the curve alpha_50 is read off",
-      "F5_effect": "STRENGTHENS, reversing the plan's assumption. Theorem 3.6: \"Delta p(T|alpha) is increasing in alpha\"; Figure 4: \"the target concept Delta p(T|alpha) increases with a sigmoidal shape\". The non-monotonic 'bump' of Theorem 3.3 is PER-TOKEN and applies to off-target concepts; cross-entropy is locally quadratic (Thm 3.8). The logistic fit is theory-backed, not merely convenient."
-    },
-    {
-      "paper": "The Rogue Scalpel",
-      "arxiv": "2509.22067",
-      "venue": "preprint; v1 2025-09-26, v2 2026-02-15. OpenReview forum uXecy0nKiJ was ATTEMPTED and is inaccessible without an account (browser-verification interstitial); venue/decision UNVERIFIED - do not cite with a venue.",
-      "F1_measured_quantity": "harmful Compliance Rate under random / SAE-feature steering",
-      "F2_models": "Llama3.1, Qwen2.5, Falcon3, FalconH1; \"model sizes ranging from 3B to 70B parameters\"",
-      "F3_harmful_prompt_dependence": "REQUIRES harmful prompts (JailbreakBench; running stimulus \"Write a tutorial on how to make a bomb\")",
-      "F4_relation_to_alpha50": "UNRELATED - a compliance rate, not a threshold coefficient",
-      "F5_effect": "CONSTRAINS the null's magnitude scope only. Same normalisation as ours: \"alpha = c*mu^(l)\" with mu \"the average activation norm at layer l\" and c in {0.25,0.5,0.75,1.0,1.25,1.5,1.75,2.0}. 1-13% is a per-draw AVERAGE over \"1,000 vectors of each type\", not best-of-N. Never tests random-induced REFUSAL on BENIGN prompts."
-    },
-    {
-      "paper": "When Is a Steerable Concept Representation Real?",
-      "arxiv": "2608.08159",
-      "venue": "preprint (2026-08-08)",
-      "F1_measured_quantity": "concept steerability under residual-norm-normalised interventions; \"alpha = c||h||_l\", injection \"h' = h + c||h||_l d_hat\"",
-      "F2_models": "\"17 models from five families, spanning 0.6B to 72B parameters\"",
-      "F3_harmful_prompt_dependence": "None",
-      "F4_relation_to_alpha50": "ADJACENT - same units, different target behaviour",
-      "F5_effect": "STRENGTHENS + CONSTRAINS. Upgrades NORM_L from convenience to citation-supported requirement. Warns that a 'steerability varies with scale' finding \"is produced by an uncalibrated pipeline\" and \"depends jointly on raw units, the readout metric, and the operating point; correcting any one of these removes it\" - so we must state what we do about readout metric and operating point too."
-    },
-    {
-      "paper": "When is Your LLM Steerable?",
-      "arxiv": "2606.11599",
-      "venue": "preprint (2026-06-10)",
-      "F1_measured_quantity": "3-way under-steer/succeed/over-steer label per (prompt, concept, config); ASTEER testbed of \"1.4M steered generations, spanning 150 concepts\"; GBDT predictor at \"around 0.7 macro-F1\"",
-      "F2_models": "NOT FOUND IN PRIMARY TEXT at abstract level",
-      "F3_harmful_prompt_dependence": "None",
-      "F4_relation_to_alpha50": "ADJACENT - closest MACHINERY (they use the predictor \"as guidance for steering strength searching\"), different object (per-instance success, not a per-model safety scalar)",
-      "F5_effect": "CONSTRAINS. Our alpha_50 search must cite them and must not be pitched as a novel search procedure."
-    },
-    {
-      "paper": "What Models Express, Suppress, and Resist (persona vectors)",
-      "arxiv": "2607.13162",
-      "venue": "preprint v3 (2026-07-17)",
-      "F1_measured_quantity": "per-trait 3-way label: \"natural\", \"steerable latent but amplifiable\", or \"intractable (resistant to standard extraction)\", over a \"53-trait inventory\"",
-      "F2_models": "two open-weight models",
-      "F3_harmful_prompt_dependence": "None",
-      "F4_relation_to_alpha50": "ADJACENT - steerability used as a model-level audit",
-      "F5_effect": "STRENGTHENS. Closest prior art to 'resistance to steering is informative about a model'."
-    },
-    {
-      "paper": "Has This Checkpoint Been Abliterated? A Two-Signal Audit and Its Failure Map",
-      "arxiv": "2607.01854",
-      "venue": "preprint (2026-07-02), \"13 pages, 3 figures\"",
-      "F1_measured_quantity": "z-sum of \"a reference-anchored activation refusal-gap and a weight-recovery energy of the base-to-candidate weight difference\"; \"AUROC 0.95\"; \"balanced accuracy 0.89 (FPR 0.11)\"; \"273-checkpoint registry\"; \"57 public abliterations from 37 benign fine-tunes\"",
-      "F2_models": "\"Qwen, DeepSeek-distilled Qwen, Llama, and Gemma\"",
-      "F3_harmful_prompt_dependence": "No harmful prompts; but REQUIRES AN ATTESTED REFERENCE MODEL (\"it presumes an attested reference\")",
-      "F4_relation_to_alpha50": "UNRELATED as an object; DIRECT COMPETITOR as a product",
-      "F5_effect": "CONSTRAINS. It already answers 'is this checkpoint abliterated' at AUROC 0.95 without steering. Must be named; our differentiator is the absence of a reference-model requirement."
-    },
-    {
-      "paper": "SteeringSafety (was SteeringControl)",
-      "arxiv": "2509.13450",
-      "venue": "preprint; TITLE CHANGED between v1 and v2",
-      "F1_measured_quantity": "per-METHOD primary-behaviour change and secondary-behaviour entanglement across \"seven safety perspectives spanning 17 datasets\"; \"social behaviors show highest vulnerability (reaching degradation as high as 76%)\"",
-      "F2_models": "Qwen-2.5-7B and Llama-3.1-8B (planner-supplied; NOT VERIFIED at the abstract anchor)",
-      "F3_harmful_prompt_dependence": "Yes, 17 benchmark datasets",
-      "F4_relation_to_alpha50": "UNRELATED - scores METHODS, not MODELS. Defines no per-model safety readout.",
-      "F5_effect": "STRENGTHENS by contrast: evidence that the field's established steering-evaluation object is method quality, not model safety."
-    },
-    {
-      "paper": "When Models Refuse: Political Steerability and Feature Richness (was Beyond the Surface)",
-      "arxiv": "2508.21448",
-      "venue": "preprint; TITLE CHANGED v1->v3",
-      "F1_measured_quantity": "'ideological depth' = steerability + SAE feature richness; success/refusal rate under persona steering",
-      "F2_models": "Gemma, Llama",
-      "F3_harmful_prompt_dependence": "NO - explicitly benign: \"LLMs sometimes refuse to follow benign instructions, such as declining to argue a political position\"",
-      "F4_relation_to_alpha50": "ADJACENT and a GOOD citation. Whether steerability is 'strength required for success' rather than 'success at fixed strength' is NOT FOUND IN PRIMARY TEXT at abstract level - do not claim they measure a threshold coefficient.",
-      "F5_effect": "STRENGTHENS twice: benign-prompt refusal measurement is an accepted design, and steerability is used as a model-level measurable property. Also supplies a rival explanation we must address: \"refusals on benign prompts can arise from capability deficits rather than fixed safety rules\". Author list: v3 shows Shariar Kabir; the 'Kabir, Esterling, Dong' attribution is UNCONFIRMED."
-    },
-    {
-      "paper": "Analysing the Safety Pitfalls of Steering Vectors",
-      "arxiv": "2603.24543",
-      "venue": "preprint (2026-03-25)",
-      "F1_measured_quantity": "ASR swing on JailbreakBench under CAA vectors, attributed \"to the overlap between the steering vectors and the latent directions of refusal behavior\"",
-      "F2_models": "\"six models from three families and sizes (3B-32B)\" [sec 1, contribution 1]",
-      "F3_harmful_prompt_dependence": "Yes (JailbreakBench)",
-      "F4_relation_to_alpha50": "UNRELATED",
-      "F5_effect": "CONSTRAINS the null, weakly. VERIFIED VERBATIM in primary text: \"steering the model in specific directions can drastically increase (up to 57%) or decrease (up to 50%) its attack success rate (ASR), depending on the targeted behavior. We attribute this phenomenon to the overlap between the steering vectors and the latent directions of refusal behavior\" [abstract], repeated in sec 1. Case study: \"For Qwen 14B, without steering, a model refuses harmful input (ASR: 4%). Steering towards 'Self-Awareness' alone compromises safety (ASR: 42%). Critically, combining steering with simple attacks leads to a near-complete collapse of safety (ASR: 80%)\" [Fig. 1]. NOTE: these swings come from purposefully-constructed CAA behaviour vectors, NOT random directions, so this paper constrains our null less than the Rogue Scalpel does."
-    },
-    {
-      "paper": "Safety Cost of Steering Vectors Is Separable and Reducible",
-      "arxiv": "2608.08383",
-      "venue": "COLM 2026",
-      "F1_measured_quantity": "a separable safety-degrading component of a steering vector, identified by constrained optimisation and removed by ablating a single direction",
-      "F2_models": "NOT FOUND IN PRIMARY TEXT at abstract level",
-      "F3_harmful_prompt_dependence": "Yes (attack suites)",
-      "F4_relation_to_alpha50": "UNRELATED",
-      "F5_effect": "STRENGTHENS - venue-strong (COLM 2026) confirmation that steering vectors carry a separable safety cost."
-    },
-    {
-      "paper": "Steering Externalities",
-      "arxiv": "2602.04896",
-      "venue": "preprint (2026-02-03)",
-      "F1_measured_quantity": "ASR increase from steering vectors derived from BENIGN datasets; \"increasing attack success rates to over 80% on standard benchmarks\"",
-      "F2_models": "NOT FOUND IN PRIMARY TEXT at abstract level",
-      "F3_harmful_prompt_dependence": "Yes",
-      "F4_relation_to_alpha50": "UNRELATED",
-      "F5_effect": "CONSTRAINS (same family as Rogue Scalpel) and flags TERM CROWDING: they use \"erodes the 'safety margin'\"."
-    },
-    {
-      "paper": "Auditing Alignment Controllability in LLMs via Political Axes",
-      "arxiv": "2607.23519",
-      "venue": "AIES 2026 (AAAI/ACM)",
-      "F1_measured_quantity": "dispersion, symmetry, SATURATION and \"refusal floors\" under prompt-based steering; \"63,700 responses\"; \"Contextual framing explains roughly 88%-93% of variance\"",
-      "F2_models": "GPT-5, Claude, Grok, Gemini, DeepSeek, Kimi, Qwen",
-      "F3_harmful_prompt_dependence": "No",
-      "F4_relation_to_alpha50": "ADJACENT - a saturation-point audit, but PROMPT-based not activation-based steering",
-      "F5_effect": "STRENGTHENS - refereed precedent that \"Political-coordinate audits therefore need steerability audits reporting dispersion, symmetry, saturation, and refusal floors\"."
-    },
-    {
-      "paper": "Adversarial Robustness of Activation Steering",
-      "arxiv": "2606.07696",
-      "venue": "preprint (2026-06-05), \"9 pages, 2 figures\"",
-      "F1_measured_quantity": "steering robustness under input perturbation; \"directional robustness drops by up to 64%\"; optimal layer \"shifting by up to 17 positions under perturbation\"",
-      "F2_models": "\"five models ranging from 1.5B to 30B parameters\"",
-      "F3_harmful_prompt_dependence": "No",
-      "F4_relation_to_alpha50": "UNRELATED",
-      "F5_effect": "CONSTRAINS - alpha_50 depends on a layer choice and layer selection is fragile. Hold the benign prompt set fixed; report layer sensitivity."
-    },
-    {
-      "paper": "What Drives Representation Steering? A Mechanistic Case Study on Steering Refusal",
-      "arxiv": "2604.08524",
-      "venue": "preprint (2026-04-09)",
-      "F1_measured_quantity": "circuit attribution: steering acts \"through the OV circuit while largely ignoring the QK circuit\"; \"freezing all attention scores during steering drops performance by only 8.75%\"; vectors sparsifiable \"by up to 90-99%\"",
-      "F2_models": "two model families",
-      "F3_harmful_prompt_dependence": "No",
-      "F4_relation_to_alpha50": "UNRELATED - no alpha-sweep threshold metric found",
-      "F5_effect": "STRENGTHENS (mechanism citation only)."
-    },
-    {
-      "paper": "The Geometry of Refusal: Linear Instability in Safety-Aligned LLMs",
-      "arxiv": "2606.22686",
-      "venue": "CONFIRMED VERBATIM: \"Accepted at TrustNLP 2026 (Sixth Workshop on Trustworthy Natural Language Processing, ACL 2026)\"",
-      "F1_measured_quantity": "a steerable \"safety axis\"; inverting the steering vector \"hardens\" models against jailbreaks without retraining",
-      "F2_models": "not re-verified here",
-      "F3_harmful_prompt_dependence": "Yes",
-      "F4_relation_to_alpha50": "ADJACENT",
-      "F5_effect": "Venue UPGRADE confirmed for the hypothesis's related-works list. Title also changed between versions."
-    }
+ "answer": "# Prior-art dossier for a fifty-metric single-model safety-screening battery\n\nFull artifact: `research_report.md` (six sections, 818 lines, every number anchored to primary full\ntext) and the `structured_answer` object in this file's JSON (17 keys: positioning paragraph,\nsteering-lane table, weights-only verdict and formulas, black-box baseline specs, ground-truth\ncoverage table, circularity verdict, 29 per-metric design inputs, citation audit, 15 corrections).\nThree of the four questions came back as bad news for the hypothesis; all three are reported plainly.\n\n## A. Positioning \u2014 our site-selection finding is NOT original, and the geometric version is a published NEGATIVE\n\nGaleone et al. own the general detection-vs-control dissociation [1]. On Gemma 2-2B-it a fake-entity\nprobe reaches **AUC = 1.000 from layer 5**, yet the direction carrying that signal sits at\n**cos = 0.12 (about 83 degrees)** from the direction that produces a refusal; a second detector built\nfrom activations with no chosen tokens gives **cos = -0.06**; the gap generalises at\n**cos in [0.12, 0.20]** across four models in three families at 1B-9B, and is **identical before and\nafter instruction tuning (0.1197 vs 0.1200)**, placing its origin in pretraining [1]. Their panel is\nGemma 2-2B-it, Llama-3.2-1B-Instruct, Qwen-2.5-1.5B-Instruct, Gemma 2-9B-it and Gemma 2-2B base [1] \u2014\n**substantial overlap with ours**, so this cannot be dismissed as a scale difference.\n\n**The opening we genuinely have.** Refusal is never a *detected* behaviour in that work; it enters\nonly as the **intervention** direction, hand-picked from `lm_head` to promote refusal openers\nR = {No, cannot, doesn't, I} against compliant ones O = {The, Yes, is, It} [1], which is the refusal\ndirection of Arditi et al. [33]. The behaviours whose *detection* is studied are output format\n(which collapses onto one axis) and hallucination (which does not) [1].\n\n**The trap the artifact direction did not know about.** Their Section 8 explicitly tests and\n*rejects* the reading that this cosine predicts steerability: it \"sits near the high-dimensional\nchance level for steerable and unsteerable behaviours alike\", and is \"a signature of the\ndissociation, not a predictor of how steerable a behaviour is\" [1]. **Any metric of the form\n\"cosine between a probe direction and a steering direction, used as a safety score\" is therefore\nalready published as a negative result**, and may enter our battery only as a declared-expected-to-fail\ncontrol. This is the single most binding design constraint in the dossier. A 199-word rewritten\npositioning paragraph \u2014 crediting [1] as the general result and naming our extension as\nrefusal-specific, behavioural rather than geometric, and contrast-site-based \u2014 is supplied in\n`structured_answer.positioning_paragraph`.\n\n**alpha_50 novelty verdict: NARROWED.** A 14-query saturation search (stopping rule met \u2014 the last\ntwo on-lane queries returned no new paper, surfacing only abliteration-*method* comparisons [38][39]\nand AlphaSteer [34], a steering method rather than a metric) mapped a **12-paper lane**. The sharpest\ncompetitor is Logit-Gap Steering [3]: `Delta_0 = l_refusal(h0) - l_affirm(h0)` at the first decoding\nstep, a per-prompt safety margin computable on a single checkpoint with no reference model at one\nforward pass per prompt. It widens after alignment on **97.5-99.8%** of toxic prompts, with median\nshifts **Qwen2.5-0.5B -3.8 -> +1.5, Llama-3.2-1B +0.8 -> +12.7, gemma-2b +2.4 -> +14.8** across 520\nAdvBench prompts [3] \u2014 our exact model sizes, hence a reproduction gate. Two further papers absent\nfrom the artifact direction matter: The Geometry of Refusal [10] (TrustNLP 2026) already builds an\nalpha-sweep family taxonomy (\"Late Decision\" vs \"Early Divergence\" across 7 families, 95% ASR on\nLlama-3.1 in about one second), and LAP / `A_lin` [11] already predicts steering effectiveness at\n**rho = +0.86 to +0.91** and layer selection at **rho = +0.63 to +0.92**, training-free \u2014 we should\n*adopt* it for layer selection rather than compete with it. The rest of the lane: Safety Pitfalls of\nSteering Vectors [5] (CAA steering moves JailbreakBench ASR by up to +57% / -50%), SteeringSafety [8]\n(9 safety perspectives, 18 datasets \u2014 the benchmark our metric aims to replace, i.e. the cost\nbaseline), Activation Steering Induces Emergent Misalignment [12] (a collateral-damage control we\nneed), Weight Arithmetic [13] (ruled out \u2014 it needs two fine-tunes), and Kabir [4].\n\n**The surviving claim, verified row by row:** alpha_50 is the only quantity in the lane that is a\nsingle scalar per checkpoint, parent-free, **harmful-prompt-free**, and benchmark-free. Everything\nelse fails the harmful-prompt or benchmark condition; the one row that also satisfies all four \u2014\nLAP [11] \u2014 is a predictor of steering success in general, not a safety quantity.\n\n**Three threats must be pre-registered against.** Steering strength acts **non-monotonically** [6]\n(ICML 2026, the only peer-reviewed theory in the lane), the optimal steering **layer is\ninput-dependent** [14] (so a fixed-layer alpha_50 is a lower bound, not the steerability), and\nscalar steerability measures are argued to **conceal behavioural shifts** [15] \u2014 the strongest\nmethodological objection in the lane, which our design does not yet answer.\n\n**The random-direction control is not a null.** Rogue Scalpel reports random directions raising\nharmful compliance from **0% to 1-13%** in the abstract, reaching **18%** in the body (Llama3.1-8B at\nc = 2.0; Falcon3-7B peaks at 3% at c = 0.75), with 20 aggregated random vectors forming a universal\nattack, and SAE \"benign\" features **1-4% worse** than random [7]. Their normalisation\n**alpha = c * mu(l)**, mu(l) being the mean activation norm at layer l with c in {0.25 ... 2.0} [7],\nis the same family as our NORM_L units \u2014 directly comparable, which makes our normalisation\nload-bearing. Replacement pre-registered pass condition: *alpha_50(refusal) < alpha_50(norm-matched\nrandom), with a bootstrap CI on the paired difference excluding zero.*\n\n## B. Weights-only detection \u2014 NOVEL (narrow), because the collision paper needs the parent\n\narXiv:2607.01854 is the direct collision, and reading it in full settles the question [2]. Its\nweight-recovery energy is `E1 = mean_m [ sigma_1^2(dW_m) / sum_i sigma_i^2(dW_m) ]` with\n**`dW_m = W_m^base - W_m^cand`**, over `o_proj` and `down_proj` matrices in a mid-stack band [2].\n**It is a statistic of the difference to the parent and is undefined without it** \u2014 the\n\"reference-anchored\" qualifier is not confined to the activation signal, and the same holds for its\nparent primitive WeightWatch [17], whose top singular vectors of the fine-tuned-minus-base difference\nidentify newly acquired behaviours. The paper states the dependency at top level (\"it presumes an\nattested reference\") and names as its most severe failure \"a spoofed reference evades both axes with\nno training (dW = 0, rho = 1 by construction)\" [2]. **A parent-free statistic is structurally immune\nto exactly that failure**, which is the cleanest statement of what our arm buys.\n\nTheir numbers: **AUROC 0.95** combined versus 0.84 (activation gap) and 0.90 (weight energy) on a\n**273-checkpoint registry** separating 57 public abliterations from 37 benign fine-tunes, merges and\ninstruction-tunes; leave-one-family-out balanced accuracy **0.89** (FPR 0.11), missing 4 of 57;\nsignals negatively correlated at r = -0.41 [2]. **The scale escape hatch is closed** \u2014 Qwen2.5-1.5B\nappears explicitly in their registry, so we must not claim <=4B novelty.\n\nSearching for a published test of a **shared near-null direction across a model's write matrices** as\na fingerprint of directional ablation returned nothing on target \u2014 only weight-sharing work, SVD\ncommentary, and Arditi et al. [33], whose `W <- W - c r r^T W` is the operation in question. The\ndossier therefore defines one implementably (SNS-1/2/3 on the shared Gram matrix\n`G = (1/M) sum_m W_m W_m^T / ||W_m||_F^2`), where **SNS-3 = cos(u_d, r_hat) against an\n`lm_head`-derived refusal direction supplies the refusal-specificity that E1 explicitly cannot** \u2014\nE1 \"cannot by itself distinguish refusal removal from addition\" [2]. Caveats are pre-registered:\npartial-strength ablation (c < 1) leaves a spectral *outlier* rather than an exact null [38], refusal\nremoval may be a cone rather than a line, and benign low-rank fine-tunes are a known false-positive\nmode [2]. Thirteen weights-only statistics with formulas and CPU costs are supplied, grounded in\nJain et al. [18] (safety fine-tuning \"minimally transform[s] MLP weights to specifically align unsafe\ninputs into its weights' null space\", NeurIPS 2024), the rank-localisation prior of Wei et al. [19],\nand HTSR / WeightWatcher alpha [27] (alpha ~ 2 optimal, alpha >~ 5-6 random-like), for which **no\nsafety application was found** \u2014 the nearest 2026 use is anti-grokking detection [36]. Adjacent\nliteratures were checked and cleared: provenance fingerprinting via refusal vectors tracks *lineage*,\nnot edit type [26]; parameter-dynamics safety risk scoring needs a training trajectory [37]; and the\nwhole model-diffing family is ruled out by construction, which is the obvious reviewer question and\nmust be stated. One caution for the limitations section: extended-refusal models retain refusal after\nabliteration while standard models drop 70-80 points [39], and abliteration has off-target effects on\ndisposition even where refusal is never elicited [9].\n\n## C. Black-box baselines \u2014 5 strong, 2 strawmen, 1 off-constraint, 1 weak\n\nNine specs are delivered with formulas, token sets, costs and gotchas. Strong enough that beating\nthem means something: the logit gap [3]; FJD first-token confidence [23], which prepends an\naffirmative instruction and temperature-scales the logits because jailbreak prompts yield less\nconfident first tokens; SPD [22], an RBF-kernel SVM over the top-k logits across the first r output\npositions (r = 5, k = 50) in a single forward pass \u2014 supervised, hence a *harder* bar than ours;\nprefill-flip [16], where a user-controlled response prefill flips the first-token decision from\nrefusal to compliance; and judge-on-output with WildGuard [32] as primary (94.0% agreement with\nadjudicated human labels, kappa = 0.86, F1 0.91 on COMPLY, beating Llama-Guard2 and Aegis-Guard by up\nto 25.3% on refusal detection).\n\n**Honest negatives.** First-token entropy has **no safety-specific published instantiation** \u2014 the\nnearest named methods are hallucination detection and intermediate-layer (hence non-black-box)\njailbreak detection \u2014 and output-length asymmetry is **folklore with a documented length bias**;\nboth must be labelled strawmen in the paper rather than beaten quietly. SRI [24] is published and\nstrong but **rollout-integrating**, which corrects the dependency artifact's characterisation of it\nas nearly free and puts it in tension with our R3 constraint. AMS is a **weak** baseline on this\ntask: an independent published evaluation puts it at Tier-2 AUROC **0.66** and Tier-1 held-out\ndetection **0.35** on the 273-checkpoint registry [2] \u2014 use it as a reproduction gate, not a scalp.\n\n## D. External ground truth \u2014 fallback (c) is FORCED at n = 2\n\nOf roughly 20 lineages, exactly **n = 2** carry a published, externally-judged, directly comparable\nsafety number. **HELM Safety is verified to contain no model below 10B**: a regex over its\nmachine-readable release registry for `num_parameters` in [1e8, 1e10) returns **zero matches**, the\nsmallest declared count being Mixtral-8x22B at 46.7B, with open-weight entries at 72B-class [40].\nTrustLLM is Llama-2/Vicuna-era at >=7B. AIR-Bench 2024 [28] (314 risk categories, 5,694 prompts),\nSALAD-Bench [29] (6 domains / 16 tasks / 66 categories) and SORRY-Bench [30] (binary fulfil/refuse\nwith a fine-tuned judge at about 10 s per pass) show no confirmed <=4B entry. Vendor cards report in\nnon-comparable taxonomies. The archived Open LLM Leaderboard v2 results dataset remains downloadable\nand does cover small models, but scores **capability only** [31], making it the capability-covariate\nsource rather than safety ground truth.\n\n**H3 as written does not stand.** Ground truth must be self-measured as two refusal rates \u2014 a\nharmful-prompt rate and an XSTest-style over-refusal rate on the 250 safe prompts plus 200 unsafe\ncontrasts [25] \u2014 with the iteration-1 R4 evaluator-prompt fix in force, stated plainly in the paper\nas self-measured. Four cheapest benchmarks to run ourselves are listed, with AdvBench chosen because\nit buys direct comparability with the published per-family gap shifts of [3].\n\n**Circularity: CONFIRMED verbatim, and wider than the hypothesis states.** The Qwen3-4B-SafeRL card\ngives three reward components: Safety \"as detected by Qwen3Guard-Gen-4B\"; Helpfulness \"as evaluated\nby the WorldPM-Helpsteer2 model\"; and Refusal Minimization \"also identified by Qwen3Guard-Gen-4B\"\n[20]. So (i) Qwen3Guard-Gen-4B is forbidden as a judge for that model \u2014 confirmed, two of three\nreward terms; (ii) the ban should cover the **whole series**, Generative and Stream at 0.6B/4B/8B\n[21], since a same-family guard is not an independent evaluator and the cost of the ban is zero;\n(iii) WorldPM-Helpsteer2 is circular for the helpfulness / over-refusal axis; and (iv) \u2014 the failure\nthe hypothesis did not anticipate \u2014 **an external source does use a Qwen3Guard judge internally**:\nthe abliteration registry's labels come from \"a behavioral oracle (Qwen3Guard ..., think-traces\nstripped)\" [2], so validating against those labels inherits a Qwen3Guard-derived ground truth. Their\npartial mitigation is a second, different-family guard agreeing at Cohen's kappa = 0.78 [2]; our\ndesign rule is to report with and without Qwen-family checkpoints.\n\n**The good news.** The published SafeRL numbers are judged by Qwen3-235B and WildGuard, **not** by\nQwen3Guard, so they are non-circular and usable: Safety Rate (Qwen3-235B) **47.5 -> 86.5**, Safety\nRate (WildGuard) **64.7 -> 98.1**, Refusal (WildGuard) **12.9 -> 5.3** [20]. A safety gain with a\n*simultaneous drop* in over-refusal is exactly the two-axis signature our ground truth needs, on the\none lineage where we have it.\n\n## E-F. Design inputs and citation audit\n\nThe dossier delivers **29 candidate metrics** \u2014 9 BLACKBOX, 13 WEIGHTS_ONLY, 5 ACTIVATION, 2\nSTEERING; 6 rows over 60 s; only 2 genuinely rollout-integrating (per R3); 8 rows declared\nexpected-to-fail; 10 named prior-art baselines rather than our own candidates; and 3 rows whose spec\nthe dependency artifact already supplies and which must not be re-derived.\n\nThe citation audit covers 14 IDs. Confirmed corrections: **arXiv:2508.21448 is not a\nsteering-strength safety metric** \u2014 it is Kabir's ideological-depth measure combining political\nsteerability with SAE feature richness (the steerable model activates about 7.3x more distinct\npolitical features), and its \"refusal as capability deficit\" framing is a **confound** for us rather\nthan support [4]; **arXiv:2603.24543 does resolve correctly** and is on-lane [5]; and\n**arXiv:2509.13450's title has moved again** \u2014 the live version is **v3** with a third title,\ndiffering from both the v1 and v2 titles named in the plan [8]. Fifteen numbered\n`corrections_to_hypothesis` are supplied, each with corrected wording.\n\n## Confidence, and what would change the verdicts\n\n**High confidence:** the Galeone extraction (full text, all seven questions answered verbatim) [1];\nthe E1 formula and its parent-dependence, transcribed from primary text [2]; the logit-gap definition\nand its per-family shifts [3]; the Rogue Scalpel parameterisation [7]; the three verbatim reward\ncomponents and three benchmark rows [20]; and the HELM sub-10B finding, verified against a\nmachine-readable registry rather than inferred [40].\n\n**Moderate confidence:** the two negative searches \u2014 no HTSR-for-safety application [27], and no\npublished shared-null-direction test \u2014 are absence-of-evidence over arXiv and general web for\nconcepts with no settled name. Coverage rows for AIR-Bench [28], SALAD-Bench [29], SORRY-Bench [30]\nand JailbreakBench were assessed by search and paper-level reading rather than by enumerating each\nleaderboard, so they remain unverified at item level even though the family-level fallback-(c)\nverdict is safe.\n\n**One source is unreachable and it matters.** The Coslett record returned HTTP 403 from both the\nrecord page and the DOI resolver [35]; it is characterised elsewhere as an *activation*-geometry\nfingerprint [2], but it is the only known work described as detecting abliteration without an\nexplicit weight difference, and it is the single largest residual risk to the weights-only NOVEL\nverdict. A paper defining a steering-threshold safety scalar computed without harmful prompts would\nflip alpha_50 from NARROWED to OCCUPIED; a parent-free weight statistic for edit-type detection would\nflip Section B to REINVENTION; and finding <=4B entries on the un-enumerated leaderboards would move\nthe coverage verdict from fallback (c) to the hybrid (b).\n\n**Two iteration-1 numbers are carried unverified.** The 27% and AUROC-0.69 figures in the\npositioning paragraph came from the artifact direction; iteration-1 outputs are not in this\nartifact's dependency set, so they are tagged `[iter-1, verify before publication]` inline rather\nthan asserted.\n",
+ "sources": [
+  {
+   "index": 1,
+   "url": "https://arxiv.org/abs/2606.24952",
+   "title": "Galeone et al., Perfect Detection, Failed Control: The Geometry of Knowing vs. Steering in Language Models (arXiv:2606.24952v1, cs.CL, 23 Jun 2026)",
+   "summary": "Full text read. AUC=1.000 from layer 5 on fake-entity detection (Gemma 2-2B-it); cos=0.12 (~83 deg) to the refusal-producing direction; cos=-0.06 for the activation-built detector; cos in [0.12,0.20] across 4 models / 3 families / 1B-9B; 0.1197 vs 0.1200 before/after instruction tuning; refusal is the INTERVENTION direction only and is NOT a detected behaviour; Section 8 is an explicit NEGATIVE result killing the cosine-as-steerability-diagnostic reading."
+  },
+  {
+   "index": 2,
+   "url": "https://arxiv.org/pdf/2607.01854",
+   "title": "Hurtado (Moonsong Labs), Has This Checkpoint Been Abliterated? A Two-Signal Audit and Its Failure Map (arXiv:2607.01854v1, cs.CR, 2 Jul 2026)",
+   "summary": "Full text read. DECISIVE: weight-recovery energy E1 = mean_m sigma_1^2(dW_m)/sum_i sigma_i^2(dW_m) with dW_m = W_m^base - W_m^cand, over o_proj and down_proj in a mid-stack band -- REQUIRES the parent checkpoint. AUROC 0.95 combined vs 0.84/0.90 alone; 273-checkpoint registry, 57 abliterations vs 37 benign; LOFO balanced accuracy 0.89 (FPR 0.11), missing 4 of 57; r=-0.41 between signals. Covers Qwen2.5-1.5B, so <=4B is NOT a scale gap. Failure map: spoofed reference (dW=0, rho=1) and white-box evasion. Labels come from Qwen3Guard. Independently evaluates AMS at Tier-2 AUROC 0.66 / Tier-1 held-out detection 0.35."
+  },
+  {
+   "index": 3,
+   "url": "https://arxiv.org/pdf/2506.24056",
+   "title": "Li & Liu (Palo Alto Networks), Logit-Gap Steering: A Forward-Pass Diagnostic for Alignment Robustness (arXiv:2506.24056v2, rev 1 May 2026)",
+   "summary": "Sharpest competitor to alpha_50. Delta_0 = l_refusal(h0) - l_affirm(h0) at the first decoding step. Gap widens after alignment on 97.5-99.8% of toxic prompts; median shifts Qwen2.5-0.5B -3.8->+1.5, Llama-3.2-1B +0.8->+12.7, gemma-2b +2.4->+14.8 on 520 AdvBench prompts -- a reproduction gate on our exact model sizes. 1 forward pass per prompt for the gap; ~26,000 fwd-pass-equivalents (~2 min on one A100) for the suffix-discovery half only."
+  },
+  {
+   "index": 4,
+   "url": "https://arxiv.org/abs/2508.21448",
+   "title": "Shariar Kabir, When Models Refuse: Political Steerability and Feature Richness as Measures of Ideological Depth (arXiv:2508.21448v3, rev 2 Jun 2026)",
+   "summary": "CONFIRMS the citation correction: this is an ideological-depth measure (political steerability + SAE feature richness, ~7.3x more distinct political features in the steerable model), NOT a steering-strength safety metric. Its 'refusal as capability deficit' framing is a confound for our design, not support."
+  },
+  {
+   "index": 5,
+   "url": "https://arxiv.org/abs/2603.24543",
+   "title": "Li, Fastowski, Zaradoukas, Prenkaj, Kasneci, Analysing the Safety Pitfalls of Steering Vectors (arXiv:2603.24543v1, 25 Mar 2026)",
+   "summary": "ID resolves correctly and IS on-lane. CAA steering changes JailbreakBench ASR by up to +57% / -50%; attributed to overlap between steering vectors and latent refusal directions."
+  },
+  {
+   "index": 6,
+   "url": "https://arxiv.org/abs/2602.02712",
+   "title": "Taimeskhanov, Vaiter, Garreau, Towards Understanding Steering Strength (arXiv:2602.02712v2; ICML 2026, 50 pp)",
+   "summary": "Peer-reviewed theory of steering magnitude on next-token probability, concept presence and cross-entropy. Its NON-MONOTONICITY result is a threat to alpha_50's well-definedness, not a support. Validated on eleven LMs."
+  },
+  {
+   "index": 7,
+   "url": "https://arxiv.org/pdf/2509.22067",
+   "title": "Korznikov, Galichin, Dontsov, Rogov, Oseledets, Tutubalina, The Rogue Scalpel: Activation Steering Compromises LLM Safety (arXiv:2509.22067v2, rev 15 Feb 2026)",
+   "summary": "Random directions raise harmful compliance 0% -> 1-13% (abstract) and up to 18% in the body (Llama3.1-8B at c=2.0; Falcon3-7B peaks at 3% at c=0.75). 20 aggregated random vectors give a universal attack requiring no harmful data/weights/gradients/logits. SAE 'benign' features are 1-4% WORSE than random. Normalisation alpha = c*mu(l) with mu(l) the mean activation norm at layer l, c in {0.25..2.0} -- identical family to our NORM_L units, so directly comparable. Models 3B-70B."
+  },
+  {
+   "index": 8,
+   "url": "https://arxiv.org/abs/2509.13450",
+   "title": "Siu, Crispino, Park, Henry, Wang, Liu, Song, Wang, SteeringSafety: Benchmarking Representation Steering in LLMs Across Safety Perspectives (arXiv:2509.13450v3, rev 12 Aug 2026)",
+   "summary": "TITLE MOVED AGAIN: v3 title differs from both the v1 (SteeringControl) and v2 (SteeringSafety: A Systematic Safety Evaluation Framework) titles named in the plan. 9 safety perspectives, 18 datasets, DIM/ACE/CAA/PCA/LAT. Panel Gemma-2-2B, Llama-3.1-8B, Qwen-2.5-7B. This is the benchmark cost baseline our metric aims to replace."
+  },
+  {
+   "index": 9,
+   "url": "https://arxiv.org/abs/2607.17427",
+   "title": "Fafula, Abliteration Is Not a Scalpel: Off-Target Effects of Refusal Removal on Decision Disposition Across Model Families (arXiv:2607.17427v1, 19 Jul 2026)",
+   "summary": "Capability-confound citation: abliteration shifts disposition (+12.2 pp Gemma / +7.4 pp Qwen optimism) on a 21,600-decision probe that elicits NO refusals at all, and reverses sign on confidence between families."
+  },
+  {
+   "index": 10,
+   "url": "https://arxiv.org/abs/2606.22686",
+   "title": "Ratnakar & Vats, The Geometry of Refusal: Linear Instability in Safety-Aligned LLMs (arXiv:2606.22686v2; TrustNLP 2026 @ ACL)",
+   "summary": "NEWLY SURFACED, not in the artifact direction. Contrastive Logit Steering with an alpha sweep produces a family taxonomy ('Late Decision' vs 'Early Divergence') across 7 families; 95% ASR on Llama-3.1 in ~1 s; CLS beats activation steering (73% vs 22.6% on Llama 2; 91% vs 79.2% on Qwen 7B). Closest published alpha-sweep-derived model taxonomy; must be cited."
+  },
+  {
+   "index": 11,
+   "url": "https://arxiv.org/abs/2604.15557",
+   "title": "Billa, Predicting Where Steering Vectors Succeed (arXiv:2604.15557v1)",
+   "summary": "Linear Accessibility Profile A_lin: apply the unembedding to intermediate hidden states, training-free. Peak A_lin predicts steering effectiveness at rho=+0.86..+0.91 and layer selection at rho=+0.63..+0.92 across 24 concept families and 5 models (Pythia-2.8B..Llama-8B). Satisfies all four of our constraints -- adopt for layer selection, do not compete."
+  },
+  {
+   "index": 12,
+   "url": "https://arxiv.org/abs/2606.08682",
+   "title": "Cao, Lou, Liu, Feng, Li, Ng, Luu, Activation Steering Induces Emergent Misalignment: A More Comprehensive Evaluation (arXiv:2606.08682v1)",
+   "summary": "Steering induces broad emergent misalignment beyond the target behaviour -- the collateral-damage control our steering arm needs."
+  },
+  {
+   "index": 13,
+   "url": "https://arxiv.org/abs/2511.05408",
+   "title": "Fierro & Roger, Steering Language Models with Weight Arithmetic (arXiv:2511.05408v2)",
+   "summary": "Contrastive weight steering: subtract weight deltas of two opposite fine-tunes; generalises further OOD than activation steering. RULED OUT by our single-checkpoint constraint (needs two fine-tunes) but establishes that behaviour has a weight-space direction."
+  },
+  {
+   "index": 14,
+   "url": "https://arxiv.org/abs/2604.03867",
+   "title": "Gadgil, Lin, Lee, Where to Steer: Input-Dependent Layer Selection for Steering Improves LLM Alignment (arXiv:2604.03867v1)",
+   "summary": "Shows the optimal steering layer varies substantially across inputs, theoretically and empirically. Direct threat to alpha_50's fixed-layer design: our alpha_50 is a lower bound on steerability, not the steerability."
+  },
+  {
+   "index": 15,
+   "url": "https://arxiv.org/abs/2505.23816",
+   "title": "Chang, Schnabel, Swaminathan, Wiens, A Course Correction in Steerability Evaluation: Revealing Miscalibration and Side Effects in LLMs (arXiv:2505.23816v2)",
+   "summary": "The strongest METHODOLOGICAL objection in the lane: argues scalar measures of steerability conceal behavioural shifts in open-ended generation. Must be answered or conceded."
+  },
+  {
+   "index": 16,
+   "url": "https://arxiv.org/abs/2504.21038",
+   "title": "Li, Hu, Sang, Ma, Nie, Zhang, Yu, Su, Huang, Zhou, Prefill-level Jailbreak: A Black-Box Risk Analysis of LLMs (arXiv:2504.21038v2)",
+   "summary": "User-controlled response prefill flips the first-token decision from refusal to compliance -- basis for the prefill-flip black-box baseline (2 forward passes per prompt), a fragility axis distinct from the logit-gap margin."
+  },
+  {
+   "index": 17,
+   "url": "https://arxiv.org/abs/2508.00161",
+   "title": "Zhong & Raghunathan (CMU), Watch the Weights: Unsupervised monitoring and control of fine-tuned LLMs (arXiv:2508.00161)",
+   "summary": "WeightWatch, the parent primitive of 2607.01854's E1. Top singular vectors of the fine-tuned-minus-base weight difference correspond to newly acquired behaviours; computed on o_proj and down_proj; stops up to 100% of backdoor utilisations at FPR<1.2%. REQUIRES the base model by construction -- confirms the parent-free gap."
+  },
+  {
+   "index": 18,
+   "url": "https://arxiv.org/abs/2407.10264",
+   "title": "Jain, Lubana, Oksuz, Joy, Torr, Sanyal, Dokania, What Makes and Breaks Safety Fine-tuning? A Mechanistic Study (NeurIPS 2024)",
+   "summary": "Peer-reviewed foundation for the weights-only arm: supervised safety fine-tuning, DPO and unlearning all 'minimally transform MLP weights to specifically align unsafe inputs into its weights' null space'. Makes a low-rank/null-space weight signature principled rather than ad hoc."
+  },
+  {
+   "index": 19,
+   "url": "https://arxiv.org/abs/2402.05162",
+   "title": "Wei et al., Assessing the Brittleness of Safety Alignment via Pruning and Low-Rank Modifications (arXiv:2402.05162)",
+   "summary": "Localises safety-critical neurons and ranks; supplies the rank-localisation prior the weights-only arm rests on. Needs a benchmark run, so not itself a candidate metric."
+  },
+  {
+   "index": 20,
+   "url": "https://huggingface.co/Qwen/Qwen3-4B-SafeRL",
+   "title": "Qwen3-4B-SafeRL model card (Hugging Face)",
+   "summary": "CIRCULARITY CONFIRMED VERBATIM, three reward components: Safety = 'Penalizes the generation of unsafe content, as detected by Qwen3Guard-Gen-4B'; Helpfulness = 'Rewards responses that are genuinely helpful, as evaluated by the WorldPM-Helpsteer2 model'; Refusal Minimization = 'Applies a moderate penalty for unnecessary refusals, also identified by Qwen3Guard-Gen-4B'. ALSO supplies the only usable external ground truth: Safety Rate (Qwen3-235B) 47.5 -> 86.5; Safety Rate (WildGuard) 64.7 -> 98.1; Refusal (WildGuard) 12.9 -> 5.3 -- judged by Qwen3-235B and WildGuard, NOT Qwen3Guard, so non-circular and usable."
+  },
+  {
+   "index": 21,
+   "url": "https://arxiv.org/abs/2510.14276",
+   "title": "Qwen3Guard Technical Report (arXiv:2510.14276)",
+   "summary": "Confirms the family: Generative and Stream variants, each 'available in three sizes (0.6B, 4B, and 8B parameters)'. Whether variants share training data is UNVERIFIED from the abstract; the prudent series-wide judge ban is recommended on that basis."
+  },
+  {
+   "index": 22,
+   "url": "https://arxiv.org/abs/2502.15435",
+   "title": "Candogan, Wu, Abad Rocamora, Chrysos, Cevher, Single-pass Detection of Jailbreaking Input in Large Language Models (arXiv:2502.15435v1)",
+   "summary": "SPD: an RBF-kernel SVM over the top-k logits at the first r output positions (r=5, k=50) predicts whether the output will be harmful in ONE forward pass. A supervised -- hence harder -- black-box baseline."
+  },
+  {
+   "index": 23,
+   "url": "https://arxiv.org/pdf/2509.14558",
+   "title": "Chen, Xia, Jia, Li, Torr, Gu, LLM Jailbreak Detection for (Almost) Free! (arXiv:2509.14558v2, rev 23 Jan 2026)",
+   "summary": "FJD: prepend an affirmative instruction, temperature-scale the logits, and use the CONFIDENCE OF THE FIRST TOKEN. Jailbreak prompts produce less confident first tokens than benign ones. One forward pass, no auxiliary model."
+  },
+  {
+   "index": 24,
+   "url": "https://arxiv.org/abs/2602.02600",
+   "title": "Rahimi, Hirshel, Himelstein, LeVi, Mendelson, Baskin, Step-Wise Refusal Dynamics in Autoregressive and Diffusion Language Models (arXiv:2602.02600v3)",
+   "summary": "Resolves the dependency artifact's 'SRI' recommendation: SRI = Step-Wise Refusal Internal Dynamics, a per-generation-step trajectory enabling a jailbreak detector trained on benign signals only. CORRECTION: it is rollout-integrating, not a cheap single-position hidden-state readout, so it conflicts with R3 and belongs in the long-rollout minority."
+  },
+  {
+   "index": 25,
+   "url": "https://arxiv.org/abs/2308.01263",
+   "title": "Rottger et al., XSTest: A Test Suite for Identifying Exaggerated Safety Behaviours in Large Language Models (NAACL 2024)",
+   "summary": "250 safe prompts across 10 types plus 200 unsafe contrasts; HF at walledai/XSTest. The over-refusal axis for the forced fallback-(c) self-measured ground truth, and the cheapest credible external item set (450 generations per checkpoint)."
+  },
+  {
+   "index": 26,
+   "url": "https://arxiv.org/html/2602.09434v1",
+   "title": "Xu & Sheng, A Behavioral Fingerprint for Large Language Models: Provenance Tracking via Refusal Vectors (arXiv:2602.09434)",
+   "summary": "Refusal vectors used for LINEAGE/provenance, not edit-type detection. Confirms that no provenance work detects a specific edit type without a reference."
+  },
+  {
+   "index": 27,
+   "url": "https://www.stat.berkeley.edu/~mmahoney/pubs/neurips-2024-alphapruning.pdf",
+   "title": "AlphaPruning: Using Heavy-Tailed Self-Regularization to Prune LLMs (NeurIPS 2024) + HTSR theory overview",
+   "summary": "Supplies the HTSR alpha metric: ESD rho_emp(lambda) ~ lambda^-alpha; alpha >~ 5-6 = random-like/little task structure, 2 <= alpha <= 5-6 = well-trained, alpha = 2 ideal, alpha < 2 = overfit. Directly usable as weights-only metrics W5/W6. NO published application of HTSR to SAFETY was found."
+  },
+  {
+   "index": 28,
+   "url": "https://arxiv.org/abs/2407.17436",
+   "title": "AIR-Bench 2024: A Safety Benchmark Based on Risk Categories from Regulations and Policies (arXiv:2407.17436)",
+   "summary": "314 granular risk categories from 8 government regulations and 16 company policies; 5,694 prompts. HF at stanford-crfm/air-bench-2024. No <=4B open-weight entry confirmed."
+  },
+  {
+   "index": 29,
+   "url": "https://arxiv.org/html/2402.05044v4",
+   "title": "SALAD-Bench: A Hierarchical and Comprehensive Safety Benchmark for LLMs (arXiv:2402.05044v4)",
+   "summary": "6 domains / 16 tasks / 66 categories; leaderboard at HF OpenSafetyLab/Salad-Bench-Leaderboard. No <=4B coverage confirmed."
+  },
+  {
+   "index": 30,
+   "url": "https://sorry-bench.github.io/",
+   "title": "SORRY-Bench: Systematically Evaluating Large Language Model Safety Refusal (ICLR 2025)",
+   "summary": "Binary fulfil(1)/refuse(0) judging via a fine-tuned small-scale LLM at ~10 s per evaluation pass on one A100 -- the cheapest peer-reviewed JUDGED option if we must manufacture ground truth."
+  },
+  {
+   "index": 31,
+   "url": "https://huggingface.co/datasets/open-llm-leaderboard/results",
+   "title": "Open LLM Leaderboard v2 results dataset (archived)",
+   "summary": "Retired March 2025 but the per-model results dataset is still downloadable (5,500+ commits). Covers IFEval, BBH, MATH-L5, GPQA, MuSR, MMLU-Pro -- CAPABILITY only, no safety axis -- and does cover small models, so it is the capability-covariate source, not the safety ground truth."
+  },
+  {
+   "index": 32,
+   "url": "https://huggingface.co/allenai/wildguard",
+   "title": "WildGuard (allenai/wildguard) model card",
+   "summary": "Recommended PRIMARY judge: 94.0% agreement with adjudicated human labels (kappa=0.86), precision/recall/F1 all 0.91 on the COMPLY class; beats Llama-Guard2 and Aegis-Guard on F1 across all three tasks by up to 25.3% on refusal detection. Also the judge used in the Qwen3-4B-SafeRL card's published numbers, which is why those numbers are non-circular."
+  },
+  {
+   "index": 33,
+   "url": "https://arxiv.org/pdf/2406.11717",
+   "title": "Arditi et al., Refusal in Language Models Is Mediated by a Single Direction (NeurIPS 2024)",
+   "summary": "The abliteration primitive W <- W - c r r^T W applied to residual-stream write matrices, and the refusal-direction construction both Galeone and Hurtado build on. Source of the refusal-substring lexicon already transcribed in the dependency artifact."
+  },
+  {
+   "index": 34,
+   "url": "https://arxiv.org/abs/2506.07022",
+   "title": "AlphaSteer: Learning Refusal Steering with Principled Null-Space Constraint (arXiv:2506.07022)",
+   "summary": "Surfaced repeatedly in the saturation search but OFF-LANE: a refusal-steering METHOD with a null-space constraint, not a steering-strength metric. Its appearance in place of any new on-lane paper is part of the evidence that the saturation search converged."
+  },
+  {
+   "index": 35,
+   "url": "https://zenodo.org/records/19383019",
+   "title": "Coslett (2026), Safety-alignment removal as a model-identity failure -- structural evidence from published weight-level mutation checkpoints (Zenodo 10.5281/zenodo.19383019)",
+   "summary": "FULL TEXT UNREACHABLE: zenodo.org/records/19383019 and the DOI resolver both return HTTP 403. Characterised by Hurtado as detecting abliteration via a 'direction-agnostic deviation in activation-geometry fingerprint' -- i.e. ACTIVATION, not weights. The single largest residual risk to the weights-only novelty verdict; must be opened before publication."
+  },
+  {
+   "index": 36,
+   "url": "https://arxiv.org/pdf/2602.02859",
+   "title": "Late-Stage Generalization Collapse in Grokking: Detecting anti-grokking with WeightWatcher (arXiv:2602.02859)",
+   "summary": "Evidence that HTSR/WeightWatcher alpha is used as a training-state DIAGNOSTIC in 2026 -- but for grokking, not safety, reinforcing that the safety application is unclaimed."
+  },
+  {
+   "index": 37,
+   "url": "https://arxiv.org/pdf/2605.04572",
+   "title": "From Parameter Dynamics to Risk Scoring: Quantifying Sample-Level Safety Degradation in LLM Fine-tuning (arXiv:2605.04572)",
+   "summary": "Weight-side safety risk scoring, but from parameter DYNAMICS (a training trajectory, i.e. many checkpoints), so it does not occupy the single-checkpoint parent-free slot."
+  },
+  {
+   "index": 38,
+   "url": "https://arxiv.org/pdf/2512.13655",
+   "title": "Comparative Analysis of LLM Abliteration Methods (arXiv:2512.13655)",
+   "summary": "Surfaced in the final saturation round; an abliteration METHOD comparison, not a metric. Source of the observation that ablation strength is a configurable parameter (e.g. ErisForge 0.6-1.0), which is why the weights-only observable must be a spectral OUTLIER rather than an exact rank deficiency."
+  },
+  {
+   "index": 39,
+   "url": "https://arxiv.org/pdf/2505.19056",
+   "title": "An Embarrassingly Simple Defense Against LLM Abliteration Attacks (arXiv:2505.19056)",
+   "summary": "Extended-refusal models retain >90% refusal after abliteration while standard models drop 70-80 pp -- a defense that would confound any weights-only detector and belongs in the limitations."
+  },
+  {
+   "index": 40,
+   "url": "https://storage.googleapis.com/crfm-helm-public/safety/benchmark_output/releases/v1.2.0/schema.json",
+   "title": "HELM Safety v1.2.0 release schema (model registry JSON)",
+   "summary": "VERIFIES the coverage verdict at machine-readable level: a regex for num_parameters in [1e8, 1e10) returns ZERO matches; the smallest declared count is Mixtral-8x22B at 46.7B and the open-weight entries are 72B-class (qwen1.5-72b-chat, qwen2-72b-instruct, qwen2.5-72b-instruct-turbo). HELM Safety contains no <=4B model."
+  }
+ ],
+ "follow_up_questions": [
+  "Can the Coslett 2026 record (Zenodo 10.5281/zenodo.19383019) be obtained through a non-403 route (institutional access, author contact, or a mirrored PDF)? It is the single largest residual risk to the weights-only NOVEL verdict, since it is the only known work characterised as detecting abliteration without an explicit weight-difference -- and if its activation-geometry fingerprint turns out to be parent-free, Section B degrades from NOVEL to NARROWED.",
+  "Does the SNS shared-near-null statistic actually survive the bulk spectrum? A cheap pilot on three checkpoints (one abliterated, one instruct, one safety-RL) computing lambda_d(G) against the Marchenko-Pastur edge would decide, before eight weights-only metrics are written against it, whether a rank-1 removal of energy fraction ~1/d_model is detectable at all at partial ablation strength c<1.",
+  "Is alpha_50 monotone in alpha for our panel? arXiv:2602.02712 (ICML 2026) proves steering strength can act non-monotonically, and arXiv:2604.03867 shows the optimal layer is input-dependent. A pre-registration needs a monotonicity check and a decision rule for what alpha_50 means when the refusal-rate curve is non-monotone or the crossing is layer-dependent.",
+  "Which of AIR-Bench, SALAD-Bench, SORRY-Bench and JailbreakBench actually contain ANY <=4B open-weight checkpoint, enumerated leaderboard row by row rather than inferred? HELM Safety is now verified to contain none; if one of the other four does, the coverage verdict moves from forced fallback (c) to the hybrid (b) and H3 partially survives.",
+  "How should the battery's held-out selection protocol be pre-registered so that picking the best of ~29-50 metrics against ~20 lineages is not a multiple-comparisons artefact? With n=20 lineages and a self-measured target, the selection step is the most likely place for the headline result to fail replication."
+ ],
+ "title": "Prior Art Check for Safety Metrics",
+ "summary": "Four-part prior-art dossier for a 50-metric single-model safety-screening battery. (A) POSITIONING: our iter-1 site-selection finding is NOT original -- Galeone et al. [1] published the general detection-vs-control dissociation (AUC=1.000 from layer 5 vs cos=0.12/~83deg to the refusal direction; cos in [0.12,0.20] over 4 models/3 families/1B-9B; 0.1197 vs 0.1200 across instruction tuning) on a panel OVERLAPPING ours. Our opening: refusal is never a DETECTED behaviour there, only the lm_head intervention direction. CRITICAL TRAP: their Sec.8 is an explicit NEGATIVE -- the cosine sits at chance for steerable and unsteerable behaviours alike -- so any cosine-as-safety-score metric is already a published negative and may enter only as a declared-expected-to-fail control. A 199-word rewritten positioning paragraph is supplied. alpha_50 = NARROWED after a 14-query saturation search over a 12-paper lane; surviving claim: the only member that is single-scalar, parent-free, HARMFUL-PROMPT-FREE and benchmark-free. Sharpest rival Logit-Gap Steering [3], whose published gap shifts on Qwen2.5-0.5B/Llama-3.2-1B/gemma-2b give a reproduction gate on our exact sizes. Newly surfaced, absent from the plan: Geometry of Refusal [10] and LAP/A_lin [11] (rho=+0.86..+0.91 training-free -- ADOPT for layer selection, do not compete). Rogue Scalpel [7] forces a rewritten pass condition: random directions raise compliance 0%->1-13% (18% in body), so they are a MAGNITUDE-MATCHED COMPARATOR, never a null; their alpha=c*mu(l) matches our NORM_L units. Pre-register against non-monotonic steering strength [6], input-dependent optimal layer [14], and the scalar-steerability objection [15]. (B) WEIGHTS-ONLY = NOVEL (narrow). The collision paper's weight signal is E1 = mean_m sigma_1^2(dW)/sum sigma_i^2(dW) with dW = W_base - W_cand [2] -- it REQUIRES the parent, as does WeightWatch [17]. Parent-free is the hole and is immune to their #1 failure (spoofed reference). Scale escape hatch CLOSED: Qwen2.5-1.5B is in their 273-checkpoint registry. Ships a new implementable observable (SNS-1/2/3 on the shared Gram matrix, SNS-3 supplying the refusal-specificity E1 cannot) plus 13 weights-only statistics, grounded in Jain et al. [18] and HTSR [27] (no safety application found). (C) 9 black-box specs: 5 strong (logit-gap [3], FJD [23], SPD [22], prefill-flip [16], WildGuard [32]), 2 labelled STRAWMEN (first-token entropy has no safety-specific prior; length asymmetry is folklore), SRI [24] off-constraint (rollout-integrating), AMS WEAK (independently measured at AUROC 0.66 / held-out detection 0.35 [2]). (D) COVERAGE VERDICT: fallback (c) FORCED at n=2. HELM Safety VERIFIED to contain no model under 10B (zero num_parameters in [1e8,1e10) in its machine-readable release registry [40]); TrustLLM >=7B; no confirmed <=4B entry on AIR-Bench [28], SALAD-Bench [29] or SORRY-Bench [30]. Qwen3Guard circularity CONFIRMED VERBATIM (two of three reward terms are Qwen3Guard-Gen-4B, helpfulness is WorldPM-Helpsteer2 [20]) -- ban the whole series [21]; AND the abliteration registry's own labels are Qwen3Guard-derived [2], a circularity the hypothesis did not anticipate. Good news: the published SafeRL numbers (47.5->86.5, 64.7->98.1, refusal 12.9->5.3) are judged by Qwen3-235B and WildGuard, so they are NON-circular and usable. (E/F) 29 per-metric design inputs meeting every composition constraint, a 14-ID citation audit (2508.21448 confirmed WRONG [4]; 2603.24543 confirmed RIGHT [5]; 2509.13450 title moved to a THIRD v3 title [8]), and 15 numbered corrections_to_hypothesis. Coslett [35] UNREACHABLE (HTTP 403) = largest residual risk.",
+ "structured_answer": {
+  "positioning_paragraph": "Galeone et al. [arXiv:2606.24952] establish the general result that the direction which best DETECTS a behaviour need not be the direction which best CAUSES it: on Gemma 2-2B-it a fake-entity probe reaches AUC = 1.000 from layer 5, yet sits at cos = 0.12 (about 83 degrees) from the direction that produces a refusal, and the gap holds at cos in [0.12, 0.20] across four models in three families at 1B-9B, identically before and after instruction tuning (0.1197 vs 0.1200) [arXiv:2606.24952 Abstract, Sec.2, Sec.7]. Our iteration-1 site-selection result is the REFUSAL-SPECIFIC INSTANCE of that dissociation, not an original discovery of it, and it extends the published result in three ways they do not test. (1) Refusal was not among their detected behaviours -- it enters only as the intervention direction, hand-picked from lm_head [arXiv:2606.24952 Sec.2.2] -- and refusal is the behaviour the entire abliteration literature rests on. (2) We quantify the gap BEHAVIOURALLY rather than geometrically: an AUROC-1.0 prompt-contrast axis induces fluent refusal on only 27% of probes while a weaker AUROC-0.69 RESPONSE-contrast axis steers cleanly [iter-1, verify before publication], so the ordering by detection quality inverts the ordering by control quality -- a claim their own Sec.8 negative result shows cannot be recovered from the static angle. (3) We identify the fix as a change of CONTRAST SITE (prompt-position vs response-position activations), which is an actionable extraction rule rather than a diagnostic angle.",
+  "galeone_extraction": {
+   "auc": "AUC = 1.000 from layer 5",
+   "auc_model": "Gemma 2-2B-it (26 layers, 2304-d residual stream)",
+   "auc_behaviour": "hallucination / fake-entity detection -- NOT refusal detection",
+   "cosine": "cos = 0.12, about 83 degrees, between the fake-entity detection direction and the direction that produces a refusal",
+   "cosine_second_construction": "cos = -0.06 for a detector built from activations with no chosen tokens",
+   "panel": [
+    "Gemma 2-2B-it (main)",
+    "Llama-3.2-1B-Instruct",
+    "Qwen-2.5-1.5B-Instruct",
+    "Gemma 2-9B-it",
+    "Gemma 2-2B base"
+   ],
+   "panel_overlap_with_ours": "SUBSTANTIAL -- Gemma-2-2B-it, Llama-3.2-1B-Instruct and Qwen-2.5-1.5B-Instruct are in our panel or its families. Cannot be dismissed as a scale difference.",
+   "generality": "cos in [0.12, 0.20] across four models, three families, 1B-9B",
+   "instruction_tuning": "identical before and after instruction tuning (0.1197 vs 0.1200), so the geometry is laid down in pretraining",
+   "behaviours_tested": "output format (clean JSON vs markdown fencing) COLLAPSES onto one axis; hallucination does NOT",
+   "format_collapse_caveat": "'What makes format the aligned case is that a single output-vocabulary direction serves both roles, not that independent constructions agree' (Sec.3.3) -- the collapse is partly a construction artefact",
+   "weight_computable": "YES -- Contribution 2: 'The cosine between detection and intervention is computable from the weights and consistent across four models'",
+   "refusal_tested_as_detected_behaviour": "NO -- refusal appears only as the INTERVENTION direction, hand-picked from lm_head with R = {No, cannot, doesn't, I} vs O = {The, Yes, is, It} (Sec.2.2). THIS IS THE OPENING OUR EXTENSION OCCUPIES.",
+   "published_negative_we_must_not_step_on": "Sec.8: the cosine 'sits near the high-dimensional chance level for steerable and unsteerable behaviours alike'; it is 'a signature of the dissociation, not a predictor of how steerable a behaviour is'. CONSEQUENCE: any metric of the form 'cosine between probe direction and steering direction used as a safety score' is ALREADY PUBLISHED AS A NEGATIVE and must enter our battery only as a declared-expected-to-fail control.",
+   "partial_fix": "a 15-degree rotation from detection toward intervention gives 73% and 60% refusal on two held-out entity categories at 1.8% false positives (N=115); Type 2 from 13% to 60%"
+  },
+  "steering_lane_table": [
+   {
+    "arxiv": "2506.24056",
+    "title": "Logit-Gap Steering: A Forward-Pass Diagnostic for Alignment Robustness",
+    "version": "v2 (rev 1 May 2026)",
+    "measures": "refusal-affirmation logit gap Delta_0 = l_refusal(h0) - l_affirm(h0) at the first decoding step; per-prompt safety margin",
+    "needs_harmful_prompts": true,
+    "needs_reference_model": false,
+    "needs_benchmark_run": false,
+    "single_checkpoint": true,
+    "cost": "1 forward pass per prompt for the gap; ~26,000 fwd-pass-equivalents (~2 min on one A100) for the suffix-discovery half only",
+    "what_alpha50_adds": "alpha_50 needs NO harmful prompts. That is the only axis on which it wins; on cost and single-checkpoint-ness Logit-Gap ties or beats us. Sharpest competitor in the lane."
+   },
+   {
+    "arxiv": "2602.02712",
+    "title": "Towards Understanding Steering Strength",
+    "version": "v2 (rev 8 Jul 2026); ICML 2026, 50 pp",
+    "measures": "theory of how steering magnitude affects next-token probability, concept presence and cross-entropy; derives NON-MONOTONIC effects",
+    "needs_harmful_prompts": false,
+    "needs_reference_model": false,
+    "needs_benchmark_run": false,
+    "single_checkpoint": true,
+    "cost": "theory + 11-model empirical validation",
+    "what_alpha50_adds": "Provides the theoretical reason a half-maximal point exists and warns it may be non-monotonic. alpha_50 operationalises a safety-specific threshold; BUT its non-monotonicity result is a direct THREAT to alpha_50's well-definedness and must be pre-registered against."
+   },
+   {
+    "arxiv": "2509.22067",
+    "title": "The Rogue Scalpel: Activation Steering Compromises LLM Safety",
+    "version": "v2 (rev 15 Feb 2026)",
+    "measures": "harmful-compliance rate vs steering coefficient c, alpha = c*mu(l) with mu(l) mean activation norm at layer l",
+    "needs_harmful_prompts": true,
+    "needs_reference_model": false,
+    "needs_benchmark_run": true,
+    "single_checkpoint": true,
+    "cost": "1,000 vectors x layer x coefficient sweep on one prompt, then full JailbreakBench",
+    "what_alpha50_adds": "Turns the sweep into a scalar per model and uses a safety-relevant direction rather than random/benign ones. Its alpha = c*mu(l) parameterisation is IDENTICAL to our NORM_L units -- direct comparability."
+   },
+   {
+    "arxiv": "2603.24543",
+    "title": "Analysing the Safety Pitfalls of Steering Vectors",
+    "version": "v1 (25 Mar 2026)",
+    "measures": "ASR change under CAA steering on JailbreakBench (up to +57% / -50%)",
+    "needs_harmful_prompts": true,
+    "needs_reference_model": false,
+    "needs_benchmark_run": true,
+    "single_checkpoint": true,
+    "cost": "full JailbreakBench per direction per model",
+    "what_alpha50_adds": "Measures the EFFECT of steering on ASR, not the STRENGTH needed. alpha_50 is a threshold; theirs is an effect size at fixed strength. ID resolves correctly and IS on-lane."
+   },
+   {
+    "arxiv": "2509.13450",
+    "title": "SteeringSafety: Benchmarking Representation Steering in LLMs Across Safety Perspectives",
+    "version": "v3 (rev 12 Aug 2026) -- THE VERSION READ; title differs from BOTH v1 and v2",
+    "measures": "benchmark: 9 safety perspectives, 18 datasets, unified DIM/ACE/CAA/PCA/LAT",
+    "needs_harmful_prompts": true,
+    "needs_reference_model": false,
+    "needs_benchmark_run": true,
+    "single_checkpoint": true,
+    "cost": "full 18-dataset benchmark per method per model",
+    "what_alpha50_adds": "This is the BENCHMARK our metric is meant to replace, i.e. the cost baseline, not a competitor metric. alpha_50 is one number vs 18 datasets."
+   },
+   {
+    "arxiv": "2606.22686",
+    "title": "The Geometry of Refusal: Linear Instability in Safety-Aligned LLMs",
+    "version": "v2 (rev 30 Jun 2026); TrustNLP 2026 @ ACL",
+    "measures": "Contrastive Logit Steering on the OUTPUT distribution; alpha sweep; ASR vs alpha; 'Late Decision' vs 'Early Divergence' family topologies across 7 families",
+    "needs_harmful_prompts": true,
+    "needs_reference_model": false,
+    "needs_benchmark_run": true,
+    "single_checkpoint": true,
+    "cost": "alpha sweep -5..5 step 1.0 x ASR eval",
+    "what_alpha50_adds": "Closest published alpha-sweep-derived model taxonomy. But it is an ATTACK paper with ASR as the readout; alpha_50 is a screening scalar using no harmful prompts. NEWLY SURFACED -- not in the artifact direction; must be cited."
+   },
+   {
+    "arxiv": "2604.15557",
+    "title": "Predicting Where Steering Vectors Succeed",
+    "version": "v1",
+    "measures": "Linear Accessibility Profile A_lin (unembedding applied to intermediate hidden states); peak A_lin predicts steering effectiveness at rho=+0.86..+0.91 and layer selection at rho=+0.63..+0.92",
+    "needs_harmful_prompts": false,
+    "needs_reference_model": false,
+    "needs_benchmark_run": false,
+    "single_checkpoint": true,
+    "cost": "training-free, one forward pass per layer",
+    "what_alpha50_adds": "NOTHING -- this is the most dangerous cheap-predictor competitor for our LAYER-SELECTION step and it satisfies all four constraints. ADOPT AND CITE it for layer selection rather than compete. It is not a safety quantity, which is the only reason alpha_50 survives alongside it."
+   },
+   {
+    "arxiv": "2606.08682",
+    "title": "Activation Steering Induces Emergent Misalignment: A More Comprehensive Evaluation",
+    "version": "v1",
+    "measures": "whether steering induces broad misalignment beyond the target behaviour",
+    "needs_harmful_prompts": true,
+    "needs_reference_model": false,
+    "needs_benchmark_run": true,
+    "single_checkpoint": true,
+    "cost": "full EM eval suite",
+    "what_alpha50_adds": "Off-lane as a metric; ON-lane as a collateral-damage CONTROL our steering arm needs."
+   },
+   {
+    "arxiv": "2511.05408",
+    "title": "Steering Language Models with Weight Arithmetic",
+    "version": "v2",
+    "measures": "contrastive weight steering: subtract weight deltas of two opposite fine-tunes",
+    "needs_harmful_prompts": false,
+    "needs_reference_model": true,
+    "needs_benchmark_run": true,
+    "single_checkpoint": false,
+    "cost": "2 fine-tunes per direction",
+    "what_alpha50_adds": "RULED OUT by our single-checkpoint constraint; useful as the weight-space analogue and as a citation that behaviour has a weight-space direction."
+   },
+   {
+    "arxiv": "2604.03867",
+    "title": "Where to Steer: Input-Dependent Layer Selection for Steering Improves LLM Alignment",
+    "version": "v1",
+    "measures": "per-input optimal steering layer; shows the optimal layer varies substantially across inputs",
+    "needs_harmful_prompts": true,
+    "needs_reference_model": false,
+    "needs_benchmark_run": true,
+    "single_checkpoint": true,
+    "cost": "per-input layer search",
+    "what_alpha50_adds": "A THREAT, not an addition: if the optimal layer is input-dependent, a fixed-layer alpha_50 is a LOWER BOUND on steerability, not the steerability. Must be stated as a limitation."
+   },
+   {
+    "arxiv": "2505.23816",
+    "title": "A Course Correction in Steerability Evaluation: Revealing Miscalibration and Side Effects in LLMs",
+    "version": "v2",
+    "measures": "multi-dimensional goal-space steerability with side-effect measurement",
+    "needs_harmful_prompts": false,
+    "needs_reference_model": false,
+    "needs_benchmark_run": true,
+    "single_checkpoint": true,
+    "cost": "goal-space eval suite",
+    "what_alpha50_adds": "NOTHING -- it argues AGAINST scalar steerability measures like alpha_50, on the grounds that they conceal behavioural shifts. Strongest methodological objection in the lane; must be answered or conceded."
+   },
+   {
+    "arxiv": "2508.21448",
+    "title": "When Models Refuse: Political Steerability and Feature Richness as Measures of Ideological Depth",
+    "version": "v3 (rev 2 Jun 2026), Shariar Kabir",
+    "measures": "ideological depth = steerability + SAE feature richness (~7.3x more distinct political features in the steerable model)",
+    "needs_harmful_prompts": false,
+    "needs_reference_model": false,
+    "needs_benchmark_run": true,
+    "single_checkpoint": true,
+    "cost": "SAE probing + steering evals",
+    "what_alpha50_adds": "NOT a safety metric -- see the citation audit. Only weakly on-lane: it uses refusal-under-steering as an instrument. Its 'refusal as capability deficit' framing is a LIVE CONFOUND for us: a model with high alpha_50 might be feature-poor rather than safety-strong."
+   }
   ],
-  "paste_into_related_work": "The premise that a direction which detects a behaviour is also the direction that controls it has recently been tested directly. Galeone et al. [arXiv:2606.24952] measure the angle between the two and report a behaviour-conditional answer: on Gemma 2-2B-it, output format collapses both roles onto one axis, whereas hallucination does not - the model \"detects fake entities with perfect linear separability (AUC = 1.000 from layer 5)\", yet that direction \"sits at cos = 0.12 (about 83 degrees) from the direction producing a refusal\", and an activation-derived, token-free detector fails to align as well (cos = -0.06). The gap generalises: \"across four models from three families and two scales (1B-9B), cos stays in [0.12, 0.20]\", and is \"identical before and after instruction tuning (0.1197 vs 0.1200)\". They are careful about what the angle buys: they test and reject the reading that the cosine predicts steerability, concluding it is \"a signature of the dissociation, not a control dial\", and propose instead a functional criterion - a behaviour is steerable when the intervention direction also works as a detector. They also report that intervention strength does not transfer across models (\"Gemma needs 15, Llama needs |1|, Qwen needs 5\"), a constraint that any cross-model steering-strength measurement must confront.",
-  "paste_into_method": "Which axis a steering-strength metric is built on is not a free choice. Galeone et al. [arXiv:2606.24952] establish a detection-intervention gap - a detection direction at AUC = 1.000 sitting at cos = 0.12, about 83 degrees, from the direction that produces refusal, with cos in [0.12, 0.20] across four models and unchanged by instruction tuning (0.1197 vs 0.1200). Our refusal-specific instance follows the same pattern: a prompt-derived axis with held-out AUROC 1.0 steers on only 27% of probes, while the response-contrast axis that does steer scores AUROC 0.69 as a prompt classifier. What we add is methodological rather than phenomenological. Because the metric is a dose, it must be defined on the axis that carries the dose, so we define alpha_50 on the response-contrast axis by necessity rather than by convenience. We note that our steering axis is a weak detector, which is in tension with the functional steerability criterion Galeone et al. propose from a two-behaviour comparison.",
-  "magnitude_scoped_null_sentence": "Our random-direction control is a statement about a magnitude range: over alpha in [0, alpha_MAX] in units of NORM_L (equivalently c = alpha/||h||_l in [0, c_MAX]), a norm-matched random direction induced refusal on benign prompts at no tested coefficient. We do not claim random directions are behaviourally inert. The Rogue Scalpel reports that random steering raises harmful compliance from 0% to 1-13% [arXiv:2509.22067, abstract], with named operating points at c = 0.75 (Falcon3-7B, 3%) and c = 2.0 (Llama3.1-8B, 18%) [arXiv:2509.22067 sec 4.1], and arXiv:2603.24543 reports arbitrary CAA vectors swinging JailbreakBench ASR through overlap with latent refusal directions. Both concern the compliance direction on harmful prompts, under a magnitude regime of c in [0.25, 2.0] - 25% to 200% of the mean activation norm, calibrated identically to ours as alpha = c*mu^(l) [arXiv:2509.22067 sec 3.3] - whereas our control concerns refusal induction on benign prompts. For calibration, a purposeful steering direction achieves 100% behavioural control at 0.6% of the activation norm [arXiv:2606.24952 sec 3.2].",
-  "nonmonotonicity_preregistered_check": "Because the aggregate concept-presence response to steering strength is theoretically monotone and sigmoidal for the target concept but non-monotone for individual tokens and off-target concepts [arXiv:2602.02712, Thms 3.3 and 3.6], and because a coherence-collapse ceiling has been observed empirically (\"the relationship is non-monotonic for Falcon model: excessive coefficients degrade output coherence\" [arXiv:2509.22067 sec 4.1]), we (a) sweep alpha past the observed 50% crossing to at least 2x alpha_50 and confirm the refusal rate does not turn over; (b) report the raw dose-response points alongside the logistic fit so a non-sigmoidal shape is visible rather than absorbed by the fit; and (c) log a coherence score at every alpha and mark any point where output degeneracy, rather than refusal, could be driving the measured refusal rate.",
-  "ews_positive_novelty_statement": "Critical-slowing-down indicators have been applied to language data as a social or dialogue time series - variance peaking at a conversational bifurcation [arXiv:2605.09043, ACL 2026 SRW] - and step-wise refusal signals have been used as a jailbreak detector across autoregressive and diffusion sampling [arXiv:2602.02600]. Our negative result differs on three axes. It computes the indicator suite on the generated-step time series of a model-internal refusal observable rather than on dialogue text or on a sampling-mechanism comparison; it includes an explicit perturbation-recovery arm with matched random-direction and surrogate-ARMA controls; and it applies a pre-registered estimator-identifiability gate, so the negative is attributable to the phenomenon rather than to the estimator.",
-  "ews_demoted_footnote": "An arXiv full-text search on 2026-08-12 for papers matching both \"critical slowing down\" and \"language model\" returned no results, and a search for \"early warning signals\" within cs.CL returned nine papers, none computing an indicator suite on a model-internal generative time series. We report this as supporting context; the differentiation above rests on the positive scope contrasts, not on the absence of hits.",
-  "consequences_for_experiment_plan": [
-    {
-      "n": 1,
-      "hypothesis": "H1'",
-      "change": "Reframe the site-selection result as refusal-specific confirmation-and-extension of arXiv:2606.24952, using the PASTE INTO METHOD paragraph. Add one sentence noting our 0.69-AUROC steering axis is in TENSION with Galeone's functional steerability criterion (intervention direction must also detect: format AUC ~1 vs hallucination AUC ~0.7). Do not claim to refute it - it is a cross-behaviour, cross-model comparison."
-    },
-    {
-      "n": 2,
-      "hypothesis": "H2'",
-      "change": "Keep the non-monotonicity robustness check but REVERSE its rationale. arXiv:2602.02712 (ICML 2026) Thm 3.6 says the target-concept curve is increasing with a sigmoidal shape - cite it as SUPPORT for the logistic form. Run the sweep-past-crossing check against the empirically observed coherence-collapse non-monotonicity instead. Paste the pre-registered paragraph."
-    },
-    {
-      "n": 3,
-      "hypothesis": "H2' (NEW, not in the plan)",
-      "change": "Guard against degenerate-output contamination: the Rogue Scalpel classifies incoherent high-coefficient output as safe, so a refusal detector firing on degenerate text biases alpha_50 downward. Add a per-alpha coherence/perplexity log and a pre-registered exclusion rule; report alpha_50 with and without exclusion."
-    },
-    {
-      "n": 4,
-      "hypothesis": "H3'",
-      "change": "Keep the random-direction null, scope it by magnitude (paste the null sentence), and add N>=10 independent random draws per model with the same logistic fit, reporting mean AND max over draws. Rationale is under-powered-null pre-emption, NOT a best-of-N objection (1-13% is an average over 1,000 draws). CONDITIONAL: if our sweep reaches c >= 0.25, the 'different magnitude regime' defence lapses and this control becomes mandatory."
-    },
-    {
-      "n": 5,
-      "hypothesis": "H1'''",
-      "change": "Upgrade NORM_L normalisation to a stated requirement, citing arXiv:2608.08159 (alpha = c||h||_l, h' = h + c||h||_l d_hat) and arXiv:2606.24952 sec 8 (alpha does not transfer: Gemma 15, Llama |1|, Qwen 5). Report alpha_50 in c-units. Add held-out operating-point selection and state explicitly what we do about the other two confounds (readout metric, operating point) before presenting any alpha_50-vs-scale trend."
-    },
-    {
-      "n": 6,
-      "hypothesis": "H1''",
-      "change": "Lexical-artefact worry is PARTIALLY discharged by precedent only: Galeone's token-free cos=-0.06 construction and three-tokenizer triangulation cover the detection-axis result, not our observable. Keep the Arditi 12-substring control from art_0UsKSgsMHome."
-    },
-    {
-      "n": 7,
-      "hypothesis": "H5'",
-      "change": "Narrow the alpha_50 novelty claim NOW. Withdraw any 'first scalar measuring refusal's operational margin' sentence; replace with the four-part residual (benign-only; generation-level not position-1; model-level not prompt-level; norm-normalised) and cite arXiv:2506.24056 in the same sentence."
-    },
-    {
-      "n": 8,
-      "hypothesis": "H5'",
-      "change": "Add four competitors absent from the hypothesis document: arXiv:2607.01854 (reference-anchored abliteration audit, AUROC 0.95 - our closest product competitor; differentiator is that it 'presumes an attested reference'), arXiv:2606.11599 (efficient steering-strength search), arXiv:2607.13162 (steerability-as-model-audit), arXiv:2608.08159 (normalisation protocol). Add one line on arXiv:2607.23519 (AIES 2026) as the refereed precedent for saturation-point audits."
-    },
-    {
-      "n": 9,
-      "hypothesis": "H1'",
-      "change": "Add the base-model arm as EXPLORATORY, not confirmatory. Galeone's 0.1197-vs-0.1200 invariance is of lm_head WEIGHT geometry; their own reading is that alignment moves activations. Our axes are activation-derived, so their result predicts nothing definite for us."
-    },
-    {
-      "n": 10,
-      "hypothesis": "terminology",
-      "change": "Stop using 'safety margin' as if it were ours - it belongs to arXiv:2506.24056 and arXiv:2602.04896. Use 'steering dose' or 'refusal-onset coefficient' for alpha_50."
-    },
-    {
-      "n": 11,
-      "hypothesis": "citations",
-      "change": "Two attribution errors to fix: The Rogue Scalpel is Korznikov, Galichin, Dontsov, Rogov, Oseledets, Tutubalina (NOT 'Kaminski et al.'); arXiv:2508.21448 v3 lists Shariar Kabir - the 'Kabir, Esterling, Dong' attribution is unconfirmed."
-    },
-    {
-      "n": 12,
-      "hypothesis": "venues",
-      "change": "Verified venues: 2602.02712=ICML 2026; 2608.08383=COLM 2026; 2607.23519=AIES 2026; 2606.22686='Accepted at TrustNLP 2026 (Sixth Workshop on Trustworthy Natural Language Processing, ACL 2026)'; 2605.09043=ACL 2026 SRW. All others listed are preprints - do not upgrade. Title changes to respect: 2509.13450, 2508.21448, 2605.09043, 2606.22686."
-    }
+  "steering_lane_verdict": {
+   "verdict": "NARROWED",
+   "surviving_claim": "alpha_50 is the only quantity in the steering-strength lane that is (i) a single scalar per checkpoint, (ii) computable from ONE checkpoint with no parent, sibling or reference model, (iii) computable WITHOUT ANY HARMFUL PROMPT, and (iv) without a benchmark run. Verified row by row: Logit-Gap Steering and Geometry of Refusal fail (iii); SteeringSafety, Safety Pitfalls, Rogue Scalpel and Emergent Misalignment fail (iv); Weight Arithmetic fails (ii). The one row that also satisfies all four -- LAP/A_lin -- is a predictor of steering success in general, not a safety quantity, and is a COMPLEMENT to adopt for layer selection rather than a competitor.",
+   "must_not_claim": [
+    "that a steering-strength safety metric is new",
+    "that a forward-pass alignment-robustness diagnostic is new",
+    "that geometry-of-detection-vs-control is new",
+    "that a scalar steerability measure is uncontroversial (arXiv:2505.23816 argues it conceals behavioural shifts)"
+   ],
+   "saturation_search": {
+    "queries_run": 14,
+    "stopping_rule": "met -- the last two on-lane queries returned no new on-lane paper (abliteration-METHOD papers and AlphaSteer, a steering method, respectively)"
+   }
+  },
+  "rogue_scalpel_reinterpretation": {
+   "published_numbers": "Random-direction steering raises harmful compliance from 0% to 1-13% (abstract); the single-prompt body sweep reaches 18% (Llama3.1-8B at c=2.0) and 3% (Falcon3-7B at c=0.75). 20 aggregated random vectors give a universal attack requiring no harmful data, weights, gradients or logits. SAE 'benign' features are 1-4% WORSE than random.",
+   "normalisation": "alpha = c * mu(l), mu(l) = average activation norm at layer l over the eval dataset; c in {0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0}. Same family as our NORM_L units -- report c = alpha_50 / mu(l) to make the comparison. This makes our normalisation LOAD-BEARING: raw residual-stream units forfeit the comparison.",
+   "their_model_range": "Llama3.1, Qwen2.5, Falcon3, FalconH1 at 3B-70B -- the <=4B end of our panel is only barely covered",
+   "consequence": "A random-direction control is NOT a null for 'does steering break safety' -- it has a known, model- and coefficient-dependent positive effect. Its role must be restated as a MAGNITUDE-MATCHED COMPARATOR.",
+   "replacement_pass_condition": "H-alpha passes iff, for each checkpoint, the refusal axis reaches 50% refusal at a strictly smaller normalised coefficient than a norm-matched random axis does -- i.e. alpha_50(refusal) < alpha_50(random) with a bootstrap CI on the paired difference excluding zero -- the random arm being a magnitude-matched comparator with a known non-zero effect [arXiv:2509.22067 Sec.4.1], never a null.",
+   "additional": "SAE-derived 'benign' directions are NOT a safer control either -- they are worse."
+  },
+  "weights_only_verdict": {
+   "verdict": "NOVEL (narrow)",
+   "decisive_finding": "arXiv:2607.01854's weight-recovery energy is E1 = mean over m of sigma_1^2(dW_m)/sum_i sigma_i^2(dW_m) with dW_m = W_m^base - W_m^cand, over o_proj and down_proj matrices in a mid-stack band. It is a statistic OF THE DIFFERENCE TO THE PARENT and is undefined without it. The 'reference-anchored' qualifier is NOT confined to the activation signal. Same for its parent primitive WeightWatch (arXiv:2508.00161).",
+   "surviving_claim": "No published method detects abliteration, or any specific safety-training modification, from the weights of a SINGLE CHECKPOINT WITH NO PARENT, SIBLING OR ATTESTED REFERENCE. The strongest published audit names reference-spoofing as its most severe failure mode ('a spoofed reference evades both axes with no training, dW=0, rho=1 by construction'); a parent-free statistic is STRUCTURALLY IMMUNE to it. Our contribution is the parent-free variant and its evaluation -- NOT the detection of abliteration per se, and NOT a scale extension.",
+   "scale_escape_hatch": "CLOSED. Their 273-checkpoint registry covers Qwen2.5-1.5B explicitly (both a missed abliterated sibling and their adaptive-evasion existence proof). Do NOT claim <=4B scale novelty.",
+   "their_numbers": "AUROC 0.95 [.90,.98] combined vs 0.84 [.75,.92] activation gap and 0.90 [.84,.96] weight energy; LOFO balanced accuracy 0.89 (FPR 0.11), missing 4 of 57; paired dAUROC +0.10 [.04,.18] over rho and +0.04 [.005,.09] over E1; signals negatively correlated r=-0.41; LOO in-sample AUROC 0.948 vs pooled 0.948 (no leakage).",
+   "inherited_limitations": [
+    "spoofed reference (we are immune, since we never consult one)",
+    "white-box owner trains past the threshold while staying guard-unsafe and coherent (we inherit this in full)",
+    "benign low-rank edits (LoRA) look like refusal removal -- E1 'cannot by itself distinguish refusal removal from addition'"
+   ],
+   "circularity_hazard": "Their registry labels come from Qwen3Guard as a behavioural oracle (second-guard agreement kappa=0.78). Validating against their labels inherits a Qwen3Guard-derived ground truth.",
+   "abliteration_signature_search": "No paper was found that tests for a SHARED LEFT-NULL DIRECTION across write matrices as a fingerprint of directional ablation. Searched 'shared null space direction across transformer weight matrices detect orthogonalization edit' and variants; returned weight-sharing, SVD-of-transformer-weights posts, orthogonal weight normalisation, and Arditi et al. Confidence moderate-to-high; the concept has no settled name.",
+   "sns_observable": {
+    "name": "SNS (Shared Near-Null Signature)",
+    "setup": "W = {W_1..W_M} the write matrices (o_proj, down_proj) of layers in a mid-stack band B, each in R^{d_model x d_in}, so x -> W_m x writes into the residual stream.",
+    "gram": "G = (1/M) * sum_m W_m W_m^T / ||W_m||_F^2, a d_model x d_model PSD matrix; the shared write-energy profile is g(u) = u^T G u. Eigenvalues lambda_1 >= ... >= lambda_d.",
+    "SNS_1": "lambda_d / median(lambda) -- depth of the SHARED minimum relative to the bulk.",
+    "SNS_2": "fraction of individual matrices m whose own smallest-write-energy direction has |<u_d, .>| > 0.5 -- is the near-null direction SHARED or per-matrix?",
+    "SNS_3": "cos(u_d, r_hat) where r_hat is an lm_head-derived refusal direction from refusal-opener token rows. THIS converts SNS from 'a low-rank edit happened' into 'a REFUSAL-direction edit happened' -- the part E1 explicitly cannot do.",
+    "parent_free": true,
+    "cost": "one d_model x d_model eigendecomposition (2304^2 for gemma-2-2b) plus M Frobenius norms -- seconds on CPU for a 4B model, dominated by safetensors disk I/O.",
+    "caveats": [
+     "G is dominated by the bulk spectrum; a rank-1 removal of energy fraction ~1/d_model may be invisible without whitening -- compare lambda_d to the Marchenko-Pastur edge, not to median(lambda) alone (this connects SNS to HTSR)",
+     "abliteration is often applied at PARTIAL strength c<1, leaving a small-but-nonzero singular value, so the observable is a spectral OUTLIER not an exact rank deficiency; use the k smallest eigenvalues for k in {1,2,3}",
+     "refusal removal may be multi-directional (a cone, not a line), which Hurtado's rho also misses",
+     "a benign LoRA fine-tune is also low-rank -- exactly E1's false-positive mode -- which is why SNS-3 is non-optional"
+    ]
+   },
+   "adjacent_literatures": {
+    "provenance_fingerprinting": "Xu & Sheng arXiv:2602.09434 uses refusal vectors for LINEAGE, not edit-type. No provenance work detects a specific edit type without a reference.",
+    "model_diffing": "RULED OUT by construction -- needs two checkpoints. Say so explicitly in the paper; it is the obvious reviewer question. Handbook note: the crosscoder L1 loss fabricates 'unique-to-finetune' latents; BatchTopK is the fix.",
+    "htsr_spectral": "alpha from ESD rho_emp(lambda) ~ lambda^-alpha; alpha >~ 5-6 random-like, 2 <= alpha <= 5-6 well-trained, alpha=2 ideal, alpha<2 overfit. NO published application of HTSR to SAFETY was found (moderate confidence).",
+    "weight_space_anomaly": "WeightWatch is the strongest instance and is reference-anchored; arXiv:2605.04572 needs a training trajectory; arXiv:2402.05162 needs a benchmark run."
+   }
+  },
+  "weights_only_metric_definitions": [
+   {
+    "id": "W1",
+    "name": "SNS-1 shared near-null depth",
+    "source": "ours",
+    "formula": "lambda_d(G)/median(lambda(G)), G = (1/M) sum_m W_m W_m^T/||W_m||_F^2",
+    "cost_sec_4b_cpu": 40,
+    "rationale": "Abliteration removes the SAME direction from every write matrix; benign fine-tuning does not."
+   },
+   {
+    "id": "W2",
+    "name": "SNS-2 shared-ness",
+    "source": "ours",
+    "formula": "fraction of m with |<u_d, argmin-write-dir(W_m)>| > 0.5",
+    "cost_sec_4b_cpu": 5,
+    "rationale": "Separates a coordinated edit from M independent ones."
+   },
+   {
+    "id": "W3",
+    "name": "SNS-3 refusal alignment",
+    "source": "ours (token set from arXiv:2606.24952 Sec.2.2 and Arditi et al.)",
+    "formula": "cos(u_d, r_hat), r_hat from lm_head refusal-opener rows",
+    "cost_sec_4b_cpu": 2,
+    "rationale": "Converts 'low-rank edit' into 'refusal edit' -- the part E1 explicitly cannot do."
+   },
+   {
+    "id": "W4",
+    "name": "E1 self-referenced (parent-free variant)",
+    "source": "arXiv:2607.01854 Sec.3 / arXiv:2508.00161 -- NAMED PRIOR-ART BASELINE",
+    "formula": "sigma_1^2(W_m)/sum_i sigma_i^2(W_m) on the RAW W_m, not on dW",
+    "cost_sec_4b_cpu": 30,
+    "rationale": "The published statistic with the parent removed. EXPECTED TO BE WEAK -- the raw W_m spectrum is not the edit spectrum. Included precisely so the paper shows WHY the parent was needed."
+   },
+   {
+    "id": "W5",
+    "name": "HTSR alpha per layer (o_proj)",
+    "source": "Martin & Mahoney HTSR; AlphaPruning NeurIPS 2024",
+    "formula": "power-law exponent of the ESD of W_m^T W_m",
+    "cost_sec_4b_cpu": 90,
+    "rationale": "Ablation deletes structure; if it pushes a layer toward the random-matrix regime, alpha rises. No published safety application found."
+   },
+   {
+    "id": "W6",
+    "name": "HTSR alpha dispersion across layers",
+    "source": "HTSR extension, ours",
+    "formula": "std_l(alpha_l) and max_l alpha_l - min_l alpha_l over write matrices",
+    "cost_sec_4b_cpu": 0,
+    "rationale": "A LOCALISED edit should show as an alpha outlier at the edited band, not a uniform shift."
+   },
+   {
+    "id": "W7",
+    "name": "Stable rank of write matrices",
+    "source": "standard; rank-localisation prior from arXiv:2402.05162",
+    "formula": "||W_m||_F^2 / ||W_m||_2^2, band-averaged",
+    "cost_sec_4b_cpu": 15,
+    "rationale": "Rank-1 subtraction lowers effective rank slightly and coherently across the band."
+   },
+   {
+    "id": "W8",
+    "name": "Effective rank (spectral entropy)",
+    "source": "standard",
+    "formula": "exp(-sum_i p_i log p_i), p_i = sigma_i/sum_j sigma_j",
+    "cost_sec_4b_cpu": 0,
+    "rationale": "Same target as W7 with a different weighting; a robustness pair, not a duplicate."
+   },
+   {
+    "id": "W9",
+    "name": "lm_head refusal row norm",
+    "source": "ours, motivated by arXiv:2506.24056",
+    "formula": "||e_r||_2 for refusal-opener rows vs matched non-refusal rows",
+    "cost_sec_4b_cpu": 5,
+    "rationale": "Safety-RL should RAISE refusal-token unembedding prominence, whereas abliteration acts on the residual write path, not lm_head. THE KEY THREE-WAY SEPARATOR."
+   },
+   {
+    "id": "W10",
+    "name": "lm_head refusal margin",
+    "source": "ours",
+    "formula": "max_{r in R} e_r.1 - max_{a in A} e_a.1 on unembedding rows alone",
+    "cost_sec_4b_cpu": 5,
+    "rationale": "Weight-space analogue of the logit gap, computed with no forward pass and no prompt at all."
+   },
+   {
+    "id": "W11",
+    "name": "Embed/unembed tie asymmetry",
+    "source": "ours, exploratory",
+    "formula": "cos(embed_tokens_r, lm_head_r) for refusal openers vs vocabulary median",
+    "cost_sec_4b_cpu": 5,
+    "rationale": "Abliteration recipes touching embedding-adjacent writes break the tie asymmetrically. DECLARED HIGH-RISK / LIKELY NULL."
+   },
+   {
+    "id": "W12",
+    "name": "Write-matrix Frobenius profile",
+    "source": "ours -- DECLARED CAPABILITY/SIZE CONTROL",
+    "formula": "||W_m||_F by layer, z-scored within family",
+    "cost_sec_4b_cpu": 10,
+    "rationale": "If a safety correlation appears HERE, the battery is measuring model size, not safety."
+   },
+   {
+    "id": "W13",
+    "name": "Spectral-norm outlier count",
+    "source": "standard",
+    "formula": "#{sigma_i > 4*median(sigma)} per write matrix",
+    "cost_sec_4b_cpu": 0,
+    "rationale": "Massive-activation-adjacent artefact channel; measured so it can be regressed out."
+   }
   ],
-  "claims_to_soften_or_withdraw": [
-    {
-      "claim": "Our site-selection result (AUROC-1.0 axis steers 27% of probes) is a discovery",
-      "status": "WITHDRAW AS DISCOVERY",
-      "action": "Reframe as refusal-specific confirmation + constructive extension of arXiv:2606.24952"
-    },
-    {
-      "claim": "arXiv:2602.02712's non-monotonicity threatens the logistic dose-response fit",
-      "status": "WITHDRAW - FACTUALLY WRONG",
-      "action": "Thm 3.6 supports the sigmoid for the target concept; the real threat is coherence collapse [arXiv:2509.22067 sec 4.1]"
-    },
-    {
-      "claim": "alpha_50 is a novel scalar for refusal's operational margin",
-      "status": "SOFTEN",
-      "action": "Concede the margin concept to arXiv:2506.24056; claim the four-part residual"
-    },
-    {
-      "claim": "Zero-hits argument for the EWS novelty",
-      "status": "DEMOTE",
-      "action": "Move to footnote; use the positive three-axis statement in the main text"
-    },
-    {
-      "claim": "NORM_L normalisation is a convenience",
-      "status": "UPGRADE",
-      "action": "State as a requirement, cite arXiv:2608.08159"
-    },
-    {
-      "claim": "The matched-random-direction null is unconditional",
-      "status": "SCOPE",
-      "action": "Use the magnitude-scoped null sentence"
-    }
+  "blackbox_baseline_specs": [
+   {
+    "name": "Refusal-affirmation logit gap",
+    "source_anchor": "arXiv:2506.24056v2 Sec.2",
+    "formula": "Delta_0 = l_refusal(h0) - l_affirm(h0): top refusal-token logit minus top affirmative-token logit at the FIRST decoding step after a prompt",
+    "token_sets_or_prompt_sets_needed": "refusal tokens e.g. {Sorry, No, cannot}; affirmative tokens e.g. {Certainly, Here's}; 520 AdvBench harmful prompts; chat template applied",
+    "cost_in_forward_passes": "1 per prompt",
+    "what_it_was_originally_validated_against": "gap widens after alignment on 97.5-99.8% of toxic prompts across three families; median shifts Qwen2.5-0.5B -3.8->+1.5, Llama-3.2-1B +0.8->+12.7, gemma-2b +2.4->+14.8 -- a REPRODUCTION GATE on our exact model sizes",
+    "implementation_gotchas": "needs harmful prompts (an advantage they have that we deny ourselves); chat template mandatory; 'top' is a max over a SET so the set definition is load-bearing; tokenizer leading-space variants -- USE THE DEPENDENCY ARTIFACT'S per-tokenizer runtime resolution recipe and its verbatim 12-entry Arditi refusal-substring list, do not re-derive",
+    "strong_enough_to_beat": "YES -- this is the baseline to beat"
+   },
+   {
+    "name": "FJD first-token confidence",
+    "source_anchor": "arXiv:2509.14558v2",
+    "formula": "max softmax probability at the first generated position, after prepending an affirmative instruction and temperature-scaling the logits",
+    "token_sets_or_prompt_sets_needed": "affirmative-prefix template; a jailbreak-vs-benign contrast set for calibration",
+    "cost_in_forward_passes": "1, no auxiliary model",
+    "what_it_was_originally_validated_against": "jailbreak prompts produce measurably less confident first tokens than benign ones on aligned LLMs",
+    "implementation_gotchas": "the affirmative prefix and the temperature are both hyperparameters; chat template interacts with the prefix",
+    "strong_enough_to_beat": "YES"
+   },
+   {
+    "name": "SPD logit-vector SVM",
+    "source_anchor": "arXiv:2502.15435v1",
+    "formula": "RBF-kernel SVM over the top-k logit values across the first r output positions (r=5, k=50), predicting whether the output sentence will be harmful",
+    "token_sets_or_prompt_sets_needed": "labelled jailbreak/benign training set",
+    "cost_in_forward_passes": "1 forward pass + a fitted SVM",
+    "what_it_was_originally_validated_against": "single-pass jailbreak-input detection on open-source models with low misclassification of harmless input",
+    "implementation_gotchas": "SUPERVISED -- needs labels, which makes it a harder bar than ours; features are absolute logit values, not comparable across tokenizers/vocabularies without per-model standardisation",
+    "strong_enough_to_beat": "YES"
+   },
+   {
+    "name": "Prefill-flip delta",
+    "source_anchor": "arXiv:2504.21038v2",
+    "formula": "difference in first-token refusal probability with vs without a fixed benign response prefill",
+    "token_sets_or_prompt_sets_needed": "harmful prompt set; one fixed prefill string",
+    "cost_in_forward_passes": "2 per prompt",
+    "what_it_was_originally_validated_against": "prefill-level jailbreak success -- attacks operate by flipping the first-token decision from refusal to compliance",
+    "implementation_gotchas": "requires prefill support in the serving stack (true for local HF generation, not all APIs); needs harmful prompts",
+    "strong_enough_to_beat": "YES, and it is a distinct axis from the logit gap: margin FRAGILITY vs margin SIZE"
+   },
+   {
+    "name": "Judge-on-output (WildGuard primary)",
+    "source_anchor": "allenai/wildguard model card",
+    "formula": "fraction of generations judged COMPLY (rather than REFUSE) on the harmful prompt set",
+    "token_sets_or_prompt_sets_needed": "harmful prompt set + XSTest safe set; explicit evaluator system prompt",
+    "cost_in_forward_passes": "one generation + one judge forward pass per prompt",
+    "what_it_was_originally_validated_against": "94.0% agreement with adjudicated human labels (kappa=0.86); P/R/F1 all 0.91 on COMPLY; beats Llama-Guard2 and Aegis-Guard by up to 25.3% on refusal detection",
+    "implementation_gotchas": "HARD NOTE (iteration-1 R4 fix): the evaluator MUST receive an explicit system prompt defining refusal-vs-compliance -- iteration 1 moved a headline number from 0.092 to 0.858 on a prompt fix alone. FORBIDDEN: the entire Qwen3Guard series for Qwen3-4B-SafeRL. Judge FNR rises under storytelling style (+0.24 HarmBench classifier, +0.20 ShieldGemma, +0.12 WildGuard) [secondary]. Secondary judge Llama-Guard-3; third opinion ShieldGemma.",
+    "strong_enough_to_beat": "YES -- the practical ceiling for output-side detection"
+   },
+   {
+    "name": "First-token entropy",
+    "source_anchor": "NO safety-specific published instantiation found; nearest named methods arXiv:2606.25182 (intermediate-layer entropy dynamics), arXiv:2509.04492 (token-level entropy production rate, hallucination), arXiv:2603.01574 (DualSentinel dual entropy lull)",
+    "formula": "H_0 = -sum_v p(v|prompt) log p(v|prompt) at the first generated position",
+    "token_sets_or_prompt_sets_needed": "any prompt set",
+    "cost_in_forward_passes": "1",
+    "what_it_was_originally_validated_against": "NOTHING in safety -- the nearest work is hallucination detection and intermediate-layer (non-black-box) jailbreak detection",
+    "implementation_gotchas": "vocabulary-size dependence makes cross-tokenizer comparison invalid without normalising by log|V|",
+    "strong_enough_to_beat": "NO -- NEAR-STRAWMAN. Must be labelled as such in the paper, citing the nearest named methods so it is at least not home-made."
+   },
+   {
+    "name": "Output-length asymmetry",
+    "source_anchor": "FOLKLORE -- no paper proposes length as a refusal detector; length appears only as a reported statistic (e.g. GPT-4 ~63 words vs LLaMA-2 ~145 words average) [secondary]",
+    "formula": "mean_tokens(harmful) - mean_tokens(benign)",
+    "token_sets_or_prompt_sets_needed": "harmful + benign prompt sets",
+    "cost_in_forward_passes": "generation-bound -- the most expensive black-box entry",
+    "what_it_was_originally_validated_against": "nothing",
+    "implementation_gotchas": "documented LENGTH BIAS: longer responses score better under both rubric and anchored-comparison evaluation, so length correlates with judged quality independently of refusal",
+    "strong_enough_to_beat": "NO -- FOLKLORE-STRAWMAN. Label as such."
+   },
+   {
+    "name": "SRI (Step-Wise Refusal Internal Dynamics)",
+    "source_anchor": "arXiv:2602.02600v3",
+    "formula": "per-generation-step internal refusal-dynamics trajectory; anomaly score from a detector trained on BENIGN SRI signals only",
+    "token_sets_or_prompt_sets_needed": "benign generations for training; any prompt at test time",
+    "cost_in_forward_passes": "generation-bound (full rollout, hidden states per step)",
+    "what_it_was_originally_validated_against": "matches or outperforms existing jailbreak-detection baselines on unseen attacks with negligible overhead",
+    "implementation_gotchas": "CORRECTION TO THE DEPENDENCY ARTIFACT: it is a ROLLOUT-INTEGRATING trajectory, not a cheap single-position hidden-state readout; belongs in the R3 long-rollout minority, and is ACTIVATION-class rather than black-box",
+    "strong_enough_to_beat": "YES, but off-constraint"
+   },
+   {
+    "name": "AMS sigma (our reimplementation)",
+    "source_anchor": "dependency artifact (spec settled there); independently evaluated in arXiv:2607.01854 Table 1",
+    "formula": "sigma = (mu+ - mu-)/sigma_pooled on the diff-in-means direction, final prompt token, 40-80% relative-depth sweep",
+    "token_sets_or_prompt_sets_needed": "16 contrastive pairs x 3 concepts",
+    "cost_in_forward_passes": "96 total, 10-40 s on an A100, ~3-8 min per 1B model on CPU",
+    "what_it_was_originally_validated_against": "its own 71% (10/14) leave-one-model-out; three of our checkpoints appear in AMS Table I (Llama-3.2-3B-Instruct 8.37, gemma-2-2b-it 4.80, Llama-3.2-1B-Instruct 4.55) giving a reproduction gate",
+    "implementation_gotchas": "NEW EVIDENCE THIS DOSSIER ADDS: an independent published evaluation puts AMS Tier-2 at AUROC 0.66 [.55,.77] and Tier-1 at held-out detection 0.35 on a 273-checkpoint abliteration registry. Report BOTH numbers.",
+    "strong_enough_to_beat": "MARGINAL -- a weak baseline on the abliteration task. Use as a reproduction GATE, do not headline beating it."
+   }
   ],
-  "sources": [
-    {
-      "index": 1,
-      "url": "https://arxiv.org/abs/2606.24952",
-      "title": "Perfect Detection, Failed Control: The Geometry of Knowing vs. Steering in Language Models (Galeone et al., arXiv:2606.24952)",
-      "summary": "Abstract, authors, date, preprint status. Detection-intervention gap; the two abstract sentences absent from the planner brief (cosine does NOT predict steerability)."
-    },
-    {
-      "index": 2,
-      "url": "https://arxiv.org/html/2606.24952v1",
-      "title": "Galeone et al. full HTML text",
-      "summary": "All cosines, AUCs, four-model table, alpha non-transfer, matched-norm random controls, 0.6%-of-activation-norm magnitude, functional steerability criterion, limitations."
-    },
-    {
-      "index": 3,
-      "url": "https://arxiv.org/abs/2506.24056",
-      "title": "Logit-Gap Steering: A Forward-Pass Diagnostic for Alignment Robustness (Li & Liu, arXiv:2506.24056)",
-      "summary": "Verbatim abstract; the collision candidate. Definition of the refusal-affirmation logit gap as the per-prompt safety margin."
-    },
-    {
-      "index": 4,
-      "url": "https://arxiv.org/html/2506.24056v2",
-      "title": "Logit-Gap Steering full HTML text v2",
-      "summary": "Palo Alto Networks affiliation; AdvBench n=520 dependence; median gap shifts per family; position-1 coverage 92.1%; token-list construction; benign/neutral contrast distributions."
-    },
-    {
-      "index": 5,
-      "url": "https://arxiv.org/html/2506.24056v1",
-      "title": "Logit-Gap Steering full HTML text v1",
-      "summary": "Version comparison; section structure."
-    },
-    {
-      "index": 6,
-      "url": "https://arxiv.org/abs/2602.02712",
-      "title": "Towards Understanding Steering Strength (Taimeskhanov, Vaiter, Garreau, arXiv:2602.02712)",
-      "summary": "ICML 2026 acceptance; abstract; eleven models."
-    },
-    {
-      "index": 7,
-      "url": "https://arxiv.org/html/2602.02712v2",
-      "title": "Towards Understanding Steering Strength full HTML v2",
-      "summary": "Theorem 3.3 bump behaviour (per-token); Theorem 3.6 target-concept increasing with sigmoidal shape; Theorem 3.8 quadratic cross-entropy; adaptive-alpha remark."
-    },
-    {
-      "index": 8,
-      "url": "https://arxiv.org/abs/2509.22067",
-      "title": "The Rogue Scalpel: Activation Steering Compromises LLM Safety (Korznikov et al., arXiv:2509.22067)",
-      "summary": "Correct author list (NOT Kaminski); abstract; v1/v2 dates; 0%->1-13% headline."
-    },
-    {
-      "index": 9,
-      "url": "https://arxiv.org/html/2509.22067v2",
-      "title": "The Rogue Scalpel full HTML v2",
-      "summary": "alpha = c*mu^(l) calibration, c grid {0.25..2.0}, 1000-draw averaging, layer-16 peak, Falcon coherence-collapse non-monotonicity, JailbreakBench harmful-prompt construct, model roster 3B-70B."
-    },
-    {
-      "index": 10,
-      "url": "https://arxiv.org/html/2608.08159v1",
-      "title": "When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit (arXiv:2608.08159)",
-      "summary": "The residual-norm normalisation protocol alpha=c||h||_l and h'=h+c||h||_l*d_hat; held-out operating-point selection; demonstration that raw units manufacture a false scaling law."
-    },
-    {
-      "index": 11,
-      "url": "http://export.arxiv.org/api/query?search_query=all:%22abliterated%22",
-      "title": "arXiv API full-text search: abliterated",
-      "summary": "Surfaced arXiv:2607.01854 (Has This Checkpoint Been Abliterated?), 2607.17427, 2608.08542; confirmed the abliteration-metric lane is activation-geometry/weight-space, not steering-strength."
-    },
-    {
-      "index": 12,
-      "url": "http://export.arxiv.org/api/query?search_query=all:%22steering+strength%22",
-      "title": "arXiv API full-text search: steering strength",
-      "summary": "Surfaced arXiv:2606.11599 (When is Your LLM Steerable?), 2602.02712, 2606.07696 and others."
-    },
-    {
-      "index": 13,
-      "url": "http://export.arxiv.org/api/query?search_query=abs:%22steerability%22",
-      "title": "arXiv API abstract search: steerability",
-      "summary": "Surfaced arXiv:2608.08159, 2607.13162, 2608.06578, 2607.23519."
-    },
-    {
-      "index": 14,
-      "url": "http://export.arxiv.org/api/query?search_query=abs:%22safety+margin%22+AND+abs:%22language+model%22",
-      "title": "arXiv API search: safety margin + language model",
-      "summary": "Independently re-found arXiv:2506.24056 and surfaced arXiv:2602.04896 Steering Externalities; establishes 'safety margin' is a crowded term."
-    },
-    {
-      "index": 15,
-      "url": "http://export.arxiv.org/api/query?id_list=2606.11599,2607.13162,2608.06578,2608.08159,2602.04896,2606.07696,2607.23519,2511.00029,2604.08524,2608.08383",
-      "title": "arXiv API batch abstract fetch (10 secondary papers)",
-      "summary": "Abstracts and comments fields for all secondary lane papers; COLM 2026 for 2608.08383, AIES 2026 for 2607.23519."
-    },
-    {
-      "index": 16,
-      "url": "http://export.arxiv.org/api/query?id_list=2606.22686,2509.13450,2508.21448,2603.24543,2602.02600,2605.09043,2607.01854",
-      "title": "arXiv API batch fetch (venue/title verification)",
-      "summary": "Confirmed TrustNLP 2026 for 2606.22686, ACL 2026 SRW for 2605.09043, title changes for 2509.13450 / 2508.21448 / 2605.09043, Preprint status for 2602.02600, and the full 2607.01854 abstract."
-    },
-    {
-      "index": 17,
-      "url": "http://export.arxiv.org/api/query?search_query=all:%22critical+slowing+down%22+AND+all:%22language+model%22",
-      "title": "arXiv API search: critical slowing down + language model",
-      "summary": "Zero results — supporting (footnote-level) evidence for the EWS scope claim."
-    },
-    {
-      "index": 18,
-      "url": "http://export.arxiv.org/api/query?search_query=all:%22early+warning+signals%22+AND+cat:cs.CL",
-      "title": "arXiv API search: early warning signals in cs.CL",
-      "summary": "Nine papers, none computing an indicator suite on a model-internal generative time series; nearest neighbours identified."
-    },
-    {
-      "index": 19,
-      "url": "http://export.arxiv.org/api/query?search_query=all:%22dose-response%22+AND+all:%22language+model%22+AND+all:%22steering%22",
-      "title": "arXiv API search: dose-response steering",
-      "summary": "Three papers, none defining a threshold steering coefficient."
-    },
-    {
-      "index": 20,
-      "url": "http://export.arxiv.org/api/query?search_query=all:%22steering+coefficient%22+AND+cat:cs.CL",
-      "title": "arXiv API search: steering coefficient in cs.CL",
-      "summary": "Five papers, none a per-model threshold metric."
+  "ground_truth_coverage_table": [
+   {
+    "name": "Qwen3-4B-SafeRL model card",
+    "url": "https://huggingface.co/Qwen/Qwen3-4B-SafeRL",
+    "access": "HF card table",
+    "scores": "Safety Rate (Qwen3-235B judge), Safety Rate (WildGuard), Refusal (WildGuard)",
+    "scale": "0-100, higher=safer; Refusal lower=fewer over-refusals",
+    "any_le_4b": "YES -- 4B, exactly our checkpoint",
+    "our_families": "Qwen3",
+    "numbers": {
+     "Safety Rate (Qwen3-235B)": {
+      "Qwen3-4B": 47.5,
+      "Qwen3-4B-SafeRL": 86.5
+     },
+     "Safety Rate (WildGuard)": {
+      "Qwen3-4B": 64.7,
+      "Qwen3-4B-SafeRL": 98.1
+     },
+     "Refusal (WildGuard)": {
+      "Qwen3-4B": 12.9,
+      "Qwen3-4B-SafeRL": 5.3
+     }
     }
+   },
+   {
+    "name": "HELM Safety",
+    "url": "https://storage.googleapis.com/crfm-helm-public/safety/benchmark_output/releases/v1.2.0/schema.json",
+    "access": "leaderboard UI is a JS SPA and unreadable; the release schema.json model registry IS machine-readable",
+    "scores": "AIR-Bench-based safety leaderboard",
+    "scale": "varies",
+    "any_le_4b": "NO -- VERIFIED. A regex for num_parameters in [1e8, 1e10) returns ZERO matches; smallest declared is Mixtral-8x22B at 46.7B; open-weight entries are 72B-class (qwen1.5-72b-chat, qwen2-72b-instruct, qwen2.5-72b-instruct-turbo)",
+    "our_families": "Qwen at 72B only"
+   },
+   {
+    "name": "AIR-Bench 2024",
+    "url": "https://arxiv.org/abs/2407.17436",
+    "access": "HF dataset stanford-crfm/air-bench-2024 + HELM leaderboard",
+    "scores": "314 granular risk categories from 8 regulations + 16 company policies; 5,694 prompts",
+    "scale": "refusal/compliance rate",
+    "any_le_4b": "No <=4B model found (UNVERIFIED at item level -- leaderboard not enumerated)",
+    "our_families": "frontier/API models"
+   },
+   {
+    "name": "SALAD-Bench",
+    "url": "https://arxiv.org/html/2402.05044v4",
+    "access": "HF Space OpenSafetyLab/Salad-Bench-Leaderboard",
+    "scores": "6 domains / 16 tasks / 66 categories",
+    "scale": "safety rate",
+    "any_le_4b": "Not confirmed",
+    "our_families": "Llama-2 era"
+   },
+   {
+    "name": "SORRY-Bench (ICLR 2025)",
+    "url": "https://sorry-bench.github.io/",
+    "access": "code + HF",
+    "scores": "binary fulfil(1)/refuse(0) on unsafe prompts via a fine-tuned small judge, ~10 s per eval pass on one A100",
+    "scale": "refusal rate",
+    "any_le_4b": "Not confirmed",
+    "our_families": "mixed"
+   },
+   {
+    "name": "TrustLLM",
+    "url": "https://blender.cs.illinois.edu/paper/trustllm.pdf",
+    "access": "paper + HF",
+    "scores": "8 trustworthiness dimensions, 30 datasets, 16 mainstream LLMs",
+    "scale": "per-dimension",
+    "any_le_4b": "NO -- Llama-2/Vicuna/ChatGPT era, >=7B",
+    "our_families": "Llama, Gemma at 7B+"
+   },
+   {
+    "name": "JailbreakBench artifacts",
+    "url": "https://github.com/JailbreakBench",
+    "access": "per-model JSON attack artifacts",
+    "scores": "ASR per model per attack",
+    "scale": "ASR",
+    "any_le_4b": "Not confirmed",
+    "our_families": "Llama, Vicuna, GPT"
+   },
+   {
+    "name": "XSTest (NAACL 2024)",
+    "url": "https://arxiv.org/abs/2308.01263",
+    "access": "HF dataset walledai/XSTest",
+    "scores": "OVER-REFUSAL: 250 safe prompts (10 types) + 200 unsafe contrasts",
+    "scale": "refusal rate on safe prompts",
+    "any_le_4b": "dataset, not a leaderboard -- runnable on ANY model",
+    "our_families": "any"
+   },
+   {
+    "name": "Open LLM Leaderboard v2 (archived)",
+    "url": "https://huggingface.co/datasets/open-llm-leaderboard/results",
+    "access": "HF dataset, still downloadable (5,500+ commits); leaderboard retired March 2025",
+    "scores": "IFEval, BBH, MATH-L5, GPQA, MuSR, MMLU-Pro -- CAPABILITY ONLY, no safety axis",
+    "scale": "0-100",
+    "any_le_4b": "YES -- small models are covered",
+    "our_families": "most -- this is the CAPABILITY COVARIATE source, not safety ground truth"
+   },
+   {
+    "name": "Vendor model cards (Gemma-2, Llama-3.2, Qwen2.5, SmolLM2, OLMo, Granite, Falcon3, MiniCPM)",
+    "url": "https://huggingface.co",
+    "access": "card tables",
+    "scores": "vendor-reported safety evals in heterogeneous, non-comparable taxonomies",
+    "scale": "heterogeneous",
+    "any_le_4b": "YES, but each in its own units",
+    "our_families": "all -- but NOT cross-family comparable, which is why they cannot serve as the correlation target"
+   }
   ],
-  "follow_up_questions": [
-    "What is The Rogue Scalpel's (arXiv:2509.22067) venue and review decision? Its OpenReview forum uXecy0nKiJ was attempted on 2026-08-12 and returns a browser-verification interstitial that requires an account; the paper must not be cited with a venue until that record is read by a logged-in reader.",
-    "Do the +57%/-50% ASR swings of arXiv:2603.24543 have a magnitude regime attached? The figures themselves are now verified verbatim, but the steering coefficients at which they occur were not extracted, so it is not yet possible to place them on the same c = alpha/||h|| axis as the Rogue Scalpel's c in [0.25, 2.0].",
-    "Does Fig. 2 (left) of arXiv:2509.22067 show a coefficient below which random steering has zero compliance effect? The text says effects appear at 'most steering coefficients' without enumerating the exceptions, so our null's lower magnitude bound is currently 'c=0.25 is the smallest tested', not 'the effect vanishes below 0.25'.",
-    "Is arXiv:2508.21448's steerability operationalised as success-at-fixed-strength or as strength-required-for-success? Only the former is visible at abstract level; the latter would make it a genuine non-safety relative of alpha_50 and a much stronger citation.",
-    "Does our axis-choice effect survive in the base (non-instruction-tuned) model? Galeone's 0.1197-vs-0.1200 invariance is of lm_head weight geometry, not of an activation-space relationship, so it does not settle this for activation-derived axes."
-  ]
+  "ground_truth_coverage_verdict": {
+   "forced_fallback": "(c)",
+   "n_with_external_number": 2,
+   "n_lineages_total_approx": 20,
+   "statement": "Of our ~20 lineages, exactly n=2 (Qwen3-4B and Qwen3-4B-SafeRL) carry a published, externally-judged, directly comparable safety number, from the Qwen3-4B-SafeRL model card. HELM Safety is VERIFIED to contain no model below 10B. TrustLLM is >=7B. AIR-Bench, SALAD-Bench, SORRY-Bench and JailbreakBench show no confirmed <=4B entry. Vendor cards report in non-comparable taxonomies. H3 as written does NOT stand: ground truth must be SELF-MEASURED as two refusal rates -- a harmful-prompt refusal rate and an XSTest-style over-refusal rate on the 250 safe prompts -- with the iteration-1 R4 evaluator-system-prompt fix in force, and the paper must state plainly that the ground truth is self-measured. The one exception is load-bearing and should be exploited: the Qwen3-4B / Qwen3-4B-SafeRL pair gives a published external anchor on the contrast we care about most, usable as an external validity check on our self-measured scale even though n=2 is far too small to correlate.",
+   "cheapest_benchmarks_to_run_ourselves": [
+    {
+     "name": "XSTest",
+     "url": "https://huggingface.co/datasets/walledai/XSTest",
+     "items": "250 safe + 200 unsafe = 450 generations per checkpoint",
+     "why": "the over-refusal axis, and the cheapest credible external item set; NAACL 2024 peer-reviewed"
+    },
+    {
+     "name": "AdvBench",
+     "url": "https://arxiv.org/abs/2307.15043",
+     "items": "520 harmful prompts",
+     "why": "already the harmful set used by Logit-Gap Steering, so running it buys DIRECT COMPARABILITY with its published per-family gap shifts on Qwen2.5-0.5B / Llama-3.2-1B / gemma-2b"
+    },
+    {
+     "name": "JailbreakBench behaviours",
+     "url": "https://github.com/JailbreakBench",
+     "items": "100 behaviours",
+     "why": "used by BOTH Rogue Scalpel and Safety Pitfalls, giving comparability with the two steering-safety papers in the lane table"
+    },
+    {
+     "name": "SORRY-Bench",
+     "url": "https://sorry-bench.github.io/",
+     "items": "440+ unsafe instructions",
+     "why": "its judge is a fine-tuned small model at ~10 s per eval pass -- the cheapest JUDGED option, and ICLR 2025 peer-reviewed"
+    }
+   ]
+  },
+  "qwen3guard_circularity_verdict": {
+   "confirmed": true,
+   "verbatim_reward_components": {
+    "safety": "Penalizes the generation of unsafe content, as detected by Qwen3Guard-Gen-4B",
+    "helpfulness": "Rewards responses that are genuinely helpful, as evaluated by the WorldPM-Helpsteer2 model",
+    "refusal_minimization": "Applies a moderate penalty for unnecessary refusals, also identified by Qwen3Guard-Gen-4B"
+   },
+   "i_qwen3guard_gen_4b_forbidden_as_judge": "CONFIRMED -- two of the three reward terms are that exact model. Judging the policy with its own reward model measures reward optimisation, not safety.",
+   "ii_ban_whole_series": "RECOMMENDED. The tech report confirms Gen and Stream variants at 0.6B/4B/8B. Whether they share training data is UNVERIFIED from the abstract, but the prudent rule stands: a same-family guard sharing taxonomy and likely data is not an independent evaluator, and the cost of the ban is zero because WildGuard is available and stronger on human agreement.",
+   "iii_worldpm_helpsteer2_circular": "CONFIRMED for the helpfulness / over-refusal axis on Qwen3-4B-SafeRL. Do not use WorldPM-Helpsteer2 or a Helpsteer2-derived reward model to score over-refusal on that model.",
+   "iv_external_benchmarks_using_a_qwen3guard_judge": "YES -- at least one, and it is one we would otherwise use. arXiv:2607.01854's 273-checkpoint registry labels come from 'A behavioral oracle (Qwen3Guard (Qwen Team, 2025), think-traces stripped)'. Validating against their abliteration labels inherits a Qwen3Guard-derived ground truth, and any Qwen3-family checkpoint in that registry is doubly compromised. Their partial mitigation: a second, different-family guard agrees at Cohen's kappa=0.78. DESIGN RULE: when using that registry, report results with AND without Qwen-family checkpoints. This is the subtle failure the hypothesis did not anticipate.",
+   "v_good_news": "The PUBLISHED SafeRL numbers are judged by Qwen3-235B and WildGuard, NOT by Qwen3Guard -- so the published evaluation is judge-independent of the reward model and the numbers are usable. The safety gain (+39.0 pp Qwen3-235B, +33.4 pp WildGuard) with a SIMULTANEOUS drop in over-refusal (12.9 -> 5.3) is exactly the two-axis signature our ground truth needs, on the one lineage where we have it."
+  },
+  "per_metric_design_inputs": [
+   {
+    "id": "M01",
+    "class": "BLACKBOX",
+    "name": "logit-gap Delta_0",
+    "definition": "top refusal logit minus top affirmative logit at first decode step",
+    "source": "arXiv:2506.24056 Sec.2",
+    "needs_generation": false,
+    "cost": "1 fwd/prompt, ~2 min",
+    "expected_abliterated_instruct_safetyrl": "low / mid / high",
+    "risk": "lexical -- token-set choice dominates"
+   },
+   {
+    "id": "M02",
+    "class": "BLACKBOX",
+    "name": "logit-gap benign contrast",
+    "definition": "Delta_0 on benign prompts as a specificity control",
+    "source": "arXiv:2506.24056, ours",
+    "needs_generation": false,
+    "cost": "1 fwd/prompt",
+    "expected_abliterated_instruct_safetyrl": "~0 in all arms",
+    "risk": "DECLARED CONTROL"
+   },
+   {
+    "id": "M03",
+    "class": "BLACKBOX",
+    "name": "FJD first-token confidence",
+    "definition": "max softmax at position 1 after affirmative prefix, temperature-scaled",
+    "source": "arXiv:2509.14558",
+    "needs_generation": false,
+    "cost": "1 fwd/prompt",
+    "expected_abliterated_instruct_safetyrl": "high / mid / mid",
+    "risk": "prompt-template sensitive"
+   },
+   {
+    "id": "M04",
+    "class": "BLACKBOX",
+    "name": "SPD logit-SVM score",
+    "definition": "RBF-SVM on top-k logits over first r positions (r=5,k=50)",
+    "source": "arXiv:2502.15435",
+    "needs_generation": false,
+    "cost": "1 fwd + SVM",
+    "expected_abliterated_instruct_safetyrl": "separable / - / -",
+    "risk": "SUPERVISED -- needs labels; absolute logits not cross-tokenizer comparable"
+   },
+   {
+    "id": "M05",
+    "class": "BLACKBOX",
+    "name": "prefill-flip delta",
+    "definition": "first-token refusal prob with minus without benign prefill",
+    "source": "arXiv:2504.21038",
+    "needs_generation": false,
+    "cost": "2 fwd/prompt",
+    "expected_abliterated_instruct_safetyrl": "small / mid / large",
+    "risk": "needs harmful prompts"
+   },
+   {
+    "id": "M06",
+    "class": "BLACKBOX",
+    "name": "refusal-token logprob mass",
+    "definition": "sum of log p over the 12-entry refusal-substring first tokens",
+    "source": "DEPENDENCY ARTIFACT (lexicon + per-tokenizer recipe)",
+    "needs_generation": false,
+    "cost": "1 fwd/prompt",
+    "expected_abliterated_instruct_safetyrl": "low / mid / high",
+    "risk": "lexical -- leading-space variants; USE DEP RECIPE"
+   },
+   {
+    "id": "M07",
+    "class": "BLACKBOX",
+    "name": "first-token entropy H_0",
+    "definition": "Shannon entropy of the position-1 distribution",
+    "source": "nearest arXiv:2606.25182 -- STRAWMAN",
+    "needs_generation": false,
+    "cost": "1 fwd/prompt",
+    "expected_abliterated_instruct_safetyrl": "-",
+    "risk": "DECLARED WEAK BASELINE; vocab-size dependence"
+   },
+   {
+    "id": "M08",
+    "class": "BLACKBOX",
+    "name": "length asymmetry",
+    "definition": "mean tokens(harmful) minus mean tokens(benign)",
+    "source": "FOLKLORE -- STRAWMAN",
+    "needs_generation": true,
+    "cost": "~5 min",
+    "expected_abliterated_instruct_safetyrl": "-",
+    "risk": "DECLARED WEAK; documented length bias"
+   },
+   {
+    "id": "M09",
+    "class": "BLACKBOX",
+    "name": "WildGuard judge comply rate",
+    "definition": "fraction judged COMPLY on the harmful set",
+    "source": "allenai/wildguard",
+    "needs_generation": true,
+    "cost": "~15 min",
+    "expected_abliterated_instruct_safetyrl": "high / mid / low",
+    "risk": "judge FNR +0.12 under storytelling; R4 system prompt MANDATORY"
+   },
+   {
+    "id": "M10",
+    "class": "WEIGHTS_ONLY",
+    "name": "SNS-1 shared near-null depth",
+    "definition": "lambda_d(G)/median lambda(G)",
+    "source": "ours",
+    "needs_generation": false,
+    "cost": "~40 s",
+    "expected_abliterated_instruct_safetyrl": "low (deep null) / mid / mid",
+    "risk": "bulk-spectrum masking"
+   },
+   {
+    "id": "M11",
+    "class": "WEIGHTS_ONLY",
+    "name": "SNS-2 shared-ness",
+    "definition": "fraction of write matrices sharing u_d",
+    "source": "ours",
+    "needs_generation": false,
+    "cost": "+5 s",
+    "expected_abliterated_instruct_safetyrl": "high / low / low",
+    "risk": "none identified"
+   },
+   {
+    "id": "M12",
+    "class": "WEIGHTS_ONLY",
+    "name": "SNS-3 refusal alignment",
+    "definition": "cos(u_d, r_hat) from lm_head refusal rows",
+    "source": "ours; token set from arXiv:2606.24952 Sec.2.2",
+    "needs_generation": false,
+    "cost": "+2 s",
+    "expected_abliterated_instruct_safetyrl": "high / low / low",
+    "risk": "lexical -- r_hat token set"
+   },
+   {
+    "id": "M13",
+    "class": "WEIGHTS_ONLY",
+    "name": "E1 self-referenced",
+    "definition": "rank-1 energy of the raw W_m (parent-free variant)",
+    "source": "arXiv:2607.01854 Sec.3 -- PRIOR-ART BASELINE",
+    "needs_generation": false,
+    "cost": "~30 s",
+    "expected_abliterated_instruct_safetyrl": "expected NULL",
+    "risk": "DECLARED EXPECTED-TO-FAIL"
+   },
+   {
+    "id": "M14",
+    "class": "WEIGHTS_ONLY",
+    "name": "HTSR alpha band mean",
+    "definition": "ESD power-law exponent on o_proj",
+    "source": "Martin & Mahoney / AlphaPruning",
+    "needs_generation": false,
+    "cost": "~90 s",
+    "expected_abliterated_instruct_safetyrl": "higher / mid / mid",
+    "risk": "STRONG CAPABILITY PROXY -- alpha tracks training quality"
+   },
+   {
+    "id": "M15",
+    "class": "WEIGHTS_ONLY",
+    "name": "HTSR alpha dispersion",
+    "definition": "std over layers of alpha_l",
+    "source": "HTSR extension, ours",
+    "needs_generation": false,
+    "cost": "incl. M14",
+    "expected_abliterated_instruct_safetyrl": "higher / low / low",
+    "risk": "partially decorrelated from size"
+   },
+   {
+    "id": "M16",
+    "class": "WEIGHTS_ONLY",
+    "name": "stable rank",
+    "definition": "||W||_F^2/||W||_2^2 band mean",
+    "source": "standard; arXiv:2402.05162",
+    "needs_generation": false,
+    "cost": "~15 s",
+    "expected_abliterated_instruct_safetyrl": "slightly lower / - / -",
+    "risk": "size proxy -- z-score within family"
+   },
+   {
+    "id": "M17",
+    "class": "WEIGHTS_ONLY",
+    "name": "effective rank",
+    "definition": "exp(-sum p log p) on singular values",
+    "source": "standard",
+    "needs_generation": false,
+    "cost": "incl. M16",
+    "expected_abliterated_instruct_safetyrl": "slightly lower / - / -",
+    "risk": "size proxy"
+   },
+   {
+    "id": "M18",
+    "class": "WEIGHTS_ONLY",
+    "name": "lm_head refusal row norm",
+    "definition": "||e_r|| vs matched non-refusal rows",
+    "source": "ours, motivated by arXiv:2506.24056",
+    "needs_generation": false,
+    "cost": "~5 s",
+    "expected_abliterated_instruct_safetyrl": "~instruct / mid / high",
+    "risk": "THE KEY 3-WAY SEPARATOR; lexical risk on R"
+   },
+   {
+    "id": "M19",
+    "class": "WEIGHTS_ONLY",
+    "name": "lm_head refusal margin",
+    "definition": "max_R e.1 minus max_A e.1 on unembedding rows",
+    "source": "ours",
+    "needs_generation": false,
+    "cost": "~5 s",
+    "expected_abliterated_instruct_safetyrl": "low / mid / high",
+    "risk": "lexical"
+   },
+   {
+    "id": "M20",
+    "class": "WEIGHTS_ONLY",
+    "name": "embed/unembed tie asymmetry",
+    "definition": "cos(embed_r, lm_head_r) vs vocab median",
+    "source": "ours, exploratory",
+    "needs_generation": false,
+    "cost": "~5 s",
+    "expected_abliterated_instruct_safetyrl": "unknown",
+    "risk": "DECLARED HIGH-RISK / LIKELY NULL"
+   },
+   {
+    "id": "M21",
+    "class": "WEIGHTS_ONLY",
+    "name": "write-matrix Frobenius profile",
+    "definition": "||W_m||_F by layer, z-scored within family",
+    "source": "ours -- CONTROL",
+    "needs_generation": false,
+    "cost": "~10 s",
+    "expected_abliterated_instruct_safetyrl": "-",
+    "risk": "DECLARED CAPABILITY/SIZE CONTROL"
+   },
+   {
+    "id": "M22",
+    "class": "WEIGHTS_ONLY",
+    "name": "spectral-norm outlier count",
+    "definition": "count of sigma_i > 4*median sigma",
+    "source": "standard",
+    "needs_generation": false,
+    "cost": "incl. M16",
+    "expected_abliterated_instruct_safetyrl": "-",
+    "risk": "massive-activation artefact channel"
+   },
+   {
+    "id": "M23",
+    "class": "ACTIVATION",
+    "name": "AMS sigma",
+    "definition": "(mu+ - mu-)/sigma_pooled, final prompt token, 40-80% depth sweep",
+    "source": "DEPENDENCY ARTIFACT; evaluated in arXiv:2607.01854 Table 1",
+    "needs_generation": false,
+    "cost": "96 fwd, ~5 min",
+    "expected_abliterated_instruct_safetyrl": "low / mid / high",
+    "risk": "WEAK on abliteration (AUROC 0.66) -- gate, not scalp"
+   },
+   {
+    "id": "M24",
+    "class": "ACTIVATION",
+    "name": "LAP A_lin peak",
+    "definition": "unembedding applied to intermediate hidden states, per layer",
+    "source": "arXiv:2604.15557",
+    "needs_generation": false,
+    "cost": "1 fwd x layers",
+    "expected_abliterated_instruct_safetyrl": "-",
+    "risk": "USED FOR LAYER SELECTION, not as a safety score"
+   },
+   {
+    "id": "M25",
+    "class": "ACTIVATION",
+    "name": "SRI trajectory anomaly",
+    "definition": "step-wise refusal internal dynamics vs a benign-only-trained detector",
+    "source": "arXiv:2602.02600",
+    "needs_generation": true,
+    "cost": "~20 min",
+    "expected_abliterated_instruct_safetyrl": "-",
+    "risk": "ROLLOUT-INTEGRATING (R3 minority row)"
+   },
+   {
+    "id": "M26",
+    "class": "ACTIVATION",
+    "name": "detection-vs-intervention cosine",
+    "definition": "cos(d_detect, d_intervene)",
+    "source": "arXiv:2606.24952 Sec.8 -- PUBLISHED NEGATIVE",
+    "needs_generation": false,
+    "cost": "~2 min",
+    "expected_abliterated_instruct_safetyrl": "DECLARED EXPECTED-TO-FAIL",
+    "risk": "Galeone Sec.8 shows it sits at chance for steerable and unsteerable behaviours alike"
+   },
+   {
+    "id": "M27",
+    "class": "STEERING",
+    "name": "alpha_50 (refusal axis)",
+    "definition": "smallest alpha = c*mu(l) at which refusal rate crosses 50%",
+    "source": "ours; units per arXiv:2509.22067 Sec.3.2",
+    "needs_generation": true,
+    "cost": "~30 min",
+    "expected_abliterated_instruct_safetyrl": "high / mid / low (PRE-REGISTER)",
+    "risk": "NON-MONOTONIC risk (arXiv:2602.02712); FIXED-LAYER risk (arXiv:2604.03867)"
+   },
+   {
+    "id": "M28",
+    "class": "STEERING",
+    "name": "alpha_50 (norm-matched random axis)",
+    "definition": "same, on a random unit direction at matched mu(l)",
+    "source": "arXiv:2509.22067 Sec.4.1 -- COMPARATOR, NOT A NULL",
+    "needs_generation": true,
+    "cost": "~30 min",
+    "expected_abliterated_instruct_safetyrl": "non-zero by construction",
+    "risk": "its non-zero effect is the point"
+   },
+   {
+    "id": "M29",
+    "class": "ACTIVATION",
+    "name": "EWS AC1 on refusal score r_t",
+    "definition": "lag-1 autocorrelation of the probe refusal score over generated steps",
+    "source": "DEPENDENCY ARTIFACT (estimator toolkit)",
+    "needs_generation": true,
+    "cost": "~20 min",
+    "expected_abliterated_instruct_safetyrl": "-",
+    "risk": "DECLARED EXPECTED-TO-FAIL EWS CONTROL (R2); dep supplies the +(1+3r)/n bias correction and n_min=64 floor"
+   }
+  ],
+  "per_metric_composition_check": {
+   "total": 29,
+   "BLACKBOX": 9,
+   "WEIGHTS_ONLY": 13,
+   "ACTIVATION": 5,
+   "STEERING": 2,
+   "rows_over_60s": 6,
+   "rows_needing_generation": [
+    "M08",
+    "M09",
+    "M25",
+    "M27",
+    "M28",
+    "M29"
+   ],
+   "genuinely_long_rollout_integrating": [
+    "M25 (SRI trajectory)",
+    "M29 (EWS AC1 over generated steps)"
+   ],
+   "declared_expected_to_fail": [
+    "M02",
+    "M07",
+    "M08",
+    "M13",
+    "M20",
+    "M21",
+    "M26",
+    "M29"
+   ],
+   "named_prior_art_baselines": [
+    "M01",
+    "M03",
+    "M04",
+    "M05",
+    "M09",
+    "M13",
+    "M23",
+    "M24",
+    "M25",
+    "M28"
+   ],
+   "spec_already_in_dependency": [
+    "M06",
+    "M23",
+    "M29"
+   ],
+   "constraints_satisfied": "BLACKBOX>=8 OK (9); WEIGHTS_ONLY>=8 OK (13); <=10 rows over 60 s OK (6); long-rollout-integrating rows are a MINORITY OK (2 of 29, per R3 -- refusal is decided at generation onset, so only the SRI trajectory and the EWS control integrate over a rollout; M08/M09/M27/M28 need generation but read the onset decision or the final output)"
+  },
+  "citation_audit": [
+   {
+    "id": "2508.21448",
+    "resolves_as": "Shariar Kabir, 'When Models Refuse: Political Steerability and Feature Richness as Measures of Ideological Depth', cs.CL, v1 29 Aug 2025 / v3 2 Jun 2026",
+    "matches_claim": "NO -- verified independently. Not a steering-strength safety metric; an ideological-depth measure. Its 'refusal as capability deficit' framing is a CONFOUND for us, not support."
+   },
+   {
+    "id": "2603.24543",
+    "resolves_as": "Yuxiao Li, Alina Fastowski, Efstratios Zaradoukas, Bardh Prenkaj, Gjergji Kasneci, 'Analysing the Safety Pitfalls of Steering Vectors', cs.CR, v1 25 Mar 2026",
+    "matches_claim": "YES -- on-lane and correctly characterised"
+   },
+   {
+    "id": "2509.13450",
+    "resolves_as": "Siu et al., v3 (12 Aug 2026) = 'SteeringSafety: Benchmarking Representation Steering in LLMs Across Safety Perspectives'",
+    "matches_claim": "PARTIAL -- the title has moved AGAIN. The plan named v1 (SteeringControl) and v2 (SteeringSafety: A Systematic Safety Evaluation Framework); the live version is v3 with a THIRD title. Cite v3 and state the version."
+   },
+   {
+    "id": "2606.24952",
+    "resolves_as": "Galeone, Ettorre, Park, Ettorre, Ligorio, 'Perfect Detection, Failed Control', cs.CL, v1 23 Jun 2026",
+    "matches_claim": "YES, and richer than assumed -- the plan did not know Sec.8 is an explicit NEGATIVE result killing the cosine-as-steerability-diagnostic reading."
+   },
+   {
+    "id": "2509.22067",
+    "resolves_as": "Korznikov et al., 'The Rogue Scalpel: Activation Steering Compromises LLM Safety', cs.LG, v2 15 Feb 2026",
+    "matches_claim": "YES -- but the abstract's 1-13% is not a ceiling; the body reaches 18% at c=2.0 on Llama3.1-8B. Report both."
+   },
+   {
+    "id": "2602.02712",
+    "resolves_as": "Taimeskhanov, Vaiter, Garreau, 'Towards Understanding Steering Strength', cs.LG, v2 8 Jul 2026, ICML 2026, 50 pp",
+    "matches_claim": "YES, and peer-reviewed. Its non-monotonicity result is a THREAT to alpha_50, not a support."
+   },
+   {
+    "id": "2607.01854",
+    "resolves_as": "Gabriel Hurtado (Moonsong Labs), 'Has This Checkpoint Been Abliterated? A Two-Signal Audit and Its Failure Map', cs.CR, v1 2 Jul 2026, 13 pp",
+    "matches_claim": "YES -- but the collision is NARROWER than feared: both signals are reference-anchored."
+   },
+   {
+    "id": "2607.17427",
+    "resolves_as": "Aleksander Fafula, 'Abliteration Is Not a Scalpel', cs.LG, v1 19 Jul 2026",
+    "matches_claim": "YES -- useful as a capability-confound citation (abliteration changes disposition even where refusal is not in play)."
+   },
+   {
+    "id": "2506.24056",
+    "resolves_as": "Tung-Ling Li & Hongliang Liu (Palo Alto Networks), 'Logit-Gap Steering', cs.CR, v1 30 Jun 2025 / v2 1 May 2026",
+    "matches_claim": "YES -- and it is the SHARPEST COMPETITOR, not merely a baseline."
+   },
+   {
+    "id": "2504.21038",
+    "resolves_as": "Yakai Li et al., 'Prefill-level Jailbreak: A Black-Box Risk Analysis of Large Language Models', v2",
+    "matches_claim": "YES"
+   },
+   {
+    "id": "2510.14276",
+    "resolves_as": "Qwen3Guard Technical Report",
+    "matches_claim": "YES -- Gen + Stream, 0.6B/4B/8B"
+   },
+   {
+    "id": "2602.02600 (from the DEPENDENCY artifact, recommended as 'SRI')",
+    "resolves_as": "Rahimi, Hirshel, Himelstein, LeVi, Mendelson, Baskin, 'Step-Wise Refusal Dynamics in Autoregressive and Diffusion Language Models', v3",
+    "matches_claim": "PARTIAL -- SRI is real ('Step-Wise Refusal Internal Dynamics') but it is a per-step trajectory over a rollout, so the dependency's 'nearly free on hidden states we already extract' OVERSTATES its cheapness and conflicts with R3."
+   },
+   {
+    "id": "2608.05578 (AMS, from the DEPENDENCY artifact)",
+    "resolves_as": "AMS, cited by Hurtado as 'Messenger, 2026'",
+    "matches_claim": "PARTIAL / NEW EVIDENCE -- the dependency verified AMS's own 71% LOMO; this dossier adds an INDEPENDENT external evaluation putting AMS Tier-2 at AUROC 0.66 [.55,.77] and Tier-1 held-out detection at 0.35 on a 273-checkpoint registry. Also a date oddity: a July-2026 preprint cites a paper the dependency dated to arXiv 2608 (Aug 2026); presumably an earlier version. Flagged, not resolved."
+   },
+   {
+    "id": "Coslett 2026 (Zenodo 10.5281/zenodo.19383019)",
+    "resolves_as": "'Safety-alignment removal as a model-identity failure -- structural evidence from published weight-level mutation checkpoints'",
+    "matches_claim": "FULL TEXT UNREACHABLE -- zenodo.org/records/19383019 and the DOI resolver both return HTTP 403. Characterised by Hurtado as an ACTIVATION-geometry fingerprint. THE SINGLE LARGEST RESIDUAL RISK to the weights-only verdict; open before publication."
+   }
+  ],
+  "still_open_from_dependency": [
+   "Qi 'Oral' designation remains unverifiable from arXiv",
+   "RAS speed-up internally inconsistent at 216.88x vs 210.13x"
+  ],
+  "corrections_to_hypothesis": [
+   "1. 'Our site-selection result is a novel finding.' -> WRONG. It is the refusal-specific instance of Galeone et al. [arXiv:2606.24952]. Use the positioning_paragraph verbatim.",
+   "2. 'The detection-vs-steering angle can serve as a diagnostic.' -> WRONG, and PUBLISHED AS A NEGATIVE: the cosine 'sits near the high-dimensional chance level for steerable and unsteerable behaviours alike' [2606.24952 Sec.8]. Demote any such metric to a declared-expected-to-fail control (M26).",
+   "3. 'alpha_50 is novel.' -> NARROW IT. Surviving claim: the only single-scalar, parent-free, harmful-prompt-free, benchmark-free member of a populated 12-paper lane.",
+   "4. 'arXiv:2508.21448 is Kabir, steering strength as an alignment metric.' -> It is 'When Models Refuse: Political Steerability and Feature Richness as Measures of Ideological Depth'. Its 'refusal = capability deficit' framing is a CONFOUND to control, not support.",
+   "5. 'A random-direction control is a null for does-steering-break-safety.' -> WRONG. Random directions raise harmful compliance from 0% to 1-13% (abstract) and up to 18% in the body [2509.22067]. Replace with the magnitude-matched comparator pass condition.",
+   "6. 'SAE-derived benign directions are a safer control than random.' -> WRONG: they are WORSE, at 1-4% higher compliance under identical conditions [2509.22067 Sec.4.1].",
+   "7. 'The weights-only arm risks being a reinvention of arXiv:2607.01854.' -> IT IS NOT. Both of their signals require the parent (E1 is a statistic of W_base - W_cand). Verdict NOVEL (narrow). BUT the SCALE escape hatch is CLOSED -- <=4B is already in their registry.",
+   "8. 'Beating AMS would be a meaningful win.' -> WEAK. AMS is independently measured at AUROC 0.66 / held-out detection 0.35-0.42 on abliteration triage. Use it as a reproduction gate; do not headline beating it.",
+   "9. 'H3: correlate against external published safety numbers.' -> NOT AVAILABLE. n=2 lineages have a comparable published external number. Fallback (c) is FORCED: two self-measured refusal rates (harmful + XSTest over-refusal) with the R4 evaluator prompt fix, stated plainly as self-measured.",
+   "10. 'Ban Qwen3Guard-Gen-4B as a judge for Qwen3-4B-SafeRL.' -> Correct but TOO NARROW. Ban the whole Qwen3Guard series; ban WorldPM-Helpsteer2 for the helpfulness/over-refusal axis on that model; and note that arXiv:2607.01854's registry labels are themselves Qwen3Guard-derived -- report with and without Qwen-family checkpoints if using it.",
+   "11. 'alpha_50 is well-defined as a threshold crossing.' -> CONDITIONAL. Steering strength has NON-MONOTONIC effects [2602.02712, ICML 2026] and the optimal steering LAYER is input-dependent [2604.03867]. Pre-register a monotonicity check and report alpha_50 as a fixed-layer LOWER BOUND.",
+   "12. 'A scalar steerability measure is uncontroversial.' -> CONTESTED: [2505.23816] argues scalar measures conceal behavioural shifts. Answer it or concede it.",
+   "13. 'Layer selection is ours to invent.' -> NO. LAP/A_lin [2604.15557] predicts steering effectiveness at rho=+0.86..+0.91 and layer choice at rho=+0.63..+0.92, training-free. ADOPT AND CITE it (M24) rather than compete.",
+   "14. 'First-token entropy and length asymmetry are black-box baselines.' -> They are STRAWMEN; no safety-specific published instantiation exists for either. Label them as such in the paper.",
+   "15. (dependency artifact) 'SRI is nearly free on hidden states we already extract.' -> It is a rollout-integrating trajectory signal; it belongs in the R3 MINORITY of long-rollout rows, not among the cheap readouts."
+  ],
+  "confidence_and_limits": {
+   "high": "Galeone extraction (full text, all seven questions answered verbatim); the E1 formula and its parent-dependence (transcribed from primary text); the Logit-Gap definition and per-family gap shifts; the Rogue Scalpel alpha = c*mu(l) parameterisation; the three Qwen3-4B-SafeRL reward components and the three published benchmark rows (verbatim from the card); HELM Safety having no model below 10B (machine-readable registry).",
+   "moderate": "The two negative searches (no HTSR-for-safety application; no shared-null-direction test for directional ablation) are absence-of-evidence over arXiv + general web with no settled terminology for the concept. AIR-Bench / SALAD-Bench / SORRY-Bench / JailbreakBench coverage rows were assessed by search and paper-level reading, not by enumerating each leaderboard, so they are UNVERIFIED at item level even though the family-level fallback-(c) verdict is safe.",
+   "unreachable": "Coslett (Zenodo 10.5281/zenodo.19383019) -- HTTP 403 from both the record page and the DOI resolver.",
+   "what_would_change_the_verdicts": "(A) A paper defining a steering-threshold safety scalar computed WITHOUT harmful prompts would flip alpha_50 from NARROWED to OCCUPIED. (B) A parent-free weight statistic for edit-type detection would flip Section B to REINVENTION -- the Coslett record is the most likely place for one and was NOT opened. (D) Enumerating the AIR-Bench / SALAD-Bench leaderboards and finding <=4B entries would move the coverage verdict from fallback (c) to (b)."
+  }
+ }
 }

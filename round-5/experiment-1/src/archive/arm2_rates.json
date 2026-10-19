@@ -1,0 +1,139 @@
+{
+ "primary": {
+  "name": "false-positive rate of the pooled W05 certificate on the FILTERED eligible undeclared population",
+  "k": 0,
+  "n": 122,
+  "rate": 0.0,
+  "wilson_lo": 0.0,
+  "wilson_hi": 0.030526178389012868,
+  "ci_method": "Wilson score, z=1.96",
+  "n_archived_eligible": 82,
+  "n_new_eligible_completed": 40,
+  "named_false_positives": []
+ },
+ "secondary_raw_unfiltered": {
+  "name": "the archived 0/160, recomputed on the UNFILTERED scored population",
+  "k": 0,
+  "n": 160,
+  "rate": 0.0,
+  "wilson_lo": 0.0,
+  "wilson_hi": 0.02344619517150519,
+  "note": "computed on a population that includes unit-test fixtures, speculator heads, quantized re-uploads and mis-indexed >4.2B repos"
+ },
+ "exclusions_archive_by_primary_reason": {
+  "UNDECIDABLE:E3b": 3,
+  "E1": 67,
+  "E2": 5,
+  "E6": 50,
+  "E3b": 9,
+  "E4": 2
+ },
+ "exclusions_new_by_primary_reason": {
+  "E1": 39,
+  "UNDECIDABLE:E1": 1,
+  "E2": 1,
+  "E6": 1,
+  "UNDECIDABLE:E1,E2": 8
+ },
+ "n_excluded_archive": 136,
+ "unresolved_archive": {
+  "n": 90,
+  "by_cause": {
+   "RuntimeError: repo tensors 70.2 GB exceed cap": 1,
+   "RuntimeError: repo tensors 18.8 GB exceed cap": 2,
+   "RuntimeError: UNRESOLVED architecture": 58,
+   "RuntimeError: transposed Conv1D-style weights not supported (gpt2)": 12,
+   "RuntimeError: unresolved config (d=0, L=24)": 2,
+   "RuntimeError: unresolved config (d=0, L=0)": 3,
+   "RuntimeError: repo tensors 13.5 GB exceed cap": 1,
+   "RuntimeError: unresolved config (d=16, L=0)": 3,
+   "RuntimeError: transposed Conv1D-style weights not supported (gpt_bigco": 2,
+   "RuntimeError: unable to mmap 12121539344 bytes from file </ai-inventor": 1,
+   "RuntimeError: repo tensors 14.0 GB exceed cap": 1,
+   "RuntimeError: repo tensors 15.7 GB exceed cap": 2,
+   "RuntimeError: repo tensors 14.9 GB exceed cap": 1,
+   "RuntimeError: transposed Conv1D-style weights not supported (gptj)": 1
+  }
+ },
+ "unresolved_new": {
+  "n": 5,
+  "by_cause": {
+   "UNRESOLVED:RuntimeError: UNRESOLVED architecture: 12 write matrices, ex": 1,
+   "UNRESOLVED:RuntimeError: UNRESOLVED architecture: 8 write matrices, exp": 2,
+   "UNRESOLVED:RuntimeError: UNRESOLVED architecture: 0 write matrices, exp": 1,
+   "UNRESOLVED:RuntimeError: transposed Conv1D-style weights not supported ": 1
+  }
+ },
+ "model_type_composition_archive_eligible": {
+  "qwen2": 23,
+  "qwen3": 9,
+  "llama": 19,
+  "olmo2": 2,
+  "phi": 2,
+  "smollm3": 2,
+  "phi3": 5,
+  "gpt_neo": 2,
+  "gpt_neox": 6,
+  "phi3_v": 2,
+  "granite": 2,
+  "falcon_h1": 1,
+  "gemma3_text": 2,
+  "stablelm": 1,
+  "nanbeige": 1,
+  "speech_to_text": 1,
+  "bloom": 1,
+  "mistral": 1
+ },
+ "model_type_composition_new": {
+  "gpt_neox": 29,
+  "llama": 4,
+  "doge": 1,
+  "qwen3": 2,
+  "mistral": 2,
+  "olmo2": 2
+ },
+ "model_type_composition_archive_all_scored": {
+  "llama": 33,
+  "qwen2": 28,
+  "gemma2": 3,
+  "gpt_neox": 9,
+  "qwen3": 33,
+  "olmo2": 2,
+  "qwen3_5": 2,
+  "phi": 3,
+  "smollm3": 2,
+  "phi3": 11,
+  "remote": 1,
+  "glm4_moe": 1,
+  "qwen3_moe": 1,
+  "gpt_neo": 2,
+  "ilama": 1,
+  "phi3_v": 2,
+  "mistral": 3,
+  "bloom": 2,
+  "cohere": 1,
+  "gemma": 1,
+  "cohere2": 1,
+  "deepseek_v3": 2,
+  "granite": 2,
+  "olmo3": 1,
+  "qwen3_next": 1,
+  "falcon_h1": 1,
+  "kimi_k2": 1,
+  "gemma3_text": 3,
+  "unknown": 1,
+  "stablelm": 1,
+  "exaone": 1,
+  "nanbeige": 1,
+  "arcee": 1,
+  "speech_to_text": 1,
+  "llama4_text": 1
+ },
+ "eligibility_stamp": {
+  "sha256_eligibility_py": "0f8be4f6ca6817abc5db3e23f50d10ae3ff8092285bfa24a64ef393462460292",
+  "stamped_at_utc": "2026-08-14T00:30:46.861984+00:00",
+  "n_bytes": 4739,
+  "rule": "E1 n_layers>=8; E2 hidden_size>=128; E3 params<=4.2e9 enforced twice (index AND on-disk bytes / widest dtype); E4 not a unit-test fixture; E5 not a speculator/draft head; E6 not a quantized re-upload",
+  "unchanged_since_stamp": true
+ }
+}

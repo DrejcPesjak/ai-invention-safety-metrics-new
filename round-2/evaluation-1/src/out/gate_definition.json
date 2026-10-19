@@ -1,0 +1,21 @@
+{
+  "declared_before_computing_downstream_effect": true,
+  "written_at": "stage a2, before any gated indicator comparison was evaluated",
+  "rule": "A panel member PASSES the observable-validity gate at a given readout if the harmful-vs-benign AUROC of r_0 at that readout is >= 0.70; where AUROC is not archived, the equivalent margin criterion is r_0 margin >= 0.30 nats.",
+  "auroc_threshold": 0.7,
+  "margin_threshold_nats": 0.3,
+  "threshold_justification": "0.70 is the conventional 'better than weak discrimination' line for a binary AUROC: below it the observable separates the two prompt classes so poorly that its fluctuation statistics are statistics of noise rather than of the quantity the hypothesis is about. The full sensitivity curve at [0.6, 0.65, 0.7, 0.75, 0.8] is reported so the conclusion's dependence on the cut is visible and the cut is not a researcher degree of freedom.",
+  "sensitivity_thresholds": [
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8
+  ],
+  "primary_readout_declaration": {
+    "cross_model_indicator_comparison": "final",
+    "perturbation_local_quantities": "layerL",
+    "rationale": "The cross-model comparison is PRIMARY at the FINAL-LAYER readout, where r_t is defined by construction on the model's own output logits and does not depend on logit-lens fidelity at an intermediate layer. Anything perturbation-local (A1's decay statistics) is PRIMARY at the LAYER-L lens, because that is where the perturbation is injected. This split matters because E1 measures the layer-L lens against the final-layer readout at only 0.17-0.26, below its own pre-registered 0.3 threshold, so 'which readout' is a live confound rather than a formality."
+  },
+  "unsupported_rule": "If fewer than 2 members pass at the readout under test, the cross-model comparison is UNDEFINED and is reported as indicator_comparison_status = UNSUPPORTED_ONLY_N_MEMBERS_PASS."
+}

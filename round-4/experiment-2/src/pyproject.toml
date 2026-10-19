@@ -1,114 +1,17 @@
 [project]
-name = "read-vs-act"
+name = "windowed-weight-scan"
 version = "1.0.0"
-description = "Does the refusal axis read or only push? A 30-checkpoint panel measuring the canonical refusal axis in BOTH roles -- detection (held-out AUROC on each model's own generated refusals) and induction (a steering sweep in axis-contrast units) -- on the same five axes."
+description = "Windowed generalisation of the pooled abliteration weight scar + eligibility-filtered deployment rate + threshold brittleness"
 requires-python = ">=3.12"
 dependencies = [
-    "accelerate==1.14.0",
-    "aiohappyeyeballs==2.7.1",
-    "aiohttp==3.14.3",
-    "aiosignal==1.4.0",
-    "annotated-doc==0.0.5",
-    "anyio==4.14.2",
-    "attrs==26.1.0",
-    "blobfile==3.2.0",
-    "certifi==2026.7.22",
-    "charset-normalizer==3.5.0",
-    "click==8.4.2",
-    "contourpy==1.3.3",
-    "cuda-bindings==12.9.4",
-    "cuda-pathfinder==1.2.2",
-    "cuda-toolkit==12.8.1",
-    "cycler==0.12.1",
-    "filelock==3.29.0",
-    "fonttools==4.63.0",
-    "frozenlist==1.8.0",
-    "fsspec==2026.4.0",
-    "h11==0.16.0",
-    "hf-transfer==0.1.9",
-    "hf-xet==1.6.0",
-    "httpcore==1.0.9",
-    "httpx==0.28.1",
-    "huggingface-hub==1.27.0",
-    "idna==3.18",
-    "jinja2==3.1.6",
-    "kiwisolver==1.5.0",
-    "loguru==0.7.3",
-    "lxml==6.1.1",
-    "markdown-it-py==4.2.0",
-    "markupsafe==3.0.3",
-    "matplotlib==3.11.1",
-    "mdurl==0.1.2",
-    "mpmath==1.3.0",
-    "multidict==6.7.1",
-    "networkx==3.6.1",
-    "numpy==2.5.2",
-    "nvidia-cublas-cu12==12.8.4.1",
-    "nvidia-cuda-cupti-cu12==12.8.90",
-    "nvidia-cuda-nvrtc-cu12==12.8.93",
-    "nvidia-cuda-runtime-cu12==12.8.90",
-    "nvidia-cudnn-cu12==9.19.0.56",
-    "nvidia-cufft-cu12==11.3.3.83",
-    "nvidia-cufile-cu12==1.13.1.3",
-    "nvidia-curand-cu12==10.3.9.90",
-    "nvidia-cusolver-cu12==11.7.3.90",
-    "nvidia-cusparse-cu12==12.5.8.93",
-    "nvidia-cusparselt-cu12==0.7.1",
-    "nvidia-nccl-cu12==2.28.9",
-    "nvidia-nvjitlink-cu12==12.8.93",
-    "nvidia-nvshmem-cu12==3.4.5",
-    "nvidia-nvtx-cu12==12.8.90",
-    "packaging==26.3",
-    "pandas==3.0.5",
-    "patsy==1.0.2",
-    "pillow==12.3.0",
-    "propcache==0.5.2",
-    "psutil==7.2.2",
-    "pycryptodomex==3.23.0",
-    "pygments==2.20.0",
-    "pyparsing==3.3.2",
-    "python-dateutil==2.9.0.post0",
-    "pyyaml==6.0.3",
-    "regex==2026.7.19",
-    "requests==2.34.2",
-    "rich==15.0.0",
-    "safetensors==0.8.0",
-    "scipy==1.18.0",
-    "setuptools==78.1.0",
-    "shellingham==1.5.4",
-    "six==1.17.0",
-    "statsmodels==0.14.6",
-    "sympy==1.14.0",
-    "tiktoken==0.13.0",
-    "tokenizers==0.22.2",
-    "torch==2.11.0+cu128",
-    "tqdm==4.70.0",
-    "transformers==5.15.0",
-    "triton==3.6.0",
-    "typer==0.27.1",
-    "typing-extensions==4.15.0",
-    "urllib3==2.7.0",
-    "yarl==1.24.5",
+  "numpy==2.5.2",
+  "scipy==1.18.0",
+  "safetensors==0.8.0",
+  "huggingface-hub==1.27.0",
+  "pandas==3.0.5",
+  "tqdm==4.70.0",
+  "loguru==0.7.3",
+  "requests==2.34.2",
+  "psutil==7.2.0",
+  "pyyaml==6.0.3",
 ]
-
-# Every version above is the EXACT version installed in .venv (`uv pip freeze`),
-# including the transitive closure, so the environment is reproducible byte for
-# byte. That matters more than usual here: this artifact's central provenance
-# proof is that the archived per-axis AUROCs re-compute EXACTLY (A = 0.6620,
-# B = 0.5102, paired A-B = +0.1518) with new analysis code and no model, and
-# that all six archived checkpoints re-derive their axes at cosine >= 0.99992.
-# Both assertions are only meaningful if the libraries have not drifted, so the
-# closure is pinned to what iteration 3 itself used.
-#
-# torch is installed from the CUDA 12.8 wheel index, which a bare
-# `uv pip install torch==2.11.0` will NOT select. Recreate with:
-#
-#   uv venv .venv --python=3.12
-#   uv pip install --python=.venv/bin/python torch==2.11.0 \
-#       --index-url https://download.pytorch.org/whl/cu128
-#   uv pip install --python=.venv/bin/python -r <(grep -v '^torch==' pyproject-deps.txt)
-#
-# Hardware used: 1x NVIDIA RTX A4500 20 GB, 48 CPU, 251 GB RAM, 40 GB disk
-# (the disk is why the HF cache is purged between members).
-# Wall clock: ~95 min for the 30-member panel + ~55 min for the detection
-# backfill + ~13 min re-measuring the five base members. LLM spend: $0.0099.

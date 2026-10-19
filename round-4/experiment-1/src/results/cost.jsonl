@@ -1,0 +1,14 @@
+{"tag": "armB:parent_unedited", "model": "meta-llama/llama-3.3-70b-instruct", "n": 40, "usd": 0.00154385, "cum_usd": 0.00154385, "t": 1786668956.5248516}
+{"tag": "armB:uniform_w1.0", "model": "meta-llama/llama-3.3-70b-instruct", "n": 40, "usd": 0.001688083, "cum_usd": 0.003231933, "t": 1786668993.2345195}
+{"tag": "armB:uniform_w0.85", "model": "meta-llama/llama-3.3-70b-instruct", "n": 40, "usd": 0.0012503349999999998, "cum_usd": 0.004482268, "t": 1786669029.7357497}
+{"tag": "armB:uniform_w0.7", "model": "meta-llama/llama-3.3-70b-instruct", "n": 40, "usd": 0.001743354, "cum_usd": 0.006225622, "t": 1786669066.1644545}
+{"tag": "armB:uniform_w0.5", "model": "meta-llama/llama-3.3-70b-instruct", "n": 40, "usd": 0.0018072670000000004, "cum_usd": 0.008032889000000001, "t": 1786669107.693173}
+{"tag": "armB:gaussian_s2", "model": "meta-llama/llama-3.3-70b-instruct", "n": 40, "usd": 0.0014147569999999996, "cum_usd": 0.009447646, "t": 1786669146.9899595}
+{"tag": "armB:gaussian_s8", "model": "meta-llama/llama-3.3-70b-instruct", "n": 40, "usd": 0.00189807, "cum_usd": 0.011345716, "t": 1786669182.6653686}
+{"tag": "armB:gaussian_s32", "model": "meta-llama/llama-3.3-70b-instruct", "n": 40, "usd": 0.00145486, "cum_usd": 0.012800576000000001, "t": 1786669227.0455513}
+{"tag": "armB:gaussian_sinf", "model": "meta-llama/llama-3.3-70b-instruct", "n": 40, "usd": 0.001588985, "cum_usd": 0.014389561, "t": 1786669265.024885}
+{"tag": "armB:band_mid50", "model": "meta-llama/llama-3.3-70b-instruct", "n": 40, "usd": 0.001388855, "cum_usd": 0.015778416, "t": 1786669303.2401779}
+{"tag": "armB:orba_householder_lam1.0", "model": "meta-llama/llama-3.3-70b-instruct", "n": 40, "usd": 0.0015814750000000002, "cum_usd": 0.017359891, "t": 1786669340.4296937}
+{"tag": "armB:mpoa_norm_preserving", "model": "meta-llama/llama-3.3-70b-instruct", "n": 40, "usd": 0.00170907, "cum_usd": 0.019068961, "t": 1786669375.354604}
+{"tag": "armB:rank_k4", "model": "meta-llama/llama-3.3-70b-instruct", "n": 40, "usd": 0.0013495, "cum_usd": 0.020418461, "t": 1786669412.6289096}
+{"tag": "armB:heretic_percomponent", "model": "meta-llama/llama-3.3-70b-instruct", "n": 40, "usd": 0.0014054699999999998, "cum_usd": 0.021823930999999998, "t": 1786669450.6994994}

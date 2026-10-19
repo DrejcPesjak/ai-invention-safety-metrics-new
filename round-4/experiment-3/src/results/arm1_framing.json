@@ -1,0 +1,13 @@
+{
+  "question": "was the archived int4 W05 = -1.946 computed on PACKED 4-bit blobs or on already-DEQUANTIZED tensors?",
+  "answer": "ALREADY DEQUANTIZED",
+  "evidence": [
+    "archive lib_ablate.quant_sd is a FAKE-QUANT: it computes Q = round(W/s)*s and writes `o[a:b] = Q.to(v.dtype)`, i.e. the rounded values are stored back in the model's own bf16 dtype; no packed tensor ever exists",
+    "the archived pipeline then calls lib_score.abl_weights on that plain bf16 state_dict via the live nn.Linear modules -- there is no dequantization step left to perform",
+    "consequently the archived c_int4 row already IS the dequantized measurement"
+  ],
+  "consequence": "plain dequantization cannot restore the scar, because it recovers the ROUNDED values and not the original ones. The proposed remedy is therefore VOID AS STATED, and ARM 1 runs the substantive version: bit-width sweep, per-layer energy profile, eigenvector rotation, and the noise-floor-relative statistic W05rel.",
+  "archived_int4_W05": -1.9461383325253676,
+  "archived_root_W05": -4.591675454758807,
+  "TAU": -2.7415117804288127
+}

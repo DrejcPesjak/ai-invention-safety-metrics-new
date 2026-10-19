@@ -1,0 +1,12 @@
+[
+ {
+  "member": "qwen3-0.6b-instruct",
+  "kind": "member_failed",
+  "detail": "RuntimeError: Failed to find C compiler. Please specify via CC environment variable or set triton.knobs.build.impl."
+ },
+ {
+  "member": "qwen3-4b-safe",
+  "kind": "revision_from_hub",
+  "detail": "Qwen/Qwen3-4B-SafeRL not in frozen manifest; pinned to live sha 1b95ccb88cabaf284ffb6968719c40ae6cd4085b"
+ }
+]

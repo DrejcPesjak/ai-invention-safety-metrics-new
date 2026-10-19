@@ -1,7 +1,0 @@
-{
- "key": "n_unfilteredai_nsfw_flash",
- "status": "FAILED",
- "wave": 1,
- "lineage_label": "UnfilteredAI/NSFW-flash",
- "error": "RuntimeError: The size of tensor a (20) must match the size of tensor b (64) at non-singleton dimension 3"
-}

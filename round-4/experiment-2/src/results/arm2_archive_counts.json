@@ -1,0 +1,44 @@
+{
+ "total_rows": 270,
+ "n_controls": 20,
+ "n_non_control": 250,
+ "status_all": {
+  "OK": 180,
+  "SKIPPED": 8,
+  "UNRESOLVED": 81,
+  "ERROR": 1
+ },
+ "status_non_control": {
+  "SKIPPED": 8,
+  "OK": 160,
+  "UNRESOLVED": 81,
+  "ERROR": 1
+ },
+ "n_scored_non_control": 160,
+ "n_unresolved_non_control": 81,
+ "n_skipped_non_control": 8,
+ "n_error_non_control": 1,
+ "control_classes": {
+  "abliterated": 8,
+  "panel_clean": 12
+ },
+ "unresolved_by_cause": {
+  "RuntimeError: repo tensors 70.2 GB exceed cap": 1,
+  "RuntimeError: repo tensors 18.8 GB exceed cap": 2,
+  "RuntimeError: UNRESOLVED architecture": 58,
+  "RuntimeError: transposed Conv1D-style weights not supported (gpt2)": 12,
+  "RuntimeError: unresolved config (d=0, L=24)": 2,
+  "RuntimeError: unresolved config (d=0, L=0)": 3,
+  "RuntimeError: repo tensors 13.5 GB exceed cap": 1,
+  "RuntimeError: unresolved config (d=16, L=0)": 3,
+  "RuntimeError: transposed Conv1D-style weights not supported (gpt_bigcode)": 2,
+  "RuntimeError: unable to mmap 12121539344 bytes from file </ai-inventor/aii_data/": 1,
+  "RuntimeError: repo tensors 14.0 GB exceed cap": 1,
+  "RuntimeError: repo tensors 15.7 GB exceed cap": 2,
+  "RuntimeError: repo tensors 14.9 GB exceed cap": 1,
+  "RuntimeError: transposed Conv1D-style weights not supported (gptj)": 1
+ },
+ "n_in_abliterated_region_0of160": 0,
+ "stale_claim_check": "the hypothesis records '65 vs 81 UNRESOLVED' as stale in one artifact; counted from the rows themselves the non-control UNRESOLVED tally is reported above",
+ "denominator_0of160_reproduces": true
+}

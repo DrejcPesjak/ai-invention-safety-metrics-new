@@ -3,44 +3,46 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: paper.aux
 The style file: plainnat.bst
 Database file #1: references.bib
-You've used 52 entries,
+Warning--empty author in BackdooredLoRA2026
+You've used 38 entries,
             2773 wiz_defined-function locations,
-            921 strings with 17778 characters,
-and the built_in function-call counts, 32098 in all, are:
-= -- 2502
-> -- 3136
-< -- 30
-+ -- 1055
-- -- 1002
-* -- 2933
-:= -- 5298
-add.period$ -- 186
-call.type$ -- 52
-change.case$ -- 489
-chr.to.int$ -- 51
-cite$ -- 104
-duplicate$ -- 1095
-empty$ -- 1827
-format.name$ -- 1068
-if$ -- 6393
-int.to.chr$ -- 2
+            813 strings with 12738 characters,
+and the built_in function-call counts, 19090 in all, are:
+= -- 1551
+> -- 1502
+< -- 28
++ -- 512
+- -- 474
+* -- 1565
+:= -- 3026
+add.period$ -- 134
+call.type$ -- 38
+change.case$ -- 272
+chr.to.int$ -- 38
+cite$ -- 77
+duplicate$ -- 797
+empty$ -- 1372
+format.name$ -- 514
+if$ -- 3939
+int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 52
-newline$ -- 297
-num.names$ -- 208
-pop$ -- 979
+missing$ -- 31
+newline$ -- 218
+num.names$ -- 144
+pop$ -- 595
 preamble$ -- 1
-purify$ -- 438
+purify$ -- 234
 quote$ -- 0
-skip$ -- 1001
+skip$ -- 668
 stack$ -- 0
-substring$ -- 343
-swap$ -- 89
-text.length$ -- 10
+substring$ -- 201
+swap$ -- 91
+text.length$ -- 12
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 567
-warning$ -- 0
-while$ -- 173
+type$ -- 418
+warning$ -- 1
+while$ -- 114
 width$ -- 0
-write$ -- 716
+write$ -- 521
+(There was 1 warning)

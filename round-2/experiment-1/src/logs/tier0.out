@@ -1,37 +1,0 @@
-17:37:49|INFO   |hardware: {'num_cpus': 8, 'has_gpu': True, 'gpu': 'NVIDIA RTX 4000 Ada Generation', 'vram_gb': 21.13, 'total_ram_gb': 50.0, 'ram_budget_gb': 20.0, 'torch': '2.6.0+cu124'}
-17:37:49|INFO   |dataset blocks: harmless_dynamics=43, xstest_overrefusal=450, plain_harmful=594, jailbreak_suite=400, layer_contrast=256, wikitext_fluency=200, refusal_token_lexicon=10, panel_manifest=160
-17:37:50|INFO   |tier=0 model=None probe_prompts=20
-17:37:50|INFO   |D3 Wilson interval check
-17:37:56|INFO   |  wilson(5,20) = [0.112, 0.469] -> True
-17:37:56|INFO   |D1 synthetic recovery at the real geometry
-17:38:13|INFO   |  {'a50_true': 0.5, 'slope': 8.0, 'n_rep': 200, 'median_a50': 0.5004262869011971, 'bias': 0.00042628690119705936, 'sd_a50': 0.008582464622685025, 'iqr': [0.49337501053970234, 0.5059955106449189], 'ci_coverage': 0.9083333333333333, 'n_coverage_rep': 120, 'pass_median_within_0p02': True, 'pass_coverage_90_to_99': True} (17s)
-17:38:13|INFO   |D2 power / minimum detectable difference
-17:39:00|INFO   |  MDE@80% = 0.05 vs iteration-1 gap 0.075 (47s)
-17:39:00|INFO   |loading Qwen/Qwen3-0.6B
-Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 3961.29it/s]
-17:39:18|INFO   |[instruct_0p6] Qwen/Qwen3-0.6B rev=c1899de289a0 n_layers=28 d_model=1024 L=7
-17:39:23|INFO   |paraphrase disjointness: 8/12 pairs kept (target 8)
-17:39:27|INFO   |steering hook installed on layers [3] of Qwen/Qwen3-0.6B
-17:39:31|INFO   |steering hook installed on layers [5] of Qwen/Qwen3-0.6B
-17:39:35|INFO   |steering hook installed on layers [7] of Qwen/Qwen3-0.6B
-17:39:39|INFO   |steering hook installed on layers [9] of Qwen/Qwen3-0.6B
-17:39:43|INFO   |steering hook installed on layers [11] of Qwen/Qwen3-0.6B
-17:39:47|INFO   |steering hook installed on layers [13] of Qwen/Qwen3-0.6B
-17:39:51|INFO   |steering hook installed on layers [15] of Qwen/Qwen3-0.6B
-17:39:55|INFO   |steering hook installed on layers [17] of Qwen/Qwen3-0.6B
-17:39:59|INFO   |steering hook installed on layers [19] of Qwen/Qwen3-0.6B
-17:40:03|INFO   |steering hook installed on layers [21] of Qwen/Qwen3-0.6B
-17:40:07|INFO   |steering hook installed on layers [23] of Qwen/Qwen3-0.6B
-17:40:11|INFO   |steering hook installed on layers [25] of Qwen/Qwen3-0.6B
-17:40:15|INFO   |steering hook installed on layers [27] of Qwen/Qwen3-0.6B
-17:40:19|INFO   |site scan pos=-1: best layer=7 score=0.778
-17:40:22|INFO   |B4 NORM_L = 21.135 (iter1 21.21)
-17:40:22|INFO   |B5 iteration-1 replication gate (greedy, 5 prompts, 24 tokens)
-17:41:15|INFO   |  a50=0.48333333333333334 (iter1 0.475) max_rate=1.0 -> passed=True
-17:41:32|INFO   |B5b smoke rates: [0.0, 0.0, 0.8333333333333334, 1.0, 1.0]
-17:41:32|INFO   |loading Qwen/Qwen3-0.6B-Base
-Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 3444.82it/s]
-17:41:39|INFO   |[base_0p6] Qwen/Qwen3-0.6B-Base rev=da87bfb608c1 n_layers=28 d_model=1024 L=7
-17:41:42|INFO   |paraphrase disjointness: 8/12 pairs kept (target 8)
-17:42:03|INFO   |B6 base rates: [0.0, 0.16666666666666666, 0.16666666666666666, 0.5, 0.3333333333333333], NORM_L=19.280
-17:42:03|INFO   |tier-0 checks: {'D3_wilson': True, 'D1_synthetic_recovery': None, 'D2_power': None, 'A2_reuse': True, 'A3_shape': True, 'B2_alpha0_identity': True, 'B1_hook_fires': True, 'B3_determinism': True, 'C1_disjointness': True, 'C2_axisB_auroc': True, 'C3_cosines': None, 'C4_unit_norms': True, 'B4_norm_L': True, 'B5_iter1_replication_gate': True, 'B5b_monotonicity_smoke': True, 'B6_base_negative_control': False, 'B4_norm_L_base': None}

@@ -1,39 +1,41 @@
-# The same number, counted two ways
+# Rechecking every number in the draft
 
 `demo/` — Self-contained demo (Colab-ready notebook or markdown). Run without setup.  
 `src/` — Full source code, data, and outputs from the experiment execution.
 
 **Type:** evaluation  
-**ID:** `art__tq3ZgPRYB0B`
+**ID:** `art_ckuwEkspyins`
 
 ## Layman Summary
 
-Re-checks the project's own past results and shows that one headline correlation was reported two different ways, that a key confidence interval depends on that choice, and that the negative verdict does not.
+Recomputes every figure the paper quotes straight from the stored experiment files, then prints a table showing which ones agree and which five do not.
 
 ## Full Summary
 
-A pure-reanalysis EVALUATION over the FROZEN iteration-2/3 archives. Zero GPU, zero generation, zero LLM/API spend (cost_usd = 0.0), no downloads, no network, no torch import; the whole pipeline runs end-to-end in 125 s via `uv run eval.py` (stages 0-5, each independently re-runnable). Output validates against exp_eval_sol_out: 7 datasets / 209 examples / 40 aggregate metrics.
+PURE RE-ANALYSIS, $0.00 LLM spend, 0 weights loaded, 0 forward passes, 0 generations, 0 Hub fetches, ~21 s on 4 CPUs. Reads the six archived trees (A1-A4 as declared deps, plus A5 iter-3 evaluation-1 and A6 iter-3 research-1 read directly from disk). Every file resolved by GLOB, never by assumed filename; manifest with size+sha256+role; every emitted number carries provenance = {file, line_or_key, raw_value}.
 
-REPRODUCTION GATE: 11/11 legs PASS to 1e-6. All four E3 discrimination-matrix oriented rho values (alpha_50 -0.2081, our-AMS 0.3578, logit-gap benign 0.1011, harmful 0.6673), the AMS paraphrase refit 0.6541, and V2's lineage-level Delta -0.9286 / rho(our-AMS) 0.8214 / rho(alpha_50) -0.1071 all regenerate from sha256-stamped inputs. Accounting legs 19/18/1 and 19/14/1 reproduce, as does the fact that the one member with a DEFINED logistic alpha_50 is itself among the five UNRELIABLE exclusions.
+ASSERTION TABLE: 110 claim_ids -> 105 MATCH / 5 MISMATCH / 0 UNAVAILABLE. Tolerances declared up front (1e-6 verbatim, 1e-4 float re-derivation, 0.005 reconstructed rates, exact string for repo_ids/evidence spans). GATES: A2/verify.py re-run 17/17 PASS; A1 wstats max|dW05| = 9.91e-06 (gate.json full precision 9.908662263136137e-06, so the quoted '9.9e-06' is a 2-s.f. rounding), Spearman 1.0000, ordering preserved. DETERMINISM: two full runs BYTE_IDENTICAL_APART_FROM_TIMING.
 
-ANALYSIS 1 (the H-U repair). The draft's 0.358 (S5.2) and 0.821 (S5.3) are ONE statistic at two aggregation units, neither of which the draft names. Across the 16 score x config cells where both units are defined, changing nothing but the unit moves oriented rho by a median 0.238 and a maximum 0.557, and FLIPS THE SIGN on 5. Oriented Delta emits SIGN_SURVIVES / EXCLUSION_LOST_AT_MEMBER_LEVEL on V2's carrier (-0.929 [-1.961,-0.113] lineage vs -0.376 [-0.795, 0.110] member), and SIGN_FLIPS / EXCLUDES_AT_NEITHER on the discrimination matrix's own carrier (-0.566 member vs +0.107 lineage). The plan's -0.465 estimate is NOT reproduced and nothing was tuned toward it. Ceiling, |rho| difference with CI, median-split AUC pair, per-column ICC, members-per-lineage, and the lineage-mean reconciliation check all ship. Every cell states n, the exhaustive 7! = 5040 lineage permutation p and the corrected floor 1/5040 = 1.98e-04; CIs are suppressed at n_lineages <= 3.
+THE 5 DISAGREEMENTS (the product, each classified): (1) crossing.jsonl holds SEVEN real intensity axes (4 EVADABLE + 3 NEITHER_DIES) plus one 'combined' non-axis row - the per-verdict counts are right, the denominator quoted as 6 is stale. (2) scan.jsonl gives 81 UNRESOLVED non-control rows, not 65 - the 65-vs-81 discrepancy is adjudicated mechanically, 65 is stale. (3) 8 SKIPPED, not 7. (4) quoted_value_forensics carries FIVE unreproduced quoted values (A01, A02, A22, B09, W01), not four. (5) B09's 0.766 is the 26-member renderer=='chatml' value (reproduces to 1e-4); on the 28-member contract subset the draft states it is 0.670 - the number was right, the SUBSET LABEL was not; the other four reproduce under NONE of 32 conventions and must be regenerated.
 
-ANALYSIS 2 (threshold surface, 164,736-point full factorial). Under the pre-registered rule PROTOCOL_DOES_NOT_DISCRIMINATE holds on 1.0000 of grid points (strict-exceed criterion 0.9091, checks-1-4-only 1.0000). Dropping the pass rules' secondary clauses and scoring the numeric cutoffs alone gives 0.5802 / 0.2429 -- which LOCATES the negative result in the verdict-class and interiority clauses, not the cutoffs. Exactly ONE single-axis change anywhere on the grid produces a strict rival win (check 3, 2.0 -> 1.75, our-AMS 2 vs alpha_50 1). Check 5's kappa 0.391 lies below the entire swept range [0.40, 0.80], so it can never change any verdict -- proved structurally and verified empirically. A 40-row marginal flip table and the named check-1 case ship.
+W1 RELABEL: decision rule published as a literal dict; relabel fires only on a verbatim toolkit string. Two Heretic checkpoints -> per_component_optimised (APPLIED); mlabonne and BennyDaBall -> unknown, NOT_IN_ARCHIVE, PROVISIONAL (mlabonne's Gaussian-depth string is NOT in the archived card text - no kernel is inferred from W05). Honest count: 2 of 4 misses carry a verbatim non-uniform kernel string, unattributed remainder 2. LEAVE-ONE-RECIPE-CLASS-OUT (primary) is where the failure lives: per_component_optimised AUROC 0.264 / sensitivity 0.000 vs uniform_global 0.956 / 0.900; leave-one-uploader-out shipped beside it, identical columns. Limitation 3 REFUTED from A6: sub-4.2B MPOA / Heretic / OBLITERATUS at 4,022,468,096 params on the panel's own Qwen3-4B family. 6-entry draft_edit_list.
 
-ANALYSIS 3: three tables as md AND csv, generated from json so prose cannot drift -- table1 discrimination matrix (with audit cost), table2 per-checkpoint depth-panel dissociation (with the breadth-panel axis-B scope footnote), table3 dual aggregation (32 rows, unit in every row label).
+W2 LADDER: 136 interval rows, Wilson primary + 10k bootstrap, ACHIEVED denominators recovered as the LARGEST n <= nominal (31-40, not 40; root 6/37 = 0.162 [0.077, 0.311]). All four signed evasion costs (-0.004, +0.07, +0.07, +0.1) and int4-minus-root (-0.03 [-0.189, +0.135]) are NOT A RESOLVABLE DIFFERENCE. Power: smallest UPWARD detectable difference at n=40, p=0.20 is 0.29, so the ORDERING survives and the decimals do not.
 
-ANALYSIS 4: 57 correlation/AUROC/Delta/CI claims audited in the draft -- 18 TRACEABLE_UNIT_STATED, 31 TRACEABLE_UNIT_MISSING, 3 VALUE_MISMATCH, 5 UNTRACEABLE. The generated out/replacement_text.md re-audits at 13/13 traceable with an EMPTY flag list; three prose number-dumps are named for supplementary with their replacement table.
+W3 E_1 BANDS: the archived [0.25,0.75] band reproduces the arm-2 headline exactly (12 pairs 1.000/1.000/+0.000; 15 pairs E_1 1.000 vs W05 0.833, diff -0.167; 41 pairs -0.186 [-0.373,-0.076]). FULL STACK and [0.4,0.6] are NOT_RECOMPUTABLE_FROM_ARCHIVE - per-matrix singular values were never persisted - so the verdict is withheld as UNDETERMINED_INSUFFICIENT_BANDS (INVARIANT at the primary band only, 3/3 checks hold) rather than answered on one band. Synthetic dependence made visible: excluding the 26 in-house synthetics the interval becomes -0.167 [-0.444, 0.000] and COVERS ZERO.
 
-DISCOVERED, not inherited: the outcome variable itself disagrees across the two frozen archives on 3 of 19 members (l1/l2/l4_base; the iteration-2 archive records an identical 12/80 = 0.15, V2 re-derives from a larger judged pool). All three are UNRELIABLE-excluded so no reported correlation moves; it is stated in metadata.gaps.
+W4 COST TABLE: 54 rows sorted cost-ascending with prompts / harmful_prompts / forward passes / wall-clock, correlations carried forward verbatim (recomputed=false). 0 candidates beat B09 positively (the one CI excluding zero is W02 at -0.457, i.e. worse). Practitioner sentence bound to provenance: interior observables ARE predictive (A19 rho +0.763 [+0.592,+0.864] member, +0.800 lineage) but do not beat a 40-prompt greedy refusal rate.
 
-MECHANICS worth reusing: E3/method.py is NOT import-safe (imports torch, calls setrlimit at import), so PASS_RULES / ORIENTATION_MAP are loaded by exec-ing only the literal constant blocks, cross-checked against prereg_iter3.json. The plan's estimator list lives in E3/lib_iter3/statsx.py, not lib/stats_ext.py. V2's lineage units use a rank-bottom sentinel (max(defined)+1, recovered from V2/eval_a34.py) over the 14 reliable members -- without it V2's headline does not reproduce.
+W5 FIDELITY: counts generated from rows (270 = 20 controls + 250 attempted, 160 completed); boundary at full precision -2.7415117804288127 with the abliterated MAXIMUM/minimum stated correctly (-2.7415 / -4.8204, margin 0.0763); oriented-vs-raw AUROC with a convention string; [min,max] for every class x W01-W05 with the base/abliterated overlaps flagged; W03 corrected to 256 directions; the 4.869-vs--4.82 adjacency flagged with a suggested rewrite. Eligibility filter: 85 eligible of 160 (48 n_layers<8, 38 hidden_size<128, 38 name/tag, 4 oversize), FP 0/85 Wilson [0, 0.0432] PRIMARY vs 0/160 [0, 0.0234] SECONDARY. Threshold brittleness: first false positive at -2.61 (rinna/japanese-gpt-neox-small), shift 0.1315 log10 ~ 1.7 margin-widths. Claim map reproduces 4 SUPPORTED / 2 PLAN-ONLY / 6 UNSUPPORTED, totals 12.
+
+SHIPPED: eval_out.json (schema exp_eval_sol_out PASSED; 8 tabular datasets), results/arm1_real_corrected.jsonl, disagreements.json, draft_edit_list.json, determinism.json, README.md, pinned pyproject.toml verified by rebuilding the venv from scratch.
 
 ## Dependencies
 
-- `art_3Cndd5cKsYV0` — reanalysis
-- `art_sabuvuJ8P3Wy` — archive
-- `art_r3PqOtpvcIsK` — archive
-- `art_CKWQh2cOQLLQ` — dataset
+- `art_fvWfzRrcoKux` — reanalyzes
+- `art_gCgia-6VUZJb` — reanalyzes
+- `art_xyUlckdGtbjc` — battery
+- `art_BCxIq6GX4WIw` — dataset
 
 ## Output Files
 

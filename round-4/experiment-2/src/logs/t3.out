@@ -1,11 +1,0 @@
-23:27:43|INFO   |T0 lib byte-identical 13/13; 0 paths missing
-23:27:54|INFO   |T1 A_canned             new=0.6620 arch=0.6620 d=0.00e+00 OK
-23:27:54|INFO   |T1 B_paraphrase         new=0.5102 arch=0.5102 d=0.00e+00 OK
-23:27:54|INFO   |T1 C_stylistic          new=0.4213 arch=0.4213 d=0.00e+00 OK
-23:27:54|INFO   |T1 D_random0            new=0.4730 arch=0.4730 d=0.00e+00 OK
-23:27:54|INFO   |T1 E_prompt_contrast    new=0.5180 arch=0.5180 d=0.00e+00 OK
-23:27:54|INFO   |T1 paired A-B new=0.1518 arch=0.1518 CI=[0.08282731993930903, 0.21011805911155515]
-23:27:54|INFO   |T2 459 archived contrast-unit cells, worst error 0.00e+00 -> PASS
-Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 3208.41it/s]
-23:29:55|INFO   |T3 len-identity 50/50; string-concat differs on 0; boundary exact=True -> FAIL
-23:29:55|INFO   |ALL PASSED = False

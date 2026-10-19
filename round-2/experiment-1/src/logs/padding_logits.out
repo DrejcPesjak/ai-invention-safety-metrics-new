@@ -1,6 +1,0 @@
-19:04:59|INFO   |loading Qwen/Qwen3-0.6B
-Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 4334.46it/s]
-19:05:09|INFO   |{'uid': 0, 'n_pad_tokens': 17, 'max_abs_logit_diff': 0.28125, 'mean_abs_logit_diff': 0.044077228754758835, 'logit_scale_max_abs': 25.375, 'argmax_agrees': True, 'top1_minus_top2_gap': 3.0}
-19:05:09|INFO   |{'uid': 1, 'n_pad_tokens': 0, 'max_abs_logit_diff': 0.3125, 'mean_abs_logit_diff': 0.05180782452225685, 'logit_scale_max_abs': 22.75, 'argmax_agrees': True, 'top1_minus_top2_gap': 0.375}
-19:05:09|INFO   |{'uid': 2, 'n_pad_tokens': 23, 'max_abs_logit_diff': 0.3125, 'mean_abs_logit_diff': 0.0585484616458416, 'logit_scale_max_abs': 30.375, 'argmax_agrees': True, 'top1_minus_top2_gap': 3.25}
-19:05:09|INFO   |VERDICT: BF16_BATCH_SHAPE_NOISE

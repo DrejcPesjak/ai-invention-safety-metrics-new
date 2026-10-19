@@ -7,4 +7,4 @@ The complete conversational record of this AI Inventor run, in two views:
 
 Both mirror the run's pipeline structure (create_idea → test_idea → report_results, with a folder per phase / round / module), and are generated automatically at repository-upload time from the run's event log.
 
-- Run: Rating Model Safety in Eighty Forward Passes
+- Run: Catching Edited Safety Models by Reading Weights in Sliding Windows

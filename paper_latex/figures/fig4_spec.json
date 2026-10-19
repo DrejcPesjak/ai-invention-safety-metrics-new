@@ -1,100 +1,166 @@
 {
-  "type": "forest_with_variance_inset",
-  "renderer": "hand-written matplotlib (fig4_render.py) \u2014 the catalogue `forest` type takes symmetric `errors` only, and this figure needs asymmetric 95% CIs, shaded secondary rows and a variance-decomposition inset",
-  "title": "How much of the coupling was the control axes",
-  "caption": "The read-versus-act coupling under seven estimators of the same relationship. The pooled 70-pair coefficient our previous draft led with (top) mixes between-axis and between-model variance; an exact two-way decomposition on the balanced 14x5 design attributes 0.896 of it to between-axis-type variation, 0.036 to between-member variation and 0.069 to residual. The primary estimand -- within the canonical axis, across the 14 detection-powered members -- has an interval covering zero at the member unit.",
-  "aspect": "16:9",
-  "width_in": 9.0,
-  "xlabel": "Spearman rho, induction vs detection quality (unitless)",
+  "type": "dual_axis_line",
+  "renderer": "render_fig4.py",
+  "title": "When the pooled statistic starts to see a depth kernel",
+  "aspect": "4:3",
+  "width_in": 7.0,
+  "xlabel": "Gaussian depth-kernel spread (layers, log scale)",
+  "xscale": "log",
+  "x_positions": [
+    0.5,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128
+  ],
+  "x_ticklabels": [
+    "0.5",
+    "1",
+    "2",
+    "4",
+    "8",
+    "16",
+    "32",
+    "64",
+    "inf"
+  ],
   "xlim": [
-    -0.3,
-    1.05
+    0.4,
+    168.0
   ],
-  "null_line": 0.0,
-  "rows": [
-    {
-      "label": "POOLED, all 5 axes, 70 pairs (secondary)",
-      "value": 0.629,
-      "ci": [
-        0.465,
-        0.803
-      ],
-      "tier": "secondary"
-    },
-    {
-      "label": "POOLED, control axes C and D dropped, 42 pairs (secondary)",
-      "value": 0.545,
-      "ci": [
-        0.284,
-        0.726
-      ],
-      "tier": "secondary"
-    },
-    {
-      "label": "WITHIN axis A, member unit, n=14",
-      "value": 0.547,
-      "ci": [
-        -0.031,
-        0.93
-      ],
-      "tier": "primary"
-    },
-    {
-      "label": "WITHIN axis A, lineage unit, n=7",
-      "value": 0.821,
-      "ci": [
-        0.348,
-        1.0
-      ],
-      "tier": "primary"
-    },
-    {
-      "label": "partial, axis main effect removed",
-      "value": 0.234,
-      "ci": [
-        -0.059,
-        0.397
-      ],
-      "tier": "primary"
-    },
-    {
-      "label": "partial, axis + member effects removed",
-      "value": 0.126,
-      "ci": [
-        -0.24,
-        0.366
-      ],
-      "tier": "primary"
-    },
-    {
-      "label": "mixed-effects slope on ranks",
-      "value": 0.192,
-      "ci": [
-        -0.075,
-        0.458
-      ],
-      "tier": "primary"
-    }
-  ],
-  "inset": {
-    "title": "Variance decomposition of the pooled statistic",
-    "segments": [
+  "left_axis": {
+    "ylabel": "W05 (log₁₀ min write energy)",
+    "ylim": [
+      -5.0,
+      -0.5
+    ],
+    "series": [
       {
-        "label": "between axis type",
-        "value": 0.896,
-        "colour": "red"
+        "label": "W05",
+        "color": "#0173B2",
+        "linewidth": 2.4,
+        "marker": "o",
+        "values": [
+          -1.0099,
+          -1.0098,
+          -1.0098,
+          -1.0099,
+          -1.0134,
+          -2.8883,
+          -3.9083,
+          -4.4729,
+          -4.5917
+        ]
       },
       {
-        "label": "between member",
-        "value": 0.036,
-        "colour": "blue"
-      },
-      {
-        "label": "residual",
-        "value": 0.069,
-        "colour": "grey"
+        "label": "completion: log₁₀ min_W e_W(r)",
+        "color": "#117733",
+        "linewidth": 1.8,
+        "linestyle": "-",
+        "marker": null,
+        "values": [
+          -4.53,
+          -4.53,
+          -4.53,
+          -4.53,
+          -4.53,
+          -4.53,
+          -4.53,
+          -4.53,
+          -4.53
+        ]
       }
     ],
-    "total": 1.0
-  }
+    "reference_lines": [
+      {
+        "label": "operating threshold τ = −2.7415",
+        "y": -2.7415,
+        "color": "#CC3311",
+        "linestyle": "--"
+      },
+      {
+        "label": "unedited parent = −1.0098",
+        "y": -1.0098,
+        "color": "#666666",
+        "linestyle": ":"
+      }
+    ]
+  },
+  "right_axis": {
+    "ylabel": "value, 0 to 1 (dimensionless)",
+    "ylim": [
+      0.0,
+      1.05
+    ],
+    "series": [
+      {
+        "label": "|cos(v₁, r)| (discovery)",
+        "color": "#DE8F05",
+        "linewidth": 2.0,
+        "linestyle": "-",
+        "marker": "s",
+        "values": [
+          0.0106,
+          0.0111,
+          0.0119,
+          0.0156,
+          0.1264,
+          0.9992,
+          0.9999,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "label": "minimum depth weight",
+        "color": "#8B4FA8",
+        "linewidth": 2.0,
+        "linestyle": "--",
+        "marker": "^",
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          4e-05,
+          0.0796,
+          0.5311,
+          0.8537,
+          0.9612,
+          1.0
+        ]
+      }
+    ]
+  },
+  "shaded_span": {
+    "x_from": 8,
+    "x_to": 16,
+    "color": "#F5E27A",
+    "alpha": 0.45,
+    "label": "discovery transition; controlling minimum\ndepth weight bracketed in [0.0796, 0.5311]",
+    "legend_label": "discovery transition (spread 8 to 16)"
+  },
+  "annotations": [
+    {
+      "id": "completion_constant",
+      "text": "constant: the peak layer is fully\nannihilated at every spread",
+      "x": 0.55,
+      "y": -4.46,
+      "axis": "left",
+      "va": "bottom"
+    },
+    {
+      "id": "prestamped_spread",
+      "text": "pre-stamped critical spread\n58.17 (wrong by 3.64×)",
+      "x": 58.17,
+      "y_text": -3.28,
+      "y_arrow_tip": -4.36,
+      "axis": "left"
+    }
+  ],
+  "legend_loc": "center left",
+  "caption": "The controlled Gaussian depth sweep with the host (Qwen3-1.7B) and the removed direction r held fixed. Completion never varies: the peak layer is annihilated to log10 min_W e_W(r) = -4.53 at every spread. What varies is discovery. Between spread 8 and 16 the kernel's minimum depth weight rises from 0.0796 to 0.5311, |cos(v1,r)| jumps from 0.126 to 0.9992, and W05 falls from the parent's -1.0098 to -2.888, crossing the operating threshold. Below that transition the pooled statistic returns the parent's value to four decimals however complete the edit."
 }

@@ -1,65 +1,145 @@
 {
-  "type": "bar_with_reference_and_inset",
-  "renderer": "fig6_render.py (hand-written matplotlib on the aii-data-fig-gen house style; no catalogue type draws per-category colours plus a measured reference line plus an inset panel)",
-  "title": "Refusal induced by each steering direction",
-  "caption": "Five-class any-refusal rate on fluency-screened text at matched axis-contrast units, with the random-direction false-positive floor drawn as a reference line. The token-disjoint paraphrase axis B induces 0.028 against the canonical axis A's 0.747 and sits 0.118 [0.082, 0.157] BELOW what a meaningless direction induces on the same filtered population, so the canonical axis's advantage is semantic rather than a wording artifact. The inset shows the one pre-registered level at which B does clear its floor -- its own peak coefficient, 4.3x the dose A requires.",
-  "aspect": "4:3",
+  "type": "scatter_quadrant_ci",
+  "renderer": "fig6_render.py",
+  "title": "The weight verdict and the safety behaviour come apart",
+  "xlabel": "W05 weight statistic (log₁₀ minimum write energy, dimensionless)",
+  "ylabel": "harmful-refusal rate (fraction), judge J1",
+  "aspect": "16:9",
   "width_in": 7.0,
-  "main": {
-    "xlabel": "steering direction (matched axis-contrast units)",
-    "ylabel": "five-class any-refusal rate at matched axis-contrast units",
-    "ylim": [0.0, 0.95],
-    "error_interval": "95% paired prompt-clustered bootstrap",
-    "categories": [
-      {
-        "key": "A",
-        "label": "A canonical\n(n=600)",
-        "colour": "#0173B2",
-        "colour_name": "dark blue",
-        "value": 0.747,
-        "ci": [0.618, 0.858]
-      },
-      {
-        "key": "B",
-        "label": "B token-disjoint\nparaphrase (n=600)",
-        "colour": "#56B4E9",
-        "colour_name": "light blue",
-        "value": 0.028,
-        "ci": [0.008, 0.057]
-      },
-      {
-        "key": "C",
-        "label": "C stylistic control\n(n=600)",
-        "colour": "#949494",
-        "colour_name": "grey",
-        "value": 0.017,
-        "ci": null
-      },
-      {
-        "key": "D",
-        "label": "D random control\n(n=575)",
-        "colour": "#D55E00",
-        "colour_name": "red",
-        "value": 0.146,
-        "ci": null
-      }
-    ],
-    "reference_line": {
-      "y": 0.146,
-      "label": "random-direction false-positive floor",
-      "style": "dashed",
-      "colour": "#D55E00"
+  "xlim": [
+    -5.0,
+    -0.5
+  ],
+  "ylim": [
+    0.0,
+    1.05
+  ],
+  "threshold_x": -2.7415,
+  "threshold_x_label": "operating threshold: left of this = FLAGGED EDITED",
+  "threshold_y": 0.5,
+  "threshold_y_label": "un-censored below this line",
+  "quadrants": [
+    {
+      "name": "flagged AND still refusing (false positive)",
+      "x": [
+        -5.0,
+        -2.7415
+      ],
+      "y": [
+        0.5,
+        1.05
+      ],
+      "color": "#F6C9C4"
     },
-    "annotation_on_B": "net vs floor = -0.118 [-0.157, -0.082]"
-  },
-  "inset": {
-    "title": "axis B at its OWN peak coefficient\n(5.21 contrast units, 4.3x A)",
-    "ylabel": "refusal rate",
-    "ylim": [0.0, 0.8],
-    "bars": [
-      {"label": "B refusal\nrate", "value": 0.642, "colour": "#56B4E9"},
-      {"label": "floor at\nthat level", "value": 0.077, "colour": "#D55E00"}
-    ],
-    "annotation": "net +0.565 [+0.471, +0.655]"
-  }
+    {
+      "name": "unflagged AND un-censored (false negative)",
+      "x": [
+        -2.7415,
+        -0.5
+      ],
+      "y": [
+        0.0,
+        0.5
+      ],
+      "color": "#FBE0B4"
+    }
+  ],
+  "points": [
+    {
+      "label": "Qwen3-1.7B parent",
+      "x": -1.01,
+      "y": 0.95,
+      "ci": [
+        0.83,
+        0.99
+      ],
+      "color": "#7A7A7A",
+      "size": 70,
+      "annotation": null,
+      "label_xy": [
+        -1.01,
+        0.79
+      ],
+      "label_ha": "center",
+      "label_va": "top"
+    },
+    {
+      "label": "root A: uniform all-layer",
+      "x": -4.592,
+      "y": 0.167,
+      "ci": [
+        0.11,
+        0.25
+      ],
+      "color": "#0173B2",
+      "size": 70,
+      "annotation": null,
+      "label_xy": [
+        -4.47,
+        0.167
+      ],
+      "label_ha": "left",
+      "label_va": "center"
+    },
+    {
+      "label": "root B: depth-weighted Gaussian",
+      "x": -1.01,
+      "y": 0.27,
+      "ci": [
+        0.196,
+        0.36
+      ],
+      "color": "#DE8F05",
+      "size": 200,
+      "annotation": "FALSE NEGATIVE: un-censored,\nreads the parent value",
+      "label_xy": [
+        -1.12,
+        0.242
+      ],
+      "label_ha": "right",
+      "label_va": "top"
+    },
+    {
+      "label": "Llama-3.2-1B-Instruct parent",
+      "x": -1.594,
+      "y": 1.0,
+      "ci": null,
+      "color": "#7A7A7A",
+      "size": 70,
+      "annotation": null,
+      "label_xy": [
+        -1.15,
+        1.008
+      ],
+      "label_ha": "right",
+      "label_va": "bottom",
+      "leader": [
+        -1.36,
+        0.955
+      ]
+    },
+    {
+      "label": "root C: AUROC-argmax direction",
+      "x": -4.587,
+      "y": 0.95,
+      "ci": [
+        0.83,
+        0.99
+      ],
+      "color": "#B3162A",
+      "size": 200,
+      "annotation": "FALSE POSITIVE: flagged,\nnever un-censored",
+      "label_xy": [
+        -4.45,
+        0.9
+      ],
+      "label_ha": "left",
+      "label_va": "top"
+    }
+  ],
+  "note_box": "judge-model sensitivity: root B reads 0.278 (J1),\n0.772 (cross-family J2), 0.195 (re-worded rubric J3);\nit sits below its parent under all three",
+  "note_box_xy": [
+    -4.9,
+    0.395
+  ]
 }

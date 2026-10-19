@@ -1,0 +1,9 @@
+{
+ "P1": "W05w with k in {4,6} catches the middle-50% band edit that W05 misses (log10 e drops by > 1.0 in the edited windows).",
+ "P2": "W05w catches mlabonne-Gaussian and Heretic depth-weighted kernels at some k, with catch-rate increasing as k shrinks toward the kernel's effective support.",
+ "P3": "W05w MISSES ORBA/Householder at every k (a reflection leaves no null direction).",
+ "P4": "Specificity DECREASES monotonically as k decreases; the frontier has a knee.",
+ "P5": "Sub-unit-weight uniform edits (w = 0.25..0.9) are caught by BOTH W05 and W05w with monotone degradation in w.",
+ "stated_at_utc": "2026-08-14T00:18:13.642310+00:00",
+ "stated_before": "any arm-1 statistic was computed"
+}

@@ -1,0 +1,18 @@
+{
+  "prediction": "W05 AUROC drops materially (below 0.8) on abliteration recipes that are mechanically different from the all-layer global single-direction diff-in-means class, and the layer-fraction curve has a crossing point f* strictly above 0.33 -- i.e. the scar is a property of GLOBAL surgery, not of abliteration as such.",
+  "written_before_arm1_was_run": true,
+  "layer_fractions": [
+    0.1,
+    0.25,
+    0.33,
+    0.5,
+    0.67,
+    0.8,
+    1.0
+  ],
+  "rank_ks": [
+    2,
+    4,
+    8
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "byte_identical": true,
+  "differing_files": [],
+  "file_lists_match": true,
+  "n_files": 8,
+  "nondeterminism_controls": [
+    "every dict/set key list is sorted() before use",
+    "json.dumps(sort_keys=True), full float precision, never rounded",
+    "numpy.random.default_rng(20260814) -- never the legacy global RNG",
+    "no timestamps written to any output file",
+    "file globs are sorted()"
+  ],
+  "per_file": {
+    "numbers.json": {
+      "identical": true,
+      "run1_sha256": "c8ace1fe1d53fc8698db9b973f96537708f0e827aef7cebf462799534e1f1f22",
+      "run2_sha256": "c8ace1fe1d53fc8698db9b973f96537708f0e827aef7cebf462799534e1f1f22"
+    },
+    "results/archive_inventory.json": {
+      "identical": true,
+      "run1_sha256": "33cd8be3da0fecce23cc538fadde312d05ae507cbedea41a2b7c899e38b7bff7",
+      "run2_sha256": "33cd8be3da0fecce23cc538fadde312d05ae507cbedea41a2b7c899e38b7bff7"
+    },
+    "results/assertions.json": {
+      "identical": true,
+      "run1_sha256": "babb614a7cbdf4928ba6eafac889fbeba69d5eadd34932de19dd4cff0ee4e48f",
+      "run2_sha256": "babb614a7cbdf4928ba6eafac889fbeba69d5eadd34932de19dd4cff0ee4e48f"
+    },
+    "results/carry_forward.json": {
+      "identical": true,
+      "run1_sha256": "9e7752fb7cd60101042c9e5d6144822767cd40f0db2ecfea8224cb673bba3fda",
+      "run2_sha256": "9e7752fb7cd60101042c9e5d6144822767cd40f0db2ecfea8224cb673bba3fda"
+    },
+    "results/corrections.json": {
+      "identical": true,
+      "run1_sha256": "ec0f7f82b8a89632167b8cadd9eee632244a20ca26d627ce5eb1f289ef3d37be",
+      "run2_sha256": "ec0f7f82b8a89632167b8cadd9eee632244a20ca26d627ce5eb1f289ef3d37be"
+    },
+    "results/derivation.json": {
+      "identical": true,
+      "run1_sha256": "76ecd2da818efe76d251f8d0e25c70207a3a820aa4af0610e54e724dd871200f",
+      "run2_sha256": "76ecd2da818efe76d251f8d0e25c70207a3a820aa4af0610e54e724dd871200f"
+    },
+    "results/edit_list.json": {
+      "identical": true,
+      "run1_sha256": "07b1c3e095cec21e00b5da5faf004240aaf7a6c5c0a64422afa2290ce0b44edc",
+      "run2_sha256": "07b1c3e095cec21e00b5da5faf004240aaf7a6c5c0a64422afa2290ce0b44edc"
+    },
+    "results/lorco_table.json": {
+      "identical": true,
+      "run1_sha256": "5eae436d9c8331102bbf0bcbe04dd7ea48174255411867718935a382f4e3fd5d",
+      "run2_sha256": "5eae436d9c8331102bbf0bcbe04dd7ea48174255411867718935a382f4e3fd5d"
+    }
+  },
+  "run1_files": [
+    "numbers.json",
+    "results/archive_inventory.json",
+    "results/assertions.json",
+    "results/carry_forward.json",
+    "results/corrections.json",
+    "results/derivation.json",
+    "results/edit_list.json",
+    "results/lorco_table.json"
+  ],
+  "run2_files": [
+    "numbers.json",
+    "results/archive_inventory.json",
+    "results/assertions.json",
+    "results/carry_forward.json",
+    "results/corrections.json",
+    "results/derivation.json",
+    "results/edit_list.json",
+    "results/lorco_table.json"
+  ],
+  "run2_mode": "separate OS process via subprocess -- process-level determinism"
+}

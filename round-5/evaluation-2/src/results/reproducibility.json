@@ -1,0 +1,68 @@
+{
+  "input_archive_files": {
+    "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_3/results/judge_cache.json": {
+      "sha256": "0ec77f5621b8094423444811febb3247e718327985b57d071c4e8642ceb0dd58",
+      "bytes": 311770
+    },
+    "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_3/results/crossing_table.jsonl": {
+      "sha256": "e06c3f32063bbc65b0f61480b011c0021708cbeecc3ab08acd06ee718f050bb1",
+      "bytes": 282793
+    },
+    "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_3/results/roots.json": {
+      "sha256": "faf7fe93381217b3e5bbe6d4a2c1da142f751f82cca32f665814c8cd66b1e844",
+      "bytes": 9727
+    },
+    "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_3/results/ladder_with_ci.jsonl": {
+      "sha256": "42ec58bd8a6f9743786ff52eebc4d622b8daa9507787adfe0d130fe3447c8d19",
+      "bytes": 89730
+    },
+    "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_3/results/summary.json": {
+      "sha256": "af292dcf265b7c78d54dbee2ab2d05812078389bd4c0074f266745d9854ae935",
+      "bytes": 71755
+    },
+    "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_3/archive/root_recipe.json": {
+      "sha256": "d74fcccde611368596176d518735354e1d6a8a80a3721faae8b4190ea1960726",
+      "bytes": 52814
+    },
+    "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_3/archive/root.json": {
+      "sha256": "897507811d771a61a3c03707a7c74def67afd1f1cac79bff6ebad60dd808200e",
+      "bytes": 23786
+    },
+    "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_1/results/arm_b.jsonl": {
+      "sha256": "97b9aff86bfde8b098d07fd50e988b6bfffb87a2be8cad9e981991b1371c1775",
+      "bytes": 314008
+    },
+    "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_1/results/arm_b_behaviour.jsonl": {
+      "sha256": "2c1ca44c937afb2c20fef8c925932aa6c609ad9c0c14811f8f85f8bb6686e7df",
+      "bytes": 23983
+    },
+    "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_1/results/analysis.json": {
+      "sha256": "cdc1aa010b5b56a6cb4ba99c4d1b2bb83be424e4e6d1c866d44e802864d008ef",
+      "bytes": 129339
+    },
+    "/ai-inventor/aii_data/runs/run_UtpduT_D2IS2/3_invention_loop/iter_4/gen_art/gen_art_experiment_1/results/predictions.json": {
+      "sha256": "5180689360b331f6a94c54c60b6c5ac0045e37cdb48029e90ce19805a844692e",
+      "bytes": 4131
+    }
+  },
+  "sample_manifest_sha256": "0cc6372b9925265d3f336bfd0331f0435c10e126b3a4e0da468bba9adffa8a14",
+  "anchor_items_sha256": "5fdd6614833767ea45c0d50d7b489fb53bb745b4e2ae516fb714408cd82a9310",
+  "anchor_items_mtime": 1786677705.0,
+  "anchor_adjudications_mtime": 1786677782.0,
+  "resolved_scorers": {
+    "J1": "meta-llama/llama-3.3-70b-instruct",
+    "J2": "google/gemini-2.5-flash",
+    "J3": "meta-llama/llama-3.3-70b-instruct @ rubric C"
+  },
+  "torch_version": "2.6.0+cu124",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "archived_gpu": "NVIDIA RTX 2000 Ada Generation",
+  "seed": 0,
+  "cache_entries": {
+    "archived_judge_cache": 3862,
+    "rescore_cache": 886
+  },
+  "total_spend_usd": 0.06657198499999999,
+  "pip_freeze_file": "results/pip_freeze.txt",
+  "REPRODUCE": "A second run of `eval.py` hits 100% of results/rescore_cache.json and costs $0; regen.py is deterministic given the same GPU and rebuilds every state_dict from archive/root_recipe.json and results/roots.json, so nothing needs to be re-downloaded but the two Hub checkpoints."
+}

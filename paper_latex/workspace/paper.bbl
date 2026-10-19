@@ -1,40 +1,17 @@
-\begin{thebibliography}{52}
+\begin{thebibliography}{38}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Adebayo et~al.(2018)Adebayo, Gilmer, Muelly, Goodfellow, Hardt, and
-  Kim]{Adebayo2018}
-Julius Adebayo, Justin Gilmer, Michael Muelly, Ian Goodfellow, Moritz Hardt,
-  and Been Kim.
-\newblock Sanity checks for saliency maps.
-\newblock In \emph{Advances in Neural Information Processing Systems
-  (NeurIPS)}, 2018.
-
-\bibitem[Alagharu et~al.(2026)Alagharu, Singh, Shamsudeen, Wu, and
-  Panda]{Alagharu2026}
-Rohit Alagharu, Iman~S. Singh, Sahal Shamsudeen, Zhaofeng Wu, and Ashwinee
-  Panda.
-\newblock From refusal tokens to refusal control: Discovering and steering
-  category-specific refusal directions.
-\newblock \emph{arXiv preprint arXiv:2603.13359}, 2026.
-
-\bibitem[Allal et~al.(2025)Allal, Lozhkov, Bakouch, Bl'azquez, Penedo,
-  Tunstall, Marafioti, Kydl'ivcek, Lajar'in, Srivastav, Lochner, Fahlgren,
-  Nguyen, Fourrier, Burtenshaw, Larcher, Zhao, Zakka, Morlon, Raffel, Werra,
-  and Wolf]{BenAllal2025}
-Loubna~Ben Allal, Anton Lozhkov, Elie Bakouch, Gabriel~Mart'in Bl'azquez,
-  Guilherme Penedo, Lewis Tunstall, Andrés Marafioti, Hynek Kydl'ivcek,
-  Agust'in~Piqueres Lajar'in, Vaibhav Srivastav, Joshua Lochner, Caleb
-  Fahlgren, X.~Nguyen, Clémentine Fourrier, Ben Burtenshaw, Hugo Larcher,
-  Haojun Zhao, Cyril Zakka, Mathieu Morlon, Colin Raffel, L.~V. Werra, and
-  Thomas Wolf.
-\newblock Smollm2: When smol goes big - data-centric training of a small
-  language model.
-\newblock \emph{ArXiv}, abs/2502.02737, 2025.
-\newblock \doi{10.48550/arXiv.2502.02737}.
+\bibitem[Agnihotri et~al.(2025)Agnihotri, Jakubassa, Dey, Goyal, Schiele,
+  Radhakrishnan, and Keuper]{Agnihotri2025}
+Shashank Agnihotri, Jonas Jakubassa, Priyam Dey, Sachin Goyal, B.~Schiele,
+  Venkatesh~Babu Radhakrishnan, and Margret Keuper.
+\newblock A granular study of safety pretraining under model abliteration.
+\newblock \emph{ArXiv}, abs/2510.02768, 2025.
+\newblock \doi{10.48550/arXiv.2510.02768}.
 
 \bibitem[Arditi et~al.(2024)Arditi, Obeso, Syed, Paleka, Rimsky, Gurnee, and
   Nanda]{Arditi2024}
@@ -47,43 +24,11 @@ Andy Arditi, Oscar Obeso, Aaquib Syed, Daniel Paleka, Nina Rimsky, Wes Gurnee,
 
 \bibitem[Basu et~al.(2026)Basu, Patel, Sheth, Muralidharan, Elamaran, Kinra,
   Morgan, and Batniji]{Basu2026}
-Sayan Basu, Shivam~Y. Patel, Paras Sheth, Bharath Muralidharan, Naveen
-  Elamaran, Aditya Kinra, Joseph Morgan, and Rajaie Batniji.
+S.~Basu, S.~Y. Patel, P.~Sheth, B.~Muralidharan, N.~Elamaran, A.~Kinra,
+  J.~Morgan, and R.~Batniji.
 \newblock Interpretability without actionability: mechanistic methods cannot
   correct language model errors despite near-perfect internal representations.
 \newblock \emph{arXiv preprint arXiv:2603.18353}, 2026.
-
-\bibitem[Billa(2026)]{Billa2026}
-Jayanth Billa.
-\newblock Predicting where steering vectors succeed.
-\newblock \emph{arXiv preprint arXiv:2604.15557}, 2026.
-
-\bibitem[Borah et~al.(2025)Borah, Sharma, Khanna, Bhatt, Singh, Abdullah, Ravi,
-  Jain, Patel, Singh, Sharma, Vats, Raja, Chadha, and Das]{Borah2025}
-Abhilekh Borah, Chhavi Sharma, Danush Khanna, Utkarsh Bhatt, Gurpreet Singh,
-  H.~Abdullah, Raghav~Kaushik Ravi, Vinija Jain, Jyoti Patel, Shubham Singh,
-  Vasu Sharma, A.~Vats, Rahul Raja, Aman Chadha, and Amitava Das.
-\newblock Alignment quality index (aqi) : Beyond refusals: Aqi as an intrinsic
-  alignment diagnostic via latent geometry, cluster divergence, and layer wise
-  pooled representations.
-\newblock In \emph{Conference on Empirical Methods in Natural Language
-  Processing}, volume abs/2506.13901, 2025.
-\newblock \doi{10.48550/arXiv.2506.13901}.
-
-\bibitem[Braun(2026)]{Braun2026}
-Jonathan Braun.
-\newblock Understanding unreliability of steering vectors in language models:
-  Geometric predictors and the limits of linear approximations.
-\newblock Master's thesis, University of T\"ubingen, 2026.
-\newblock arXiv:2602.17881.
-
-\bibitem[Bury(2023)]{Bury2023}
-Thomas~M. Bury.
-\newblock ewstools: A python package for early warning signals of bifurcations
-  in time series data.
-\newblock \emph{Journal of Open Source Software}, 8\penalty0 (82):\penalty0
-  5038, 2023.
-\newblock \doi{10.21105/joss.05038}.
 
 \bibitem[Chao et~al.(2024)Chao, Debenedetti, Robey, Andriushchenko, Croce,
   Sehwag, Dobriban, Flammarion, Pappas, Tramèr, Hassani, and Wong]{Chao2024}
@@ -96,89 +41,93 @@ Patrick Chao, Edoardo Debenedetti, Alexander Robey, Maksym Andriushchenko,
   abs/2404.01318, 2024.
 \newblock \doi{10.48550/arXiv.2404.01318}.
 
-\bibitem[Dakos et~al.(2012)Dakos, Carpenter, Brock, Ellison, Guttal, Ives,
-  K\'efi, Livina, Seekell, van Nes, and Scheffer]{Dakos2012}
-Vasilis Dakos, Stephen~R. Carpenter, William~A. Brock, Aaron~M. Ellison,
-  Vishwesha Guttal, Anthony~R. Ives, Sonia K\'efi, Valerie Livina, David~A.
-  Seekell, Egbert~H. van Nes, and Marten Scheffer.
-\newblock Methods for detecting early warnings of critical transitions in time
-  series illustrated using simulated ecological data.
-\newblock \emph{PLoS ONE}, 7\penalty0 (7):\penalty0 e41010, 2012.
-\newblock \doi{10.1371/journal.pone.0041010}.
+\bibitem[Cristofano(2026)]{Cristofano2026}
+D.~Cristofano.
+\newblock Surgical refusal ablation: Concept-guided spectral cleaning.
+\newblock \emph{arXiv preprint arXiv:2601.08489}, 2026.
 
-\bibitem[Galeone et~al.(2026)Galeone, Ettorre, Park, Ettorre, and
-  Ligorio]{Galeone2026}
-Cristiano Galeone, Alessandro Ettorre, Minho Park, Giulio Ettorre, and Davide
-  Ligorio.
+\bibitem[Detecting Backdoored LoRAs()]{BackdooredLoRA2026}
+Detecting Backdoored LoRAs.
+\newblock Detecting backdoored {LoRAs} from weights alone.
+\newblock \emph{arXiv preprint arXiv:2602.15195}, 2026.
+
+\bibitem[{elder-plinius et al.}(2026)]{Obliteratus2026}
+{elder-plinius et al.}
+\newblock {OBLITERATUS}: one-click model liberation toolkit.
+\newblock Software, AGPL-3.0, including
+  \texttt{obliteratus/analysis/spectral\_certification.py}, 2026.
+\newblock First public 2026-03-04.
+
+\bibitem[Ettori et~al.(2025)Ettori, Darabi, Tayebati, Krishnan, Subedar,
+  Tickoo, and Trivedi]{Ettori2025}
+Davide Ettori, Nastaran Darabi, Sina Tayebati, Ranganath Krishnan, Mahesh
+  Subedar, Omesh Tickoo, and A.~Trivedi.
+\newblock Eigentrack: Spectral activation feature tracking for hallucination
+  and out-of-distribution detection in llms and vlms.
+\newblock \emph{ArXiv}, abs/2509.15735, 2025.
+\newblock \doi{10.48550/arXiv.2509.15735}.
+
+\bibitem[Fafula(2026)]{Fafula2026}
+J.~Fafula.
+\newblock Abliteration is not a scalpel: Off-target effects of refusal removal
+  on decision disposition across model families.
+\newblock \emph{arXiv preprint arXiv:2607.17427}, 2026.
+
+\bibitem[Galeone et~al.(2026)]{Galeone2026}
+M.~Galeone et~al.
 \newblock Perfect detection, failed control: The geometry of knowing vs.
   steering in language models.
 \newblock \emph{arXiv preprint arXiv:2606.24952}, 2026.
 
-\bibitem[Hasan and Biswas(2026)]{Hasan2026}
-Ahmed~A. Hasan and Sourav Biswas.
-\newblock The refusal--compliance tradeoff: A large-scale safety behavior audit
-  of large language models.
-\newblock \emph{arXiv preprint arXiv:2605.05427v2}, 2026.
+\bibitem[Guelmez(2026)]{Guelmez2026}
+G.~Guelmez.
+\newblock Gabliteration: Adaptive multi-directional neural weight modification.
+\newblock \emph{arXiv preprint arXiv:2512.18901}, 2026.
 
 \bibitem[Huang et~al.(2026)Huang, Chen, Yu, and Lee]{Huang2026}
-Cheng Huang, Yang Chen, Chen Yu, and Wei Lee.
+C.~Huang, Y.-L. Chen, C.-M. Yu, and W.-B. Lee.
 \newblock {RAS}: Measuring {LLM} safety through refusal alignment.
 \newblock \emph{arXiv preprint arXiv:2606.25750}, 2026.
 
 \bibitem[Hurtado(2026)]{Hurtado2026}
-Gabriel Hurtado.
+J.~Hurtado.
 \newblock Has this checkpoint been abliterated? a two-signal audit and its
   failure map.
 \newblock \emph{arXiv preprint arXiv:2607.01854}, 2026.
 
-\bibitem[Joad et~al.(2026)Joad, Hawasly, Boughorbel, Durrani, and
-  Sencar]{Joad2026}
-Fatima Joad, Majd Hawasly, Sabri Boughorbel, Nadir Durrani, and H.~Tolga
-  Sencar.
-\newblock There is more to refusal in large language models than a single
-  direction.
-\newblock \emph{arXiv preprint arXiv:2602.02132}, 2026.
+\bibitem[Jain et~al.(2024)Jain, Lubana, Oksuz, Joy, Torr, Sanyal, and
+  Dokania]{Jain2024}
+Samyak Jain, E.~Lubana, Kemal Oksuz, Tom Joy, Philip H.~S. Torr, Amartya
+  Sanyal, and P.~Dokania.
+\newblock What makes and breaks safety fine-tuning? a mechanistic study.
+\newblock In \emph{Neural Information Processing Systems}, volume
+  abs/2407.10264, 2024.
+\newblock \doi{10.48550/arXiv.2407.10264}.
 
-\bibitem[Kapoor and Narayanan(2023)]{Kapoor2023}
-Sayash Kapoor and Arvind Narayanan.
-\newblock Leakage and the reproducibility crisis in machine-learning-based
-  science.
-\newblock In \emph{Patterns}, volume~4, 2023.
-\newblock \doi{10.1016/j.patter.2023.100804}.
+\bibitem[Jiang et~al.(2023)Jiang, Kim, Cheung, Kim, Thiruvathukal, and
+  Davis]{Jiang2023}
+Wenxin Jiang, Mingyu Kim, Chingwo Cheung, Heesoo Kim, G.~Thiruvathukal, and
+  James~C. Davis.
+\newblock “i see models being a whole other thing”: an empirical study of
+  pre-trained model naming conventions and a tool for enhancing naming
+  consistency.
+\newblock In \emph{Empirical Software Engineering}, volume~30, 2023.
+\newblock \doi{10.1007/s10664-025-10711-4}.
 
-\bibitem[Korznikov et~al.(2025)Korznikov, Galichin, Dontsov, Rogov, Oseledets,
-  and Tutubalina]{Korznikov2025}
-Anton Korznikov, Andrey~V. Galichin, Alexey Dontsov, Oleg~Y. Rogov,
-  I.~Oseledets, and Elena Tutubalina.
-\newblock The rogue scalpel: Activation steering compromises llm safety.
-\newblock \emph{ArXiv}, abs/2509.22067, 2025.
-\newblock \doi{10.48550/arXiv.2509.22067}.
+\bibitem[Labonne(2024)]{Labonne2024}
+Maxime Labonne.
+\newblock Uncensor any {LLM} with abliteration.
+\newblock Hugging Face community blog, June 2024.
 
-\bibitem[Kwon(2026)]{Kwon2026}
-Aera Kwon.
-\newblock Breaking refusal in the first half: A mechanistic study of the
-  prefill jailbreak.
-\newblock \emph{arXiv preprint arXiv:2607.14147}, 2026.
+\bibitem[Lai(2025)]{Lai2025}
+J.~W. Lai.
+\newblock Norm-preserving biprojected abliteration ({MPOA}).
+\newblock Hugging Face community blog, November 2025.
 
-\bibitem[Li and Liu(2025)]{LiLiu2025}
-Tung-Ling Li and Hongliang Liu.
-\newblock Logit-gap steering: A forward-pass diagnostic for alignment
-  robustness.
-\newblock \emph{arXiv preprint arXiv:2506.24056}, 2025.
-\newblock \doi{10.48550/arXiv.2506.24056}.
-
-\bibitem[Li et~al.(2026)Li, Fastowski, Zaradoukas, Prenkaj, and
-  Kasneci]{LiSteer2026}
-Yuxin Li, Alexander Fastowski, Evangelos Zaradoukas, Bardh Prenkaj, and Gjergji
-  Kasneci.
-\newblock Analysing the safety pitfalls of steering vectors.
-\newblock \emph{arXiv preprint arXiv:2603.24543}, 2026.
-
-\bibitem[Llorente-Saguer(2026)]{Llorente2026}
-Ines Llorente-Saguer.
-\newblock The geometry of harmful intent: Training-free anomaly detection via
-  angular deviation in {LLM} residual streams.
-\newblock \emph{arXiv preprint arXiv:2603.27412}, 2026.
+\bibitem[Lai(2026)]{Lai2026}
+J.~W. Lai.
+\newblock {ORBA}: Orthogonal reflection bounded ablation.
+\newblock Hugging Face community blog, March 2026.
 
 \bibitem[Mazeika et~al.(2024)Mazeika, Phan, Yin, Zou, Wang, Mu, Sakhaee, Li,
   Basart, Li, Forsyth, and Hendrycks]{Mazeika2024}
@@ -191,37 +140,24 @@ Mantas Mazeika, Long Phan, Xuwang Yin, Andy Zou, Zifan Wang, Norman Mu, Elham
   35181--35224, 2024.
 \newblock \doi{10.48550/arXiv.2402.04249}.
 
-\bibitem[Mehta(2026)]{Mehta2026}
-Aarav Mehta.
-\newblock The refusal residue: When probes catch alignment faking and when they
-  don't.
-\newblock In \emph{Mechanistic Interpretability Workshop, ICML 2026}, 2026.
-\newblock arXiv:2607.13346.
-
 \bibitem[Messenger(2026)]{Messenger2026}
-Greg Messenger.
+G.~Messenger.
 \newblock Detecting safety training modification in language models via
   activation analysis.
 \newblock \emph{IEEE Access}, 14:\penalty0 91723--91737, 2026.
-\newblock arXiv:2608.05578.
 
-\bibitem[Mishra et~al.(2026)Mishra, Khashabi, and Liu]{Mishra2026}
-Abhinav Mishra, Daniel Khashabi, and Anqi Liu.
-\newblock Steered {LLM} activations are non-surjective.
-\newblock In \emph{ICLR 2026 Workshops (Sci4DL, Re-Align)}, 2026.
-\newblock arXiv:2604.09839v2.
+\bibitem[Nikolić et~al.(2025)Nikolić, Baluta, and Saxena]{Nikoli2025}
+Ivica Nikolić, T.~Baluta, and Prateek Saxena.
+\newblock Model provenance testing for large language models.
+\newblock In \emph{Advances in Neural Information Processing Systems 38},
+  volume abs/2502.00706, 2025.
+\newblock \doi{10.48550/arXiv.2502.00706}.
 
-\bibitem[Nadaf(2026)]{Nadaf2026}
-Mohammed S.~B. Nadaf.
-\newblock Steerable but not decodable: Function vectors operate beyond the
-  logit lens.
-\newblock \emph{arXiv preprint arXiv:2604.02608v2}, 2026.
-
-\bibitem[Openshaw(1984)]{Openshaw1984}
-Stan Openshaw.
-\newblock \emph{The Modifiable Areal Unit Problem}.
-\newblock Concepts and Techniques in Modern Geography (CATMOG) 38. Geo Books,
-  Norwich, 1984.
+\bibitem[Paul(2026)]{Paul2026}
+A.~Paul.
+\newblock Spectral geometry of {LoRA} adapters encodes training objective and
+  predicts harmful compliance.
+\newblock \emph{arXiv preprint arXiv:2604.08844}, 2026.
 
 \bibitem[Peng et~al.(2024)Peng, Chen, Hull, and Chau]{Peng2024}
 Sheng-Hsuan Peng, Pin-Yu Chen, Matthew Hull, and Duen~Horng Chau.
@@ -231,14 +167,8 @@ Sheng-Hsuan Peng, Pin-Yu Chen, Matthew Hull, and Duen~Horng Chau.
   abs/2405.17374, 2024.
 \newblock \doi{10.48550/arXiv.2405.17374}.
 
-\bibitem[Petrov(2026)]{Petrov2026}
-Viktor Petrov.
-\newblock On the failure of topic-matched contrast baselines in
-  multi-directional refusal abliteration.
-\newblock \emph{arXiv preprint arXiv:2603.22061}, 2026.
-
 \bibitem[Qi et~al.(2024)Qi, Panda, Lyu, Ma, Roy, Beirami, Mittal, and
-  Henderson]{Qi2025}
+  Henderson]{Qi2024}
 Xiangyu Qi, Ashwinee Panda, Kaifeng Lyu, Xiao Ma, Subhrajit Roy, Ahmad Beirami,
   Prateek Mittal, and Peter Henderson.
 \newblock Safety alignment should be made more than just a few tokens deep.
@@ -246,32 +176,14 @@ Xiangyu Qi, Ashwinee Panda, Kaifeng Lyu, Xiao Ma, Subhrajit Roy, Ahmad Beirami,
   volume abs/2406.05946, 2024.
 \newblock \doi{10.48550/arXiv.2406.05946}.
 
-\bibitem[Rahimi et~al.(2026)Rahimi, Hirshel, Himelstein, LeVi, Mendelson, and
-  Baskin]{Rahimi2026}
-Erfan Rahimi, Eyal Hirshel, Roy Himelstein, Amit LeVi, Avi Mendelson, and Chaim
-  Baskin.
-\newblock Step-wise refusal dynamics in autoregressive and diffusion language
-  models.
-\newblock \emph{arXiv preprint arXiv:2602.02600v3}, 2026.
-
-\bibitem[Rimsky et~al.(2023)Rimsky, Gabrieli, Schulz, Tong, Hubinger, and
-  Turner]{Rimsky2024}
-Nina Rimsky, Nick Gabrieli, Julia Schulz, Meg Tong, Evan Hubinger, and
-  Alexander~Matt Turner.
-\newblock Steering llama 2 via contrastive activation addition.
-\newblock In \emph{Annual Meeting of the Association for Computational
-  Linguistics}, volume abs/2312.06681, 2023.
-\newblock \doi{10.48550/arXiv.2312.06681}.
-
-\bibitem[Robinson(1950)]{Robinson1950}
-W.~S. Robinson.
-\newblock Ecological correlations and the behavior of individuals.
-\newblock \emph{American Sociological Review}, 15\penalty0 (3):\penalty0
-  351--357, 1950.
-\newblock \doi{10.2307/2087176}.
+\bibitem[reverse-abliterate()]{ReverseAbliterate}
+reverse-abliterate.
+\newblock {reverse-abliterate} 0.1.2.
+\newblock Software package: metadata- and filename-based abliteration scanner,
+  2026.
 
 \bibitem[Röttger et~al.(2023)Röttger, Kirk, Vidgen, Attanasio, Bianchi, and
-  Hovy]{Rottger2024}
+  Hovy]{Rttger2023}
 Paul Röttger, Hannah~Rose Kirk, Bertie Vidgen, Giuseppe Attanasio, Federico
   Bianchi, and Dirk Hovy.
 \newblock Xstest: A test suite for identifying exaggerated safety behaviours in
@@ -280,115 +192,71 @@ Paul Röttger, Hannah~Rose Kirk, Bertie Vidgen, Giuseppe Attanasio, Federico
   Linguistics}, volume abs/2308.01263, 2023.
 \newblock \doi{10.48550/arXiv.2308.01263}.
 
-\bibitem[Scheffer et~al.(2009)Scheffer, Bascompte, Brock, Brovkin, Carpenter,
-  Dakos, Held, van Nes, Rietkerk, and Sugihara]{Scheffer2009}
-Marten Scheffer, Jordi Bascompte, William~A. Brock, Victor Brovkin, Stephen~R.
-  Carpenter, Vasilis Dakos, Hermann Held, Egbert~H. van Nes, Max Rietkerk, and
-  George Sugihara.
-\newblock Early-warning signals for critical transitions.
-\newblock \emph{Nature}, 461:\penalty0 53--59, 2009.
-\newblock \doi{10.1038/nature08227}.
+\bibitem[Sapwell(2026)]{Sapwell2026}
+N.~Sapwell.
+\newblock Abliterlitics: open-source abliteration forensics.
+\newblock Software, AGPL-3.0, \url{https://github.com/dreamfast/abliterlitics};
+  model reports at abliterlitics.dev, 2026.
+\newblock First public 2026-04-24.
 
-\bibitem[Scheffer et~al.(2012)Scheffer, Carpenter, Lenton, Bascompte, Brock,
-  Dakos, van~de Koppel, van~de Leemput, Levin, van Nes, Pascual, and
-  Vandermeer]{Scheffer2012}
-Marten Scheffer, Stephen~R. Carpenter, Timothy~M. Lenton, Jordi Bascompte,
-  William Brock, Vasilis Dakos, Johan van~de Koppel, Ingrid~A. van~de Leemput,
-  Simon~A. Levin, Egbert~H. van Nes, Mercedes Pascual, and John Vandermeer.
-\newblock Anticipating critical transitions.
-\newblock \emph{Science}, 338\penalty0 (6105):\penalty0 344--348, 2012.
-\newblock \doi{10.1126/science.1225244}.
+\bibitem[Shairah et~al.(2025)Shairah, Hammoud, Ghanem, and
+  Turkiyyah]{Shairah2025}
+Harethah~Abu Shairah, Hasan Hammoud, Bernard Ghanem, and G.~Turkiyyah.
+\newblock An embarrassingly simple defense against llm abliteration attacks.
+\newblock \emph{ArXiv}, abs/2505.19056, 2025.
+\newblock \doi{10.48550/arXiv.2505.19056}.
 
-\bibitem[Sch\"onbrodt and Perugini(2013)]{Schonbrodt2013}
-Felix~D. Sch\"onbrodt and Marco Perugini.
-\newblock At what sample size do correlations stabilize?
-\newblock \emph{Journal of Research in Personality}, 47\penalty0 (5):\penalty0
-  609--612, 2013.
-\newblock \doi{10.1016/j.jrp.2013.05.009}.
+\bibitem[Siu et~al.(2025)Siu, Crispino, Yu, Pan, Wang, Liu, Song, and
+  Wang]{Siu2025}
+Vincent Siu, Nicholas Crispino, Zihao Yu, S.~Pan, Zhun Wang, Yang Liu, D.~Song,
+  and Chenguang Wang.
+\newblock Cosmic: Generalized refusal direction identification in llm
+  activations.
+\newblock In \emph{Annual Meeting of the Association for Computational
+  Linguistics}, volume abs/2506.00085, 2025.
+\newblock \doi{10.48550/arXiv.2506.00085}.
 
-\bibitem[Sch\"onbrodt and Perugini(2018)]{Schonbrodt2018}
-Felix~D. Sch\"onbrodt and Marco Perugini.
-\newblock Corrigendum to ``at what sample size do correlations stabilize?''.
-\newblock \emph{Journal of Research in Personality}, 74:\penalty0 194, 2018.
-\newblock \doi{10.1016/j.jrp.2018.02.010}.
-
-\bibitem[Simpson(1951)]{Simpson1951}
-E.~H. Simpson.
-\newblock The interpretation of interaction in contingency tables.
-\newblock \emph{Journal of the Royal Statistical Society: Series B
-  (Methodological)}, 13\penalty0 (2):\penalty0 238--241, 1951.
-
-\bibitem[Taimeskhanov et~al.(2026)Taimeskhanov, Vaiter, and
-  Garreau]{Taimeskhanov2026}
-Magamed Taimeskhanov, Samuel Vaiter, and Damien Garreau.
-\newblock Towards understanding steering strength.
-\newblock In \emph{International Conference on Machine Learning (ICML)}, 2026.
-\newblock arXiv:2602.02712v2.
-
-\bibitem[Turner et~al.(2023)Turner, Thiergart, Leech, Udell, Vazquez, Mini, and
-  MacDiarmid]{Turner2023}
-A.~M. Turner, Lisa Thiergart, Gavin Leech, David~S. Udell, Juan~J. Vazquez,
-  Ulisse Mini, and M.~MacDiarmid.
-\newblock Steering language models with activation engineering.
-\newblock \emph{arXiv preprint arXiv:2308.10248}, 2023.
-\newblock \doi{10.48550/arXiv.2308.10248}.
-
-\bibitem[Venkatesh and Kurapath(2026)]{Venkatesh2026}
-Sanjay Venkatesh and Ajay~M. Kurapath.
-\newblock On the non-identifiability of steering vectors in large language
+\bibitem[Staats et~al.(2024)Staats, Thamm, and Rosenow]{Staats2024}
+Max Staats, M.~Thamm, and Bernd Rosenow.
+\newblock Small singular values matter: A random matrix analysis of transformer
   models.
-\newblock \emph{arXiv preprint arXiv:2602.06801v4}, 2026.
+\newblock In \emph{Neural Information Processing Systems}, 2024.
+\newblock \doi{10.52202/085713-5135}.
 
-\bibitem[Wang et~al.(2026)Wang, Han, Shang, Tang, and Liu]{Wang2026}
-Yifan Wang, Xiao Han, Dian Shang, Yu~Tang, and Bing Liu.
-\newblock Safety, or just capability? a validity audit of agent-safety
-  benchmarks.
-\newblock \emph{arXiv preprint arXiv:2607.28685}, 2026.
+\bibitem[Wei et~al.(2024)Wei, Huang, Huang, Xie, Qi, Xia, Mittal, Wang, and
+  Henderson]{Wei2024}
+Boyi Wei, Kaixuan Huang, Yangsibo Huang, Tinghao Xie, Xiangyu Qi, Mengzhou Xia,
+  Prateek Mittal, Mengdi Wang, and Peter Henderson.
+\newblock Assessing the brittleness of safety alignment via pruning and
+  low-rank modifications.
+\newblock In \emph{International Conference on Machine Learning}, pages
+  52588--52610, 2024.
+\newblock \doi{10.48550/arXiv.2402.05162}.
 
-\bibitem[Weng et~al.(2026)Weng, Feng, and Xie]{Weng2026}
-Shuai Weng, Yang Feng, and Xiaoyuan Xie.
-\newblock Beyond accuracy: Policy invariance as a reliability test for {LLM}
-  safety judges.
-\newblock \emph{arXiv preprint arXiv:2605.06161}, 2026.
+\bibitem[Weidmann(2026)]{Weidmann2026}
+P.~E. Weidmann.
+\newblock Heretic: fully automatic censorship removal for language models.
+\newblock Software, \texttt{src/heretic/model.py},
+  \texttt{config.default.toml}, 2026.
 
-\bibitem[Wu et~al.(2026)Wu, Zhao, and Chen]{Wu2026}
-Yiming Wu, Shuang Zhao, and Jing Chen.
-\newblock When is a steerable concept representation real? measurement
-  confounds in a cross-family audit of neuroscience parallels in {LLM}s.
-\newblock \emph{arXiv preprint arXiv:2608.08159}, 2026.
+\bibitem[Xie(2026)]{Xie2026}
+R.~Xie.
+\newblock The intruder threshold: A spectral law for {LoRA} fine-tuning.
+\newblock \emph{arXiv preprint arXiv:2607.23711}, 2026.
 
-\bibitem[Xu and Sheng(2026)]{Xu2026}
-Zhuo Xu and Victor~S. Sheng.
-\newblock A behavioral fingerprint for large language models: Provenance
-  tracking via refusal vectors.
-\newblock \emph{arXiv preprint arXiv:2602.09434}, 2026.
+\bibitem[Young et~al.(2025)]{Young2025}
+J.~Young et~al.
+\newblock Comparative analysis of {LLM} abliteration methods: A
+  cross-architecture evaluation.
+\newblock \emph{arXiv preprint arXiv:2512.13655}, 2025.
 
-\bibitem[Yang et~al.(2025)Yang, Li, Yang, Zhang, Hui, Zheng, Yu, Gao, Huang,
-  Lv, Zheng, Liu, Zhou, Huang, Hu, Ge, Wei, Lin, Tang, Yang, Tu, Zhang, Yang,
-  Yang, Zhou, Zhou, Lin, Dang, Bao, Yang, Yu, Deng, Li, Xue, Li, Zhang, Wang,
-  Zhu, Men, Gao, Liu, Luo, Li, Tang, Yin, Ren, Wang, Zhang, Ren, Fan, Su,
-  Zhang, Zhang, Wan, Liu, Wang, Cui, Zhang, Zhou, and Qiu]{Yang2025}
-An~Yang, Anfeng Li, Baosong Yang, Beichen Zhang, Binyuan Hui, Bo~Zheng, Bowen
-  Yu, Chang Gao, Chengen Huang, Chenxu Lv, Chujie Zheng, Dayiheng Liu, Fan
-  Zhou, Fei Huang, Feng Hu, Hao Ge, Haoran Wei, Huan Lin, Jialong Tang, Jian
-  Yang, Jianhong Tu, Jianwei Zhang, Jianxin Yang, Jiaxin Yang, Jingren Zhou,
-  Jingren Zhou, Junyan Lin, K.~Dang, Keqin Bao, Ke‐Pei Yang, Le~Yu, Li-Chun
-  Deng, Mei Li, Min Xue, Mingze Li, Pei Zhang, Peng Wang, Qin Zhu, Rui Men,
-  Ruize Gao, Shixuan Liu, Shuang Luo, Tianhao Li, Tianyi Tang, Wenbiao Yin,
-  Xingzhang Ren, Xinyu Wang, Xinyu Zhang, Xuancheng Ren, Yang Fan, Yang Su,
-  Yi-Chao Zhang, Yinger Zhang, Yu~Wan, Yuqiong Liu, Zekun Wang, Zeyu Cui,
-  Zhenru Zhang, Zhipeng Zhou, and Zihan Qiu.
-\newblock Qwen3 technical report.
-\newblock \emph{arXiv preprint arXiv:2505.09388}, 2025.
-\newblock \doi{10.48550/arXiv.2505.09388}.
-
-\bibitem[Yin et~al.(2025)Yin, Leong, Yang, Huang, Li, Wang, Yoon, YunXing,
-  Xing-yu, and Gu]{Yin2025}
-Qingyu Yin, Chak~Tou Leong, Linyi Yang, Wenxuan Huang, Wenjie Li, Xiting Wang,
-  Jaehong Yoon, YunXing, Xing-yu, and Jinjin Gu.
-\newblock Refusal falls off a cliff: How safety alignment fails in reasoning?
-\newblock \emph{ArXiv}, abs/2510.06036, 2025.
-\newblock \doi{10.48550/arXiv.2510.06036}.
+\bibitem[Zhang et~al.(2026)Zhang, Prasad, Hu, Liu, Luo, Ren, and
+  Yang]{Zhang2026}
+Z.~Zhang, I.~V. Prasad, Y.~Hu, Z.~Liu, H.~Luo, P.~Ren, and Y.~Yang.
+\newblock Spectral signatures of large language models.
+\newblock In \emph{Proceedings of the ACM SIGKDD Conference on Knowledge
+  Discovery and Data Mining (KDD)}, 2026.
+\newblock arXiv:2607.03377.
 
 \bibitem[Zheng et~al.(2023)Zheng, Chiang, Sheng, Zhuang, Wu, Zhuang, Lin, Li,
   Li, Xing, Zhang, Gonzalez, and Stoica]{Zheng2023}
@@ -400,23 +268,17 @@ Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, Siyuan Zhuang, Zhanghao Wu, Yonghao
   abs/2306.05685, 2023.
 \newblock \doi{10.52202/075280-2020}.
 
-\bibitem[Zou et~al.(2023{\natexlab{a}})Zou, Phan, Chen, Campbell, Guo, Ren,
-  Pan, Yin, Mazeika, Dombrowski, Goel, Li, Byun, Wang, Mallen, Basart, Koyejo,
-  Song, Fredrikson, Kolter, and Hendrycks]{ZouRepE2023}
-Andy Zou, Long Phan, Sarah Chen, James Campbell, Phillip Guo, Richard Ren,
-  Alexander Pan, Xuwang Yin, Mantas Mazeika, Ann-Kathrin Dombrowski, Shashwat
-  Goel, Nathaniel Li, Michael~J. Byun, Zifan Wang, Alex~Troy Mallen, Steven
-  Basart, Sanmi Koyejo, Dawn Song, Matt Fredrikson, Zico Kolter, and Dan
-  Hendrycks.
-\newblock Representation engineering: A top-down approach to ai transparency.
-\newblock \emph{ArXiv}, abs/2310.01405, 2023{\natexlab{a}}.
-\newblock \doi{10.48550/arXiv.2310.01405}.
+\bibitem[Zhong and Raghunathan(2025)]{Zhong2025}
+Ziqian Zhong and Aditi Raghunathan.
+\newblock Watch the weights: Unsupervised monitoring and control of fine-tuned
+  llms.
+\newblock \emph{ArXiv}, abs/2508.00161, 2025.
+\newblock \doi{10.48550/arXiv.2508.00161}.
 
-\bibitem[Zou et~al.(2023{\natexlab{b}})Zou, Wang, Kolter, and
-  Fredrikson]{Zou2023}
+\bibitem[Zou et~al.(2023)Zou, Wang, Kolter, and Fredrikson]{Zou2023}
 Andy Zou, Zifan Wang, J.~Kolter, and Matt Fredrikson.
 \newblock Universal and transferable adversarial attacks on aligned language
   models.
-\newblock \emph{ArXiv}, abs/2307.15043, 2023{\natexlab{b}}.
+\newblock \emph{ArXiv}, abs/2307.15043, 2023.
 
 \end{thebibliography}

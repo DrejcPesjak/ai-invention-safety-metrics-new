@@ -1,0 +1,15 @@
+{
+  "n_cells_attempted": 61,
+  "n_cells_clean": 5,
+  "n_cells_drift": 5,
+  "n_cells_unavailable": 0,
+  "tiers_reached": [
+    "A",
+    "B",
+    "D"
+  ],
+  "pooled_hit_rate": 0.6064207650273226,
+  "n_cells_reproducing_archived_rate_exactly": 0,
+  "n_rows": 3880,
+  "wall_clock_s": 1153.9829795360565
+}

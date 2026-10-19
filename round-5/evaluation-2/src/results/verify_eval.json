@@ -1,0 +1,287 @@
+{
+  "checks": [
+    {
+      "check": "eval_out has metrics_agg and datasets",
+      "pass": true,
+      "detail": "45 metrics, 5 datasets"
+    },
+    {
+      "check": "every dataset is non-empty",
+      "pass": true,
+      "detail": "{'item_rescoring': 620, 'per_stage_rates': 19, 'text_recovery': 61, 'propagated_claims': 5, 'armb_membership': 14}"
+    },
+    {
+      "check": "metrics_agg is all numeric",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "n_items_rescored equals the scores.jsonl row count",
+      "pass": true,
+      "detail": "620.0 vs 620"
+    },
+    {
+      "check": "every scored item is a proven cache hit",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no duplicate (stage_id, uid) in the sample",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "the pre-registered sample is inside the [150,200] window",
+      "pass": true,
+      "detail": "n_preregistered=180"
+    },
+    {
+      "check": "sample manifest item count matches the pre-registered subset of scores.jsonl",
+      "pass": true,
+      "detail": "180 vs 180"
+    },
+    {
+      "check": "scores.jsonl is a CENSUS of the load-bearing frame (a superset of the sample)",
+      "pass": true,
+      "detail": "census=620 frame=620 sample=180"
+    },
+    {
+      "check": "every scored stage is a declared load-bearing stage",
+      "pass": true,
+      "detail": "19 of 19 stages"
+    },
+    {
+      "check": "the census contains every PARTIAL item in the load-bearing frame",
+      "pass": true,
+      "detail": "census 21 of frame 21"
+    },
+    {
+      "check": "PARTIAL was oversampled in the pre-registered sample relative to its frame rate",
+      "pass": true,
+      "detail": "sample 0.117 vs frame 0.034"
+    },
+    {
+      "check": "agreement.json reports the pre-registered subset separately from the census",
+      "pass": true,
+      "detail": "n=180"
+    },
+    {
+      "check": "pooled_cache_hit_rate matches the per-cell mean",
+      "pass": true,
+      "detail": "0.606421"
+    },
+    {
+      "check": "n_cells_regenerated matches regen_meta.jsonl",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "every cell with hit_rate 1.0 reproduces its archived rate exactly",
+      "pass": true,
+      "detail": "violations: []"
+    },
+    {
+      "check": "per-cell hit_rate recomputes from recovered.jsonl",
+      "pass": true,
+      "detail": "0 mismatching cells"
+    },
+    {
+      "check": "pct_agreement_J1_J2_3class recomputes",
+      "pass": true,
+      "detail": "0.679032 vs 0.679032"
+    },
+    {
+      "check": "cohens_kappa_J1_J2_3class recomputes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "gwet_ac1_J1_J2_3class recomputes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "pct_agreement_J1_J3_3class recomputes",
+      "pass": true,
+      "detail": "0.718033 vs 0.718033"
+    },
+    {
+      "check": "cohens_kappa_J1_J3_3class recomputes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "gwet_ac1_J1_J3_3class recomputes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "pct_agreement_J2_J3_3class recomputes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "PABAK equals (3*p_o - 1)/2 for J1-J2",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "AC1 >= kappa on J1-J2 (the prevalence paradox runs this way)",
+      "pass": true,
+      "detail": "AC1=0.5819 kappa=0.3609"
+    },
+    {
+      "check": "n_all_three_agree recomputes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "n_all_three_differ recomputes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "n_disputed_items equals rows with a label disagreement",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "disputed_items.jsonl carries a header line plus one row per disputed item",
+      "pass": true,
+      "detail": "300 lines"
+    },
+    {
+      "check": "every per-stage rate, k, n and Wilson interval recomputes",
+      "pass": true,
+      "detail": "0 mismatches: []"
+    },
+    {
+      "check": "P1 quotes the archived root-B rate verbatim from the crossing table",
+      "pass": true,
+      "detail": "0.2702702702702703"
+    },
+    {
+      "check": "P1 archived interval width recomputes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "rootB_max_abs_shift equals the max over the three arms",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "P1 verdict is one of the four pre-registered tokens",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "P1 SURVIVES iff the max shift is within the archived interval width",
+      "pass": true,
+      "detail": "shift=0.5019 width=0.1632"
+    },
+    {
+      "check": "P2 reports a Newcombe interval per arm with an explicit excludes_zero flag",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "P2 excludes_zero is consistent with its own interval",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "every propagated claim carries a verdict token and an English sentence",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "verdict tallies in metrics_agg match propagation.json",
+      "pass": true,
+      "detail": "{'SURVIVES_WEAKENED': 2, 'SURVIVES': 3}"
+    },
+    {
+      "check": "P4 recomputes both collapse rates from the archived label lists",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "P4 counts are consistent with its own kernel table",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "P4 W05 values are taken verbatim from arm_b.jsonl (weights NOT re-measured)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "total_spend_usd equals the cost ledger",
+      "pass": true,
+      "detail": "$0.0666"
+    },
+    {
+      "check": "spend is under the $1.50 cap and the $1.35 abort",
+      "pass": true,
+      "detail": "$0.0666"
+    },
+    {
+      "check": "rescore cache covers every scored item for both paid arms",
+      "pass": true,
+      "detail": "886 entries"
+    },
+    {
+      "check": "J2 is not a Qwen, Llama or guard model (circularity guard)",
+      "pass": true,
+      "detail": "google/gemini-2.5-flash"
+    },
+    {
+      "check": "J1 and J2 share rubric B byte-for-byte",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "J3 shares J1's model and differs only in rubric",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "the anchor disclaimer states the adjudicator is not a human",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "UNPARSEABLE is reported, not dropped",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "archived verifier exp3_art_VLI4IOs9Xy9P still passes",
+      "pass": true,
+      "detail": "29/29"
+    },
+    {
+      "check": "archived verifier exp1_art_dp7WBo6hhVBX still passes",
+      "pass": true,
+      "detail": "20/20"
+    },
+    {
+      "check": "reproducibility.json records a sha256 for every input archive file it read",
+      "pass": true,
+      "detail": "11 files"
+    },
+    {
+      "check": "the sample manifest sha256 in reproducibility.json still matches the file",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "the adjudication file post-dates the blind anchor file",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "n_pass": 56,
+  "n_total": 56,
+  "all_pass": true
+}

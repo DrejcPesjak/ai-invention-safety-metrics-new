@@ -1,109 +1,79 @@
 [project]
-name = "paraphrase-refit-at-scale"
+name = "weight-scar-uniformity"
 version = "1.0.0"
-description = "Does iteration 3's paraphrase-refit improvement of our AMS reimplementation (Spearman rho 0.358 -> 0.654 with the judged plain-harmful refusal rate) hold on a panel grown from 7 to 28 weight lineages, and does it reproduce under a second, independently authored token-disjoint paraphrase set? Verdict: DOES_NOT_SURVIVE."
+description = "Is the parent-free abliteration weight scar (W05) about UNIFORMITY? A stamped signed-prediction table, a recipe-diverse public-checkpoint arm, in-house kernel reimplementations (Gaussian depth, sub-unit, Householder/ORBA, Heretic-style, MPOA, rank-k, layer band), leave-one-recipe-class-out generalisation, and an E_1 / repo-name-regex baseline head-to-head."
 requires-python = ">=3.12"
-dependencies = [
-    "accelerate==1.14.0",
-    "aiohappyeyeballs==2.7.1",
-    "aiohttp==3.14.3",
-    "aiosignal==1.4.0",
-    "annotated-doc==0.0.5",
-    "anyio==4.14.2",
-    "attrs==26.1.0",
-    "blobfile==3.2.0",
-    "certifi==2026.7.22",
-    "charset-normalizer==3.5.0",
-    "click==8.4.2",
-    "cuda-bindings==12.9.4",
-    "cuda-pathfinder==1.2.2",
-    "cuda-toolkit==12.8.1",
-    "filelock==3.29.0",
-    "frozenlist==1.8.0",
-    "fsspec==2026.4.0",
-    "h11==0.16.0",
-    "hf-transfer==0.1.9",
-    "hf-xet==1.6.0",
-    "httpcore==1.0.9",
-    "httpx==0.28.1",
-    "huggingface-hub==1.27.0",
-    "idna==3.18",
-    "jinja2==3.1.6",
-    "loguru==0.7.3",
-    "lxml==6.1.1",
-    "markdown-it-py==4.2.0",
-    "markupsafe==3.0.3",
-    "mdurl==0.1.2",
-    "mpmath==1.3.0",
-    "multidict==6.7.1",
-    "networkx==3.6.1",
-    "numpy==2.5.2",
-    "nvidia-cublas-cu12==12.8.4.1",
-    "nvidia-cuda-cupti-cu12==12.8.90",
-    "nvidia-cuda-nvrtc-cu12==12.8.93",
-    "nvidia-cuda-runtime-cu12==12.8.90",
-    "nvidia-cudnn-cu12==9.19.0.56",
-    "nvidia-cufft-cu12==11.3.3.83",
-    "nvidia-cufile-cu12==1.13.1.3",
-    "nvidia-curand-cu12==10.3.9.90",
-    "nvidia-cusolver-cu12==11.7.3.90",
-    "nvidia-cusparse-cu12==12.5.8.93",
-    "nvidia-cusparselt-cu12==0.7.1",
-    "nvidia-nccl-cu12==2.28.9",
-    "nvidia-nvjitlink-cu12==12.8.93",
-    "nvidia-nvshmem-cu12==3.4.5",
-    "nvidia-nvtx-cu12==12.8.90",
-    "packaging==26.3",
-    "pandas==3.0.5",
-    "patsy==1.0.2",
-    "propcache==0.5.2",
-    "psutil==7.2.2",
-    "pycryptodomex==3.23.0",
-    "pygments==2.20.0",
-    "python-dateutil==2.9.0.post0",
-    "pyyaml==6.0.3",
-    "regex==2026.7.19",
-    "requests==2.34.2",
-    "rich==15.0.0",
-    "safetensors==0.8.0",
-    "scipy==1.18.0",
-    "setuptools==78.1.0",
-    "shellingham==1.5.4",
-    "six==1.17.0",
-    "statsmodels==0.14.6",
-    "sympy==1.14.0",
-    "tiktoken==0.13.0",
-    "tokenizers==0.22.2",
-    "torch==2.11.0+cu128",
-    "tqdm==4.70.0",
-    "transformers==5.15.0",
-    "triton==3.6.0",
-    "typer==0.27.1",
-    "typing-extensions==4.15.0",
-    "urllib3==2.7.0",
-    "yarl==1.24.5",
-]
 
-# Every version above is the EXACT version installed in .venv (`uv pip freeze`),
-# including the transitive closure, so the environment is reproducible byte for
-# byte. That matters more here than usual: the artifact's central reuse proof is
-# behavioural, not textual -- our AMS reimplementation, recomputed from scratch,
-# must land within 1e-3 of the sigma the iteration-2 archive recorded (it
-# reproduces to 2.4e-06 on 19/19 members under this pin), the SET-A refit must
-# reproduce iteration 3's sigma exactly (delta 0.0 on 19/19), and the core-80
-# greedy generations must come back byte-identical so the seeded judge cache hits
-# 100%. None of those assertions means anything if the libraries have drifted.
-#
-# torch is installed from the CUDA 12.8 wheel index, which a bare
-# `uv pip install torch==2.11.0` will NOT select. Recreate with:
-#
-#   uv venv .venv --python=3.12
-#   uv pip install --python=.venv/bin/python torch==2.11.0 \
-#       --index-url https://download.pytorch.org/whl/cu128
-#   uv pip install --python=.venv/bin/python -r <(grep -v '^torch==' pyproject-deps.txt)
-#
-# Hardware used: 1x NVIDIA RTX A4500 20 GB, 48 CPU, 270 GB RAM, 40 GB writable
-# overlay for the HF cache (snapshots are purged after every member).
-# Wall clock: ~26 min for all 54 members (~20-35 s each, download-dominated),
-# ~13 min for the analysis (the 200,000-draw lineage permutations dominate).
-# LLM spend: $0.1334 total -- $0.1272 judge, $0.0062 paraphrase SET B.
+# EXACT transitive closure of the .venv this artifact actually ran in, taken
+# verbatim from `uv pip freeze` and mirrored at results/pip_freeze.txt.
+# The torch/transformers pins are inherited from the iteration-3 environment on
+# purpose: the S1 reproduction gate compares this run's W01-W05 against archived
+# numbers, so a different library version would confound the gate deltas with a
+# library change. tiktoken / sentencepiece / protobuf / blobfile are tokenizer
+# backends that a few panel members need in order to load at all.
+dependencies = [
+  "accelerate==1.14.0",
+  "annotated-doc==0.0.5",
+  "anyio==4.14.2",
+  "blobfile==3.2.0",
+  "certifi==2026.7.22",
+  "charset-normalizer==3.5.0",
+  "click==8.4.2",
+  "filelock==3.32.3",
+  "fsspec==2026.7.0",
+  "h11==0.16.0",
+  "hf-xet==1.6.0",
+  "httpcore==1.0.9",
+  "httpx==0.28.1",
+  "huggingface-hub==1.27.0",
+  "idna==3.18",
+  "jinja2==3.1.6",
+  "loguru==0.7.3",
+  "lxml==6.1.1",
+  "markdown-it-py==4.2.0",
+  "markupsafe==3.0.3",
+  "mdurl==0.1.2",
+  "mpmath==1.3.0",
+  "networkx==3.6.1",
+  "numpy==2.5.2",
+  "nvidia-cublas-cu12==12.4.5.8",
+  "nvidia-cuda-cupti-cu12==12.4.127",
+  "nvidia-cuda-nvrtc-cu12==12.4.127",
+  "nvidia-cuda-runtime-cu12==12.4.127",
+  "nvidia-cudnn-cu12==9.1.0.70",
+  "nvidia-cufft-cu12==11.2.1.3",
+  "nvidia-curand-cu12==10.3.5.147",
+  "nvidia-cusolver-cu12==11.6.1.9",
+  "nvidia-cusparse-cu12==12.3.1.170",
+  "nvidia-cusparselt-cu12==0.6.2",
+  "nvidia-nccl-cu12==2.21.5",
+  "nvidia-nvjitlink-cu12==12.4.127",
+  "nvidia-nvtx-cu12==12.4.127",
+  "packaging==26.3",
+  "pandas==3.0.5",
+  "protobuf==7.35.1",
+  "psutil==7.2.0",
+  "pycryptodomex==3.23.0",
+  "pygments==2.20.0",
+  "python-dateutil==2.9.0.post0",
+  "pyyaml==6.0.3",
+  "regex==2026.7.19",
+  "requests==2.34.2",
+  "rich==15.0.0",
+  "safetensors==0.8.0",
+  "scipy==1.18.0",
+  "sentencepiece==0.2.2",
+  "setuptools==84.0.0",
+  "shellingham==1.5.4",
+  "six==1.17.0",
+  "sympy==1.13.1",
+  "tiktoken==0.13.0",
+  "tokenizers==0.22.2",
+  "torch==2.6.0",
+  "tqdm==4.70.0",
+  "transformers==5.15.0",
+  "triton==3.2.0",
+  "typer==0.27.1",
+  "typing-extensions==4.16.0",
+  "urllib3==2.7.0",
+]

@@ -1,0 +1,2797 @@
+{
+  "search": {
+    "queries": [
+      "abliterated",
+      "uncensored",
+      "orthogonalized",
+      "ORBA",
+      "norm-preserving",
+      "refusal-removed",
+      "decensored"
+    ],
+    "per_query": {
+      "abliterated": {
+        "n_returned": 60
+      },
+      "uncensored": {
+        "n_returned": 60
+      },
+      "orthogonalized": {
+        "n_returned": 17
+      },
+      "ORBA": {
+        "n_returned": 35
+      },
+      "norm-preserving": {
+        "n_returned": 10
+      },
+      "refusal-removed": {
+        "n_returned": 2
+      },
+      "decensored": {
+        "n_returned": 60
+      }
+    },
+    "n_unique_repos": 242,
+    "repos": {
+      "Bahushruth/Qwen3.6-35B-A3B-abliterated-v4": {
+        "repo": "Bahushruth/Qwen3.6-35B-A3B-abliterated-v4",
+        "downloads": 1164780,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "wangzhang/gemma-4-31B-it-abliterated": {
+        "repo": "wangzhang/gemma-4-31B-it-abliterated",
+        "downloads": 818666,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "mradermacher/Qwen3-VL-8B-Instruct-abliterated-GGUF": {
+        "repo": "mradermacher/Qwen3-VL-8B-Instruct-abliterated-GGUF",
+        "downloads": 614447,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "mlabonne/Qwen3-30B-A3B-abliterated": {
+        "repo": "mlabonne/Qwen3-30B-A3B-abliterated",
+        "downloads": 440314,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "coolthor/Huihui-Qwen3.6-35B-A3B-abliterated-FP8-DYNAMIC": {
+        "repo": "coolthor/Huihui-Qwen3.6-35B-A3B-abliterated-FP8-DYNAMIC",
+        "downloads": 402876,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "paperscarecrow/Gemma-4-31B-it-abliterated": {
+        "repo": "paperscarecrow/Gemma-4-31B-it-abliterated",
+        "downloads": 335606,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Huihui-DeepSeek-V4-Flash-abliterated-ds4-GGUF": {
+        "repo": "huihui-ai/Huihui-DeepSeek-V4-Flash-abliterated-ds4-GGUF",
+        "downloads": 326011,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "shawnw3i/Huihui-Qwen3.6-27B-abliterated-AWQ-MTP": {
+        "repo": "shawnw3i/Huihui-Qwen3.6-27B-abliterated-AWQ-MTP",
+        "downloads": 244978,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "culturerevolt/gemma-4-12b-heretic-abliterated-GGUF": {
+        "repo": "culturerevolt/gemma-4-12b-heretic-abliterated-GGUF",
+        "downloads": 225423,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Huihui-DeepSeek-V4-Flash-0731-abliterated-GGUF": {
+        "repo": "huihui-ai/Huihui-DeepSeek-V4-Flash-0731-abliterated-GGUF",
+        "downloads": 197135,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "jeffcookio/gemma-3-12b-it-abliterated-gptqmodel-4b-128g": {
+        "repo": "jeffcookio/gemma-3-12b-it-abliterated-gptqmodel-4b-128g",
+        "downloads": 192122,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Huihui-Qwen3.5-27B-abliterated": {
+        "repo": "huihui-ai/Huihui-Qwen3.5-27B-abliterated",
+        "downloads": 155781,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF": {
+        "repo": "huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF",
+        "downloads": 101381,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "lhca521/Huihui-Qwen3.6-27B-abliterated-AWQ": {
+        "repo": "lhca521/Huihui-Qwen3.6-27B-abliterated-AWQ",
+        "downloads": 91166,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "OpenYourMind/Qwopus3.5-122B-A10B-Kimi-K2.6-destill-healed-abliterated-GGUF": {
+        "repo": "OpenYourMind/Qwopus3.5-122B-A10B-Kimi-K2.6-destill-healed-abliterated-GGUF",
+        "downloads": 83536,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "mradermacher/Huihui-GLM-4.7-Flash-abliterated-i1-GGUF": {
+        "repo": "mradermacher/Huihui-GLM-4.7-Flash-abliterated-i1-GGUF",
+        "downloads": 79724,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "bartowski/huihui-ai_Qwen3-Coder-Next-abliterated-GGUF": {
+        "repo": "bartowski/huihui-ai_Qwen3-Coder-Next-abliterated-GGUF",
+        "downloads": 75426,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Qwen2.5-VL-7B-Instruct-abliterated": {
+        "repo": "huihui-ai/Qwen2.5-VL-7B-Instruct-abliterated",
+        "downloads": 70883,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Huihui-Qwen3.6-35B-A3B-abliterated-MTP-GGUF": {
+        "repo": "huihui-ai/Huihui-Qwen3.6-35B-A3B-abliterated-MTP-GGUF",
+        "downloads": 62324,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "KebalBaguette/Mistral-Nemo-Instruct-2407-abliterated-AWQ": {
+        "repo": "KebalBaguette/Mistral-Nemo-Instruct-2407-abliterated-AWQ",
+        "downloads": 61224,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "ibrahimkettaneh/Qwen2.5-72B-Instruct-abliterated-AWQ": {
+        "repo": "ibrahimkettaneh/Qwen2.5-72B-Instruct-abliterated-AWQ",
+        "downloads": 59442,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "bartowski/Llama-3.3-70B-Instruct-abliterated-GGUF": {
+        "repo": "bartowski/Llama-3.3-70B-Instruct-abliterated-GGUF",
+        "downloads": 59417,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "mradermacher/Huihui-ThinkingCap-Qwen3.6-27B-abliterated-i1-GGUF": {
+        "repo": "mradermacher/Huihui-ThinkingCap-Qwen3.6-27B-abliterated-i1-GGUF",
+        "downloads": 54372,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Huihui-Qwen3.6-27B-abliterated-MTP-GGUF": {
+        "repo": "huihui-ai/Huihui-Qwen3.6-27B-abliterated-MTP-GGUF",
+        "downloads": 53404,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Huihui-gemma-4-31B-it-abliterated-v2": {
+        "repo": "huihui-ai/Huihui-gemma-4-31B-it-abliterated-v2",
+        "downloads": 49920,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "DavidAU/Llama-3.2-8X3B-MOE-Dark-Champion-Instruct-uncensored-abliterated-18.4B-GGUF": {
+        "repo": "DavidAU/Llama-3.2-8X3B-MOE-Dark-Champion-Instruct-uncensored-abliterated-18.4B-GGUF",
+        "downloads": 49230,
+        "queries": [
+          "abliterated",
+          "uncensored"
+        ]
+      },
+      "huihui-ai/Huihui-Qwythos-9B-Claude-Mythos-5-1M-abliterated-GGUF": {
+        "repo": "huihui-ai/Huihui-Qwythos-9B-Claude-Mythos-5-1M-abliterated-GGUF",
+        "downloads": 48697,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "apetersson/DeepSeek-V4-Flash-0731-Abliterated-DS4-Headroom128": {
+        "repo": "apetersson/DeepSeek-V4-Flash-0731-Abliterated-DS4-Headroom128",
+        "downloads": 45153,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Huihui-ThinkingCap-Qwen3.6-27B-abliterated": {
+        "repo": "huihui-ai/Huihui-ThinkingCap-Qwen3.6-27B-abliterated",
+        "downloads": 40331,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "sakamakismile/Huihui-Qwen3.6-27B-abliterated-NVFP4-MTP": {
+        "repo": "sakamakismile/Huihui-Qwen3.6-27B-abliterated-NVFP4-MTP",
+        "downloads": 39949,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "noctrex/Huihui-Qwen3-VL-30B-A3B-Instruct-abliterated-GGUF": {
+        "repo": "noctrex/Huihui-Qwen3-VL-30B-A3B-Instruct-abliterated-GGUF",
+        "downloads": 36575,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "DavidAU/OpenAi-GPT-oss-20b-abliterated-uncensored-NEO-Imatrix-gguf": {
+        "repo": "DavidAU/OpenAi-GPT-oss-20b-abliterated-uncensored-NEO-Imatrix-gguf",
+        "downloads": 36237,
+        "queries": [
+          "abliterated",
+          "uncensored"
+        ]
+      },
+      "bartowski/gemma-2-2b-it-abliterated-GGUF": {
+        "repo": "bartowski/gemma-2-2b-it-abliterated-GGUF",
+        "downloads": 33152,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Huihui-Qwen3-VL-4B-Instruct-abliterated": {
+        "repo": "huihui-ai/Huihui-Qwen3-VL-4B-Instruct-abliterated",
+        "downloads": 32422,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Llama-3.2-1B-Instruct-abliterated": {
+        "repo": "huihui-ai/Llama-3.2-1B-Instruct-abliterated",
+        "downloads": 31822,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Huihui-gemma-4-12B-agentic-fable5-abliterated": {
+        "repo": "huihui-ai/Huihui-gemma-4-12B-agentic-fable5-abliterated",
+        "downloads": 29867,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "mradermacher/Huihui-Qwen3-8B-abliterated-v2-GGUF": {
+        "repo": "mradermacher/Huihui-Qwen3-8B-abliterated-v2-GGUF",
+        "downloads": 29658,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "lyf/Huihui-gemma-4-31B-it-abliterated-v2-NVFP4": {
+        "repo": "lyf/Huihui-gemma-4-31B-it-abliterated-v2-NVFP4",
+        "downloads": 28563,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "groxaxo/Qwen3.6-27B-abliterated-v2-GPTQ-Pro-FOEM-4bit-g128": {
+        "repo": "groxaxo/Qwen3.6-27B-abliterated-v2-GPTQ-Pro-FOEM-4bit-g128",
+        "downloads": 27859,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "mlabonne/Meta-Llama-3.1-8B-Instruct-abliterated-GGUF": {
+        "repo": "mlabonne/Meta-Llama-3.1-8B-Instruct-abliterated-GGUF",
+        "downloads": 27291,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "mradermacher/Huihui-Qwen3.5-9B-abliterated-GGUF": {
+        "repo": "mradermacher/Huihui-Qwen3.5-9B-abliterated-GGUF",
+        "downloads": 27242,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "Bahushruth/Qwen3.6-35B-A3B-abliterated-v4-GGUF": {
+        "repo": "Bahushruth/Qwen3.6-35B-A3B-abliterated-v4-GGUF",
+        "downloads": 26143,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Huihui-Qwen3.6-35B-A3B-abliterated": {
+        "repo": "huihui-ai/Huihui-Qwen3.6-35B-A3B-abliterated",
+        "downloads": 25580,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "mradermacher/Qwen2.5-VL-7B-Instruct-abliterated-GGUF": {
+        "repo": "mradermacher/Qwen2.5-VL-7B-Instruct-abliterated-GGUF",
+        "downloads": 25026,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Huihui-GLM-5.2-abliterated-GGUF": {
+        "repo": "huihui-ai/Huihui-GLM-5.2-abliterated-GGUF",
+        "downloads": 24380,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Qwen2.5-VL-3B-Instruct-abliterated": {
+        "repo": "huihui-ai/Qwen2.5-VL-3B-Instruct-abliterated",
+        "downloads": 24057,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "BennyDaBall/Qwen3-4b-Z-Image-Turbo-AbliteratedV1": {
+        "repo": "BennyDaBall/Qwen3-4b-Z-Image-Turbo-AbliteratedV1",
+        "downloads": 23984,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated": {
+        "repo": "huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated",
+        "downloads": 23823,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "Youssofal/Qwen3.6-27B-Abliterated-Heretic-Uncensored-GGUF": {
+        "repo": "Youssofal/Qwen3.6-27B-Abliterated-Heretic-Uncensored-GGUF",
+        "downloads": 22872,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "mradermacher/Huihui-ThinkingCap-Qwen3.6-27B-abliterated-GGUF": {
+        "repo": "mradermacher/Huihui-ThinkingCap-Qwen3.6-27B-abliterated-GGUF",
+        "downloads": 22791,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "mradermacher/Huihui-Qwen3.5-35B-A3B-abliterated-GGUF": {
+        "repo": "mradermacher/Huihui-Qwen3.5-35B-A3B-abliterated-GGUF",
+        "downloads": 22400,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "bartowski/Goekdeniz-Guelmez_Josiefied-Qwen3-8B-abliterated-v1-GGUF": {
+        "repo": "bartowski/Goekdeniz-Guelmez_Josiefied-Qwen3-8B-abliterated-v1-GGUF",
+        "downloads": 21562,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "mlabonne/Meta-Llama-3.1-8B-Instruct-abliterated": {
+        "repo": "mlabonne/Meta-Llama-3.1-8B-Instruct-abliterated",
+        "downloads": 20977,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Huihui-Qwen3-VL-8B-Instruct-abliterated": {
+        "repo": "huihui-ai/Huihui-Qwen3-VL-8B-Instruct-abliterated",
+        "downloads": 19975,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "lemuralabs/Qwen3.6-27B-V2-abliterated-uncensored-8-bit-GGUF": {
+        "repo": "lemuralabs/Qwen3.6-27B-V2-abliterated-uncensored-8-bit-GGUF",
+        "downloads": 19668,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "apetersson/DeepSeek-V4-Flash-0731-Abliterated-DS4-Quality128": {
+        "repo": "apetersson/DeepSeek-V4-Flash-0731-Abliterated-DS4-Quality128",
+        "downloads": 19526,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "bartowski/Qwen2.5-Coder-14B-Instruct-abliterated-GGUF": {
+        "repo": "bartowski/Qwen2.5-Coder-14B-Instruct-abliterated-GGUF",
+        "downloads": 19134,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "batsclamp/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-FP8": {
+        "repo": "batsclamp/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-FP8",
+        "downloads": 18458,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Huihui-gpt-oss-20b-BF16-abliterated": {
+        "repo": "huihui-ai/Huihui-gpt-oss-20b-BF16-abliterated",
+        "downloads": 18391,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "huihui-ai/Huihui-Ornith-1.0-35B-abliterated-GGUF": {
+        "repo": "huihui-ai/Huihui-Ornith-1.0-35B-abliterated-GGUF",
+        "downloads": 18115,
+        "queries": [
+          "abliterated"
+        ]
+      },
+      "DavidAU/Qwen3.6-27B-Fable-Fusion-711-Uncensored-Heretic-NM-DAU-NEO-MAX-MTP-GGUF": {
+        "repo": "DavidAU/Qwen3.6-27B-Fable-Fusion-711-Uncensored-Heretic-NM-DAU-NEO-MAX-MTP-GGUF",
+        "downloads": 2793115,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive": {
+        "repo": "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive",
+        "downloads": 2220086,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "HauhauCS/Gemma-4-E4B-Uncensored-HauhauCS-Aggressive": {
+        "repo": "HauhauCS/Gemma-4-E4B-Uncensored-HauhauCS-Aggressive",
+        "downloads": 1007746,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "LuffyTheFox/Qwen3.6-35B-A3B-Uncensored-Genesis-Hermes-V7-GGUF": {
+        "repo": "LuffyTheFox/Qwen3.6-35B-A3B-Uncensored-Genesis-Hermes-V7-GGUF",
+        "downloads": 615195,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive": {
+        "repo": "HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive",
+        "downloads": 508777,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "DavidAU/Qwen3.5-9B-The-Defiant-Fable-Uncensored-Heretic-NEO-IMATRIX-MAX-MTP-GGUF": {
+        "repo": "DavidAU/Qwen3.5-9B-The-Defiant-Fable-Uncensored-Heretic-NEO-IMATRIX-MAX-MTP-GGUF",
+        "downloads": 507532,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "HauhauCS/Qwen3.6-27B-Uncensored-HauhauCS-Aggressive": {
+        "repo": "HauhauCS/Qwen3.6-27B-Uncensored-HauhauCS-Aggressive",
+        "downloads": 355031,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "HauhauCS/Qwen3.5-122B-A10B-Uncensored-HauhauCS-Aggressive": {
+        "repo": "HauhauCS/Qwen3.5-122B-A10B-Uncensored-HauhauCS-Aggressive",
+        "downloads": 319795,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "DavidAU/Qwen3.6-40B-Claude-4.6-Opus-Deckard-Heretic-Uncensored-Thinking-NEO-CODE-Di-IMatrix-MAX-GGUF": {
+        "repo": "DavidAU/Qwen3.6-40B-Claude-4.6-Opus-Deckard-Heretic-Uncensored-Thinking-NEO-CODE-Di-IMatrix-MAX-GGUF",
+        "downloads": 291431,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "mradermacher/gemma-4-26B-A4B-it-ultra-uncensored-heretic-i1-GGUF": {
+        "repo": "mradermacher/gemma-4-26B-A4B-it-ultra-uncensored-heretic-i1-GGUF",
+        "downloads": 226560,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "llmfan46/gemma-4-E4B-it-uncensored-heretic": {
+        "repo": "llmfan46/gemma-4-E4B-it-uncensored-heretic",
+        "downloads": 203302,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "DavidAU/Qwen3.6-27B-Heretic-Uncensored-FINETUNE-NEO-CODE-Di-IMatrix-MAX-GGUF": {
+        "repo": "DavidAU/Qwen3.6-27B-Heretic-Uncensored-FINETUNE-NEO-CODE-Di-IMatrix-MAX-GGUF",
+        "downloads": 156535,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "HauhauCS/Qwen3.5-4B-Uncensored-HauhauCS-Aggressive": {
+        "repo": "HauhauCS/Qwen3.5-4B-Uncensored-HauhauCS-Aggressive",
+        "downloads": 148809,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "HauhauCS/Gemma4-12B-QAT-Uncensored-HauhauCS-Balanced": {
+        "repo": "HauhauCS/Gemma4-12B-QAT-Uncensored-HauhauCS-Balanced",
+        "downloads": 129268,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "Jiunsong/supergemma4-26b-uncensored-gguf-v2": {
+        "repo": "Jiunsong/supergemma4-26b-uncensored-gguf-v2",
+        "downloads": 123463,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "llmfan46/Qwen3.6-35B-A3B-uncensored-heretic-Native-MTP-Preserved-GPTQ-Int4": {
+        "repo": "llmfan46/Qwen3.6-35B-A3B-uncensored-heretic-Native-MTP-Preserved-GPTQ-Int4",
+        "downloads": 120843,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "HauhauCS/Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive": {
+        "repo": "HauhauCS/Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive",
+        "downloads": 114956,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "HauhauCS/Gemma-4-E2B-Uncensored-HauhauCS-Aggressive": {
+        "repo": "HauhauCS/Gemma-4-E2B-Uncensored-HauhauCS-Aggressive",
+        "downloads": 109488,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "HauhauCS/Qwen3.5-27B-Uncensored-HauhauCS-Aggressive": {
+        "repo": "HauhauCS/Qwen3.5-27B-Uncensored-HauhauCS-Aggressive",
+        "downloads": 106117,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP": {
+        "repo": "HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP",
+        "downloads": 96426,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "SC117/Qwen3.6-35B-A3B-uncensored-heretic-Native-MTP-Preserved-APEX-GGUF": {
+        "repo": "SC117/Qwen3.6-35B-A3B-uncensored-heretic-Native-MTP-Preserved-APEX-GGUF",
+        "downloads": 93061,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "mradermacher/Llama3.3-8B-Instruct-Thinking-Heretic-Uncensored-Claude-4.5-Opus-High-Reasoning-i1-GGUF": {
+        "repo": "mradermacher/Llama3.3-8B-Instruct-Thinking-Heretic-Uncensored-Claude-4.5-Opus-High-Reasoning-i1-GGUF",
+        "downloads": 87401,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "AEON-7/Ornith-1.0-35B-AEON-Ultimate-Uncensored-BF16": {
+        "repo": "AEON-7/Ornith-1.0-35B-AEON-Ultimate-Uncensored-BF16",
+        "downloads": 87213,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "toandev/Gemma4-12B-Uncensored": {
+        "repo": "toandev/Gemma4-12B-Uncensored",
+        "downloads": 83971,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "HauhauCS/Gemma4-31B-QAT-Uncensored-HauhauCS-Balanced-MTP": {
+        "repo": "HauhauCS/Gemma4-31B-QAT-Uncensored-HauhauCS-Balanced-MTP",
+        "downloads": 83078,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "DavidAU/Qwen3.5-9B-Claude-4.6-HighIQ-INSTRUCT-HERETIC-UNCENSORED": {
+        "repo": "DavidAU/Qwen3.5-9B-Claude-4.6-HighIQ-INSTRUCT-HERETIC-UNCENSORED",
+        "downloads": 80769,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "AIOpsInSpace/Qwen3.6-27B-Uncensored-HauhauCS-Aggressive-MTP": {
+        "repo": "AIOpsInSpace/Qwen3.6-27B-Uncensored-HauhauCS-Aggressive-MTP",
+        "downloads": 78473,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "HauhauCS/Gemma4-26B-A4B-Uncensored-HauhauCS-Balanced": {
+        "repo": "HauhauCS/Gemma4-26B-A4B-Uncensored-HauhauCS-Balanced",
+        "downloads": 73703,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "mradermacher/gemma-4-31B-it-The-DECKARD-HERETIC-UNCENSORED-Thinking-i1-GGUF": {
+        "repo": "mradermacher/gemma-4-31B-it-The-DECKARD-HERETIC-UNCENSORED-Thinking-i1-GGUF",
+        "downloads": 73245,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "HauhauCS/Qwen3.6-27B-Uncensored-HauhauCS-Balanced": {
+        "repo": "HauhauCS/Qwen3.6-27B-Uncensored-HauhauCS-Balanced",
+        "downloads": 64292,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "llmfan46/gemma-4-31B-it-uncensored-heretic-GGUF": {
+        "repo": "llmfan46/gemma-4-31B-it-uncensored-heretic-GGUF",
+        "downloads": 58074,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "LuffyTheFox/Qwen3.6-27B-Uncensored-Genesis-MTP-GGUF": {
+        "repo": "LuffyTheFox/Qwen3.6-27B-Uncensored-Genesis-MTP-GGUF",
+        "downloads": 56109,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "llmfan46/gemma-4-E4B-it-ultra-uncensored-heretic-GGUF": {
+        "repo": "llmfan46/gemma-4-E4B-it-ultra-uncensored-heretic-GGUF",
+        "downloads": 50728,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "vcruz305/Ornith-1.0-35B-AEON-Ultimate-Uncensored-GGUF": {
+        "repo": "vcruz305/Ornith-1.0-35B-AEON-Ultimate-Uncensored-GGUF",
+        "downloads": 49131,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "HauhauCS/Qwen3.5-2B-Uncensored-HauhauCS-Aggressive": {
+        "repo": "HauhauCS/Qwen3.5-2B-Uncensored-HauhauCS-Aggressive",
+        "downloads": 46304,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "DavidAU/Qwen3.6-40B-Grand-Intelligence-Fable-Fusion-Uncensored-Heretic-NM-DAU-NEO-MAX-MTP-GGUF": {
+        "repo": "DavidAU/Qwen3.6-40B-Grand-Intelligence-Fable-Fusion-Uncensored-Heretic-NM-DAU-NEO-MAX-MTP-GGUF",
+        "downloads": 44522,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "llmfan46/Qwen3.6-27B-uncensored-heretic-v2-Native-MTP-Preserved-GGUF": {
+        "repo": "llmfan46/Qwen3.6-27B-uncensored-heretic-v2-Native-MTP-Preserved-GGUF",
+        "downloads": 43545,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "DavidAU/Qwen3.6-40B-Fable-Fusion-6-Core-Deckard-Eleanor-Heretic-Uncensored-NM-DAU-NEO-MAX-MTP-GGUF": {
+        "repo": "DavidAU/Qwen3.6-40B-Fable-Fusion-6-Core-Deckard-Eleanor-Heretic-Uncensored-NM-DAU-NEO-MAX-MTP-GGUF",
+        "downloads": 42548,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "mradermacher/Qwen3.6-35B-A3B-uncensored-heretic-Native-MTP-Preserved-GGUF": {
+        "repo": "mradermacher/Qwen3.6-35B-A3B-uncensored-heretic-Native-MTP-Preserved-GGUF",
+        "downloads": 41724,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "Unrestricted/Qwen3.5-122B-A10B-Uncensored-HauhauCS-Aggressive": {
+        "repo": "Unrestricted/Qwen3.5-122B-A10B-Uncensored-HauhauCS-Aggressive",
+        "downloads": 41153,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "KevinJK51/Qwen3.6-12B-IQ-Ultra-Heretic-Uncensored-Thinking-V2-Hightop-GGUF": {
+        "repo": "KevinJK51/Qwen3.6-12B-IQ-Ultra-Heretic-Uncensored-Thinking-V2-Hightop-GGUF",
+        "downloads": 39460,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "Andycurrent/Gemma-3-1B-it-GLM-4.7-Flash-Heretic-Uncensored-Thinking_GGUF": {
+        "repo": "Andycurrent/Gemma-3-1B-it-GLM-4.7-Flash-Heretic-Uncensored-Thinking_GGUF",
+        "downloads": 38430,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "nif0/Qwen3-VL-32B-Instruct-ultra-uncensored-heretic-H3-GGUF": {
+        "repo": "nif0/Qwen3-VL-32B-Instruct-ultra-uncensored-heretic-H3-GGUF",
+        "downloads": 37795,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "SC117/Agents-A1-Uncensored-MTP-APEX-GGUF": {
+        "repo": "SC117/Agents-A1-Uncensored-MTP-APEX-GGUF",
+        "downloads": 37287,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "TrevorJS/gemma-4-26B-A4B-it-uncensored": {
+        "repo": "TrevorJS/gemma-4-26B-A4B-it-uncensored",
+        "downloads": 36169,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "AEON-7/Qwen3.6-27B-AEON-Ultimate-Uncensored-Multimodal-NVFP4-MTP-XS": {
+        "repo": "AEON-7/Qwen3.6-27B-AEON-Ultimate-Uncensored-Multimodal-NVFP4-MTP-XS",
+        "downloads": 33794,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "llmfan46/Ornith-1.0-35B-uncensored-heretic-GGUF": {
+        "repo": "llmfan46/Ornith-1.0-35B-uncensored-heretic-GGUF",
+        "downloads": 33159,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "llmfan46/Qwythos-9B-Claude-Mythos-5-1M-uncensored-heretic-GGUF": {
+        "repo": "llmfan46/Qwythos-9B-Claude-Mythos-5-1M-uncensored-heretic-GGUF",
+        "downloads": 32766,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "mradermacher/Dirty-Muse-Writer-v01-Uncensored-Erotica-NSFW-i1-GGUF": {
+        "repo": "mradermacher/Dirty-Muse-Writer-v01-Uncensored-Erotica-NSFW-i1-GGUF",
+        "downloads": 32731,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "morikomorizz/Qwen3.6-35B-A3B-Uncensored-HauhauCS-MTP": {
+        "repo": "morikomorizz/Qwen3.6-35B-A3B-Uncensored-HauhauCS-MTP",
+        "downloads": 32489,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "DavidAU/GLM-4.7-Flash-Uncensored-Heretic-NEO-CODE-Imatrix-MAX-GGUF": {
+        "repo": "DavidAU/GLM-4.7-Flash-Uncensored-Heretic-NEO-CODE-Imatrix-MAX-GGUF",
+        "downloads": 32329,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "DreamFast/Qwen3.6-27B-Uncensored-HauhauCS-Aggressive-Safetensor-Benchmark": {
+        "repo": "DreamFast/Qwen3.6-27B-Uncensored-HauhauCS-Aggressive-Safetensor-Benchmark",
+        "downloads": 32300,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "llmfan46/Qwen3.6-35B-A3B-uncensored-heretic-Native-MTP-Preserved-GGUF": {
+        "repo": "llmfan46/Qwen3.6-35B-A3B-uncensored-heretic-Native-MTP-Preserved-GGUF",
+        "downloads": 32253,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "lustlyai/Flux_Lustly.ai_Uncensored_nsfw_v1": {
+        "repo": "lustlyai/Flux_Lustly.ai_Uncensored_nsfw_v1",
+        "downloads": 32228,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "llmfan46/Qwen3.6-27B-uncensored-heretic-v2-GPTQ-Int4": {
+        "repo": "llmfan46/Qwen3.6-27B-uncensored-heretic-v2-GPTQ-Int4",
+        "downloads": 30777,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "timteh673/Qwen3.5-397B-A17B-Opus-4.6-Reasoning-Uncensored-GGUF": {
+        "repo": "timteh673/Qwen3.5-397B-A17B-Opus-4.6-Reasoning-Uncensored-GGUF",
+        "downloads": 30673,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "llmfan46/Qwen3.6-35B-A3B-uncensored-heretic-GGUF": {
+        "repo": "llmfan46/Qwen3.6-35B-A3B-uncensored-heretic-GGUF",
+        "downloads": 30655,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "ponpoke/flux2-klein-9b-uncensored-text-encoder": {
+        "repo": "ponpoke/flux2-klein-9b-uncensored-text-encoder",
+        "downloads": 30646,
+        "queries": [
+          "uncensored"
+        ]
+      },
+      "mradermacher/mistral-orthogonalized-GGUF": {
+        "repo": "mradermacher/mistral-orthogonalized-GGUF",
+        "downloads": 475,
+        "queries": [
+          "orthogonalized"
+        ]
+      },
+      "RichardErkhov/cosmicvalor_-_mistral-orthogonalized-gguf": {
+        "repo": "RichardErkhov/cosmicvalor_-_mistral-orthogonalized-gguf",
+        "downloads": 291,
+        "queries": [
+          "orthogonalized"
+        ]
+      },
+      "featherless-ai-quants/cosmicvalor-mistral-orthogonalized-GGUF": {
+        "repo": "featherless-ai-quants/cosmicvalor-mistral-orthogonalized-GGUF",
+        "downloads": 86,
+        "queries": [
+          "orthogonalized"
+        ]
+      },
+      "hjhj3168/Llama-3-8b-Orthogonalized-exl2": {
+        "repo": "hjhj3168/Llama-3-8b-Orthogonalized-exl2",
+        "downloads": 16,
+        "queries": [
+          "orthogonalized"
+        ]
+      },
+      "NikolayKozloff/mistral-orthogonalized-Q8_0-GGUF": {
+        "repo": "NikolayKozloff/mistral-orthogonalized-Q8_0-GGUF",
+        "downloads": 13,
+        "queries": [
+          "orthogonalized"
+        ]
+      },
+      "cosmicvalor/mistral-orthogonalized": {
+        "repo": "cosmicvalor/mistral-orthogonalized",
+        "downloads": 12,
+        "queries": [
+          "orthogonalized"
+        ]
+      },
+      "thewaltteri74/Llama-3-8b-Orthogonalized-exl2-Q4_0-GGUF": {
+        "repo": "thewaltteri74/Llama-3-8b-Orthogonalized-exl2-Q4_0-GGUF",
+        "downloads": 8,
+        "queries": [
+          "orthogonalized"
+        ]
+      },
+      "Someshfengde/Qwen2.5-7B-Instruct-Orthogonalized-uncensored": {
+        "repo": "Someshfengde/Qwen2.5-7B-Instruct-Orthogonalized-uncensored",
+        "downloads": 8,
+        "queries": [
+          "orthogonalized"
+        ]
+      },
+      "dipikakhullar/DeepSeek-R1-Distill-Llama-8B-orthogonalized-25": {
+        "repo": "dipikakhullar/DeepSeek-R1-Distill-Llama-8B-orthogonalized-25",
+        "downloads": 8,
+        "queries": [
+          "orthogonalized"
+        ]
+      },
+      "dipikakhullar/DeepSeek-R1-Distill-Llama-8B-orthogonalized-all-31": {
+        "repo": "dipikakhullar/DeepSeek-R1-Distill-Llama-8B-orthogonalized-all-31",
+        "downloads": 8,
+        "queries": [
+          "orthogonalized"
+        ]
+      },
+      "dipikakhullar/DeepSeek-R1-Distill-Llama-8B-orthogonalized-prev-idx-31-all": {
+        "repo": "dipikakhullar/DeepSeek-R1-Distill-Llama-8B-orthogonalized-prev-idx-31-all",
+        "downloads": 8,
+        "queries": [
+          "orthogonalized"
+        ]
+      },
+      "cosmicvalor/mistral-orthogonalized-exl2": {
+        "repo": "cosmicvalor/mistral-orthogonalized-exl2",
+        "downloads": 7,
+        "queries": [
+          "orthogonalized"
+        ]
+      },
+      "dipikakhullar/DeepSeek-R1-Distill-Llama-8B-orthogonalized-10": {
+        "repo": "dipikakhullar/DeepSeek-R1-Distill-Llama-8B-orthogonalized-10",
+        "downloads": 7,
+        "queries": [
+          "orthogonalized"
+        ]
+      },
+      "dipikakhullar/DeepSeek-R1-Distill-Llama-8B-orthogonalized-all-10": {
+        "repo": "dipikakhullar/DeepSeek-R1-Distill-Llama-8B-orthogonalized-all-10",
+        "downloads": 7,
+        "queries": [
+          "orthogonalized"
+        ]
+      },
+      "dipikakhullar/DeepSeek-R1-Distill-Llama-8B-orthogonalized-all-i": {
+        "repo": "dipikakhullar/DeepSeek-R1-Distill-Llama-8B-orthogonalized-all-i",
+        "downloads": 7,
+        "queries": [
+          "orthogonalized"
+        ]
+      },
+      "dipikakhullar/DeepSeek-R1-Distill-Llama-8B-orthogonalized-31-all": {
+        "repo": "dipikakhullar/DeepSeek-R1-Distill-Llama-8B-orthogonalized-31-all",
+        "downloads": 7,
+        "queries": [
+          "orthogonalized"
+        ]
+      },
+      "dipikakhullar/DeepSeek-R1-Distill-Llama-8B-orthogonalized-19": {
+        "repo": "dipikakhullar/DeepSeek-R1-Distill-Llama-8B-orthogonalized-19",
+        "downloads": 4,
+        "queries": [
+          "orthogonalized"
+        ]
+      },
+      "mradermacher/gemma-4-31B-it-heretic-ORBA-i1-GGUF": {
+        "repo": "mradermacher/gemma-4-31B-it-heretic-ORBA-i1-GGUF",
+        "downloads": 145,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "mradermacher/gemma-4-31B-it-heretic-ORBA-GGUF": {
+        "repo": "mradermacher/gemma-4-31B-it-heretic-ORBA-GGUF",
+        "downloads": 116,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "aoleg/gemma-4-31B-it-heretic-ORBA": {
+        "repo": "aoleg/gemma-4-31B-it-heretic-ORBA",
+        "downloads": 7,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "jintanakan/pratchya-1b-base-2-orbax": {
+        "repo": "jintanakan/pratchya-1b-base-2-orbax",
+        "downloads": 4,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "jintanakan/pratchya-1b-base-orbax": {
+        "repo": "jintanakan/pratchya-1b-base-orbax",
+        "downloads": 3,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "kvablack/t5-v1_1-xxl-orbax": {
+        "repo": "kvablack/t5-v1_1-xxl-orbax",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "orbangluck4800/7u67u67": {
+        "repo": "orbangluck4800/7u67u67",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "dvruette/gidd-unif-3b-orbax": {
+        "repo": "dvruette/gidd-unif-3b-orbax",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "G-reen/gemma-2-2b-big-set-orbax": {
+        "repo": "G-reen/gemma-2-2b-big-set-orbax",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "G-reen/gemma-2-2b-fft-orbax": {
+        "repo": "G-reen/gemma-2-2b-fft-orbax",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "G-reen/gemma-2-2b-simpo-orbax": {
+        "repo": "G-reen/gemma-2-2b-simpo-orbax",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "dffarr/gemma-3-27b-pt-orbax": {
+        "repo": "dffarr/gemma-3-27b-pt-orbax",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "dffarr/gemma-3-1b-pt-orbax": {
+        "repo": "dffarr/gemma-3-1b-pt-orbax",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "p0her/flax-orbax-path-traversal-poc": {
+        "repo": "p0her/flax-orbax-path-traversal-poc",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "ryansecuritytest-fanpierlabs/flax-orbax-dtype-injection-poc": {
+        "repo": "ryansecuritytest-fanpierlabs/flax-orbax-dtype-injection-poc",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "Dimas0305/keras-orbax-malicious-checkpoint": {
+        "repo": "Dimas0305/keras-orbax-malicious-checkpoint",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "mikio815/keras-orbax-assets-afw-poc": {
+        "repo": "mikio815/keras-orbax-assets-afw-poc",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "FrankLin00/keras-mfv-poc-001-orbax-write": {
+        "repo": "FrankLin00/keras-mfv-poc-001-orbax-write",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "Hironabe333/flax-orbax-metadata-integrity-gap-poc": {
+        "repo": "Hironabe333/flax-orbax-metadata-integrity-gap-poc",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "Yehor/orbax-gemma4-26b": {
+        "repo": "Yehor/orbax-gemma4-26b",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "Yehor/orbax-qwen3-0.6b": {
+        "repo": "Yehor/orbax-qwen3-0.6b",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "Yehor/qwen3-0.6b-kulyk-103k-orbax": {
+        "repo": "Yehor/qwen3-0.6b-kulyk-103k-orbax",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "pragnyanramtha/flax-orbax-sparse-shape-poc": {
+        "repo": "pragnyanramtha/flax-orbax-sparse-shape-poc",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "pragnyanramtha/orbax-checkpoint-symlink-output-poc": {
+        "repo": "pragnyanramtha/orbax-checkpoint-symlink-output-poc",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "ScrynStore/jax-orbax-triggered-inference-backdoor-poc": {
+        "repo": "ScrynStore/jax-orbax-triggered-inference-backdoor-poc",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "Damir2024/flax-orbax-poc": {
+        "repo": "Damir2024/flax-orbax-poc",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "ericblackgachara/orbax-checkpoint-uncontrolled-recursion-poc": {
+        "repo": "ericblackgachara/orbax-checkpoint-uncontrolled-recursion-poc",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "wildbits/orbax-non-ocdbt-absolute-path-poc": {
+        "repo": "wildbits/orbax-non-ocdbt-absolute-path-poc",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "Kanisia/jax-orbax-metadata-absolute-path-read-poc": {
+        "repo": "Kanisia/jax-orbax-metadata-absolute-path-read-poc",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "EnigmaConsultant/huntr-poc-orbax-msgpack-tuple-recursion-segfault": {
+        "repo": "EnigmaConsultant/huntr-poc-orbax-msgpack-tuple-recursion-segfault",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "dxoth1nh/mfv-jax-orbax-safetensorslayout-symlink-poc": {
+        "repo": "dxoth1nh/mfv-jax-orbax-safetensorslayout-symlink-poc",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "EnigmaConsultant/huntr-poc-orbax-zarray-shape-badalloc-abort": {
+        "repo": "EnigmaConsultant/huntr-poc-orbax-zarray-shape-badalloc-abort",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "aslein1413/poc-orbax-checkpoint-traversal": {
+        "repo": "aslein1413/poc-orbax-checkpoint-traversal",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "lorelei17/flax-orbax-absolute-param-read-poc": {
+        "repo": "lorelei17/flax-orbax-absolute-param-read-poc",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "raj5843/orbax-msgpack-segfault-poc": {
+        "repo": "raj5843/orbax-msgpack-segfault-poc",
+        "downloads": 0,
+        "queries": [
+          "ORBA"
+        ]
+      },
+      "mradermacher/Seed-OSS-36B-Instruct-biprojected-norm-preserving-abliterated-i1-GGUF": {
+        "repo": "mradermacher/Seed-OSS-36B-Instruct-biprojected-norm-preserving-abliterated-i1-GGUF",
+        "downloads": 5038,
+        "queries": [
+          "norm-preserving"
+        ]
+      },
+      "fairy322/Seed-OSS-36B-Instruct-biprojected-norm-preserving-abliterated-i1-GGUF": {
+        "repo": "fairy322/Seed-OSS-36B-Instruct-biprojected-norm-preserving-abliterated-i1-GGUF",
+        "downloads": 725,
+        "queries": [
+          "norm-preserving"
+        ]
+      },
+      "mradermacher/Seed-OSS-36B-Instruct-biprojected-norm-preserving-abliterated-GGUF": {
+        "repo": "mradermacher/Seed-OSS-36B-Instruct-biprojected-norm-preserving-abliterated-GGUF",
+        "downloads": 268,
+        "queries": [
+          "norm-preserving"
+        ]
+      },
+      "mradermacher/Harbinger-24B-biprojected-norm-preserving-abliterated-i1-GGUF": {
+        "repo": "mradermacher/Harbinger-24B-biprojected-norm-preserving-abliterated-i1-GGUF",
+        "downloads": 93,
+        "queries": [
+          "norm-preserving"
+        ]
+      },
+      "hardlyworking/Qwen3-32B-biprojected-norm-preserving-abliterated-Q4_K_M-GGUF": {
+        "repo": "hardlyworking/Qwen3-32B-biprojected-norm-preserving-abliterated-Q4_K_M-GGUF",
+        "downloads": 43,
+        "queries": [
+          "norm-preserving"
+        ]
+      },
+      "mradermacher/Harbinger-24B-biprojected-norm-preserving-abliterated-GGUF": {
+        "repo": "mradermacher/Harbinger-24B-biprojected-norm-preserving-abliterated-GGUF",
+        "downloads": 32,
+        "queries": [
+          "norm-preserving"
+        ]
+      },
+      "vprilepskii/Seed-OSS-36B-Instruct-biprojected-norm-preserving-abliterated": {
+        "repo": "vprilepskii/Seed-OSS-36B-Instruct-biprojected-norm-preserving-abliterated",
+        "downloads": 22,
+        "queries": [
+          "norm-preserving"
+        ]
+      },
+      "vprilepskii/Harbinger-24B-biprojected-norm-preserving-abliterated": {
+        "repo": "vprilepskii/Harbinger-24B-biprojected-norm-preserving-abliterated",
+        "downloads": 7,
+        "queries": [
+          "norm-preserving"
+        ]
+      },
+      "vprilepskii/Llama-3.3-70B-Instruct-biprojected-norm-preserving-abliterated": {
+        "repo": "vprilepskii/Llama-3.3-70B-Instruct-biprojected-norm-preserving-abliterated",
+        "downloads": 4,
+        "queries": [
+          "norm-preserving"
+        ]
+      },
+      "vprilepskii/Qwen3-32B-biprojected-norm-preserving-abliterated": {
+        "repo": "vprilepskii/Qwen3-32B-biprojected-norm-preserving-abliterated",
+        "downloads": 4,
+        "queries": [
+          "norm-preserving"
+        ]
+      },
+      "R41NH4RD/Qwen3-1.7B-Refusal-Removed": {
+        "repo": "R41NH4RD/Qwen3-1.7B-Refusal-Removed",
+        "downloads": 7,
+        "queries": [
+          "refusal-removed"
+        ]
+      },
+      "R41NH4RD/Qwen3-4B-Refusal-Removed": {
+        "repo": "R41NH4RD/Qwen3-4B-Refusal-Removed",
+        "downloads": 5,
+        "queries": [
+          "refusal-removed"
+        ]
+      },
+      "prithivMLmods/gemma-4-12B-it-heretic_decensored-GGUF": {
+        "repo": "prithivMLmods/gemma-4-12B-it-heretic_decensored-GGUF",
+        "downloads": 2202,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/gemma-4-12B-it-heretic_decensored-i1-GGUF": {
+        "repo": "mradermacher/gemma-4-12B-it-heretic_decensored-i1-GGUF",
+        "downloads": 1540,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/gemma-4-E4B-it-qat-heretic_decensored-i1-GGUF": {
+        "repo": "mradermacher/gemma-4-E4B-it-qat-heretic_decensored-i1-GGUF",
+        "downloads": 1422,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/gemma-4-E4B-it-qat-heretic_decensored-GGUF": {
+        "repo": "mradermacher/gemma-4-E4B-it-qat-heretic_decensored-GGUF",
+        "downloads": 1161,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/gemma-4-12B-it-heretic_decensored-GGUF": {
+        "repo": "mradermacher/gemma-4-12B-it-heretic_decensored-GGUF",
+        "downloads": 686,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "prithivMLmods/gemma-4-E4B-it-qat-heretic_decensored-GGUF": {
+        "repo": "prithivMLmods/gemma-4-E4B-it-qat-heretic_decensored-GGUF",
+        "downloads": 665,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "prithivMLmods/VibeThinker-3B-heretic_decensored-GGUF": {
+        "repo": "prithivMLmods/VibeThinker-3B-heretic_decensored-GGUF",
+        "downloads": 646,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/VibeThinker-3B-heretic_decensored-i1-GGUF": {
+        "repo": "mradermacher/VibeThinker-3B-heretic_decensored-i1-GGUF",
+        "downloads": 300,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Qwen-SEA-LION-v4-4B-VL-Magic_decensored-i1-GGUF": {
+        "repo": "mradermacher/Qwen-SEA-LION-v4-4B-VL-Magic_decensored-i1-GGUF",
+        "downloads": 252,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Qwen3-Next-80B-A3B-Instruct-Decensored-i1-GGUF": {
+        "repo": "mradermacher/Qwen3-Next-80B-A3B-Instruct-Decensored-i1-GGUF",
+        "downloads": 205,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "Shifusen/Qwen3.5-122B-A10B-Decensored-SFT-FP8": {
+        "repo": "Shifusen/Qwen3.5-122B-A10B-Decensored-SFT-FP8",
+        "downloads": 200,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "aashish1904/Qwen3-1.7B-Magic_decensored-GGUF": {
+        "repo": "aashish1904/Qwen3-1.7B-Magic_decensored-GGUF",
+        "downloads": 192,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/VibeThinker-3B-heretic_decensored-GGUF": {
+        "repo": "mradermacher/VibeThinker-3B-heretic_decensored-GGUF",
+        "downloads": 179,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Qwen-SEA-LION-v4-8B-VL-Magic_decensored-i1-GGUF": {
+        "repo": "mradermacher/Qwen-SEA-LION-v4-8B-VL-Magic_decensored-i1-GGUF",
+        "downloads": 176,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Qwen-SEA-LION-v4-8B-VL-Magic_decensored-GGUF": {
+        "repo": "mradermacher/Qwen-SEA-LION-v4-8B-VL-Magic_decensored-GGUF",
+        "downloads": 175,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Apriel-Nemotron-15b-Thinker-Magic_decensored-v2_MPOA-i1-GGUF": {
+        "repo": "mradermacher/Apriel-Nemotron-15b-Thinker-Magic_decensored-v2_MPOA-i1-GGUF",
+        "downloads": 163,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Llama-SEA-LION-v3-8B-IT-Magic_decensored-i1-GGUF": {
+        "repo": "mradermacher/Llama-SEA-LION-v3-8B-IT-Magic_decensored-i1-GGUF",
+        "downloads": 143,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Qwen3-Next-80B-A3B-Instruct-Decensored-GGUF": {
+        "repo": "mradermacher/Qwen3-Next-80B-A3B-Instruct-Decensored-GGUF",
+        "downloads": 142,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Qwen3-1.7B-Magic_decensored-i1-GGUF": {
+        "repo": "mradermacher/Qwen3-1.7B-Magic_decensored-i1-GGUF",
+        "downloads": 140,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "Magic-Decensored/Apriel-1.6-15b-Thinker-Magic_alpha-decensored_MPOA-GGUF": {
+        "repo": "Magic-Decensored/Apriel-1.6-15b-Thinker-Magic_alpha-decensored_MPOA-GGUF",
+        "downloads": 140,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "Magic-Decensored/Apriel-Nemotron-15b-Thinker-Magic_decensored-v2_MPOA-GGUF": {
+        "repo": "Magic-Decensored/Apriel-Nemotron-15b-Thinker-Magic_decensored-v2_MPOA-GGUF",
+        "downloads": 111,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Apriel-1.6-15b-Thinker-Magic_alpha-decensored_MPOA-GGUF": {
+        "repo": "mradermacher/Apriel-1.6-15b-Thinker-Magic_alpha-decensored_MPOA-GGUF",
+        "downloads": 95,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Qwen3-1.7B-Magic_decensored-GGUF": {
+        "repo": "mradermacher/Qwen3-1.7B-Magic_decensored-GGUF",
+        "downloads": 91,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Apriel-Nemotron-15b-Thinker-Magic_decensored_MPOA-GGUF": {
+        "repo": "mradermacher/Apriel-Nemotron-15b-Thinker-Magic_decensored_MPOA-GGUF",
+        "downloads": 63,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Apriel-Nemotron-15b-Thinker-Magic_decensored-v2_MPOA-GGUF": {
+        "repo": "mradermacher/Apriel-Nemotron-15b-Thinker-Magic_decensored-v2_MPOA-GGUF",
+        "downloads": 60,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Apriel-1.6-15b-Thinker-Magic_beta-decensored-i1-GGUF": {
+        "repo": "mradermacher/Apriel-1.6-15b-Thinker-Magic_beta-decensored-i1-GGUF",
+        "downloads": 58,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "Magic-Decensored/Apriel-1.6-15b-Thinker-Magic_beta-decensored-GGUF": {
+        "repo": "Magic-Decensored/Apriel-1.6-15b-Thinker-Magic_beta-decensored-GGUF",
+        "downloads": 57,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Apriel-1.6-15b-Thinker-R.C.1_2-Magic_decensored-GGUF": {
+        "repo": "mradermacher/Apriel-1.6-15b-Thinker-R.C.1_2-Magic_decensored-GGUF",
+        "downloads": 54,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Apriel-1.6-15b-Thinker-Magic_beta-decensored-GGUF": {
+        "repo": "mradermacher/Apriel-1.6-15b-Thinker-Magic_beta-decensored-GGUF",
+        "downloads": 48,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "prithivMLmods/VibeThinker-3B-heretic_decensored": {
+        "repo": "prithivMLmods/VibeThinker-3B-heretic_decensored",
+        "downloads": 48,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "nightmedia/Qwen3-Next-80B-A3B-Instruct-Decensored-qx53n-mlx": {
+        "repo": "nightmedia/Qwen3-Next-80B-A3B-Instruct-Decensored-qx53n-mlx",
+        "downloads": 47,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Llama-SEA-LION-v3-8B-IT-Magic_decensored-GGUF": {
+        "repo": "mradermacher/Llama-SEA-LION-v3-8B-IT-Magic_decensored-GGUF",
+        "downloads": 40,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "Shifusen/Qwen3.5-122B-A10B-Decensored-SFT": {
+        "repo": "Shifusen/Qwen3.5-122B-A10B-Decensored-SFT",
+        "downloads": 39,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Qwen-SEA-LION-v4-4B-VL-Magic_decensored-GGUF": {
+        "repo": "mradermacher/Qwen-SEA-LION-v4-4B-VL-Magic_decensored-GGUF",
+        "downloads": 36,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Qwen3-4b-decensored-instruct-GGUF": {
+        "repo": "mradermacher/Qwen3-4b-decensored-instruct-GGUF",
+        "downloads": 36,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Apriel-Nemotron-15b-Thinker-Magic_decensored_MPOA-i1-GGUF": {
+        "repo": "mradermacher/Apriel-Nemotron-15b-Thinker-Magic_decensored_MPOA-i1-GGUF",
+        "downloads": 30,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Qwen3-4b-decensored-instruct-i1-GGUF": {
+        "repo": "mradermacher/Qwen3-4b-decensored-instruct-i1-GGUF",
+        "downloads": 27,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "MagicalAlchemist/Qwen3-1.7B-Magic_decensored": {
+        "repo": "MagicalAlchemist/Qwen3-1.7B-Magic_decensored",
+        "downloads": 19,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "MagicalAlchemist/Qwen-SEA-LION-v4-8B-VL-Magic_decensored": {
+        "repo": "MagicalAlchemist/Qwen-SEA-LION-v4-8B-VL-Magic_decensored",
+        "downloads": 19,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "prithivMLmods/gemma-4-E4B-it-qat-heretic_decensored": {
+        "repo": "prithivMLmods/gemma-4-E4B-it-qat-heretic_decensored",
+        "downloads": 19,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "MagicalAlchemist/Apriel-1.6-15b-Thinker-Magic_alpha-decensored_MPOA": {
+        "repo": "MagicalAlchemist/Apriel-1.6-15b-Thinker-Magic_alpha-decensored_MPOA",
+        "downloads": 18,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "MagicalAlchemist/Qwen-SEA-LION-v4-4B-VL-Magic_decensored": {
+        "repo": "MagicalAlchemist/Qwen-SEA-LION-v4-4B-VL-Magic_decensored",
+        "downloads": 16,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "prithivMLmods/gemma-4-12B-it-heretic_decensored": {
+        "repo": "prithivMLmods/gemma-4-12B-it-heretic_decensored",
+        "downloads": 16,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "Shifusen/Qwen3-Next-80B-A3B-Instruct-Decensored": {
+        "repo": "Shifusen/Qwen3-Next-80B-A3B-Instruct-Decensored",
+        "downloads": 15,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "MagicalAlchemist/Apriel-1.6-15b-Thinker-Magic_beta-decensored": {
+        "repo": "MagicalAlchemist/Apriel-1.6-15b-Thinker-Magic_beta-decensored",
+        "downloads": 14,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "laurentiurad/Qwen3-4b-decensored-instruct": {
+        "repo": "laurentiurad/Qwen3-4b-decensored-instruct",
+        "downloads": 13,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "Nubinu/Qwen-SEA-LION-v4-8B-VL-Magic_decensored-GGUF": {
+        "repo": "Nubinu/Qwen-SEA-LION-v4-8B-VL-Magic_decensored-GGUF",
+        "downloads": 12,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "mradermacher/Apriel-1.6-15b-Thinker-Magic_alpha-decensored_MPOA-i1-GGUF": {
+        "repo": "mradermacher/Apriel-1.6-15b-Thinker-Magic_alpha-decensored_MPOA-i1-GGUF",
+        "downloads": 11,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "MagicalAlchemist/Apriel-Nemotron-15b-Thinker-Magic_decensored-v2_MPOA": {
+        "repo": "MagicalAlchemist/Apriel-Nemotron-15b-Thinker-Magic_decensored-v2_MPOA",
+        "downloads": 11,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "MagicalAlchemist/Llama-SEA-LION-v3-8B-IT-Magic_decensored": {
+        "repo": "MagicalAlchemist/Llama-SEA-LION-v3-8B-IT-Magic_decensored",
+        "downloads": 9,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "ibyteohdear/gemma-4-12B-it-heretic_decensored": {
+        "repo": "ibyteohdear/gemma-4-12B-it-heretic_decensored",
+        "downloads": 9,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "MagicalAlchemist/Apriel-Nemotron-15b-Thinker-Magic_decensored_MPOA": {
+        "repo": "MagicalAlchemist/Apriel-Nemotron-15b-Thinker-Magic_decensored_MPOA",
+        "downloads": 7,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "krisnathan/Qwen3-4B-Thinking-2507-Decensored": {
+        "repo": "krisnathan/Qwen3-4B-Thinking-2507-Decensored",
+        "downloads": 6,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "krisnathan/Qwen3-4B-Thinking-2507-Decensored-GGUF": {
+        "repo": "krisnathan/Qwen3-4B-Thinking-2507-Decensored-GGUF",
+        "downloads": 6,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "Shifusen/Qwen3-Next-80B-A3B-Instruct-Decensored-NVFP4": {
+        "repo": "Shifusen/Qwen3-Next-80B-A3B-Instruct-Decensored-NVFP4",
+        "downloads": 6,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "MagicalAlchemist/Apriel-1.6-15b-Thinker-R.C.1_2-Magic_decensored": {
+        "repo": "MagicalAlchemist/Apriel-1.6-15b-Thinker-R.C.1_2-Magic_decensored",
+        "downloads": 4,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "Sp00kySnake/qwen3-4B-decensored": {
+        "repo": "Sp00kySnake/qwen3-4B-decensored",
+        "downloads": 4,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "Sp00kySnake/qwen3-4B-decensored-Q4_K_M-GGUF": {
+        "repo": "Sp00kySnake/qwen3-4B-decensored-Q4_K_M-GGUF",
+        "downloads": 3,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "4pr0000n/hidream_decensored_llama": {
+        "repo": "4pr0000n/hidream_decensored_llama",
+        "downloads": 0,
+        "queries": [
+          "decensored"
+        ]
+      },
+      "Sp00kySnake/Sp00kySnakeqwen3-4B-decensored": {
+        "repo": "Sp00kySnake/Sp00kySnakeqwen3-4B-decensored",
+        "downloads": 0,
+        "queries": [
+          "decensored"
+        ]
+      }
+    },
+    "date": "2026-08-13",
+    "note": "search only; size and recipe are VERIFIED per candidate below",
+    "n_excluded_quantised": 120,
+    "n_usable_pool": 122
+  },
+  "verified": [
+    {
+      "repo": "mlabonne/Qwen3-0.6B-abliterated",
+      "uploader": "mlabonne",
+      "params": 596049920.0,
+      "size_ok": true,
+      "evidence_url": "https://huggingface.co/mlabonne/Qwen3-0.6B-abliterated",
+      "card_chars": 2268,
+      "downloads": null,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": " expected.\n\nI recommend using these generation parameters: `temperature=0.6`, `top_k=20`, `top_p=0.95`, `min_p=0`.\n\n## \u2702\ufe0f Abliteration\n\nThe refusal direction is computed by comparing the residual streams between target (harmful) and baseline (harmless) samples. \nThe hidden states of target modules (",
+      "all_class_hits": []
+    },
+    {
+      "repo": "mlabonne/Qwen2.5-1.5B-Instruct-abliterated",
+      "uploader": "mlabonne",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "ERROR:404 Client Error. (Request ID: Root=1-6a7e3564-58f4bff657de55322ca944c0;16176c59-abd1-45b9-92f7-67400437ec0c)\n\nRepository Not Found for url: https://huggingface.co/api/models/mlabonne/Qwen2.5-1.5B-Ins",
+      "card_chars": 0,
+      "downloads": null,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "mlabonne/Daredevil-8B-abliterated",
+      "uploader": "mlabonne",
+      "params": 8030261248.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/mlabonne/Daredevil-8B-abliterated",
+      "card_chars": 3780,
+      "downloads": null,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# Daredevil-8B-abliterated\n\n![image/jpeg](https://cdn-uploads.huggingface.co/production/uploads/61b8e2ba285851687028d395/gFEhcIDSKa3AWpkNfH91q.jpeg)\n\nAbliterated version of [mlabonne/",
+      "all_class_hits": []
+    },
+    {
+      "repo": "huihui-ai/Qwen3-0.6B-abliterated",
+      "uploader": "huihui-ai",
+      "params": 596049920.0,
+      "size_ok": true,
+      "evidence_url": "https://huggingface.co/huihui-ai/Qwen3-0.6B-abliterated",
+      "card_chars": 9390,
+      "downloads": null,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# huihui-ai/Qwen3-0.6B-abliterated\n\n\nThis is an uncensored version of [Qwen/Qwen3-0.6B](https://huggingface.co/Qwen/Qwen3-0.6B) created with abliteration (see [remove-refusals-with-transforme",
+      "all_class_hits": []
+    },
+    {
+      "repo": "grimjim/Llama-3.2-1B-Instruct-abliterated-ortho",
+      "uploader": "grimjim",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "ERROR:404 Client Error. (Request ID: Root=1-6a7e3566-7ca237d91cfb1c920f102e64;9f962ccf-c9f7-4d46-9626-026a4a4bceca)\n\nRepository Not Found for url: https://huggingface.co/api/models/grimjim/Llama-3.2-1B-Inst",
+      "card_chars": 0,
+      "downloads": null,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "byroneverson/Yi-1.5-6B-Chat-abliterated",
+      "uploader": "byroneverson",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "ERROR:404 Client Error. (Request ID: Root=1-6a7e3566-61573dfd04173d7470773c71;5dd70967-70dc-4e9b-bc12-d4b3c5a4f92d)\n\nRepository Not Found for url: https://huggingface.co/api/models/byroneverson/Yi-1.5-6B-Ch",
+      "card_chars": 0,
+      "downloads": null,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "failspy/Llama-3-8B-Instruct-abliterated",
+      "uploader": "failspy",
+      "params": 8030261248.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/failspy/Llama-3-8B-Instruct-abliterated",
+      "card_chars": 1736,
+      "downloads": null,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "ure you about ethics/safety, etc. It is tuned in all other respects the same as the original 8B instruct model was, just with the strongest refusal direction orthogonalized out.\n\n## Quants\n[GGUF Quants available here](https://huggingface.co/failspy/Llama-3-8B-Instruct-abliterated-GGUF)\n\n## Quirkines",
+      "all_class_hits": []
+    },
+    {
+      "repo": "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive",
+      "uploader": "HauhauCS",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive",
+      "card_chars": 6132,
+      "downloads": 2220086,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "gressive-f16.gguf) | mmproj (f16) | \u2014 | 899 MB |\n\nAll quants generated with importance matrix (imatrix) for optimal quality preservation on abliterated weights.\n\n## What are K_P quants?\n\nK_P (\"Perfect\") quants are HauhauCS custom quantizations that use model-specific analysis to selectively preserve",
+      "all_class_hits": []
+    },
+    {
+      "repo": "Bahushruth/Qwen3.6-35B-A3B-abliterated-v4",
+      "uploader": "Bahushruth",
+      "params": 34660610688.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/Bahushruth/Qwen3.6-35B-A3B-abliterated-v4",
+      "card_chars": 5462,
+      "downloads": 1164780,
+      "recipe_class": "norm_preserving",
+      "mechanically_different": true,
+      "evidence_tier": 1,
+      "evidence_quote": "censored version of [Qwen/Qwen3.6-35B-A3B](https://huggingface.co/Qwen/Qwen3.6-35B-A3B) with refusal behavior removed via **abliteration** (norm-preserving orthogonalization).\n\n> **GGUF quantizations:** [Bahushruth/Qwen3.6-35B-A3B-abliterated-v4-GGUF](https://huggingface.co/Bahushruth/Qwen3.6-35B-A3",
+      "all_class_hits": [
+        "norm_preserving"
+      ]
+    },
+    {
+      "repo": "HauhauCS/Gemma-4-E4B-Uncensored-HauhauCS-Aggressive",
+      "uploader": "HauhauCS",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/HauhauCS/Gemma-4-E4B-Uncensored-HauhauCS-Aggressive",
+      "card_chars": 5867,
+      "downloads": 1007746,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "gressive-f16.gguf) | mmproj (f16) | \u2014 | 945 MB |\n\nAll quants generated with importance matrix (imatrix) for optimal quality preservation on abliterated weights.\n\n## What are K_P quants?\n\nK_P (\"Perfect\") quants are HauhauCS custom quantizations that use model-specific analysis to selectively preserve",
+      "all_class_hits": []
+    },
+    {
+      "repo": "wangzhang/gemma-4-31B-it-abliterated",
+      "uploader": "wangzhang",
+      "params": 31273086512.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/wangzhang/gemma-4-31B-it-abliterated",
+      "card_chars": 4692,
+      "downloads": 818666,
+      "recipe_class": "norm_preserving",
+      "mechanically_different": true,
+      "evidence_tier": 1,
+      "evidence_quote": "yer Embeddings (PLE) make naive LoRA and hook-based steering unreliable for this model family. This release uses **direct weight editing**: norm-preserving orthogonal projection applied to the base model weights.\n\nKey techniques:\n\n- **Direct orthogonal projection** on attention Q/K/V/O projections\n-",
+      "all_class_hits": [
+        "norm_preserving"
+      ]
+    },
+    {
+      "repo": "HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive",
+      "uploader": "HauhauCS",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive",
+      "card_chars": 2794,
+      "downloads": 508777,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "mlabonne/Qwen3-30B-A3B-abliterated",
+      "uploader": "mlabonne",
+      "params": 30532122624.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/mlabonne/Qwen3-30B-A3B-abliterated",
+      "card_chars": 959,
+      "downloads": 440314,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# \ud83d\udc39 Qwen3-30B-A3B-abliterated\n\n![image/png](https://cdn-uploads.huggingface.co/production/uploads/61b8e2ba285851687028d395/oCo2RbWkYHjVMsuqXpV5V.png)\n\n<center>Qwen3 Abliterated <a href=\"",
+      "all_class_hits": []
+    },
+    {
+      "repo": "coolthor/Huihui-Qwen3.6-35B-A3B-abliterated-FP8-DYNAMIC",
+      "uploader": "coolthor",
+      "params": 35951822704.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/coolthor/Huihui-Qwen3.6-35B-A3B-abliterated-FP8-DYNAMIC",
+      "card_chars": 8559,
+      "downloads": 402876,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# Huihui-Qwen3.6-35B-A3B-abliterated-FP8-DYNAMIC\n\nFP8 dynamic quantization of [huihui-ai/Huihui-Qwen3.6-35B-A3B-abliterated](https://huggingface.co/huihui-ai/Huihui-Qwen3.6-35B-A3B-abliterated)",
+      "all_class_hits": []
+    },
+    {
+      "repo": "HauhauCS/Qwen3.6-27B-Uncensored-HauhauCS-Aggressive",
+      "uploader": "HauhauCS",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/HauhauCS/Qwen3.6-27B-Uncensored-HauhauCS-Aggressive",
+      "card_chars": 9446,
+      "downloads": 355031,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "gressive-f16.gguf) | mmproj (f16) | \u2014 | 928 MB |\n\nAll quants generated with importance matrix (imatrix) for optimal quality preservation on abliterated weights.\n\n## What are K_P quants?\n\nK_P (\"Perfect\") quants are HauhauCS custom quantizations that use model-specific analysis to selectively preserve",
+      "all_class_hits": []
+    },
+    {
+      "repo": "paperscarecrow/Gemma-4-31B-it-abliterated",
+      "uploader": "paperscarecrow",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/paperscarecrow/Gemma-4-31B-it-abliterated",
+      "card_chars": 3487,
+      "downloads": 335606,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "ence lengths.\n\nDuring the extraction of the hidden states (using `mlabonne/harmful_behaviors` vs `mlabonne/harmless_alpaca`), we mapped the refusal direction across the entire 31B layer stack. \n\n**Key Discovery:** The Gemma 4 31B architecture pushes its safety alignment to the absolute very end of t",
+      "all_class_hits": []
+    },
+    {
+      "repo": "HauhauCS/Qwen3.5-122B-A10B-Uncensored-HauhauCS-Aggressive",
+      "uploader": "HauhauCS",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/HauhauCS/Qwen3.5-122B-A10B-Uncensored-HauhauCS-Aggressive",
+      "card_chars": 4674,
+      "downloads": 319795,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "llmfan46/gemma-4-E4B-it-uncensored-heretic",
+      "uploader": "llmfan46",
+      "params": 7996156490.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/llmfan46/gemma-4-E4B-it-uncensored-heretic",
+      "card_chars": 31436,
+      "downloads": 203302,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "ic](https://github.com/p-e-w/heretic) v1.2.0 with the [Arbitrary-Rank Ablation (ARA)](https://github.com/p-e-w/heretic/pull/211) method\n\n## Abliteration parameters\n\n| Parameter | Value |\n| :-------- | :---: |\n| **start_layer_index** | 8 |\n| **end_layer_index** | 36 |\n| **preserve_good_behavior_weigh",
+      "all_class_hits": []
+    },
+    {
+      "repo": "huihui-ai/Huihui-Qwen3.5-27B-abliterated",
+      "uploader": "huihui-ai",
+      "params": 27781427952.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/huihui-ai/Huihui-Qwen3.5-27B-abliterated",
+      "card_chars": 2241,
+      "downloads": 155781,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# huihui-ai/Huihui-Qwen3.5-27B-abliterated\n\n\nThis is an uncensored version of [Qwen/Qwen3.5-27B](https://huggingface.co/Qwen/Qwen3.5-27B) created with abliteration (see [remove-refusals-with-transfor",
+      "all_class_hits": []
+    },
+    {
+      "repo": "HauhauCS/Qwen3.5-4B-Uncensored-HauhauCS-Aggressive",
+      "uploader": "HauhauCS",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/HauhauCS/Qwen3.5-4B-Uncensored-HauhauCS-Aggressive",
+      "card_chars": 2795,
+      "downloads": 148809,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "HauhauCS/Gemma4-12B-QAT-Uncensored-HauhauCS-Balanced",
+      "uploader": "HauhauCS",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/HauhauCS/Gemma4-12B-QAT-Uncensored-HauhauCS-Balanced",
+      "card_chars": 3565,
+      "downloads": 129268,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "HauhauCS/Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive",
+      "uploader": "HauhauCS",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/HauhauCS/Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive",
+      "card_chars": 5229,
+      "downloads": 114956,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "S-Aggressive-f16.gguf) | mmproj (f16) | 858 MB |\n\nAll quants generated with importance matrix (imatrix) for optimal quality preservation on abliterated weights.\n\n## Specs\n\n- 35B total parameters, ~3B active per forward pass (MoE)\n- 256 experts, 8 routed + 1 shared per token\n- Hybrid architecture: Ga",
+      "all_class_hits": []
+    },
+    {
+      "repo": "HauhauCS/Gemma-4-E2B-Uncensored-HauhauCS-Aggressive",
+      "uploader": "HauhauCS",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/HauhauCS/Gemma-4-E2B-Uncensored-HauhauCS-Aggressive",
+      "card_chars": 5395,
+      "downloads": 109488,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "gressive-f16.gguf) | mmproj (f16) | \u2014 | 940 MB |\n\nAll quants generated with importance matrix (imatrix) for optimal quality preservation on abliterated weights.\n\n## What are K_P quants?\n\nK_P (\"Perfect\") quants are HauhauCS custom quantizations that use model-specific analysis to selectively preserve",
+      "all_class_hits": []
+    },
+    {
+      "repo": "HauhauCS/Qwen3.5-27B-Uncensored-HauhauCS-Aggressive",
+      "uploader": "HauhauCS",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/HauhauCS/Qwen3.5-27B-Uncensored-HauhauCS-Aggressive",
+      "card_chars": 3396,
+      "downloads": 106117,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP",
+      "uploader": "HauhauCS",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP",
+      "card_chars": 3654,
+      "downloads": 96426,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "AEON-7/Ornith-1.0-35B-AEON-Ultimate-Uncensored-BF16",
+      "uploader": "AEON-7",
+      "params": 35107181936.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/AEON-7/Ornith-1.0-35B-AEON-Ultimate-Uncensored-BF16",
+      "card_chars": 11138,
+      "downloads": 87213,
+      "recipe_class": "norm_preserving",
+      "mechanically_different": true,
+      "evidence_tier": 1,
+      "evidence_quote": "eration to prevent coherence collapse.\n2. **Abliteration** with [`abliterix` v1.9](https://github.com/wuwangzhang1216/abliterix): grimjim **norm-preserving biprojected abliteration** + **Expert-Granular Abliteration (EGA)** across all 256 fused experts + shared expert + router suppression, Optuna mu",
+      "all_class_hits": [
+        "norm_preserving"
+      ]
+    },
+    {
+      "repo": "toandev/Gemma4-12B-Uncensored",
+      "uploader": "toandev",
+      "params": 11959730176.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/toandev/Gemma4-12B-Uncensored",
+      "card_chars": 3604,
+      "downloads": 83971,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "HauhauCS/Gemma4-31B-QAT-Uncensored-HauhauCS-Balanced-MTP",
+      "uploader": "HauhauCS",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/HauhauCS/Gemma4-31B-QAT-Uncensored-HauhauCS-Balanced-MTP",
+      "card_chars": 3570,
+      "downloads": 83078,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "DavidAU/Qwen3.5-9B-Claude-4.6-HighIQ-INSTRUCT-HERETIC-UNCENSORED",
+      "uploader": "DavidAU",
+      "params": 9409813744.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/DavidAU/Qwen3.5-9B-Claude-4.6-HighIQ-INSTRUCT-HERETIC-UNCENSORED",
+      "card_chars": 78928,
+      "downloads": 80769,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "AIOpsInSpace/Qwen3.6-27B-Uncensored-HauhauCS-Aggressive-MTP",
+      "uploader": "AIOpsInSpace",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/AIOpsInSpace/Qwen3.6-27B-Uncensored-HauhauCS-Aggressive-MTP",
+      "card_chars": 19505,
+      "downloads": 78473,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "HauhauCS/Gemma4-26B-A4B-Uncensored-HauhauCS-Balanced",
+      "uploader": "HauhauCS",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/HauhauCS/Gemma4-26B-A4B-Uncensored-HauhauCS-Balanced",
+      "card_chars": 8036,
+      "downloads": 73703,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "huihui-ai/Qwen2.5-VL-7B-Instruct-abliterated",
+      "uploader": "huihui-ai",
+      "params": 8292166656.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/huihui-ai/Qwen2.5-VL-7B-Instruct-abliterated",
+      "card_chars": 2222,
+      "downloads": 70883,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# huihui-ai/Qwen2.5-VL-7B-Instruct-abliterated\n\n\nThis is an uncensored version of [Qwen/Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct) created with abliteration (see [remove-",
+      "all_class_hits": []
+    },
+    {
+      "repo": "HauhauCS/Qwen3.6-27B-Uncensored-HauhauCS-Balanced",
+      "uploader": "HauhauCS",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/HauhauCS/Qwen3.6-27B-Uncensored-HauhauCS-Balanced",
+      "card_chars": 9904,
+      "downloads": 64292,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "Balanced-f16.gguf) | mmproj (f16) | \u2014 | 928 MB |\n\nAll quants generated with importance matrix (imatrix) for optimal quality preservation on abliterated weights.\n\n## What are K_P quants?\n\nK_P (\"Perfect\") quants are HauhauCS custom quantizations that use model-specific analysis to selectively preserve",
+      "all_class_hits": []
+    },
+    {
+      "repo": "huihui-ai/Huihui-gemma-4-31B-it-abliterated-v2",
+      "uploader": "huihui-ai",
+      "params": 32682372656.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/huihui-ai/Huihui-gemma-4-31B-it-abliterated-v2",
+      "card_chars": 3407,
+      "downloads": 49920,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# huihui-ai/Huihui-gemma-4-31B-it-abliterated-v2\n\n\nThis is an uncensored version of [google/gemma-4-31B-it](https://huggingface.co/google/gemma-4-31B-it) created with abliteration (see [remove-refusals-",
+      "all_class_hits": []
+    },
+    {
+      "repo": "HauhauCS/Qwen3.5-2B-Uncensored-HauhauCS-Aggressive",
+      "uploader": "HauhauCS",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/HauhauCS/Qwen3.5-2B-Uncensored-HauhauCS-Aggressive",
+      "card_chars": 2890,
+      "downloads": 46304,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "apetersson/DeepSeek-V4-Flash-0731-Abliterated-DS4-Headroom128",
+      "uploader": "apetersson",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/apetersson/DeepSeek-V4-Flash-0731-Abliterated-DS4-Headroom128",
+      "card_chars": 12499,
+      "downloads": 45153,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "sitory and weights are MIT licensed. This derivative retains\nthat license. Credit DeepSeek-AI for the original model, drowzeys/keys for the\nrefusal direction, ox-ox for the 0731 routed-expert importance matrix, antirez\nfor DS4 and the exact-0731 metadata recipe, and apetersson for this conversion\nan",
+      "all_class_hits": []
+    },
+    {
+      "repo": "Unrestricted/Qwen3.5-122B-A10B-Uncensored-HauhauCS-Aggressive",
+      "uploader": "Unrestricted",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/Unrestricted/Qwen3.5-122B-A10B-Uncensored-HauhauCS-Aggressive",
+      "card_chars": 4674,
+      "downloads": 41153,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "huihui-ai/Huihui-ThinkingCap-Qwen3.6-27B-abliterated",
+      "uploader": "huihui-ai",
+      "params": 27356728560.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/huihui-ai/Huihui-ThinkingCap-Qwen3.6-27B-abliterated",
+      "card_chars": 2019,
+      "downloads": 40331,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# huihui-ai/Huihui-ThinkingCap-Qwen3.6-27B-abliterated\n\n\nThis is an uncensored version of [bottlecapai/ThinkingCap-Qwen3.6-27B](https://huggingface.co/bottlecapai/ThinkingCap-Qwen3.6-27B) created with abliterati",
+      "all_class_hits": []
+    },
+    {
+      "repo": "sakamakismile/Huihui-Qwen3.6-27B-abliterated-NVFP4-MTP",
+      "uploader": "sakamakismile",
+      "params": 17128059632.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/sakamakismile/Huihui-Qwen3.6-27B-abliterated-NVFP4-MTP",
+      "card_chars": 8948,
+      "downloads": 39949,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# Huihui-Qwen3.6-27B-abliterated-NVFP4-MTP\n\nNVFP4 (modelopt **W4A4**) quant of **Huihui-Qwen3.6-27B-abliterated** \u2014 a Qwen3.5-family\n**hybrid** model (linear attention + periodic full atten",
+      "all_class_hits": []
+    },
+    {
+      "repo": "TrevorJS/gemma-4-26B-A4B-it-uncensored",
+      "uploader": "TrevorJS",
+      "params": 25805933872.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/TrevorJS/gemma-4-26B-A4B-it-uncensored",
+      "card_chars": 4354,
+      "downloads": 36169,
+      "recipe_class": "norm_preserving",
+      "mechanically_different": true,
+      "evidence_tier": 1,
+      "evidence_quote": "Most are \"refusal-then-comply\" false positives where the model\nadds an AI identity disclaimer then answers the question anyway.\n\n## Method\n\nNorm-preserving biprojected abliteration on the dense pathway (o_proj + shared mlp.down_proj),\nplus **Expert-Granular Abliteration (EGA)** on all 128 MoE expert",
+      "all_class_hits": [
+        "norm_preserving"
+      ]
+    },
+    {
+      "repo": "AEON-7/Qwen3.6-27B-AEON-Ultimate-Uncensored-Multimodal-NVFP4-MTP-XS",
+      "uploader": "AEON-7",
+      "params": 17128059632.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/AEON-7/Qwen3.6-27B-AEON-Ultimate-Uncensored-Multimodal-NVFP4-MTP-XS",
+      "card_chars": 28456,
+      "downloads": 33794,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "matmuls to NVFP4 while preserving `linear_attn.conv1d` at BF16 \u2014 and the MTP-head graft technique. We adapted the recipe to AEON-Ultimate's abliterated weights and ship both the conv1d-preserved-only XS variant (matching their footprint) and a heavier regular-MTP variant that additionally keeps the ",
+      "all_class_hits": []
+    },
+    {
+      "repo": "morikomorizz/Qwen3.6-35B-A3B-Uncensored-HauhauCS-MTP",
+      "uploader": "morikomorizz",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/morikomorizz/Qwen3.6-35B-A3B-Uncensored-HauhauCS-MTP",
+      "card_chars": 2930,
+      "downloads": 32489,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "huihui-ai/Huihui-Qwen3-VL-4B-Instruct-abliterated",
+      "uploader": "huihui-ai",
+      "params": 4437815808.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/huihui-ai/Huihui-Qwen3-VL-4B-Instruct-abliterated",
+      "card_chars": 4272,
+      "downloads": 32422,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# huihui-ai/Huihui-Qwen3-VL-4B-Instruct-abliterated\n\n\nThis is an uncensored version of [Qwen/Qwen3-VL-4B-Instruct](https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct) created with abliteration (see [remove-refu",
+      "all_class_hits": []
+    },
+    {
+      "repo": "DreamFast/Qwen3.6-27B-Uncensored-HauhauCS-Aggressive-Safetensor-Benchmark",
+      "uploader": "DreamFast",
+      "params": 27781427952.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/DreamFast/Qwen3.6-27B-Uncensored-HauhauCS-Aggressive-Safetensor-Benchmark",
+      "card_chars": 32658,
+      "downloads": 32300,
+      "recipe_class": "multi_direction",
+      "mechanically_different": true,
+      "evidence_tier": 1,
+      "evidence_quote": "n top of the Heretic-derived core, Reaper adds subspace-level rank-k ablation, per-component continuous ablation curves, SOM clustering for multi-directional refusal discovery, and several other techniques. The model was exported as Q8_K_P GGUF, which we converted back to safetensors with ungguf. Th",
+      "all_class_hits": [
+        "multi_direction"
+      ]
+    },
+    {
+      "repo": "lustlyai/Flux_Lustly.ai_Uncensored_nsfw_v1",
+      "uploader": "lustlyai",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/lustlyai/Flux_Lustly.ai_Uncensored_nsfw_v1",
+      "card_chars": 2142,
+      "downloads": 32228,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "huihui-ai/Llama-3.2-1B-Instruct-abliterated",
+      "uploader": "huihui-ai",
+      "params": 1498482688.0,
+      "size_ok": true,
+      "evidence_url": "https://huggingface.co/huihui-ai/Llama-3.2-1B-Instruct-abliterated",
+      "card_chars": 1374,
+      "downloads": 31822,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# \ud83e\udd99 Llama-3.2-1B-Instruct-abliterated\n\n\n\nThis is an uncensored version of Llama 3.2 1B Instruct created with abliteration (see [this article](https://huggingface.co/blog/mlabonne/abliteration) t",
+      "all_class_hits": []
+    },
+    {
+      "repo": "ponpoke/flux2-klein-9b-uncensored-text-encoder",
+      "uploader": "ponpoke",
+      "params": 8190735360.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/ponpoke/flux2-klein-9b-uncensored-text-encoder",
+      "card_chars": 11228,
+      "downloads": 30646,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "Vector Extraction:** From the inference process (specifically, targeting the middle to late layers, 14 to 24), we dynamically extracted the refusal direction for *each individual layer*. This addresses the issue of concept vectors rotating across layers.\n3. **Sequential Weight Orthogonalization:** F",
+      "all_class_hits": []
+    },
+    {
+      "repo": "huihui-ai/Huihui-gemma-4-12B-agentic-fable5-abliterated",
+      "uploader": "huihui-ai",
+      "params": 11959730224.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/huihui-ai/Huihui-gemma-4-12B-agentic-fable5-abliterated",
+      "card_chars": 2072,
+      "downloads": 29867,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# huihui-ai/Huihui-gemma-4-12B-agentic-fable5-abliterated\n\n\nThis is an uncensored version of [yuxinlu1/gemma-4-12B-agentic-fable5-composer2.5-v2-3.5x-tau2](https://huggingface.co/yuxinlu1/gemma-4-12B-agentic-fable5",
+      "all_class_hits": []
+    },
+    {
+      "repo": "lyf/Huihui-gemma-4-31B-it-abliterated-v2-NVFP4",
+      "uploader": "lyf",
+      "params": 18460146336.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/lyf/Huihui-gemma-4-31B-it-abliterated-v2-NVFP4",
+      "card_chars": 9638,
+      "downloads": 28563,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "rs 0\u20134) are no longer abliterated**. They retain the original `google/gemma-4-31B-it` weights. Layers 5\u201359 are still abliterated but with a refusal direction recomputed excluding those early layers.\n\nPer the source model card, this produces lower perplexity (better quality) while maintaining the sam",
+      "all_class_hits": []
+    },
+    {
+      "repo": "huihui-ai/Huihui-Qwen3.6-35B-A3B-abliterated",
+      "uploader": "huihui-ai",
+      "params": 35951822704.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/huihui-ai/Huihui-Qwen3.6-35B-A3B-abliterated",
+      "card_chars": 2244,
+      "downloads": 25580,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# huihui-ai/Huihui-Qwen3.6-35B-A3B-abliterated\n\n\nThis is an uncensored version of [Qwen/Qwen3.6-35B-A3B](https://huggingface.co/Qwen/Qwen3.6-35B-A3B) created with abliteration (see [remove-refusals-with-",
+      "all_class_hits": []
+    },
+    {
+      "repo": "huihui-ai/Qwen2.5-VL-3B-Instruct-abliterated",
+      "uploader": "huihui-ai",
+      "params": 3754622976.0,
+      "size_ok": true,
+      "evidence_url": "https://huggingface.co/huihui-ai/Qwen2.5-VL-3B-Instruct-abliterated",
+      "card_chars": 2946,
+      "downloads": 24057,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# huihui-ai/Qwen2.5-VL-3B-Instruct-abliterated\n\n\nThis is an uncensored version of [Qwen/Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct) created with abliteration (see [remove-",
+      "all_class_hits": []
+    },
+    {
+      "repo": "BennyDaBall/Qwen3-4b-Z-Image-Turbo-AbliteratedV1",
+      "uploader": "BennyDaBall",
+      "params": 4022468096.0,
+      "size_ok": true,
+      "evidence_url": "https://huggingface.co/BennyDaBall/Qwen3-4b-Z-Image-Turbo-AbliteratedV1",
+      "card_chars": 2652,
+      "downloads": 23984,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# Qwen3-4b-Z-Image-Turbo-AbliteratedV1 \ud83d\ude80\n\n**Follow me on X [@BennyDaBall_OG](https://x.com/BennyDaBall_OG) !**\n\n**\"I'm sorry, I can't generate that image...\" SAID NO ONE EVER (well, almost).**\n",
+      "all_class_hits": []
+    },
+    {
+      "repo": "huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated",
+      "uploader": "huihui-ai",
+      "params": 35951822704.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated",
+      "card_chars": 2371,
+      "downloads": 23823,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated\n\n\nThis is an uncensored version of [lordx64/Qwen3.6-35B-A3B-Claude-4.7-Opus-Reasoning-Distilled](https://huggingface.co/lordx64/Qwen3.6-35B-A3B-Claude-4.7-O",
+      "all_class_hits": []
+    },
+    {
+      "repo": "mlabonne/Meta-Llama-3.1-8B-Instruct-abliterated",
+      "uploader": "mlabonne",
+      "params": 8030261248.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/mlabonne/Meta-Llama-3.1-8B-Instruct-abliterated",
+      "card_chars": 1489,
+      "downloads": 20977,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# \ud83e\udd99 Meta-Llama-3.1-8B-Instruct-abliterated\n\n![image/png](https://cdn-uploads.huggingface.co/production/uploads/61b8e2ba285851687028d395/AsTgL8VCgMHgobq4cr46b.png)\n\n<center>\ud83e\udd99 <a href=\"https://huggingf",
+      "all_class_hits": []
+    },
+    {
+      "repo": "huihui-ai/Huihui-Qwen3-VL-8B-Instruct-abliterated",
+      "uploader": "huihui-ai",
+      "params": 8767123696.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/huihui-ai/Huihui-Qwen3-VL-8B-Instruct-abliterated",
+      "card_chars": 4270,
+      "downloads": 19975,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# huihui-ai/Huihui-Qwen3-VL-8B-Instruct-abliterated\n\n\nThis is an uncensored version of [Qwen/Qwen3-VL-8B-Instruct](https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct) created with abliteration (see [remove-refu",
+      "all_class_hits": []
+    },
+    {
+      "repo": "apetersson/DeepSeek-V4-Flash-0731-Abliterated-DS4-Quality128",
+      "uploader": "apetersson",
+      "params": null,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/apetersson/DeepSeek-V4-Flash-0731-Abliterated-DS4-Quality128",
+      "card_chars": 11062,
+      "downloads": 19526,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# DeepSeek V4 Flash Abliterated \u2014 DS4 Quality128\n\n> **Exact MXFP4 experts, maximum resident quality.**\n\n> **Runtime compatibility:** the target GGUF runs with both DS4 and\n> `llama.cpp` on",
+      "all_class_hits": []
+    },
+    {
+      "repo": "batsclamp/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-FP8",
+      "uploader": "batsclamp",
+      "params": 35953923696.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/batsclamp/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-FP8",
+      "card_chars": 5014,
+      "downloads": 18458,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "ed-Chat-Templates](https://huggingface.co/froggeric/Qwen-Fixed-Chat-Templates/tree/main/qwen3.6).\n\n# Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-FP8\n\n**Vision-capable FP8-quantized abliterated Qwen3.6-35B-A3B (MoE, hybrid mamba/attention), built from the Huihui `Claude-4.7-Opus-abliterated` v",
+      "all_class_hits": []
+    },
+    {
+      "repo": "huihui-ai/Huihui-gpt-oss-20b-BF16-abliterated",
+      "uploader": "huihui-ai",
+      "params": 20914757184.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/huihui-ai/Huihui-gpt-oss-20b-BF16-abliterated",
+      "card_chars": 9055,
+      "downloads": 18391,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# huihui-ai/Huihui-gpt-oss-20b-BF16-abliterated\n\n\nThis is an uncensored version of [unsloth/gpt-oss-20b-BF16](https://huggingface.co/unsloth/gpt-oss-20b-BF16) created with abliteration (see [remove-refusa",
+      "all_class_hits": []
+    },
+    {
+      "repo": "Shifusen/Qwen3.5-122B-A10B-Decensored-SFT-FP8",
+      "uploader": "Shifusen",
+      "params": 122626223856.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/Shifusen/Qwen3.5-122B-A10B-Decensored-SFT-FP8",
+      "card_chars": 93786,
+      "downloads": 200,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "prithivMLmods/VibeThinker-3B-heretic_decensored",
+      "uploader": "prithivMLmods",
+      "params": 3085938688.0,
+      "size_ok": true,
+      "evidence_url": "https://huggingface.co/prithivMLmods/VibeThinker-3B-heretic_decensored",
+      "card_chars": 9425,
+      "downloads": 48,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "p style=\"margin: 8px 0 0 0; font-size: 13px; color: #cbd5e1; font-weight: 500;\">Reasoning-focused language model modified using the Heretic abliteration toolkit</p>\n  </div>\n  <div style=\"display: flex; gap: 8px; flex-wrap: wrap; padding: 12px 20px; background: #f8fafc; border-bottom: 1px solid #e2e",
+      "all_class_hits": []
+    },
+    {
+      "repo": "Shifusen/Qwen3.5-122B-A10B-Decensored-SFT",
+      "uploader": "Shifusen",
+      "params": 125086497008.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/Shifusen/Qwen3.5-122B-A10B-Decensored-SFT",
+      "card_chars": 93786,
+      "downloads": 39,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "vprilepskii/Seed-OSS-36B-Instruct-biprojected-norm-preserving-abliterated",
+      "uploader": "vprilepskii",
+      "params": 36151104512.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/vprilepskii/Seed-OSS-36B-Instruct-biprojected-norm-preserving-abliterated",
+      "card_chars": 185,
+      "downloads": 22,
+      "recipe_class": "norm_preserving",
+      "mechanically_different": true,
+      "evidence_tier": 1,
+      "evidence_quote": "l abliterated using techniques from blogs:\n\nhttps://huggingface.co/blog/grimjim/projected-abliteration\n\nhttps://huggingface.co/blog/grimjim/norm-preserving-biprojected-abliteration",
+      "all_class_hits": [
+        "norm_preserving"
+      ]
+    },
+    {
+      "repo": "MagicalAlchemist/Qwen3-1.7B-Magic_decensored",
+      "uploader": "MagicalAlchemist",
+      "params": 1720574976.0,
+      "size_ok": true,
+      "evidence_url": "https://huggingface.co/MagicalAlchemist/Qwen3-1.7B-Magic_decensored",
+      "card_chars": 14653,
+      "downloads": 19,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "red version of [Qwen/Qwen3-1.7B](https://huggingface.co/Qwen/Qwen3-1.7B), made using [Heretic](https://github.com/p-e-w/heretic) v1.1.0\n\n## Abliteration parameters\n\n| Parameter | Value |\n| :-------- | :---: |\n| **direction_index** | 17.89 |\n| **attn.o_proj.max_weight** | 0.84 |\n| **attn.o_proj.max_w",
+      "all_class_hits": []
+    },
+    {
+      "repo": "MagicalAlchemist/Qwen-SEA-LION-v4-8B-VL-Magic_decensored",
+      "uploader": "MagicalAlchemist",
+      "params": 8767123696.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/MagicalAlchemist/Qwen-SEA-LION-v4-8B-VL-Magic_decensored",
+      "card_chars": 13018,
+      "downloads": 19,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "ION-v4-8B-VL](https://huggingface.co/aisingapore/Qwen-SEA-LION-v4-8B-VL), made using [Heretic](https://github.com/p-e-w/heretic) v1.1.0\n\n## Abliteration parameters\n\n| Parameter | Value |\n| :-------- | :---: |\n| **direction_index** | per layer |\n| **attn.o_proj.max_weight** | 1.39 |\n| **attn.o_proj.m",
+      "all_class_hits": []
+    },
+    {
+      "repo": "prithivMLmods/gemma-4-E4B-it-qat-heretic_decensored",
+      "uploader": "prithivMLmods",
+      "params": 7941100832.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/prithivMLmods/gemma-4-E4B-it-qat-heretic_decensored",
+      "card_chars": 5950,
+      "downloads": 19,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "d** is a reasoning-capable language model built on top of **google/gemma-4-E4B-it-qat-q4_0-unquantized** and modified using the **Heretic** abliteration toolkit. The model applies refusal-direction analysis and targeted weight-space interventions to reduce internal refusal behaviors while preserving",
+      "all_class_hits": []
+    },
+    {
+      "repo": "MagicalAlchemist/Apriel-1.6-15b-Thinker-Magic_alpha-decensored_MPOA",
+      "uploader": "MagicalAlchemist",
+      "params": 14863859712.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/MagicalAlchemist/Apriel-1.6-15b-Thinker-Magic_alpha-decensored_MPOA",
+      "card_chars": 27048,
+      "downloads": 18,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "rected jinja chat template and tokenizer config**\n<img src=\"https://i.imgur.com/MsFl6rC.jpeg\" alt=\"Really you read this ?\" width=\"55%\">\n\n## Abliteration parameters\n\n| Parameter | Value |\n| :-------- | :---: |\n| **direction_index** | 26.69 |\n| **attn.o_proj.max_weight** | 1.46 |\n| **attn.o_proj.max_w",
+      "all_class_hits": []
+    },
+    {
+      "repo": "MagicalAlchemist/Qwen-SEA-LION-v4-4B-VL-Magic_decensored",
+      "uploader": "MagicalAlchemist",
+      "params": 4437815808.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/MagicalAlchemist/Qwen-SEA-LION-v4-4B-VL-Magic_decensored",
+      "card_chars": 13158,
+      "downloads": 16,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "ION-v4-4B-VL](https://huggingface.co/aisingapore/Qwen-SEA-LION-v4-4B-VL), made using [Heretic](https://github.com/p-e-w/heretic) v1.1.0\n\n## Abliteration parameters\n\n| Parameter | Value |\n| :-------- | :---: |\n| **direction_index** | 18.76 |\n| **attn.o_proj.max_weight** | 1.32 |\n| **attn.o_proj.max_w",
+      "all_class_hits": []
+    },
+    {
+      "repo": "prithivMLmods/gemma-4-12B-it-heretic_decensored",
+      "uploader": "prithivMLmods",
+      "params": 11959730176.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/prithivMLmods/gemma-4-12B-it-heretic_decensored",
+      "card_chars": 5504,
+      "downloads": 16,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "-it-heretic_decensored** is a reasoning-capable language model built on top of **google/gemma-4-12B-it** and modified using the **Heretic** abliteration toolkit. The model applies refusal-direction analysis and targeted weight-space interventions to reduce internal refusal behaviors while preserving",
+      "all_class_hits": []
+    },
+    {
+      "repo": "Shifusen/Qwen3-Next-80B-A3B-Instruct-Decensored",
+      "uploader": "Shifusen",
+      "params": 79674391296.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/Shifusen/Qwen3-Next-80B-A3B-Instruct-Decensored",
+      "card_chars": 2232,
+      "downloads": 15,
+      "recipe_class": "unverified",
+      "mechanically_different": false,
+      "evidence_tier": 0,
+      "evidence_quote": "",
+      "all_class_hits": []
+    },
+    {
+      "repo": "MagicalAlchemist/Apriel-1.6-15b-Thinker-Magic_beta-decensored",
+      "uploader": "MagicalAlchemist",
+      "params": 14863859712.0,
+      "size_ok": false,
+      "evidence_url": "https://huggingface.co/MagicalAlchemist/Apriel-1.6-15b-Thinker-Magic_beta-decensored",
+      "card_chars": 29210,
+      "downloads": 14,
+      "recipe_class": "norm_preserving",
+      "mechanically_different": true,
+      "evidence_tier": 1,
+      "evidence_quote": "[Heretic](https://github.com/p-e-w/heretic) v1.2.0 With Magnitude-Preserving Orthogonal Ablation [MPOA](https://huggingface.co/blog/grimjim/norm-preserving-biprojected-abliteration) and Special PR of Self-Organizing Maps (SOMs) Implementation by [kabachuha](https://github.com/kabachuha)\n### **Fix : ",
+      "all_class_hits": [
+        "norm_preserving"
+      ]
+    }
+  ],
+  "n_qualified": 0,
+  "qualified": [],
+  "n_new_uploader_same_recipe": 4,
+  "new_uploader_same_recipe": [
+    {
+      "repo": "mlabonne/Qwen3-0.6B-abliterated",
+      "uploader": "mlabonne",
+      "params": 596049920.0,
+      "size_ok": true,
+      "evidence_url": "https://huggingface.co/mlabonne/Qwen3-0.6B-abliterated",
+      "card_chars": 2268,
+      "downloads": null,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": " expected.\n\nI recommend using these generation parameters: `temperature=0.6`, `top_k=20`, `top_p=0.95`, `min_p=0`.\n\n## \u2702\ufe0f Abliteration\n\nThe refusal direction is computed by comparing the residual streams between target (harmful) and baseline (harmless) samples. \nThe hidden states of target modules (",
+      "all_class_hits": []
+    },
+    {
+      "repo": "BennyDaBall/Qwen3-4b-Z-Image-Turbo-AbliteratedV1",
+      "uploader": "BennyDaBall",
+      "params": 4022468096.0,
+      "size_ok": true,
+      "evidence_url": "https://huggingface.co/BennyDaBall/Qwen3-4b-Z-Image-Turbo-AbliteratedV1",
+      "card_chars": 2652,
+      "downloads": 23984,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "\n# Qwen3-4b-Z-Image-Turbo-AbliteratedV1 \ud83d\ude80\n\n**Follow me on X [@BennyDaBall_OG](https://x.com/BennyDaBall_OG) !**\n\n**\"I'm sorry, I can't generate that image...\" SAID NO ONE EVER (well, almost).**\n",
+      "all_class_hits": []
+    },
+    {
+      "repo": "prithivMLmods/VibeThinker-3B-heretic_decensored",
+      "uploader": "prithivMLmods",
+      "params": 3085938688.0,
+      "size_ok": true,
+      "evidence_url": "https://huggingface.co/prithivMLmods/VibeThinker-3B-heretic_decensored",
+      "card_chars": 9425,
+      "downloads": 48,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "p style=\"margin: 8px 0 0 0; font-size: 13px; color: #cbd5e1; font-weight: 500;\">Reasoning-focused language model modified using the Heretic abliteration toolkit</p>\n  </div>\n  <div style=\"display: flex; gap: 8px; flex-wrap: wrap; padding: 12px 20px; background: #f8fafc; border-bottom: 1px solid #e2e",
+      "all_class_hits": []
+    },
+    {
+      "repo": "MagicalAlchemist/Qwen3-1.7B-Magic_decensored",
+      "uploader": "MagicalAlchemist",
+      "params": 1720574976.0,
+      "size_ok": true,
+      "evidence_url": "https://huggingface.co/MagicalAlchemist/Qwen3-1.7B-Magic_decensored",
+      "card_chars": 14653,
+      "downloads": 19,
+      "recipe_class": "global_diff_in_means",
+      "mechanically_different": false,
+      "evidence_tier": 1,
+      "evidence_quote": "red version of [Qwen/Qwen3-1.7B](https://huggingface.co/Qwen/Qwen3-1.7B), made using [Heretic](https://github.com/p-e-w/heretic) v1.1.0\n\n## Abliteration parameters\n\n| Parameter | Value |\n| :-------- | :---: |\n| **direction_index** | 17.89 |\n| **attn.o_proj.max_weight** | 0.84 |\n| **attn.o_proj.max_w",
+      "all_class_hits": []
+    }
+  ],
+  "note": "'qualified' means <=4.2B AND a verified MECHANICALLY DIFFERENT recipe. 'new_uploader_same_recipe' are extra real checkpoints whose verified recipe is the SAME global single-direction diff-in-means class as the archived eight; they are labelled as such and are never counted as recipe diversity."
+}

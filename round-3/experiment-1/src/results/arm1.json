@@ -1,0 +1,12 @@
+{
+  "prereg": "W05 AUROC drops materially (below 0.8) on abliteration recipes that are mechanically different from the all-layer global single-direction diff-in-means class, and the layer-fraction curve has a crossing point f* strictly above 0.33 -- i.e. the scar is a property of GLOBAL surgery, not of abliteration as such.",
+  "hosts": [
+    "Qwen/Qwen3-1.7B",
+    "unsloth/Llama-3.2-1B-Instruct"
+  ],
+  "n_synth_rows": 28,
+  "n_real_rows": 1,
+  "n_candidates_verified": 60,
+  "n_qualified": 0,
+  "seconds": 314.0
+}

@@ -1,12 +1,0 @@
-19:01:54|INFO   |loading Qwen/Qwen3-0.6B
-Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 4584.12it/s]
-19:02:09|INFO   |uid=0 match=False
-  batched: 'The average lifespan of a domesticated cat is approximately **12 to 1'
-  single : 'The average lifespan of a domesticated cat is typically **10 to 1'
-19:02:09|INFO   |uid=1 match=True
-  batched: 'When choosing running shoes for someone starting a half marathon this spring, consider fac'
-  single : 'When choosing running shoes for someone starting a half marathon this spring, consider fac'
-19:02:09|INFO   |uid=2 match=True
-  batched: 'Photosynthesis is the process by which plants, algae, and some bacteria convert light'
-  single : 'Photosynthesis is the process by which plants, algae, and some bacteria convert light'
-19:02:09|INFO   |PADDING CHECK FAILED

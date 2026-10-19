@@ -1,0 +1,327 @@
+{
+ "G1_w05_reproduction": {
+  "tolerance": 0.001,
+  "rows": [
+   {
+    "repo_id": "MihaiPopa-1/Stentor-30M-Instruct-heretic-safety-defiltered",
+    "revision": "5926c15d0a8e95a74214d69b2afc613764d8ec4b",
+    "W05_archived": -0.4041109755928461,
+    "W05_reproduced": -0.40411104123388164,
+    "delta": -6.564103555151135e-08,
+    "status": "OK",
+    "error": null,
+    "pass": true
+   },
+   {
+    "repo_id": "StentorLabs/Stentor-30M-Instruct",
+    "revision": "25746d4ee9ce83dc7296f8757f02b5663c112f0f",
+    "W05_archived": -0.4555436253083577,
+    "W05_reproduced": -0.4555436253083577,
+    "delta": 0.0,
+    "status": "OK",
+    "error": null,
+    "pass": true
+   }
+  ],
+  "achieved_max_abs_delta": 6.564103555151135e-08,
+  "n_pass": 2,
+  "n": 2,
+  "verdict": "PASS",
+  "note": "accumulation ORDER in wstats.load_write_matrices is load-bearing: float32 summation is not associative and lam[0] on an abliterated checkpoint sits ~5 orders below the trace"
+ },
+ "G2_eligibility_replay": {
+  "n": 20,
+  "n_match": 20,
+  "rows": [
+   {
+    "repo_id": "huihui-ai/Huihui-Qwen3-0.6B-abliterated-v2",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "huihui-ai/Huihui-Qwen3-1.7B-abliterated-v2",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "huihui-ai/Qwen2.5-0.5B-Instruct-abliterated",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "huihui-ai/Qwen2.5-1.5B-Instruct-abliterated",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "huihui-ai/Llama-3.2-1B-Instruct-abliterated",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "huihui-ai/Llama-3.2-3B-Instruct-abliterated",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "Goekdeniz-Guelmez/Josiefied-Qwen2.5-3B-Instruct-abliterated-v1",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "Qwen/Qwen3-0.6B",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "unsloth/Llama-3.2-1B-Instruct",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "HuggingFaceTB/SmolLM2-360M-Instruct",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "EleutherAI/pythia-410m",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "allenai/OLMo-1B-hf",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "h2oai/h2o-danube3-500m-chat",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "Qwen/Qwen2.5-0.5B",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "tiiuae/Falcon3-1B-Instruct",
+    "archived_eligible": true,
+    "replayed_eligible": true,
+    "archived_primary": null,
+    "replayed_primary": null,
+    "match": true
+   },
+   {
+    "repo_id": "hmellor/tiny-random-LlamaForCausalLM",
+    "archived_eligible": false,
+    "replayed_eligible": false,
+    "archived_primary": "E1",
+    "replayed_primary": "E1",
+    "match": true
+   }
+  ],
+  "verdict": "PASS",
+  "note": "the archived jsonl does not store tags / quantization_config, so the replay record is reconstructed from the stored numeric fields; the STRONGER check is that vendored_eligibility.py is byte-identical to the archived file, which is asserted separately",
+  "file_byte_identical": true
+ },
+ "G3_core40": {
+  "n_core40": 40,
+  "n_core80": 80,
+  "subset_of_core80": true,
+  "per_category": {
+   "Disinformation": 4,
+   "Economic harm": 4,
+   "Expert advice": 4,
+   "Fraud/Deception": 4,
+   "Government decision-making": 4,
+   "Harassment/Discrimination": 4,
+   "Malware/Hacking": 4,
+   "Physical harm": 4,
+   "Privacy": 4,
+   "Sexual/Adult content": 4
+  },
+  "lib_prompts_byte_identical": true,
+  "verdict": "PASS",
+  "note": "the archive stores no explicit core40 uid list, so equality is asserted structurally: 40 uids, all inside the 80 in_core80 rows, 4 per category over 10 categories, rebuilt by the byte-identical archived rule"
+ },
+ "G4_judge_cache": {
+  "archived_cache_entries_copied": 4647,
+  "probe_labels": [
+   "COMPLIANCE",
+   "REFUSAL",
+   "COMPLIANCE",
+   "REFUSAL"
+  ],
+  "probe_expected": [
+   "COMPLIANCE",
+   "REFUSAL",
+   "COMPLIANCE",
+   "REFUSAL"
+  ],
+  "probe_correct": 4,
+  "replay_labels_identical": true,
+  "replay_new_api_calls": 0,
+  "replay_cost_usd": 0.0,
+  "first_call_cost_usd": 0.0,
+  "judge_model": "meta-llama/llama-3.3-70b-instruct",
+  "rubric": "B",
+  "verdict": "PASS"
+ },
+ "T2_regex_sanity": {
+  "assertions": {
+   "name_hit('mlabonne/Qwen3-0.6B-abliterated')": true,
+   "name_hit('prithivMLmods/VibeThinker-3B-heretic_decensored')": true,
+   "name_hit('Qwen/Qwen3-1.7B')": false,
+   "name_hit('MagicalAlchemist/Qwen3-1.7B-Magic_decensored')": true
+  },
+  "all_as_expected": true,
+  "REGEX_11_hits_on_513_edited": 459,
+  "dependency_flag_hits_on_513_edited": 259,
+  "planned_assertion_259_of_513": false,
+  "verdict": "PASS_WITH_FINDING",
+  "per_term_hits": {
+   "abliterat": 171,
+   "uncensor": 82,
+   "decensor": 4,
+   "heretic": 220,
+   "obliterat": 9,
+   "amoral": 9,
+   "unalign": 1,
+   "nsfw": 3,
+   "gabliterat": 17,
+   "jailbr": 0,
+   "dolphin": 3
+  },
+  "n_regex_only": 202,
+  "n_flag_only": 2,
+  "flag_only_examples": [
+   "R41NH4RD/Qwen3-1.7B-Refusal-Removed",
+   "R41NH4RD/Qwen3-4B-Refusal-Removed"
+  ],
+  "regex_only_examples": [
+   "skarnam/gemma-2-2b-it-unaligned",
+   "soob3123/amoral-gemma3-1B-v2",
+   "soob3123/amoral-gemma3-1B-v2-qat",
+   "Novaciano/Amoral_Sherlock-Gemma3-1B",
+   "Novaciano/Heretic_Amoral_Abl-Gemma3-1B",
+   "NovaCorp/Amoral.Extreme-1B",
+   "fakezeta/amoral-Qwen3-4B",
+   "NovaCorp/Amoral.Ultimate-1B",
+   "Novaciano/Amoral_Christmas-3.2-1B",
+   "UnfilteredAI/NSFW-flash"
+  ],
+  "FINDING": "the planned assertion FAILS and the cause is not a mistyped term list: the 11-term REGEX_11 fires on 459/513 = 0.895 of self-declared edited rows, while the dependency's own repo_id_contains_abliteration_string flag fires on 259/513 = 0.505. The two use different vocabularies -- REGEX_11 adds heretic (220 hits), amoral, nsfw, dolphin and unalign, while the dependency flag additionally matches 'Refusal-Removed'. So the '50.5% name baseline' quoted from the dependency and the 0.727 measured with REGEX_11 are NOT the same estimator, and both are reported here."
+ },
+ "T4_eligibility_unit": {
+  "n": 3,
+  "n_pass": 3,
+  "rows": [
+   {
+    "case": "clean 1B chat model",
+    "expected_eligible": true,
+    "expected_reason_in_all": null,
+    "got_eligible": true,
+    "got_primary": null,
+    "got_all": [],
+    "pass": true
+   },
+   {
+    "case": "mis-indexed 159 GB repo",
+    "expected_eligible": false,
+    "expected_reason_in_all": "E3b",
+    "got_eligible": false,
+    "got_primary": "E3b",
+    "got_all": [
+     "E3b"
+    ],
+    "pass": true
+   },
+   {
+    "case": "4-layer draft head",
+    "expected_eligible": false,
+    "expected_reason_in_all": "E1",
+    "got_eligible": false,
+    "got_primary": "E1",
+    "got_all": [
+     "E1"
+    ],
+    "pass": true
+   }
+  ],
+  "verdict": "PASS"
+ }
+}
