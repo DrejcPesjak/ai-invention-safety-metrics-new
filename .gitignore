@@ -1,0 +1,35 @@
+# ---- Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+*.egg-info/
+
+# ---- Hugging Face / model weights (never commit LLM tensors)
+hf_cache/
+.cache/
+*.safetensors
+*.safetensors.index.json.lock
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.gguf
+*.onnx
+*.npy
+*.npz
+
+# ---- round-6: downloaded baselines, Gram caches, large tokenizer blobs
+round-6-gams/w05w/models/
+round-6-gams/w05w/cache/
+round-6-gams/trial*/tokenizer.json
+round-6-gams/trial98
+round-6-gams/evaluation
+
+# ---- OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

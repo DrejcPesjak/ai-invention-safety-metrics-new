@@ -1,0 +1,365 @@
+{
+ "negatives": {
+  "qwen3-14b": {
+   "W05": -1.0298678112730808,
+   "W05w_k2": -1.5273525694697256,
+   "c_k2": 0.01655512951849356,
+   "W05w_k4": -1.4581865069906694,
+   "c_k4": 0.016124845971189253
+  },
+  "phi-4": {
+   "W05": -1.0529842525372168,
+   "W05w_k2": -1.6911189211512987,
+   "c_k2": 0.032003096449144286,
+   "W05w_k4": -1.5858572008995728,
+   "c_k4": 0.01351048181618983
+  },
+  "mistral-nemo-12b": {
+   "W05": -1.5255201085663004,
+   "W05w_k2": -2.2519240136661955,
+   "c_k2": 0.002779415877086508,
+   "W05w_k4": -2.2199356543436153,
+   "c_k4": 0.00512419075324835
+  }
+ },
+ "thresholds": {
+  "W05": {
+   "tau_0fp": -1.5255201085663006,
+   "neg_values": [
+    -1.0298678112730808,
+    -1.0529842525372168,
+    -1.5255201085663004
+   ]
+  },
+  "W05w_k2": {
+   "tau_0fp": -2.251924013666196,
+   "neg_values": [
+    -1.5273525694697256,
+    -1.6911189211512987,
+    -2.2519240136661955
+   ]
+  },
+  "W05w_k4": {
+   "tau_0fp": -2.2199356543436157,
+   "neg_values": [
+    -1.4581865069906694,
+    -1.5858572008995728,
+    -2.2199356543436153
+   ]
+  },
+  "W05_archived_tau": -2.7415
+ },
+ "positive": {
+  "name": "gams3-12b-trial98",
+  "W05": -1.2408575193659535,
+  "W05w_k2": -1.696543883349541,
+  "c_k2": 0.007405169861271009,
+  "W05w_k4": -1.4214547794761963,
+  "c_k4": 0.0010544052820464535,
+  "verdict": {
+   "W05": {
+    "value": -1.2408575193659535,
+    "threshold": -1.5255201085663006,
+    "fires": false,
+    "margin_log10": 0.28466258920034715
+   },
+   "W05w_k2": {
+    "value": -1.696543883349541,
+    "threshold": -2.251924013666196,
+    "fires": false,
+    "margin_log10": 0.555380130316655
+   },
+   "W05w_k4": {
+    "value": -1.4214547794761963,
+    "threshold": -2.2199356543436157,
+    "fires": false,
+    "margin_log10": 0.7984808748674195
+   },
+   "W05_vs_archived_tau": false
+  },
+  "k2_profile": [
+   [
+    0,
+    -1.284,
+    null,
+    "model.layers.0.self_attn.o_proj.weight"
+   ],
+   [
+    1,
+    -1.233,
+    0.808,
+    "model.layers.1.self_attn.o_proj.weight"
+   ],
+   [
+    2,
+    -0.974,
+    0.108,
+    "model.layers.3.self_attn.o_proj.weight"
+   ],
+   [
+    3,
+    -1.263,
+    0.288,
+    "model.layers.3.self_attn.o_proj.weight"
+   ],
+   [
+    4,
+    -1.341,
+    0.055,
+    "model.layers.5.self_attn.o_proj.weight"
+   ],
+   [
+    5,
+    -1.446,
+    0.026,
+    "model.layers.5.self_attn.o_proj.weight"
+   ],
+   [
+    6,
+    -0.911,
+    0.033,
+    "model.layers.6.self_attn.o_proj.weight"
+   ],
+   [
+    7,
+    -0.798,
+    0.392,
+    "model.layers.7.self_attn.o_proj.weight"
+   ],
+   [
+    8,
+    -1.508,
+    0.054,
+    "model.layers.9.self_attn.o_proj.weight"
+   ],
+   [
+    9,
+    -1.214,
+    0.818,
+    "model.layers.9.self_attn.o_proj.weight"
+   ],
+   [
+    10,
+    -1.102,
+    0.839,
+    "model.layers.10.self_attn.o_proj.weight"
+   ],
+   [
+    11,
+    -1.363,
+    0.826,
+    "model.layers.12.self_attn.o_proj.weight"
+   ],
+   [
+    12,
+    -1.666,
+    0.099,
+    "model.layers.12.mlp.down_proj.weight"
+   ],
+   [
+    13,
+    -1.697,
+    0.769,
+    "model.layers.13.self_attn.o_proj.weight"
+   ],
+   [
+    14,
+    -1.403,
+    0.933,
+    "model.layers.15.mlp.down_proj.weight"
+   ],
+   [
+    15,
+    -1.435,
+    0.007,
+    "model.layers.15.self_attn.o_proj.weight"
+   ],
+   [
+    16,
+    -1.453,
+    0.981,
+    "model.layers.17.self_attn.o_proj.weight"
+   ],
+   [
+    17,
+    -1.451,
+    0.986,
+    "model.layers.18.self_attn.o_proj.weight"
+   ],
+   [
+    18,
+    -1.453,
+    0.987,
+    "model.layers.18.self_attn.o_proj.weight"
+   ],
+   [
+    19,
+    -1.421,
+    0.986,
+    "model.layers.19.self_attn.o_proj.weight"
+   ],
+   [
+    20,
+    -1.332,
+    0.947,
+    "model.layers.21.self_attn.o_proj.weight"
+   ],
+   [
+    21,
+    -1.387,
+    0.661,
+    "model.layers.22.self_attn.o_proj.weight"
+   ],
+   [
+    22,
+    -1.356,
+    0.863,
+    "model.layers.23.self_attn.o_proj.weight"
+   ],
+   [
+    23,
+    -1.38,
+    0.985,
+    "model.layers.23.self_attn.o_proj.weight"
+   ],
+   [
+    24,
+    -1.346,
+    0.987,
+    "model.layers.24.self_attn.o_proj.weight"
+   ],
+   [
+    25,
+    -1.322,
+    0.987,
+    "model.layers.26.self_attn.o_proj.weight"
+   ],
+   [
+    26,
+    -1.315,
+    0.988,
+    "model.layers.26.self_attn.o_proj.weight"
+   ],
+   [
+    27,
+    -1.353,
+    0.989,
+    "model.layers.28.self_attn.o_proj.weight"
+   ],
+   [
+    28,
+    -1.405,
+    0.99,
+    "model.layers.29.self_attn.o_proj.weight"
+   ],
+   [
+    29,
+    -1.418,
+    0.99,
+    "model.layers.29.self_attn.o_proj.weight"
+   ],
+   [
+    30,
+    -1.38,
+    0.99,
+    "model.layers.30.mlp.down_proj.weight"
+   ],
+   [
+    31,
+    -1.337,
+    0.99,
+    "model.layers.31.mlp.down_proj.weight"
+   ],
+   [
+    32,
+    -1.314,
+    0.987,
+    "model.layers.32.mlp.down_proj.weight"
+   ],
+   [
+    33,
+    -1.258,
+    0.988,
+    "model.layers.33.mlp.down_proj.weight"
+   ],
+   [
+    34,
+    -1.205,
+    0.986,
+    "model.layers.34.mlp.down_proj.weight"
+   ],
+   [
+    35,
+    -1.183,
+    0.983,
+    "model.layers.35.mlp.down_proj.weight"
+   ],
+   [
+    36,
+    -1.151,
+    0.982,
+    "model.layers.36.mlp.down_proj.weight"
+   ],
+   [
+    37,
+    -1.157,
+    0.983,
+    "model.layers.38.self_attn.o_proj.weight"
+   ],
+   [
+    38,
+    -1.121,
+    0.818,
+    "model.layers.38.self_attn.o_proj.weight"
+   ],
+   [
+    39,
+    -1.127,
+    0.809,
+    "model.layers.39.self_attn.o_proj.weight"
+   ],
+   [
+    40,
+    -1.15,
+    0.98,
+    "model.layers.41.self_attn.o_proj.weight"
+   ],
+   [
+    41,
+    -1.179,
+    0.12,
+    "model.layers.41.self_attn.o_proj.weight"
+   ],
+   [
+    42,
+    -1.131,
+    0.225,
+    "model.layers.42.self_attn.o_proj.weight"
+   ],
+   [
+    43,
+    -1.168,
+    0.951,
+    "model.layers.44.self_attn.o_proj.weight"
+   ],
+   [
+    44,
+    -1.209,
+    0.966,
+    "model.layers.44.self_attn.o_proj.weight"
+   ],
+   [
+    45,
+    -1.286,
+    0.98,
+    "model.layers.46.self_attn.o_proj.weight"
+   ],
+   [
+    46,
+    -1.302,
+    0.975,
+    "model.layers.46.self_attn.o_proj.weight"
+   ]
+  ]
+ }
+}
