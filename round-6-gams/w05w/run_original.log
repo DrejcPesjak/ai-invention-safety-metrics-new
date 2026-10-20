@@ -1,0 +1,356 @@
+=============== gams3-12b-original (../original) Tue Oct 20 01:13:43 PM CEST 2026
+13:13:45 ../original: d=3840 L=48 type=gemma3_text; 5 shard(s) to process
+13:13:48   model.layers.0.mlp.down_proj.weight [3840, 15360] -> gram in 2.6s
+13:13:48   model.layers.0.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:13:51   model.layers.1.mlp.down_proj.weight [3840, 15360] -> gram in 2.6s
+13:13:52   model.layers.1.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:13:54   model.layers.2.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:13:55   model.layers.2.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:13:58   model.layers.3.mlp.down_proj.weight [3840, 15360] -> gram in 2.6s
+13:13:59   model.layers.3.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:14:01   model.layers.4.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:14:02   model.layers.4.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:14:04   model.layers.5.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:14:05   model.layers.5.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:14:06   model.layers.6.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:14:09   model.layers.10.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:14:09   model.layers.10.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:14:12   model.layers.11.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:14:13   model.layers.11.self_attn.o_proj.weight [3840, 4096] -> gram in 0.9s
+13:14:15   model.layers.12.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:14:16   model.layers.12.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:14:19   model.layers.13.mlp.down_proj.weight [3840, 15360] -> gram in 2.6s
+13:14:20   model.layers.13.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:14:22   model.layers.14.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:14:23   model.layers.14.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:14:25   model.layers.15.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:14:26   model.layers.15.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:14:29   model.layers.16.mlp.down_proj.weight [3840, 15360] -> gram in 2.4s
+13:14:30   model.layers.16.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:14:30   model.layers.17.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:14:33   model.layers.6.mlp.down_proj.weight [3840, 15360] -> gram in 2.7s
+13:14:35   model.layers.7.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:14:36   model.layers.7.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:14:39   model.layers.8.mlp.down_proj.weight [3840, 15360] -> gram in 2.6s
+13:14:40   model.layers.8.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:14:42   model.layers.9.mlp.down_proj.weight [3840, 15360] -> gram in 2.6s
+13:14:43   model.layers.9.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:14:46   model.layers.17.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:14:48   model.layers.18.mlp.down_proj.weight [3840, 15360] -> gram in 2.6s
+13:14:49   model.layers.18.self_attn.o_proj.weight [3840, 4096] -> gram in 0.9s
+13:14:52   model.layers.19.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:14:52   model.layers.19.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:14:55   model.layers.20.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:14:56   model.layers.20.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:14:58   model.layers.21.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:14:59   model.layers.21.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:15:01   model.layers.22.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:15:02   model.layers.22.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:15:05   model.layers.23.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:15:06   model.layers.23.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:15:08   model.layers.24.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:15:09   model.layers.24.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:15:11   model.layers.25.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:15:12   model.layers.25.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:15:15   model.layers.26.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:15:16   model.layers.26.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:15:18   model.layers.27.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:15:19   model.layers.27.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:15:20   model.layers.28.self_attn.o_proj.weight [3840, 4096] -> gram in 0.9s
+13:15:22   model.layers.28.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:15:25   model.layers.29.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:15:26   model.layers.29.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:15:28   model.layers.30.mlp.down_proj.weight [3840, 15360] -> gram in 2.4s
+13:15:29   model.layers.30.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:15:31   model.layers.31.mlp.down_proj.weight [3840, 15360] -> gram in 2.6s
+13:15:32   model.layers.31.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:15:35   model.layers.32.mlp.down_proj.weight [3840, 15360] -> gram in 2.6s
+13:15:36   model.layers.32.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:15:38   model.layers.33.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:15:39   model.layers.33.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:15:42   model.layers.34.mlp.down_proj.weight [3840, 15360] -> gram in 2.6s
+13:15:42   model.layers.34.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:15:45   model.layers.35.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:15:46   model.layers.35.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:15:48   model.layers.36.mlp.down_proj.weight [3840, 15360] -> gram in 2.6s
+13:15:49   model.layers.36.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:15:52   model.layers.37.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:15:53   model.layers.37.self_attn.o_proj.weight [3840, 4096] -> gram in 0.9s
+13:15:55   model.layers.38.mlp.down_proj.weight [3840, 15360] -> gram in 2.6s
+13:15:56   model.layers.38.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:15:57   model.layers.39.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:15:59   model.layers.39.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:16:02   model.layers.40.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:16:03   model.layers.40.self_attn.o_proj.weight [3840, 4096] -> gram in 0.9s
+13:16:05   model.layers.41.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:16:06   model.layers.41.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:16:09   model.layers.42.mlp.down_proj.weight [3840, 15360] -> gram in 2.5s
+13:16:09   model.layers.42.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:16:12   model.layers.43.mlp.down_proj.weight [3840, 15360] -> gram in 2.7s
+13:16:13   model.layers.43.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:16:16   model.layers.44.mlp.down_proj.weight [3840, 15360] -> gram in 2.6s
+13:16:16   model.layers.44.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:16:19   model.layers.45.mlp.down_proj.weight [3840, 15360] -> gram in 2.6s
+13:16:20   model.layers.45.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:16:23   model.layers.46.mlp.down_proj.weight [3840, 15360] -> gram in 2.7s
+13:16:23   model.layers.46.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:16:26   model.layers.47.mlp.down_proj.weight [3840, 15360] -> gram in 2.7s
+13:16:27   model.layers.47.self_attn.o_proj.weight [3840, 4096] -> gram in 0.8s
+13:16:27 grams complete: 96 write matrices in cache/gams3-12b-original
+13:16:28 scoring ../original: 96 matrices over 48/48 layers, d=3840
+13:17:08 pooled W05=-0.6575  W04=0.010  (39s)
+13:17:12   k=2 win [0,2) log10_e_min=-1.284 cos_prev=None
+13:17:19   k=2 win [1,3) log10_e_min=-1.233 cos_prev=0.8084836929384799
+13:17:25   k=2 win [2,4) log10_e_min=-0.974 cos_prev=0.10845409041725286
+13:17:32   k=2 win [3,5) log10_e_min=-1.263 cos_prev=0.28814185363407396
+13:17:37   k=2 win [4,6) log10_e_min=-1.341 cos_prev=0.05546485800073131
+13:17:41   k=2 win [5,7) log10_e_min=-1.446 cos_prev=0.025558698063529194
+13:17:46   k=2 win [6,8) log10_e_min=-0.911 cos_prev=0.033489414649053945
+13:17:51   k=2 win [7,9) log10_e_min=-0.798 cos_prev=0.3915959364729532
+13:17:56   k=2 win [8,10) log10_e_min=-1.508 cos_prev=0.0535011023057805
+13:18:00   k=2 win [9,11) log10_e_min=-1.214 cos_prev=0.8176462221687664
+13:18:05   k=2 win [10,12) log10_e_min=-1.102 cos_prev=0.8388512940852805
+13:18:10   k=2 win [11,13) log10_e_min=-1.363 cos_prev=0.8262061784629054
+13:18:15   k=2 win [12,14) log10_e_min=-1.663 cos_prev=0.10047866784574307
+13:18:20   k=2 win [13,15) log10_e_min=-1.696 cos_prev=0.7626737036546958
+13:18:25   k=2 win [14,16) log10_e_min=-1.403 cos_prev=0.9330487879531923
+13:18:31   k=2 win [15,17) log10_e_min=-1.254 cos_prev=0.0010356756106513396
+13:18:36   k=2 win [16,18) log10_e_min=-1.165 cos_prev=0.8830466767690212
+13:18:42   k=2 win [17,19) log10_e_min=-1.081 cos_prev=0.9045846746202142
+13:18:46   k=2 win [18,20) log10_e_min=-1.207 cos_prev=0.5734290035845341
+13:18:52   k=2 win [19,21) log10_e_min=-1.205 cos_prev=0.7752645755852456
+13:18:57   k=2 win [20,22) log10_e_min=-1.374 cos_prev=0.9539940945586953
+13:19:02   k=2 win [21,23) log10_e_min=-1.401 cos_prev=0.946780000107418
+13:19:07   k=2 win [22,24) log10_e_min=-1.335 cos_prev=0.9512420629754034
+13:19:14   k=2 win [23,25) log10_e_min=-1.250 cos_prev=0.931508264113178
+13:19:20   k=2 win [24,26) log10_e_min=-1.235 cos_prev=0.9549113451073634
+13:19:27   k=2 win [25,27) log10_e_min=-1.320 cos_prev=0.9486171785193345
+13:19:33   k=2 win [26,28) log10_e_min=-1.265 cos_prev=0.9581651362727543
+13:19:38   k=2 win [27,29) log10_e_min=-1.219 cos_prev=0.9558532307985146
+13:19:43   k=2 win [28,30) log10_e_min=-1.201 cos_prev=0.916250533160944
+13:19:48   k=2 win [29,31) log10_e_min=-1.144 cos_prev=0.8827025203772533
+13:19:54   k=2 win [30,32) log10_e_min=-1.013 cos_prev=0.9521776894795334
+13:19:59   k=2 win [31,33) log10_e_min=-1.002 cos_prev=0.9411074665777754
+13:20:03   k=2 win [32,34) log10_e_min=-0.987 cos_prev=0.9277975185986655
+13:20:08   k=2 win [33,35) log10_e_min=-0.948 cos_prev=0.1511968652823641
+13:20:14   k=2 win [34,36) log10_e_min=-1.098 cos_prev=0.6668294926339773
+13:20:19   k=2 win [35,37) log10_e_min=-1.069 cos_prev=0.4535924916179133
+13:20:24   k=2 win [36,38) log10_e_min=-0.951 cos_prev=0.454888513545912
+13:20:29   k=2 win [37,39) log10_e_min=-0.989 cos_prev=0.4367918042977712
+13:20:35   k=2 win [38,40) log10_e_min=-1.185 cos_prev=0.11501656017830991
+13:20:39   k=2 win [39,41) log10_e_min=-0.926 cos_prev=0.09421934109578388
+13:20:44   k=2 win [40,42) log10_e_min=-1.058 cos_prev=0.8485341013151382
+13:20:48   k=2 win [41,43) log10_e_min=-1.181 cos_prev=0.024414217493994077
+13:20:52   k=2 win [42,44) log10_e_min=-1.011 cos_prev=0.16350610273125812
+13:20:57   k=2 win [43,45) log10_e_min=-1.028 cos_prev=0.8295418051928751
+13:21:01   k=2 win [44,46) log10_e_min=-0.902 cos_prev=0.12470328087094198
+13:21:05   k=2 win [45,47) log10_e_min=-0.731 cos_prev=0.7562271435213037
+13:21:09   k=2 win [46,48) log10_e_min=-0.814 cos_prev=0.44771430081627284
+13:21:09 W05w(k=2) = -1.6961  c=0.0010356756106513396
+13:21:15   k=4 win [0,4) log10_e_min=-0.996 cos_prev=None
+13:21:20   k=4 win [2,6) log10_e_min=-0.875 cos_prev=0.29470922775707703
+13:21:26   k=4 win [4,8) log10_e_min=-0.925 cos_prev=0.04428516212784531
+13:21:31   k=4 win [6,10) log10_e_min=-0.810 cos_prev=0.5554052675943308
+13:21:37   k=4 win [8,12) log10_e_min=-1.063 cos_prev=0.38667670631865564
+13:21:43   k=4 win [10,14) log10_e_min=-1.084 cos_prev=0.8945247414622617
+13:21:49   k=4 win [12,16) log10_e_min=-1.358 cos_prev=0.07715788162714124
+13:21:54   k=4 win [14,18) log10_e_min=-1.145 cos_prev=0.05420350690196965
+13:21:59   k=4 win [16,20) log10_e_min=-1.021 cos_prev=0.8906226198995325
+13:22:04   k=4 win [18,22) log10_e_min=-1.174 cos_prev=0.10970050688382905
+13:22:09   k=4 win [20,24) log10_e_min=-1.209 cos_prev=0.9406434010731498
+13:22:14   k=4 win [22,26) log10_e_min=-1.149 cos_prev=0.930950524202014
+13:22:19   k=4 win [24,28) log10_e_min=-1.145 cos_prev=0.9504935891705624
+13:22:24   k=4 win [26,30) log10_e_min=-1.054 cos_prev=0.9352949862763458
+13:22:29   k=4 win [28,32) log10_e_min=-1.033 cos_prev=0.931965028957138
+13:22:35   k=4 win [30,34) log10_e_min=-0.916 cos_prev=0.9383151893886607
+13:22:40   k=4 win [32,36) log10_e_min=-0.916 cos_prev=0.6792367116695623
+13:22:45   k=4 win [34,38) log10_e_min=-0.957 cos_prev=0.328729698183331
+13:22:50   k=4 win [36,40) log10_e_min=-0.980 cos_prev=0.8380287008533169
+13:23:03   k=4 win [38,42) log10_e_min=-0.876 cos_prev=0.7639164148488979
+13:23:09   k=4 win [40,44) log10_e_min=-0.885 cos_prev=0.7388895600601986
+13:23:15   k=4 win [42,46) log10_e_min=-0.856 cos_prev=0.6571894830770781
+13:23:20   k=4 win [44,48) log10_e_min=-0.646 cos_prev=0.6566330591477126
+13:23:20 W05w(k=4) = -1.3576  c=0.04428516212784531
+13:23:20 wrote results/gams3-12b-original.json
+{
+ "thresholds": {
+  "W05": {
+   "tau_0fp": -1.5255201085663006,
+   "neg_values": [
+    -1.0298678112730808,
+    -1.0529842525372168,
+    -1.5255201085663004
+   ]
+  },
+  "W05w_k2": {
+   "tau_0fp": -2.251924013666196,
+   "neg_values": [
+    -1.5273525694697256,
+    -1.6911189211512987,
+    -2.2519240136661955
+   ]
+  },
+  "W05w_k4": {
+   "tau_0fp": -2.2199356543436157,
+   "neg_values": [
+    -1.4581865069906694,
+    -1.5858572008995728,
+    -2.2199356543436153
+   ]
+  },
+  "W05_archived_tau": -2.7415
+ },
+ "positive": {
+  "name": "gams3-12b-original",
+  "W05": -0.6575176262026827,
+  "W05w_k2": -1.6960635720043622,
+  "c_k2": 0.0010356756106513396,
+  "W05w_k4": -1.3575518457517395,
+  "c_k4": 0.04428516212784531,
+  "verdict": {
+   "W05": {
+    "value": -0.6575176262026827,
+    "threshold": -1.5255201085663006,
+    "fires": false,
+    "margin_log10": 0.8680024823636179
+   },
+   "W05w_k2": {
+    "value": -1.6960635720043622,
+    "threshold": -2.251924013666196,
+    "fires": false,
+    "margin_log10": 0.5558604416618338
+   },
+   "W05w_k4": {
+    "value": -1.3575518457517395,
+    "threshold": -2.2199356543436157,
+    "fires": false,
+    "margin_log10": 0.8623838085918762
+   },
+   "W05_vs_archived_tau": false
+  },
+  "k2_profile": [
+   [
+    0,
+    -1.284,
+    null,
+    "model.layers.0.self_attn.o_proj.weight"
+   ],
+   [
+    1,
+    -1.233,
+    0.808,
+    "model.layers.1.self_attn.o_proj.weight"
+   ],
+   [
+    2,
+    -0.974,
+    0.108,
+    "model.layers.3.self_attn.o_proj.weight"
+   ],
+   [
+    3,
+    -1.263,
+    0.288,
+    "model.layers.3.self_attn.o_proj.weight"
+   ],
+   [
+    4,
+    -1.341,
+    0.055,
+    "model.layers.5.self_attn.o_proj.weight"
+   ],
+   [
+    5,
+    -1.446,
+    0.026,
+    "model.layers.5.self_attn.o_proj.weight"
+   ],
+   [
+    6,
+    -0.911,
+    0.033,
+    "model.layers.6.self_attn.o_proj.weight"
+   ],
+   [
+    7,
+    -0.798,
+    0.392,
+    "model.layers.7.self_attn.o_proj.weight"
+   ],
+   [
+    8,
+    -1.508,
+    0.054,
+    "model.layers.9.self_attn.o_proj.weight"
+   ],
+   [
+    9,
+    -1.214,
+    0.818,
+    "model.layers.9.self_attn.o_proj.weight"
+   ],
+   [
+    10,
+    -1.102,
+    0.839,
+    "model.layers.10.self_attn.o_proj.weight"
+   ],
+   [
+    11,
+    -1.363,
+    0.826,
+    "model.layers.12.self_attn.o_proj.weight"
+   ],
+   [
+    12,
+    -1.663,
+    0.1,
+    "model.layers.12.mlp.down_proj.weight"
+   ],
+   [
+    13,
+    -1.696,
+    0.763,
+    "model.layers.13.self_attn.o_proj.weight"
+   ],
+   [
+    14,
+    -1.403,
+    0.933,
+    "model.layers.15.mlp.down_proj.weight"
+   ],
+   [
+    15,
+    -1.254,
+    0.001,
+    "model.layers.15.self_attn.o_proj.weight"
+   ],
+   [
+    16,
+    -1.165,
+    0.883,
+    "model.layers.16.self_attn.o_proj.weight"
+   ],
+   [
+    17,
+    -1.081,
+    0.905,
+    "model.layers.17.self_attn.o_proj.weight"
+   ],
+   [
+    18,
+    -1.207,
+    0.573,
+    "model.layers.19.self_attn.o_proj.weight"
+   ],
+   [
+    19,
+    -1.205,
+    0.775,
+    "model.layers.20.self_attn.o_proj.weight"
+   ],
+   [
+    20,
+    -1.374,
+    
+ALL DONE Tue Oct 20 01:23:25 PM CEST 2026
